@@ -16,6 +16,20 @@ void VermilionApplication::key_callback(GLFWwindow* window, int key, int scancod
     pThis->OnKey(key, scancode, action, mods);
 }
 
+void VermilionApplication::mouse_button_callback(GLFWwindow* window, int button, int action, int mods)
+{
+	VermilionApplication* pThis = (VermilionApplication*)glfwGetWindowUserPointer(window);
+
+	pThis->OnMouse(button, action, mods);
+}
+
+void VermilionApplication::cursor_position_callback(GLFWwindow* window, double x, double y)
+{
+	VermilionApplication* pThis = (VermilionApplication*)glfwGetWindowUserPointer(window);
+
+	pThis->OnCursor(x, y);
+}
+
 void VermilionApplication::char_callback(GLFWwindow* window, unsigned int codepoint)
 {
     VermilionApplication* pThis = (VermilionApplication*)glfwGetWindowUserPointer(window);
@@ -52,7 +66,9 @@ void VermilionApplication::Initialize(const char * title)
     glfwSetWindowUserPointer(m_pWindow, this);
     glfwSetWindowSizeCallback(m_pWindow, window_size_callback);
     glfwSetKeyCallback(m_pWindow, key_callback);
-    glfwSetCharCallback(m_pWindow, char_callback);
+	glfwSetMouseButtonCallback(m_pWindow, mouse_button_callback);
+	glfwSetCursorPosCallback(m_pWindow, cursor_position_callback);
+	glfwSetCharCallback(m_pWindow, char_callback);
 
     glfwMakeContextCurrent(m_pWindow);
 
