@@ -1,4 +1,5 @@
 build/*
+out/*
 !build/templates
 bin/*
 !bin/media/

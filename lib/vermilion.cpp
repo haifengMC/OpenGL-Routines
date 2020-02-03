@@ -37,6 +37,13 @@ void VermilionApplication::char_callback(GLFWwindow* window, unsigned int codepo
     pThis->OnChar(codepoint);
 }
 
+void VermilionApplication::drop_callback(GLFWwindow* window, int num, const char** file)
+{
+	VermilionApplication* pThis = (VermilionApplication*)glfwGetWindowUserPointer(window);
+
+	pThis->OnDrop(num, file);
+}
+
 unsigned int VermilionApplication::app_time()
 {
 #ifdef _WIN32
@@ -69,6 +76,7 @@ void VermilionApplication::Initialize(const char * title)
 	glfwSetMouseButtonCallback(m_pWindow, mouse_button_callback);
 	glfwSetCursorPosCallback(m_pWindow, cursor_position_callback);
 	glfwSetCharCallback(m_pWindow, char_callback);
+    glfwSetDropCallback(m_pWindow, drop_callback);
 
     glfwMakeContextCurrent(m_pWindow);
 

@@ -23,6 +23,7 @@ protected:
 	static void mouse_button_callback(GLFWwindow* window, int button, int action, int mods);
 	static void cursor_position_callback(GLFWwindow* window, double x, double y);
 	static void char_callback(GLFWwindow* window, unsigned int codepoint);
+    static void drop_callback(GLFWwindow* window, int num, const char** file);
     unsigned int app_time();
 
 #ifdef _DEBUG
@@ -56,6 +57,7 @@ public:
 	virtual void OnMouse(int button, int action, int mods) { /* NOTHING */ }
 	virtual void OnCursor(double x, double y) { /* NOTHING */ }
 	virtual void OnChar(unsigned int codepoint) { /* NOTHING */ }
+	virtual void OnDrop(int num, const char** file) { /* NOTHING */ }
 };
 
 #define BEGIN_APP_DECLARATION(appclass)                     \
