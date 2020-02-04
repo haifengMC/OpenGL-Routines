@@ -3,6 +3,7 @@
 
 #ifdef _WIN32
 
+//utf8转ansi
 void toANSI(const std::string& utf8Str, std::string& ansiStr)
 {
 	using namespace std;
@@ -18,6 +19,7 @@ void toANSI(const std::string& utf8Str, std::string& ansiStr)
 	delete[] unicodeString;
 }
 
+//ansi转utf8
 void toUTF8(const std::string& ansiStr, std::string& utf8Str)
 {
 	using namespace std;
