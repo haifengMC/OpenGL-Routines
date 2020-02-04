@@ -53,6 +53,11 @@ public:
         glViewport(0, 0, width, height);
     }
 
+    void getWindowSize(int* width, int* height)
+    {
+        glfwGetWindowSize(m_pWindow, width, height);
+    }
+
     virtual void OnKey(int key, int scancode, int action, int mods) { /* NOTHING */ }
 	virtual void OnMouse(int button, int action, int mods) { /* NOTHING */ }
 	virtual void OnCursor(double x, double y) { /* NOTHING */ }
