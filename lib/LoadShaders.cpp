@@ -29,7 +29,12 @@ ReadShader( const char* filename )
 
     if ( !infile ) {
 #ifdef _DEBUG
-        std::cerr << "Unable to open file '" << filename << "'" << std::endl;
+        std::ostringstream os;
+        os << "Unable to open file '" << filename << "'" << std::endl;
+#ifdef WIN32
+		OutputDebugString(os.str().c_str());
+#endif // WIN32
+        std::cerr << os.str();
 #endif /* DEBUG */
         return NULL;
     }
@@ -91,7 +96,7 @@ LoadShaders(ShaderInfo* shaders, GLenum usage)
             GLchar* log = new GLchar[len+1];
             glGetShaderInfoLog( shader, len, &len, log );
             std::ostringstream os;
-            os << "Shader compilation failed: " << log << std::endl;
+            os << "Shader[" << shader << "] compilation failed: " << log << std::endl;
 #ifdef WIN32
             OutputDebugString(os.str().c_str());
 #endif // WIN32
@@ -119,7 +124,7 @@ LoadShaders(ShaderInfo* shaders, GLenum usage)
         GLchar* log = new GLchar[len+1];
 		glGetProgramInfoLog(program, len, &len, log);
 		std::ostringstream os;
-		os << "Shader linking failed: " << log << std::endl;
+		os << "Program[" << program << "] shader linking failed: " << log << std::endl;
 #ifdef WIN32
 		OutputDebugString(os.str().c_str());
 #endif // WIN32
