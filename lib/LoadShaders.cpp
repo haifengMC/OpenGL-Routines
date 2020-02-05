@@ -50,7 +50,7 @@ ReadShader( const char* filename )
 //----------------------------------------------------------------------------
 
 GLuint
-LoadShaders(ShaderInfo* shaders)
+LoadShaders(ShaderInfo* shaders, GLenum usage)
 {
     if ( shaders == NULL ) { return 0; }
 
@@ -62,7 +62,10 @@ LoadShaders(ShaderInfo* shaders)
 
         entry->shader = shader;
 
-        const GLchar* source = ReadShader( entry->filename );
+        const GLchar* source;
+        if (GLLS_FILENAME == usage) source = ReadShader(entry->filename);
+        else if (GLLS_SOURCE == usage) source = entry->filename;
+       
         if ( source == NULL ) {
             for ( entry = shaders; entry->type != GL_NONE; ++entry ) {
                 glDeleteShader( entry->shader );
@@ -73,7 +76,7 @@ LoadShaders(ShaderInfo* shaders)
         }
 
         glShaderSource( shader, 1, &source, NULL );
-        delete [] source;
+        if (GLLS_FILENAME == usage) delete [] source;
 
         glCompileShader( shader );
 

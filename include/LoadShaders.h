@@ -26,6 +26,11 @@ extern "C" {
 //  LoadShaders() returns the shader program value (as returned by
 //    glCreateProgram()) on success, or zero on failure. 
 //
+enum
+{
+    GLLS_FILENAME,
+    GLLS_SOURCE
+};
 
 typedef struct {
     GLenum       type;
@@ -33,7 +38,7 @@ typedef struct {
     GLuint       shader;
 } ShaderInfo;
 
-GLuint LoadShaders(ShaderInfo*);
+GLuint LoadShaders(ShaderInfo*, GLenum = GLLS_FILENAME);
 
 //----------------------------------------------------------------------------
 
