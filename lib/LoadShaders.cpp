@@ -6,6 +6,7 @@
 
 #include <cstdlib>
 #include <iostream>
+#include <sstream>
 
 #include <GL3/gl3w.h>
 #include "LoadShaders.h"
@@ -89,7 +90,12 @@ LoadShaders(ShaderInfo* shaders, GLenum usage)
 
             GLchar* log = new GLchar[len+1];
             glGetShaderInfoLog( shader, len, &len, log );
-            std::cerr << "Shader compilation failed: " << log << std::endl;
+            std::ostringstream os;
+            os << "Shader compilation failed: " << log << std::endl;
+#ifdef WIN32
+            OutputDebugString(os.str().c_str());
+#endif // WIN32
+            std::cerr << os.str();
             delete [] log;
 #endif /* DEBUG */
 
