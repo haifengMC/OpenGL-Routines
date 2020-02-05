@@ -117,8 +117,13 @@ LoadShaders(ShaderInfo* shaders, GLenum usage)
         glGetProgramiv( program, GL_INFO_LOG_LENGTH, &len );
 
         GLchar* log = new GLchar[len+1];
-        glGetProgramInfoLog( program, len, &len, log );
-        std::cerr << "Shader linking failed: " << log << std::endl;
+		glGetProgramInfoLog(program, len, &len, log);
+		std::ostringstream os;
+		os << "Shader linking failed: " << log << std::endl;
+#ifdef WIN32
+		OutputDebugString(os.str().c_str());
+#endif // WIN32
+		std::cerr << os.str();
         delete [] log;
 #endif /* DEBUG */
 
