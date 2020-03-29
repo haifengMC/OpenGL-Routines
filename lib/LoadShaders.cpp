@@ -196,11 +196,16 @@ LoadShadersBySpirV(ShaderInfo* shaders)
         if (!binary || !len)
             return 0;
 
-        entry->shader = glCreateShader(entry->type);
+		entry->shader = glCreateShader(entry->type);
+        GLint num = 0;
+        glGetIntegerv(GL_NUM_SHADER_BINARY_FORMATS, &num);
+		if (!num)
+			return 0;
+
         glShaderBinary(1, &entry->shader, GL_SHADER_BINARY_FORMAT_SPIR_V, binary, len);
         glSpecializeShader(entry->shader, "main", 0, NULL, NULL);
 
-		GLint compiled;
+		GLint compiled = 0;
 		glGetShaderiv(entry->shader, GL_COMPILE_STATUS, &compiled);
         if (!compiled)
         {
@@ -226,7 +231,7 @@ LoadShadersBySpirV(ShaderInfo* shaders)
 
 	glLinkProgram(program);
 
-	GLint linked;
+	GLint linked = 0;
 	glGetProgramiv(program, GL_LINK_STATUS, &linked);
 	if (!linked) 
     {

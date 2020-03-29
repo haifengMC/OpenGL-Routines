@@ -3555,7 +3555,7 @@ GLAPI void APIENTRY glTexPageCommitmentARB (GLenum target, GLint level, GLint xo
 
 #ifndef ARB_spirv_extensions
 #define ARB_spirv_extensions
-#define GL_SHADER_BINARY_FORMAT_SPIR_V 1
+#define GL_SHADER_BINARY_FORMAT_SPIR_V 0x9551
 #endif /*ARB_spirv_extensions*/
 
 #ifndef GL_KHR_context_flush_control
