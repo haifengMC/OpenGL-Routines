@@ -209,9 +209,9 @@ LoadShadersBySpirV(ShaderInfo* shaders)
             glGetShaderiv(entry->shader, GL_INFO_LOG_LENGTH, &len);
 
             GLchar* log = new GLchar[len + 1];
-            glGetShaderInfoLog(shader, len, &len, log);
+            glGetShaderInfoLog(entry->shader, len, &len, log);
             std::ostringstream os;
-            os << "Shader[" << shader << "] compilation failed: " << log << std::endl;
+            os << "Shader[" << entry->shader << "] compilation failed: " << log << std::endl;
 #ifdef WIN32
             OutputDebugString(os.str().c_str());
 #endif // WIN32
