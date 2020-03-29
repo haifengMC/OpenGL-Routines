@@ -39,7 +39,6 @@ void KeyPressExample::Initialize(const char * title)
 
     glGenVertexArrays( NumVAOs, VAOs );
     glBindVertexArray( VAOs[Triangles] );
-    glShaderBinary
 
     GLfloat  vertices[NumVertices][2] = {
         { -0.90f, -0.90f }, {  0.85f, -0.90f }, { -0.90f,  0.85f },  // Triangle 1

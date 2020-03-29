@@ -39,6 +39,7 @@ typedef struct {
 } ShaderInfo;
 
 GLuint LoadShaders(ShaderInfo*, GLenum = GLLS_FILENAME);
+GLuint LoadShadersBySpirV(ShaderInfo*);
 
 //----------------------------------------------------------------------------
 
