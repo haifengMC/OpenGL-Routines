@@ -197,7 +197,7 @@ LoadShadersBySpirV(ShaderInfo* shaders)
             return 0;
 
         entry->shader = glCreateShader(entry->type);
-        glShaderBinary(1, &entry->shader, GL_SHADER_BINARY_FORMATS, binary, len);
+        glShaderBinary(1, &entry->shader, GL_SHADER_BINARY_FORMAT_SPIR_V, binary, len);
         glSpecializeShader(entry->shader, "main", 0, NULL, NULL);
 
 		GLint compiled;

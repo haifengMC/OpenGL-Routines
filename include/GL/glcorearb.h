@@ -3553,6 +3553,11 @@ GLAPI void APIENTRY glTexPageCommitmentARB (GLenum target, GLint level, GLint xo
 #define GL_ARB_viewport_array 1
 #endif /* GL_ARB_viewport_array */
 
+#ifndef ARB_spirv_extensions
+#define ARB_spirv_extensions
+#define GL_SHADER_BINARY_FORMAT_SPIR_V 1
+#endif /*ARB_spirv_extensions*/
+
 #ifndef GL_KHR_context_flush_control
 #define GL_KHR_context_flush_control 1
 #endif /* GL_KHR_context_flush_control */
