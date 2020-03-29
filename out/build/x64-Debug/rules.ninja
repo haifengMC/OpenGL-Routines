@@ -22,7 +22,7 @@ msvc_deps_prefix = 注意: 包含文件:
 
 rule C_COMPILER__vermilion
   deps = msvc
-  command = D:\program\VS\VC\Tools\MSVC\14.24.28314\bin\HostX64\x64\cl.exe  /nologo $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
+  command = D:\PROGRA~2\MICROS~1\2019\ENTERP~1\VC\Tools\MSVC\1424~1.283\bin\HostX64\x64\cl.exe  /nologo $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
   description = Building C object $out
 
 
@@ -31,7 +31,7 @@ rule C_COMPILER__vermilion
 
 rule CXX_COMPILER__vermilion
   deps = msvc
-  command = D:\program\VS\VC\Tools\MSVC\14.24.28314\bin\HostX64\x64\cl.exe  /nologo /TP $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
+  command = D:\PROGRA~2\MICROS~1\2019\ENTERP~1\VC\Tools\MSVC\1424~1.283\bin\HostX64\x64\cl.exe  /nologo /TP $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
   description = Building CXX object $out
 
 
@@ -39,7 +39,7 @@ rule CXX_COMPILER__vermilion
 # Rule for linking CXX static library.
 
 rule CXX_STATIC_LIBRARY_LINKER__vermilion
-  command = cmd.exe /C "$PRE_LINK && D:\program\VS\VC\Tools\MSVC\14.24.28314\bin\Hostx64\x64\link.exe /lib /nologo $LINK_FLAGS /out:$TARGET_FILE $in  && $POST_BUILD"
+  command = cmd.exe /C "$PRE_LINK && D:\PROGRA~2\MICROS~1\2019\ENTERP~1\VC\Tools\MSVC\1424~1.283\bin\Hostx64\x64\link.exe /lib /nologo $LINK_FLAGS /out:$TARGET_FILE $in  && $POST_BUILD"
   description = Linking CXX static library $TARGET_FILE
   restat = $RESTAT
 
@@ -49,7 +49,7 @@ rule CXX_STATIC_LIBRARY_LINKER__vermilion
 
 rule CXX_COMPILER__03-primitiverestart
   deps = msvc
-  command = D:\program\VS\VC\Tools\MSVC\14.24.28314\bin\HostX64\x64\cl.exe  /nologo /TP $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
+  command = D:\PROGRA~2\MICROS~1\2019\ENTERP~1\VC\Tools\MSVC\1424~1.283\bin\HostX64\x64\cl.exe  /nologo /TP $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
   description = Building CXX object $out
 
 
@@ -57,7 +57,7 @@ rule CXX_COMPILER__03-primitiverestart
 # Rule for linking CXX executable.
 
 rule CXX_EXECUTABLE_LINKER__03-primitiverestart
-  command = cmd.exe /C "$PRE_LINK && D:\program\VS\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe -E vs_link_exe --intdir=$OBJECT_DIR --rc=C:\PROGRA~2\WINDOW~1\10\bin\100183~1.0\x64\rc.exe --mt=C:\PROGRA~2\WINDOW~1\10\bin\100183~1.0\x64\mt.exe --manifests $MANIFESTS -- D:\program\VS\VC\Tools\MSVC\14.24.28314\bin\Hostx64\x64\link.exe /nologo $in  /out:$TARGET_FILE /implib:$TARGET_IMPLIB /pdb:$TARGET_PDB /version:0.0  $LINK_FLAGS $LINK_PATH $LINK_LIBRARIES && $POST_BUILD"
+  command = cmd.exe /C "$PRE_LINK && "D:\ProgramFiles\Microsoft Visual Studio\2019\Enterprise\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E vs_link_exe --intdir=$OBJECT_DIR --rc="C:\Program Files (x86)\WINDOW~2\10\bin\100183~1.0\x64\rc.exe" --mt="C:\Program Files (x86)\WINDOW~2\10\bin\100183~1.0\x64\mt.exe" --manifests $MANIFESTS -- D:\PROGRA~2\MICROS~1\2019\ENTERP~1\VC\Tools\MSVC\1424~1.283\bin\Hostx64\x64\link.exe /nologo $in  /out:$TARGET_FILE /implib:$TARGET_IMPLIB /pdb:$TARGET_PDB /version:0.0  $LINK_FLAGS $LINK_PATH $LINK_LIBRARIES && $POST_BUILD"
   description = Linking CXX executable $TARGET_FILE
   restat = $RESTAT
 
@@ -67,7 +67,7 @@ rule CXX_EXECUTABLE_LINKER__03-primitiverestart
 
 rule CXX_COMPILER__03-pointsprites
   deps = msvc
-  command = D:\program\VS\VC\Tools\MSVC\14.24.28314\bin\HostX64\x64\cl.exe  /nologo /TP $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
+  command = D:\PROGRA~2\MICROS~1\2019\ENTERP~1\VC\Tools\MSVC\1424~1.283\bin\HostX64\x64\cl.exe  /nologo /TP $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
   description = Building CXX object $out
 
 
@@ -75,7 +75,7 @@ rule CXX_COMPILER__03-pointsprites
 # Rule for linking CXX executable.
 
 rule CXX_EXECUTABLE_LINKER__03-pointsprites
-  command = cmd.exe /C "$PRE_LINK && D:\program\VS\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe -E vs_link_exe --intdir=$OBJECT_DIR --rc=C:\PROGRA~2\WINDOW~1\10\bin\100183~1.0\x64\rc.exe --mt=C:\PROGRA~2\WINDOW~1\10\bin\100183~1.0\x64\mt.exe --manifests $MANIFESTS -- D:\program\VS\VC\Tools\MSVC\14.24.28314\bin\Hostx64\x64\link.exe /nologo $in  /out:$TARGET_FILE /implib:$TARGET_IMPLIB /pdb:$TARGET_PDB /version:0.0  $LINK_FLAGS $LINK_PATH $LINK_LIBRARIES && $POST_BUILD"
+  command = cmd.exe /C "$PRE_LINK && "D:\ProgramFiles\Microsoft Visual Studio\2019\Enterprise\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E vs_link_exe --intdir=$OBJECT_DIR --rc="C:\Program Files (x86)\WINDOW~2\10\bin\100183~1.0\x64\rc.exe" --mt="C:\Program Files (x86)\WINDOW~2\10\bin\100183~1.0\x64\mt.exe" --manifests $MANIFESTS -- D:\PROGRA~2\MICROS~1\2019\ENTERP~1\VC\Tools\MSVC\1424~1.283\bin\Hostx64\x64\link.exe /nologo $in  /out:$TARGET_FILE /implib:$TARGET_IMPLIB /pdb:$TARGET_PDB /version:0.0  $LINK_FLAGS $LINK_PATH $LINK_LIBRARIES && $POST_BUILD"
   description = Linking CXX executable $TARGET_FILE
   restat = $RESTAT
 
@@ -85,7 +85,7 @@ rule CXX_EXECUTABLE_LINKER__03-pointsprites
 
 rule CXX_COMPILER__03-instancing2
   deps = msvc
-  command = D:\program\VS\VC\Tools\MSVC\14.24.28314\bin\HostX64\x64\cl.exe  /nologo /TP $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
+  command = D:\PROGRA~2\MICROS~1\2019\ENTERP~1\VC\Tools\MSVC\1424~1.283\bin\HostX64\x64\cl.exe  /nologo /TP $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
   description = Building CXX object $out
 
 
@@ -93,7 +93,7 @@ rule CXX_COMPILER__03-instancing2
 # Rule for linking CXX executable.
 
 rule CXX_EXECUTABLE_LINKER__03-instancing2
-  command = cmd.exe /C "$PRE_LINK && D:\program\VS\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe -E vs_link_exe --intdir=$OBJECT_DIR --rc=C:\PROGRA~2\WINDOW~1\10\bin\100183~1.0\x64\rc.exe --mt=C:\PROGRA~2\WINDOW~1\10\bin\100183~1.0\x64\mt.exe --manifests $MANIFESTS -- D:\program\VS\VC\Tools\MSVC\14.24.28314\bin\Hostx64\x64\link.exe /nologo $in  /out:$TARGET_FILE /implib:$TARGET_IMPLIB /pdb:$TARGET_PDB /version:0.0  $LINK_FLAGS $LINK_PATH $LINK_LIBRARIES && $POST_BUILD"
+  command = cmd.exe /C "$PRE_LINK && "D:\ProgramFiles\Microsoft Visual Studio\2019\Enterprise\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E vs_link_exe --intdir=$OBJECT_DIR --rc="C:\Program Files (x86)\WINDOW~2\10\bin\100183~1.0\x64\rc.exe" --mt="C:\Program Files (x86)\WINDOW~2\10\bin\100183~1.0\x64\mt.exe" --manifests $MANIFESTS -- D:\PROGRA~2\MICROS~1\2019\ENTERP~1\VC\Tools\MSVC\1424~1.283\bin\Hostx64\x64\link.exe /nologo $in  /out:$TARGET_FILE /implib:$TARGET_IMPLIB /pdb:$TARGET_PDB /version:0.0  $LINK_FLAGS $LINK_PATH $LINK_LIBRARIES && $POST_BUILD"
   description = Linking CXX executable $TARGET_FILE
   restat = $RESTAT
 
@@ -103,7 +103,7 @@ rule CXX_EXECUTABLE_LINKER__03-instancing2
 
 rule CXX_COMPILER__01-keypress
   deps = msvc
-  command = D:\program\VS\VC\Tools\MSVC\14.24.28314\bin\HostX64\x64\cl.exe  /nologo /TP $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
+  command = D:\PROGRA~2\MICROS~1\2019\ENTERP~1\VC\Tools\MSVC\1424~1.283\bin\HostX64\x64\cl.exe  /nologo /TP $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
   description = Building CXX object $out
 
 
@@ -111,7 +111,7 @@ rule CXX_COMPILER__01-keypress
 # Rule for linking CXX executable.
 
 rule CXX_EXECUTABLE_LINKER__01-keypress
-  command = cmd.exe /C "$PRE_LINK && D:\program\VS\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe -E vs_link_exe --intdir=$OBJECT_DIR --rc=C:\PROGRA~2\WINDOW~1\10\bin\100183~1.0\x64\rc.exe --mt=C:\PROGRA~2\WINDOW~1\10\bin\100183~1.0\x64\mt.exe --manifests $MANIFESTS -- D:\program\VS\VC\Tools\MSVC\14.24.28314\bin\Hostx64\x64\link.exe /nologo $in  /out:$TARGET_FILE /implib:$TARGET_IMPLIB /pdb:$TARGET_PDB /version:0.0  $LINK_FLAGS $LINK_PATH $LINK_LIBRARIES && $POST_BUILD"
+  command = cmd.exe /C "$PRE_LINK && "D:\ProgramFiles\Microsoft Visual Studio\2019\Enterprise\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E vs_link_exe --intdir=$OBJECT_DIR --rc="C:\Program Files (x86)\WINDOW~2\10\bin\100183~1.0\x64\rc.exe" --mt="C:\Program Files (x86)\WINDOW~2\10\bin\100183~1.0\x64\mt.exe" --manifests $MANIFESTS -- D:\PROGRA~2\MICROS~1\2019\ENTERP~1\VC\Tools\MSVC\1424~1.283\bin\Hostx64\x64\link.exe /nologo $in  /out:$TARGET_FILE /implib:$TARGET_IMPLIB /pdb:$TARGET_PDB /version:0.0  $LINK_FLAGS $LINK_PATH $LINK_LIBRARIES && $POST_BUILD"
   description = Linking CXX executable $TARGET_FILE
   restat = $RESTAT
 
@@ -121,7 +121,7 @@ rule CXX_EXECUTABLE_LINKER__01-keypress
 
 rule CXX_COMPILER__03-instancing
   deps = msvc
-  command = D:\program\VS\VC\Tools\MSVC\14.24.28314\bin\HostX64\x64\cl.exe  /nologo /TP $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
+  command = D:\PROGRA~2\MICROS~1\2019\ENTERP~1\VC\Tools\MSVC\1424~1.283\bin\HostX64\x64\cl.exe  /nologo /TP $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
   description = Building CXX object $out
 
 
@@ -129,7 +129,7 @@ rule CXX_COMPILER__03-instancing
 # Rule for linking CXX executable.
 
 rule CXX_EXECUTABLE_LINKER__03-instancing
-  command = cmd.exe /C "$PRE_LINK && D:\program\VS\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe -E vs_link_exe --intdir=$OBJECT_DIR --rc=C:\PROGRA~2\WINDOW~1\10\bin\100183~1.0\x64\rc.exe --mt=C:\PROGRA~2\WINDOW~1\10\bin\100183~1.0\x64\mt.exe --manifests $MANIFESTS -- D:\program\VS\VC\Tools\MSVC\14.24.28314\bin\Hostx64\x64\link.exe /nologo $in  /out:$TARGET_FILE /implib:$TARGET_IMPLIB /pdb:$TARGET_PDB /version:0.0  $LINK_FLAGS $LINK_PATH $LINK_LIBRARIES && $POST_BUILD"
+  command = cmd.exe /C "$PRE_LINK && "D:\ProgramFiles\Microsoft Visual Studio\2019\Enterprise\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E vs_link_exe --intdir=$OBJECT_DIR --rc="C:\Program Files (x86)\WINDOW~2\10\bin\100183~1.0\x64\rc.exe" --mt="C:\Program Files (x86)\WINDOW~2\10\bin\100183~1.0\x64\mt.exe" --manifests $MANIFESTS -- D:\PROGRA~2\MICROS~1\2019\ENTERP~1\VC\Tools\MSVC\1424~1.283\bin\Hostx64\x64\link.exe /nologo $in  /out:$TARGET_FILE /implib:$TARGET_IMPLIB /pdb:$TARGET_PDB /version:0.0  $LINK_FLAGS $LINK_PATH $LINK_LIBRARIES && $POST_BUILD"
   description = Linking CXX executable $TARGET_FILE
   restat = $RESTAT
 
@@ -139,7 +139,7 @@ rule CXX_EXECUTABLE_LINKER__03-instancing
 
 rule CXX_COMPILER__06-multitexture
   deps = msvc
-  command = D:\program\VS\VC\Tools\MSVC\14.24.28314\bin\HostX64\x64\cl.exe  /nologo /TP $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
+  command = D:\PROGRA~2\MICROS~1\2019\ENTERP~1\VC\Tools\MSVC\1424~1.283\bin\HostX64\x64\cl.exe  /nologo /TP $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
   description = Building CXX object $out
 
 
@@ -147,7 +147,7 @@ rule CXX_COMPILER__06-multitexture
 # Rule for linking CXX executable.
 
 rule CXX_EXECUTABLE_LINKER__06-multitexture
-  command = cmd.exe /C "$PRE_LINK && D:\program\VS\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe -E vs_link_exe --intdir=$OBJECT_DIR --rc=C:\PROGRA~2\WINDOW~1\10\bin\100183~1.0\x64\rc.exe --mt=C:\PROGRA~2\WINDOW~1\10\bin\100183~1.0\x64\mt.exe --manifests $MANIFESTS -- D:\program\VS\VC\Tools\MSVC\14.24.28314\bin\Hostx64\x64\link.exe /nologo $in  /out:$TARGET_FILE /implib:$TARGET_IMPLIB /pdb:$TARGET_PDB /version:0.0  $LINK_FLAGS $LINK_PATH $LINK_LIBRARIES && $POST_BUILD"
+  command = cmd.exe /C "$PRE_LINK && "D:\ProgramFiles\Microsoft Visual Studio\2019\Enterprise\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E vs_link_exe --intdir=$OBJECT_DIR --rc="C:\Program Files (x86)\WINDOW~2\10\bin\100183~1.0\x64\rc.exe" --mt="C:\Program Files (x86)\WINDOW~2\10\bin\100183~1.0\x64\mt.exe" --manifests $MANIFESTS -- D:\PROGRA~2\MICROS~1\2019\ENTERP~1\VC\Tools\MSVC\1424~1.283\bin\Hostx64\x64\link.exe /nologo $in  /out:$TARGET_FILE /implib:$TARGET_IMPLIB /pdb:$TARGET_PDB /version:0.0  $LINK_FLAGS $LINK_PATH $LINK_LIBRARIES && $POST_BUILD"
   description = Linking CXX executable $TARGET_FILE
   restat = $RESTAT
 
@@ -157,7 +157,7 @@ rule CXX_EXECUTABLE_LINKER__06-multitexture
 
 rule CXX_COMPILER__01-triangles
   deps = msvc
-  command = D:\program\VS\VC\Tools\MSVC\14.24.28314\bin\HostX64\x64\cl.exe  /nologo /TP $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
+  command = D:\PROGRA~2\MICROS~1\2019\ENTERP~1\VC\Tools\MSVC\1424~1.283\bin\HostX64\x64\cl.exe  /nologo /TP $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
   description = Building CXX object $out
 
 
@@ -165,7 +165,7 @@ rule CXX_COMPILER__01-triangles
 # Rule for linking CXX executable.
 
 rule CXX_EXECUTABLE_LINKER__01-triangles
-  command = cmd.exe /C "$PRE_LINK && D:\program\VS\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe -E vs_link_exe --intdir=$OBJECT_DIR --rc=C:\PROGRA~2\WINDOW~1\10\bin\100183~1.0\x64\rc.exe --mt=C:\PROGRA~2\WINDOW~1\10\bin\100183~1.0\x64\mt.exe --manifests $MANIFESTS -- D:\program\VS\VC\Tools\MSVC\14.24.28314\bin\Hostx64\x64\link.exe /nologo $in  /out:$TARGET_FILE /implib:$TARGET_IMPLIB /pdb:$TARGET_PDB /version:0.0  $LINK_FLAGS $LINK_PATH $LINK_LIBRARIES && $POST_BUILD"
+  command = cmd.exe /C "$PRE_LINK && "D:\ProgramFiles\Microsoft Visual Studio\2019\Enterprise\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E vs_link_exe --intdir=$OBJECT_DIR --rc="C:\Program Files (x86)\WINDOW~2\10\bin\100183~1.0\x64\rc.exe" --mt="C:\Program Files (x86)\WINDOW~2\10\bin\100183~1.0\x64\mt.exe" --manifests $MANIFESTS -- D:\PROGRA~2\MICROS~1\2019\ENTERP~1\VC\Tools\MSVC\1424~1.283\bin\Hostx64\x64\link.exe /nologo $in  /out:$TARGET_FILE /implib:$TARGET_IMPLIB /pdb:$TARGET_PDB /version:0.0  $LINK_FLAGS $LINK_PATH $LINK_LIBRARIES && $POST_BUILD"
   description = Linking CXX executable $TARGET_FILE
   restat = $RESTAT
 
@@ -175,7 +175,7 @@ rule CXX_EXECUTABLE_LINKER__01-triangles
 
 rule CXX_COMPILER__06-mipfilters
   deps = msvc
-  command = D:\program\VS\VC\Tools\MSVC\14.24.28314\bin\HostX64\x64\cl.exe  /nologo /TP $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
+  command = D:\PROGRA~2\MICROS~1\2019\ENTERP~1\VC\Tools\MSVC\1424~1.283\bin\HostX64\x64\cl.exe  /nologo /TP $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
   description = Building CXX object $out
 
 
@@ -183,7 +183,7 @@ rule CXX_COMPILER__06-mipfilters
 # Rule for linking CXX executable.
 
 rule CXX_EXECUTABLE_LINKER__06-mipfilters
-  command = cmd.exe /C "$PRE_LINK && D:\program\VS\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe -E vs_link_exe --intdir=$OBJECT_DIR --rc=C:\PROGRA~2\WINDOW~1\10\bin\100183~1.0\x64\rc.exe --mt=C:\PROGRA~2\WINDOW~1\10\bin\100183~1.0\x64\mt.exe --manifests $MANIFESTS -- D:\program\VS\VC\Tools\MSVC\14.24.28314\bin\Hostx64\x64\link.exe /nologo $in  /out:$TARGET_FILE /implib:$TARGET_IMPLIB /pdb:$TARGET_PDB /version:0.0  $LINK_FLAGS $LINK_PATH $LINK_LIBRARIES && $POST_BUILD"
+  command = cmd.exe /C "$PRE_LINK && "D:\ProgramFiles\Microsoft Visual Studio\2019\Enterprise\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E vs_link_exe --intdir=$OBJECT_DIR --rc="C:\Program Files (x86)\WINDOW~2\10\bin\100183~1.0\x64\rc.exe" --mt="C:\Program Files (x86)\WINDOW~2\10\bin\100183~1.0\x64\mt.exe" --manifests $MANIFESTS -- D:\PROGRA~2\MICROS~1\2019\ENTERP~1\VC\Tools\MSVC\1424~1.283\bin\Hostx64\x64\link.exe /nologo $in  /out:$TARGET_FILE /implib:$TARGET_IMPLIB /pdb:$TARGET_PDB /version:0.0  $LINK_FLAGS $LINK_PATH $LINK_LIBRARIES && $POST_BUILD"
   description = Linking CXX executable $TARGET_FILE
   restat = $RESTAT
 
@@ -193,7 +193,7 @@ rule CXX_EXECUTABLE_LINKER__06-mipfilters
 
 rule CXX_COMPILER__06-cubemap
   deps = msvc
-  command = D:\program\VS\VC\Tools\MSVC\14.24.28314\bin\HostX64\x64\cl.exe  /nologo /TP $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
+  command = D:\PROGRA~2\MICROS~1\2019\ENTERP~1\VC\Tools\MSVC\1424~1.283\bin\HostX64\x64\cl.exe  /nologo /TP $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
   description = Building CXX object $out
 
 
@@ -201,7 +201,7 @@ rule CXX_COMPILER__06-cubemap
 # Rule for linking CXX executable.
 
 rule CXX_EXECUTABLE_LINKER__06-cubemap
-  command = cmd.exe /C "$PRE_LINK && D:\program\VS\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe -E vs_link_exe --intdir=$OBJECT_DIR --rc=C:\PROGRA~2\WINDOW~1\10\bin\100183~1.0\x64\rc.exe --mt=C:\PROGRA~2\WINDOW~1\10\bin\100183~1.0\x64\mt.exe --manifests $MANIFESTS -- D:\program\VS\VC\Tools\MSVC\14.24.28314\bin\Hostx64\x64\link.exe /nologo $in  /out:$TARGET_FILE /implib:$TARGET_IMPLIB /pdb:$TARGET_PDB /version:0.0  $LINK_FLAGS $LINK_PATH $LINK_LIBRARIES && $POST_BUILD"
+  command = cmd.exe /C "$PRE_LINK && "D:\ProgramFiles\Microsoft Visual Studio\2019\Enterprise\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E vs_link_exe --intdir=$OBJECT_DIR --rc="C:\Program Files (x86)\WINDOW~2\10\bin\100183~1.0\x64\rc.exe" --mt="C:\Program Files (x86)\WINDOW~2\10\bin\100183~1.0\x64\mt.exe" --manifests $MANIFESTS -- D:\PROGRA~2\MICROS~1\2019\ENTERP~1\VC\Tools\MSVC\1424~1.283\bin\Hostx64\x64\link.exe /nologo $in  /out:$TARGET_FILE /implib:$TARGET_IMPLIB /pdb:$TARGET_PDB /version:0.0  $LINK_FLAGS $LINK_PATH $LINK_LIBRARIES && $POST_BUILD"
   description = Linking CXX executable $TARGET_FILE
   restat = $RESTAT
 
@@ -211,7 +211,7 @@ rule CXX_EXECUTABLE_LINKER__06-cubemap
 
 rule CXX_COMPILER__03-drawcommands
   deps = msvc
-  command = D:\program\VS\VC\Tools\MSVC\14.24.28314\bin\HostX64\x64\cl.exe  /nologo /TP $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
+  command = D:\PROGRA~2\MICROS~1\2019\ENTERP~1\VC\Tools\MSVC\1424~1.283\bin\HostX64\x64\cl.exe  /nologo /TP $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
   description = Building CXX object $out
 
 
@@ -219,7 +219,7 @@ rule CXX_COMPILER__03-drawcommands
 # Rule for linking CXX executable.
 
 rule CXX_EXECUTABLE_LINKER__03-drawcommands
-  command = cmd.exe /C "$PRE_LINK && D:\program\VS\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe -E vs_link_exe --intdir=$OBJECT_DIR --rc=C:\PROGRA~2\WINDOW~1\10\bin\100183~1.0\x64\rc.exe --mt=C:\PROGRA~2\WINDOW~1\10\bin\100183~1.0\x64\mt.exe --manifests $MANIFESTS -- D:\program\VS\VC\Tools\MSVC\14.24.28314\bin\Hostx64\x64\link.exe /nologo $in  /out:$TARGET_FILE /implib:$TARGET_IMPLIB /pdb:$TARGET_PDB /version:0.0  $LINK_FLAGS $LINK_PATH $LINK_LIBRARIES && $POST_BUILD"
+  command = cmd.exe /C "$PRE_LINK && "D:\ProgramFiles\Microsoft Visual Studio\2019\Enterprise\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E vs_link_exe --intdir=$OBJECT_DIR --rc="C:\Program Files (x86)\WINDOW~2\10\bin\100183~1.0\x64\rc.exe" --mt="C:\Program Files (x86)\WINDOW~2\10\bin\100183~1.0\x64\mt.exe" --manifests $MANIFESTS -- D:\PROGRA~2\MICROS~1\2019\ENTERP~1\VC\Tools\MSVC\1424~1.283\bin\Hostx64\x64\link.exe /nologo $in  /out:$TARGET_FILE /implib:$TARGET_IMPLIB /pdb:$TARGET_PDB /version:0.0  $LINK_FLAGS $LINK_PATH $LINK_LIBRARIES && $POST_BUILD"
   description = Linking CXX executable $TARGET_FILE
   restat = $RESTAT
 
@@ -229,7 +229,7 @@ rule CXX_EXECUTABLE_LINKER__03-drawcommands
 
 rule CXX_COMPILER__03-instancing3
   deps = msvc
-  command = D:\program\VS\VC\Tools\MSVC\14.24.28314\bin\HostX64\x64\cl.exe  /nologo /TP $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
+  command = D:\PROGRA~2\MICROS~1\2019\ENTERP~1\VC\Tools\MSVC\1424~1.283\bin\HostX64\x64\cl.exe  /nologo /TP $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
   description = Building CXX object $out
 
 
@@ -237,7 +237,7 @@ rule CXX_COMPILER__03-instancing3
 # Rule for linking CXX executable.
 
 rule CXX_EXECUTABLE_LINKER__03-instancing3
-  command = cmd.exe /C "$PRE_LINK && D:\program\VS\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe -E vs_link_exe --intdir=$OBJECT_DIR --rc=C:\PROGRA~2\WINDOW~1\10\bin\100183~1.0\x64\rc.exe --mt=C:\PROGRA~2\WINDOW~1\10\bin\100183~1.0\x64\mt.exe --manifests $MANIFESTS -- D:\program\VS\VC\Tools\MSVC\14.24.28314\bin\Hostx64\x64\link.exe /nologo $in  /out:$TARGET_FILE /implib:$TARGET_IMPLIB /pdb:$TARGET_PDB /version:0.0  $LINK_FLAGS $LINK_PATH $LINK_LIBRARIES && $POST_BUILD"
+  command = cmd.exe /C "$PRE_LINK && "D:\ProgramFiles\Microsoft Visual Studio\2019\Enterprise\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E vs_link_exe --intdir=$OBJECT_DIR --rc="C:\Program Files (x86)\WINDOW~2\10\bin\100183~1.0\x64\rc.exe" --mt="C:\Program Files (x86)\WINDOW~2\10\bin\100183~1.0\x64\mt.exe" --manifests $MANIFESTS -- D:\PROGRA~2\MICROS~1\2019\ENTERP~1\VC\Tools\MSVC\1424~1.283\bin\Hostx64\x64\link.exe /nologo $in  /out:$TARGET_FILE /implib:$TARGET_IMPLIB /pdb:$TARGET_PDB /version:0.0  $LINK_FLAGS $LINK_PATH $LINK_LIBRARIES && $POST_BUILD"
   description = Linking CXX executable $TARGET_FILE
   restat = $RESTAT
 
@@ -255,7 +255,7 @@ rule CUSTOM_COMMAND
 
 rule CXX_COMPILER__03-xfb
   deps = msvc
-  command = D:\program\VS\VC\Tools\MSVC\14.24.28314\bin\HostX64\x64\cl.exe  /nologo /TP $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
+  command = D:\PROGRA~2\MICROS~1\2019\ENTERP~1\VC\Tools\MSVC\1424~1.283\bin\HostX64\x64\cl.exe  /nologo /TP $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
   description = Building CXX object $out
 
 
@@ -263,7 +263,7 @@ rule CXX_COMPILER__03-xfb
 # Rule for linking CXX executable.
 
 rule CXX_EXECUTABLE_LINKER__03-xfb
-  command = cmd.exe /C "$PRE_LINK && D:\program\VS\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe -E vs_link_exe --intdir=$OBJECT_DIR --rc=C:\PROGRA~2\WINDOW~1\10\bin\100183~1.0\x64\rc.exe --mt=C:\PROGRA~2\WINDOW~1\10\bin\100183~1.0\x64\mt.exe --manifests $MANIFESTS -- D:\program\VS\VC\Tools\MSVC\14.24.28314\bin\Hostx64\x64\link.exe /nologo $in  /out:$TARGET_FILE /implib:$TARGET_IMPLIB /pdb:$TARGET_PDB /version:0.0  $LINK_FLAGS $LINK_PATH $LINK_LIBRARIES && $POST_BUILD"
+  command = cmd.exe /C "$PRE_LINK && "D:\ProgramFiles\Microsoft Visual Studio\2019\Enterprise\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E vs_link_exe --intdir=$OBJECT_DIR --rc="C:\Program Files (x86)\WINDOW~2\10\bin\100183~1.0\x64\rc.exe" --mt="C:\Program Files (x86)\WINDOW~2\10\bin\100183~1.0\x64\mt.exe" --manifests $MANIFESTS -- D:\PROGRA~2\MICROS~1\2019\ENTERP~1\VC\Tools\MSVC\1424~1.283\bin\Hostx64\x64\link.exe /nologo $in  /out:$TARGET_FILE /implib:$TARGET_IMPLIB /pdb:$TARGET_PDB /version:0.0  $LINK_FLAGS $LINK_PATH $LINK_LIBRARIES && $POST_BUILD"
   description = Linking CXX executable $TARGET_FILE
   restat = $RESTAT
 
@@ -273,7 +273,7 @@ rule CXX_EXECUTABLE_LINKER__03-xfb
 
 rule CXX_COMPILER__04-gouraud
   deps = msvc
-  command = D:\program\VS\VC\Tools\MSVC\14.24.28314\bin\HostX64\x64\cl.exe  /nologo /TP $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
+  command = D:\PROGRA~2\MICROS~1\2019\ENTERP~1\VC\Tools\MSVC\1424~1.283\bin\HostX64\x64\cl.exe  /nologo /TP $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
   description = Building CXX object $out
 
 
@@ -281,7 +281,7 @@ rule CXX_COMPILER__04-gouraud
 # Rule for linking CXX executable.
 
 rule CXX_EXECUTABLE_LINKER__04-gouraud
-  command = cmd.exe /C "$PRE_LINK && D:\program\VS\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe -E vs_link_exe --intdir=$OBJECT_DIR --rc=C:\PROGRA~2\WINDOW~1\10\bin\100183~1.0\x64\rc.exe --mt=C:\PROGRA~2\WINDOW~1\10\bin\100183~1.0\x64\mt.exe --manifests $MANIFESTS -- D:\program\VS\VC\Tools\MSVC\14.24.28314\bin\Hostx64\x64\link.exe /nologo $in  /out:$TARGET_FILE /implib:$TARGET_IMPLIB /pdb:$TARGET_PDB /version:0.0  $LINK_FLAGS $LINK_PATH $LINK_LIBRARIES && $POST_BUILD"
+  command = cmd.exe /C "$PRE_LINK && "D:\ProgramFiles\Microsoft Visual Studio\2019\Enterprise\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E vs_link_exe --intdir=$OBJECT_DIR --rc="C:\Program Files (x86)\WINDOW~2\10\bin\100183~1.0\x64\rc.exe" --mt="C:\Program Files (x86)\WINDOW~2\10\bin\100183~1.0\x64\mt.exe" --manifests $MANIFESTS -- D:\PROGRA~2\MICROS~1\2019\ENTERP~1\VC\Tools\MSVC\1424~1.283\bin\Hostx64\x64\link.exe /nologo $in  /out:$TARGET_FILE /implib:$TARGET_IMPLIB /pdb:$TARGET_PDB /version:0.0  $LINK_FLAGS $LINK_PATH $LINK_LIBRARIES && $POST_BUILD"
   description = Linking CXX executable $TARGET_FILE
   restat = $RESTAT
 
@@ -291,7 +291,7 @@ rule CXX_EXECUTABLE_LINKER__04-gouraud
 
 rule CXX_COMPILER__04-gouraud-float
   deps = msvc
-  command = D:\program\VS\VC\Tools\MSVC\14.24.28314\bin\HostX64\x64\cl.exe  /nologo /TP $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
+  command = D:\PROGRA~2\MICROS~1\2019\ENTERP~1\VC\Tools\MSVC\1424~1.283\bin\HostX64\x64\cl.exe  /nologo /TP $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
   description = Building CXX object $out
 
 
@@ -299,7 +299,7 @@ rule CXX_COMPILER__04-gouraud-float
 # Rule for linking CXX executable.
 
 rule CXX_EXECUTABLE_LINKER__04-gouraud-float
-  command = cmd.exe /C "$PRE_LINK && D:\program\VS\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe -E vs_link_exe --intdir=$OBJECT_DIR --rc=C:\PROGRA~2\WINDOW~1\10\bin\100183~1.0\x64\rc.exe --mt=C:\PROGRA~2\WINDOW~1\10\bin\100183~1.0\x64\mt.exe --manifests $MANIFESTS -- D:\program\VS\VC\Tools\MSVC\14.24.28314\bin\Hostx64\x64\link.exe /nologo $in  /out:$TARGET_FILE /implib:$TARGET_IMPLIB /pdb:$TARGET_PDB /version:0.0  $LINK_FLAGS $LINK_PATH $LINK_LIBRARIES && $POST_BUILD"
+  command = cmd.exe /C "$PRE_LINK && "D:\ProgramFiles\Microsoft Visual Studio\2019\Enterprise\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E vs_link_exe --intdir=$OBJECT_DIR --rc="C:\Program Files (x86)\WINDOW~2\10\bin\100183~1.0\x64\rc.exe" --mt="C:\Program Files (x86)\WINDOW~2\10\bin\100183~1.0\x64\mt.exe" --manifests $MANIFESTS -- D:\PROGRA~2\MICROS~1\2019\ENTERP~1\VC\Tools\MSVC\1424~1.283\bin\Hostx64\x64\link.exe /nologo $in  /out:$TARGET_FILE /implib:$TARGET_IMPLIB /pdb:$TARGET_PDB /version:0.0  $LINK_FLAGS $LINK_PATH $LINK_LIBRARIES && $POST_BUILD"
   description = Linking CXX executable $TARGET_FILE
   restat = $RESTAT
 
@@ -309,7 +309,7 @@ rule CXX_EXECUTABLE_LINKER__04-gouraud-float
 
 rule CXX_COMPILER__04-shadowmap
   deps = msvc
-  command = D:\program\VS\VC\Tools\MSVC\14.24.28314\bin\HostX64\x64\cl.exe  /nologo /TP $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
+  command = D:\PROGRA~2\MICROS~1\2019\ENTERP~1\VC\Tools\MSVC\1424~1.283\bin\HostX64\x64\cl.exe  /nologo /TP $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
   description = Building CXX object $out
 
 
@@ -317,7 +317,7 @@ rule CXX_COMPILER__04-shadowmap
 # Rule for linking CXX executable.
 
 rule CXX_EXECUTABLE_LINKER__04-shadowmap
-  command = cmd.exe /C "$PRE_LINK && D:\program\VS\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe -E vs_link_exe --intdir=$OBJECT_DIR --rc=C:\PROGRA~2\WINDOW~1\10\bin\100183~1.0\x64\rc.exe --mt=C:\PROGRA~2\WINDOW~1\10\bin\100183~1.0\x64\mt.exe --manifests $MANIFESTS -- D:\program\VS\VC\Tools\MSVC\14.24.28314\bin\Hostx64\x64\link.exe /nologo $in  /out:$TARGET_FILE /implib:$TARGET_IMPLIB /pdb:$TARGET_PDB /version:0.0  $LINK_FLAGS $LINK_PATH $LINK_LIBRARIES && $POST_BUILD"
+  command = cmd.exe /C "$PRE_LINK && "D:\ProgramFiles\Microsoft Visual Studio\2019\Enterprise\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E vs_link_exe --intdir=$OBJECT_DIR --rc="C:\Program Files (x86)\WINDOW~2\10\bin\100183~1.0\x64\rc.exe" --mt="C:\Program Files (x86)\WINDOW~2\10\bin\100183~1.0\x64\mt.exe" --manifests $MANIFESTS -- D:\PROGRA~2\MICROS~1\2019\ENTERP~1\VC\Tools\MSVC\1424~1.283\bin\Hostx64\x64\link.exe /nologo $in  /out:$TARGET_FILE /implib:$TARGET_IMPLIB /pdb:$TARGET_PDB /version:0.0  $LINK_FLAGS $LINK_PATH $LINK_LIBRARIES && $POST_BUILD"
   description = Linking CXX executable $TARGET_FILE
   restat = $RESTAT
 
@@ -327,7 +327,7 @@ rule CXX_EXECUTABLE_LINKER__04-shadowmap
 
 rule CXX_COMPILER__06-load-texture
   deps = msvc
-  command = D:\program\VS\VC\Tools\MSVC\14.24.28314\bin\HostX64\x64\cl.exe  /nologo /TP $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
+  command = D:\PROGRA~2\MICROS~1\2019\ENTERP~1\VC\Tools\MSVC\1424~1.283\bin\HostX64\x64\cl.exe  /nologo /TP $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
   description = Building CXX object $out
 
 
@@ -335,7 +335,7 @@ rule CXX_COMPILER__06-load-texture
 # Rule for linking CXX executable.
 
 rule CXX_EXECUTABLE_LINKER__06-load-texture
-  command = cmd.exe /C "$PRE_LINK && D:\program\VS\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe -E vs_link_exe --intdir=$OBJECT_DIR --rc=C:\PROGRA~2\WINDOW~1\10\bin\100183~1.0\x64\rc.exe --mt=C:\PROGRA~2\WINDOW~1\10\bin\100183~1.0\x64\mt.exe --manifests $MANIFESTS -- D:\program\VS\VC\Tools\MSVC\14.24.28314\bin\Hostx64\x64\link.exe /nologo $in  /out:$TARGET_FILE /implib:$TARGET_IMPLIB /pdb:$TARGET_PDB /version:0.0  $LINK_FLAGS $LINK_PATH $LINK_LIBRARIES && $POST_BUILD"
+  command = cmd.exe /C "$PRE_LINK && "D:\ProgramFiles\Microsoft Visual Studio\2019\Enterprise\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E vs_link_exe --intdir=$OBJECT_DIR --rc="C:\Program Files (x86)\WINDOW~2\10\bin\100183~1.0\x64\rc.exe" --mt="C:\Program Files (x86)\WINDOW~2\10\bin\100183~1.0\x64\mt.exe" --manifests $MANIFESTS -- D:\PROGRA~2\MICROS~1\2019\ENTERP~1\VC\Tools\MSVC\1424~1.283\bin\Hostx64\x64\link.exe /nologo $in  /out:$TARGET_FILE /implib:$TARGET_IMPLIB /pdb:$TARGET_PDB /version:0.0  $LINK_FLAGS $LINK_PATH $LINK_LIBRARIES && $POST_BUILD"
   description = Linking CXX executable $TARGET_FILE
   restat = $RESTAT
 
@@ -345,7 +345,7 @@ rule CXX_EXECUTABLE_LINKER__06-load-texture
 
 rule CXX_COMPILER__06-statictexture
   deps = msvc
-  command = D:\program\VS\VC\Tools\MSVC\14.24.28314\bin\HostX64\x64\cl.exe  /nologo /TP $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
+  command = D:\PROGRA~2\MICROS~1\2019\ENTERP~1\VC\Tools\MSVC\1424~1.283\bin\HostX64\x64\cl.exe  /nologo /TP $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
   description = Building CXX object $out
 
 
@@ -353,7 +353,7 @@ rule CXX_COMPILER__06-statictexture
 # Rule for linking CXX executable.
 
 rule CXX_EXECUTABLE_LINKER__06-statictexture
-  command = cmd.exe /C "$PRE_LINK && D:\program\VS\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe -E vs_link_exe --intdir=$OBJECT_DIR --rc=C:\PROGRA~2\WINDOW~1\10\bin\100183~1.0\x64\rc.exe --mt=C:\PROGRA~2\WINDOW~1\10\bin\100183~1.0\x64\mt.exe --manifests $MANIFESTS -- D:\program\VS\VC\Tools\MSVC\14.24.28314\bin\Hostx64\x64\link.exe /nologo $in  /out:$TARGET_FILE /implib:$TARGET_IMPLIB /pdb:$TARGET_PDB /version:0.0  $LINK_FLAGS $LINK_PATH $LINK_LIBRARIES && $POST_BUILD"
+  command = cmd.exe /C "$PRE_LINK && "D:\ProgramFiles\Microsoft Visual Studio\2019\Enterprise\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E vs_link_exe --intdir=$OBJECT_DIR --rc="C:\Program Files (x86)\WINDOW~2\10\bin\100183~1.0\x64\rc.exe" --mt="C:\Program Files (x86)\WINDOW~2\10\bin\100183~1.0\x64\mt.exe" --manifests $MANIFESTS -- D:\PROGRA~2\MICROS~1\2019\ENTERP~1\VC\Tools\MSVC\1424~1.283\bin\Hostx64\x64\link.exe /nologo $in  /out:$TARGET_FILE /implib:$TARGET_IMPLIB /pdb:$TARGET_PDB /version:0.0  $LINK_FLAGS $LINK_PATH $LINK_LIBRARIES && $POST_BUILD"
   description = Linking CXX executable $TARGET_FILE
   restat = $RESTAT
 
@@ -363,7 +363,7 @@ rule CXX_EXECUTABLE_LINKER__06-statictexture
 
 rule CXX_COMPILER__06-texturewrapping
   deps = msvc
-  command = D:\program\VS\VC\Tools\MSVC\14.24.28314\bin\HostX64\x64\cl.exe  /nologo /TP $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
+  command = D:\PROGRA~2\MICROS~1\2019\ENTERP~1\VC\Tools\MSVC\1424~1.283\bin\HostX64\x64\cl.exe  /nologo /TP $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
   description = Building CXX object $out
 
 
@@ -371,7 +371,7 @@ rule CXX_COMPILER__06-texturewrapping
 # Rule for linking CXX executable.
 
 rule CXX_EXECUTABLE_LINKER__06-texturewrapping
-  command = cmd.exe /C "$PRE_LINK && D:\program\VS\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe -E vs_link_exe --intdir=$OBJECT_DIR --rc=C:\PROGRA~2\WINDOW~1\10\bin\100183~1.0\x64\rc.exe --mt=C:\PROGRA~2\WINDOW~1\10\bin\100183~1.0\x64\mt.exe --manifests $MANIFESTS -- D:\program\VS\VC\Tools\MSVC\14.24.28314\bin\Hostx64\x64\link.exe /nologo $in  /out:$TARGET_FILE /implib:$TARGET_IMPLIB /pdb:$TARGET_PDB /version:0.0  $LINK_FLAGS $LINK_PATH $LINK_LIBRARIES && $POST_BUILD"
+  command = cmd.exe /C "$PRE_LINK && "D:\ProgramFiles\Microsoft Visual Studio\2019\Enterprise\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E vs_link_exe --intdir=$OBJECT_DIR --rc="C:\Program Files (x86)\WINDOW~2\10\bin\100183~1.0\x64\rc.exe" --mt="C:\Program Files (x86)\WINDOW~2\10\bin\100183~1.0\x64\mt.exe" --manifests $MANIFESTS -- D:\PROGRA~2\MICROS~1\2019\ENTERP~1\VC\Tools\MSVC\1424~1.283\bin\Hostx64\x64\link.exe /nologo $in  /out:$TARGET_FILE /implib:$TARGET_IMPLIB /pdb:$TARGET_PDB /version:0.0  $LINK_FLAGS $LINK_PATH $LINK_LIBRARIES && $POST_BUILD"
   description = Linking CXX executable $TARGET_FILE
   restat = $RESTAT
 
@@ -381,7 +381,7 @@ rule CXX_EXECUTABLE_LINKER__06-texturewrapping
 
 rule CXX_COMPILER__06-volumetexturing
   deps = msvc
-  command = D:\program\VS\VC\Tools\MSVC\14.24.28314\bin\HostX64\x64\cl.exe  /nologo /TP $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
+  command = D:\PROGRA~2\MICROS~1\2019\ENTERP~1\VC\Tools\MSVC\1424~1.283\bin\HostX64\x64\cl.exe  /nologo /TP $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
   description = Building CXX object $out
 
 
@@ -389,7 +389,7 @@ rule CXX_COMPILER__06-volumetexturing
 # Rule for linking CXX executable.
 
 rule CXX_EXECUTABLE_LINKER__06-volumetexturing
-  command = cmd.exe /C "$PRE_LINK && D:\program\VS\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe -E vs_link_exe --intdir=$OBJECT_DIR --rc=C:\PROGRA~2\WINDOW~1\10\bin\100183~1.0\x64\rc.exe --mt=C:\PROGRA~2\WINDOW~1\10\bin\100183~1.0\x64\mt.exe --manifests $MANIFESTS -- D:\program\VS\VC\Tools\MSVC\14.24.28314\bin\Hostx64\x64\link.exe /nologo $in  /out:$TARGET_FILE /implib:$TARGET_IMPLIB /pdb:$TARGET_PDB /version:0.0  $LINK_FLAGS $LINK_PATH $LINK_LIBRARIES && $POST_BUILD"
+  command = cmd.exe /C "$PRE_LINK && "D:\ProgramFiles\Microsoft Visual Studio\2019\Enterprise\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E vs_link_exe --intdir=$OBJECT_DIR --rc="C:\Program Files (x86)\WINDOW~2\10\bin\100183~1.0\x64\rc.exe" --mt="C:\Program Files (x86)\WINDOW~2\10\bin\100183~1.0\x64\mt.exe" --manifests $MANIFESTS -- D:\PROGRA~2\MICROS~1\2019\ENTERP~1\VC\Tools\MSVC\1424~1.283\bin\Hostx64\x64\link.exe /nologo $in  /out:$TARGET_FILE /implib:$TARGET_IMPLIB /pdb:$TARGET_PDB /version:0.0  $LINK_FLAGS $LINK_PATH $LINK_LIBRARIES && $POST_BUILD"
   description = Linking CXX executable $TARGET_FILE
   restat = $RESTAT
 
@@ -399,7 +399,7 @@ rule CXX_EXECUTABLE_LINKER__06-volumetexturing
 
 rule CXX_COMPILER__11-oit
   deps = msvc
-  command = D:\program\VS\VC\Tools\MSVC\14.24.28314\bin\HostX64\x64\cl.exe  /nologo /TP $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
+  command = D:\PROGRA~2\MICROS~1\2019\ENTERP~1\VC\Tools\MSVC\1424~1.283\bin\HostX64\x64\cl.exe  /nologo /TP $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
   description = Building CXX object $out
 
 
@@ -407,7 +407,7 @@ rule CXX_COMPILER__11-oit
 # Rule for linking CXX executable.
 
 rule CXX_EXECUTABLE_LINKER__11-oit
-  command = cmd.exe /C "$PRE_LINK && D:\program\VS\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe -E vs_link_exe --intdir=$OBJECT_DIR --rc=C:\PROGRA~2\WINDOW~1\10\bin\100183~1.0\x64\rc.exe --mt=C:\PROGRA~2\WINDOW~1\10\bin\100183~1.0\x64\mt.exe --manifests $MANIFESTS -- D:\program\VS\VC\Tools\MSVC\14.24.28314\bin\Hostx64\x64\link.exe /nologo $in  /out:$TARGET_FILE /implib:$TARGET_IMPLIB /pdb:$TARGET_PDB /version:0.0  $LINK_FLAGS $LINK_PATH $LINK_LIBRARIES && $POST_BUILD"
+  command = cmd.exe /C "$PRE_LINK && "D:\ProgramFiles\Microsoft Visual Studio\2019\Enterprise\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E vs_link_exe --intdir=$OBJECT_DIR --rc="C:\Program Files (x86)\WINDOW~2\10\bin\100183~1.0\x64\rc.exe" --mt="C:\Program Files (x86)\WINDOW~2\10\bin\100183~1.0\x64\mt.exe" --manifests $MANIFESTS -- D:\PROGRA~2\MICROS~1\2019\ENTERP~1\VC\Tools\MSVC\1424~1.283\bin\Hostx64\x64\link.exe /nologo $in  /out:$TARGET_FILE /implib:$TARGET_IMPLIB /pdb:$TARGET_PDB /version:0.0  $LINK_FLAGS $LINK_PATH $LINK_LIBRARIES && $POST_BUILD"
   description = Linking CXX executable $TARGET_FILE
   restat = $RESTAT
 
@@ -417,7 +417,7 @@ rule CXX_EXECUTABLE_LINKER__11-oit
 
 rule CXX_COMPILER__08-lightmodels
   deps = msvc
-  command = D:\program\VS\VC\Tools\MSVC\14.24.28314\bin\HostX64\x64\cl.exe  /nologo /TP $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
+  command = D:\PROGRA~2\MICROS~1\2019\ENTERP~1\VC\Tools\MSVC\1424~1.283\bin\HostX64\x64\cl.exe  /nologo /TP $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
   description = Building CXX object $out
 
 
@@ -425,7 +425,7 @@ rule CXX_COMPILER__08-lightmodels
 # Rule for linking CXX executable.
 
 rule CXX_EXECUTABLE_LINKER__08-lightmodels
-  command = cmd.exe /C "$PRE_LINK && D:\program\VS\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe -E vs_link_exe --intdir=$OBJECT_DIR --rc=C:\PROGRA~2\WINDOW~1\10\bin\100183~1.0\x64\rc.exe --mt=C:\PROGRA~2\WINDOW~1\10\bin\100183~1.0\x64\mt.exe --manifests $MANIFESTS -- D:\program\VS\VC\Tools\MSVC\14.24.28314\bin\Hostx64\x64\link.exe /nologo $in  /out:$TARGET_FILE /implib:$TARGET_IMPLIB /pdb:$TARGET_PDB /version:0.0  $LINK_FLAGS $LINK_PATH $LINK_LIBRARIES && $POST_BUILD"
+  command = cmd.exe /C "$PRE_LINK && "D:\ProgramFiles\Microsoft Visual Studio\2019\Enterprise\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E vs_link_exe --intdir=$OBJECT_DIR --rc="C:\Program Files (x86)\WINDOW~2\10\bin\100183~1.0\x64\rc.exe" --mt="C:\Program Files (x86)\WINDOW~2\10\bin\100183~1.0\x64\mt.exe" --manifests $MANIFESTS -- D:\PROGRA~2\MICROS~1\2019\ENTERP~1\VC\Tools\MSVC\1424~1.283\bin\Hostx64\x64\link.exe /nologo $in  /out:$TARGET_FILE /implib:$TARGET_IMPLIB /pdb:$TARGET_PDB /version:0.0  $LINK_FLAGS $LINK_PATH $LINK_LIBRARIES && $POST_BUILD"
   description = Linking CXX executable $TARGET_FILE
   restat = $RESTAT
 
@@ -435,7 +435,7 @@ rule CXX_EXECUTABLE_LINKER__08-lightmodels
 
 rule CXX_COMPILER__09-simpletess
   deps = msvc
-  command = D:\program\VS\VC\Tools\MSVC\14.24.28314\bin\HostX64\x64\cl.exe  /nologo /TP $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
+  command = D:\PROGRA~2\MICROS~1\2019\ENTERP~1\VC\Tools\MSVC\1424~1.283\bin\HostX64\x64\cl.exe  /nologo /TP $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
   description = Building CXX object $out
 
 
@@ -443,7 +443,7 @@ rule CXX_COMPILER__09-simpletess
 # Rule for linking CXX executable.
 
 rule CXX_EXECUTABLE_LINKER__09-simpletess
-  command = cmd.exe /C "$PRE_LINK && D:\program\VS\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe -E vs_link_exe --intdir=$OBJECT_DIR --rc=C:\PROGRA~2\WINDOW~1\10\bin\100183~1.0\x64\rc.exe --mt=C:\PROGRA~2\WINDOW~1\10\bin\100183~1.0\x64\mt.exe --manifests $MANIFESTS -- D:\program\VS\VC\Tools\MSVC\14.24.28314\bin\Hostx64\x64\link.exe /nologo $in  /out:$TARGET_FILE /implib:$TARGET_IMPLIB /pdb:$TARGET_PDB /version:0.0  $LINK_FLAGS $LINK_PATH $LINK_LIBRARIES && $POST_BUILD"
+  command = cmd.exe /C "$PRE_LINK && "D:\ProgramFiles\Microsoft Visual Studio\2019\Enterprise\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E vs_link_exe --intdir=$OBJECT_DIR --rc="C:\Program Files (x86)\WINDOW~2\10\bin\100183~1.0\x64\rc.exe" --mt="C:\Program Files (x86)\WINDOW~2\10\bin\100183~1.0\x64\mt.exe" --manifests $MANIFESTS -- D:\PROGRA~2\MICROS~1\2019\ENTERP~1\VC\Tools\MSVC\1424~1.283\bin\Hostx64\x64\link.exe /nologo $in  /out:$TARGET_FILE /implib:$TARGET_IMPLIB /pdb:$TARGET_PDB /version:0.0  $LINK_FLAGS $LINK_PATH $LINK_LIBRARIES && $POST_BUILD"
   description = Linking CXX executable $TARGET_FILE
   restat = $RESTAT
 
@@ -453,7 +453,7 @@ rule CXX_EXECUTABLE_LINKER__09-simpletess
 
 rule CXX_COMPILER__09-teapot
   deps = msvc
-  command = D:\program\VS\VC\Tools\MSVC\14.24.28314\bin\HostX64\x64\cl.exe  /nologo /TP $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
+  command = D:\PROGRA~2\MICROS~1\2019\ENTERP~1\VC\Tools\MSVC\1424~1.283\bin\HostX64\x64\cl.exe  /nologo /TP $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
   description = Building CXX object $out
 
 
@@ -461,7 +461,7 @@ rule CXX_COMPILER__09-teapot
 # Rule for linking CXX executable.
 
 rule CXX_EXECUTABLE_LINKER__09-teapot
-  command = cmd.exe /C "$PRE_LINK && D:\program\VS\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe -E vs_link_exe --intdir=$OBJECT_DIR --rc=C:\PROGRA~2\WINDOW~1\10\bin\100183~1.0\x64\rc.exe --mt=C:\PROGRA~2\WINDOW~1\10\bin\100183~1.0\x64\mt.exe --manifests $MANIFESTS -- D:\program\VS\VC\Tools\MSVC\14.24.28314\bin\Hostx64\x64\link.exe /nologo $in  /out:$TARGET_FILE /implib:$TARGET_IMPLIB /pdb:$TARGET_PDB /version:0.0  $LINK_FLAGS $LINK_PATH $LINK_LIBRARIES && $POST_BUILD"
+  command = cmd.exe /C "$PRE_LINK && "D:\ProgramFiles\Microsoft Visual Studio\2019\Enterprise\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E vs_link_exe --intdir=$OBJECT_DIR --rc="C:\Program Files (x86)\WINDOW~2\10\bin\100183~1.0\x64\rc.exe" --mt="C:\Program Files (x86)\WINDOW~2\10\bin\100183~1.0\x64\mt.exe" --manifests $MANIFESTS -- D:\PROGRA~2\MICROS~1\2019\ENTERP~1\VC\Tools\MSVC\1424~1.283\bin\Hostx64\x64\link.exe /nologo $in  /out:$TARGET_FILE /implib:$TARGET_IMPLIB /pdb:$TARGET_PDB /version:0.0  $LINK_FLAGS $LINK_PATH $LINK_LIBRARIES && $POST_BUILD"
   description = Linking CXX executable $TARGET_FILE
   restat = $RESTAT
 
@@ -471,7 +471,7 @@ rule CXX_EXECUTABLE_LINKER__09-teapot
 
 rule CXX_COMPILER__10-draw-xfb
   deps = msvc
-  command = D:\program\VS\VC\Tools\MSVC\14.24.28314\bin\HostX64\x64\cl.exe  /nologo /TP $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
+  command = D:\PROGRA~2\MICROS~1\2019\ENTERP~1\VC\Tools\MSVC\1424~1.283\bin\HostX64\x64\cl.exe  /nologo /TP $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
   description = Building CXX object $out
 
 
@@ -479,7 +479,7 @@ rule CXX_COMPILER__10-draw-xfb
 # Rule for linking CXX executable.
 
 rule CXX_EXECUTABLE_LINKER__10-draw-xfb
-  command = cmd.exe /C "$PRE_LINK && D:\program\VS\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe -E vs_link_exe --intdir=$OBJECT_DIR --rc=C:\PROGRA~2\WINDOW~1\10\bin\100183~1.0\x64\rc.exe --mt=C:\PROGRA~2\WINDOW~1\10\bin\100183~1.0\x64\mt.exe --manifests $MANIFESTS -- D:\program\VS\VC\Tools\MSVC\14.24.28314\bin\Hostx64\x64\link.exe /nologo $in  /out:$TARGET_FILE /implib:$TARGET_IMPLIB /pdb:$TARGET_PDB /version:0.0  $LINK_FLAGS $LINK_PATH $LINK_LIBRARIES && $POST_BUILD"
+  command = cmd.exe /C "$PRE_LINK && "D:\ProgramFiles\Microsoft Visual Studio\2019\Enterprise\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E vs_link_exe --intdir=$OBJECT_DIR --rc="C:\Program Files (x86)\WINDOW~2\10\bin\100183~1.0\x64\rc.exe" --mt="C:\Program Files (x86)\WINDOW~2\10\bin\100183~1.0\x64\mt.exe" --manifests $MANIFESTS -- D:\PROGRA~2\MICROS~1\2019\ENTERP~1\VC\Tools\MSVC\1424~1.283\bin\Hostx64\x64\link.exe /nologo $in  /out:$TARGET_FILE /implib:$TARGET_IMPLIB /pdb:$TARGET_PDB /version:0.0  $LINK_FLAGS $LINK_PATH $LINK_LIBRARIES && $POST_BUILD"
   description = Linking CXX executable $TARGET_FILE
   restat = $RESTAT
 
@@ -489,7 +489,7 @@ rule CXX_EXECUTABLE_LINKER__10-draw-xfb
 
 rule CXX_COMPILER__10-fur
   deps = msvc
-  command = D:\program\VS\VC\Tools\MSVC\14.24.28314\bin\HostX64\x64\cl.exe  /nologo /TP $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
+  command = D:\PROGRA~2\MICROS~1\2019\ENTERP~1\VC\Tools\MSVC\1424~1.283\bin\HostX64\x64\cl.exe  /nologo /TP $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
   description = Building CXX object $out
 
 
@@ -497,7 +497,7 @@ rule CXX_COMPILER__10-fur
 # Rule for linking CXX executable.
 
 rule CXX_EXECUTABLE_LINKER__10-fur
-  command = cmd.exe /C "$PRE_LINK && D:\program\VS\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe -E vs_link_exe --intdir=$OBJECT_DIR --rc=C:\PROGRA~2\WINDOW~1\10\bin\100183~1.0\x64\rc.exe --mt=C:\PROGRA~2\WINDOW~1\10\bin\100183~1.0\x64\mt.exe --manifests $MANIFESTS -- D:\program\VS\VC\Tools\MSVC\14.24.28314\bin\Hostx64\x64\link.exe /nologo $in  /out:$TARGET_FILE /implib:$TARGET_IMPLIB /pdb:$TARGET_PDB /version:0.0  $LINK_FLAGS $LINK_PATH $LINK_LIBRARIES && $POST_BUILD"
+  command = cmd.exe /C "$PRE_LINK && "D:\ProgramFiles\Microsoft Visual Studio\2019\Enterprise\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E vs_link_exe --intdir=$OBJECT_DIR --rc="C:\Program Files (x86)\WINDOW~2\10\bin\100183~1.0\x64\rc.exe" --mt="C:\Program Files (x86)\WINDOW~2\10\bin\100183~1.0\x64\mt.exe" --manifests $MANIFESTS -- D:\PROGRA~2\MICROS~1\2019\ENTERP~1\VC\Tools\MSVC\1424~1.283\bin\Hostx64\x64\link.exe /nologo $in  /out:$TARGET_FILE /implib:$TARGET_IMPLIB /pdb:$TARGET_PDB /version:0.0  $LINK_FLAGS $LINK_PATH $LINK_LIBRARIES && $POST_BUILD"
   description = Linking CXX executable $TARGET_FILE
   restat = $RESTAT
 
@@ -507,7 +507,7 @@ rule CXX_EXECUTABLE_LINKER__10-fur
 
 rule CXX_COMPILER__12-imageprocessing
   deps = msvc
-  command = D:\program\VS\VC\Tools\MSVC\14.24.28314\bin\HostX64\x64\cl.exe  /nologo /TP $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
+  command = D:\PROGRA~2\MICROS~1\2019\ENTERP~1\VC\Tools\MSVC\1424~1.283\bin\HostX64\x64\cl.exe  /nologo /TP $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
   description = Building CXX object $out
 
 
@@ -515,7 +515,7 @@ rule CXX_COMPILER__12-imageprocessing
 # Rule for linking CXX executable.
 
 rule CXX_EXECUTABLE_LINKER__12-imageprocessing
-  command = cmd.exe /C "$PRE_LINK && D:\program\VS\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe -E vs_link_exe --intdir=$OBJECT_DIR --rc=C:\PROGRA~2\WINDOW~1\10\bin\100183~1.0\x64\rc.exe --mt=C:\PROGRA~2\WINDOW~1\10\bin\100183~1.0\x64\mt.exe --manifests $MANIFESTS -- D:\program\VS\VC\Tools\MSVC\14.24.28314\bin\Hostx64\x64\link.exe /nologo $in  /out:$TARGET_FILE /implib:$TARGET_IMPLIB /pdb:$TARGET_PDB /version:0.0  $LINK_FLAGS $LINK_PATH $LINK_LIBRARIES && $POST_BUILD"
+  command = cmd.exe /C "$PRE_LINK && "D:\ProgramFiles\Microsoft Visual Studio\2019\Enterprise\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E vs_link_exe --intdir=$OBJECT_DIR --rc="C:\Program Files (x86)\WINDOW~2\10\bin\100183~1.0\x64\rc.exe" --mt="C:\Program Files (x86)\WINDOW~2\10\bin\100183~1.0\x64\mt.exe" --manifests $MANIFESTS -- D:\PROGRA~2\MICROS~1\2019\ENTERP~1\VC\Tools\MSVC\1424~1.283\bin\Hostx64\x64\link.exe /nologo $in  /out:$TARGET_FILE /implib:$TARGET_IMPLIB /pdb:$TARGET_PDB /version:0.0  $LINK_FLAGS $LINK_PATH $LINK_LIBRARIES && $POST_BUILD"
   description = Linking CXX executable $TARGET_FILE
   restat = $RESTAT
 
@@ -525,7 +525,7 @@ rule CXX_EXECUTABLE_LINKER__12-imageprocessing
 
 rule CXX_COMPILER__10-viewport-array
   deps = msvc
-  command = D:\program\VS\VC\Tools\MSVC\14.24.28314\bin\HostX64\x64\cl.exe  /nologo /TP $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
+  command = D:\PROGRA~2\MICROS~1\2019\ENTERP~1\VC\Tools\MSVC\1424~1.283\bin\HostX64\x64\cl.exe  /nologo /TP $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
   description = Building CXX object $out
 
 
@@ -533,7 +533,7 @@ rule CXX_COMPILER__10-viewport-array
 # Rule for linking CXX executable.
 
 rule CXX_EXECUTABLE_LINKER__10-viewport-array
-  command = cmd.exe /C "$PRE_LINK && D:\program\VS\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe -E vs_link_exe --intdir=$OBJECT_DIR --rc=C:\PROGRA~2\WINDOW~1\10\bin\100183~1.0\x64\rc.exe --mt=C:\PROGRA~2\WINDOW~1\10\bin\100183~1.0\x64\mt.exe --manifests $MANIFESTS -- D:\program\VS\VC\Tools\MSVC\14.24.28314\bin\Hostx64\x64\link.exe /nologo $in  /out:$TARGET_FILE /implib:$TARGET_IMPLIB /pdb:$TARGET_PDB /version:0.0  $LINK_FLAGS $LINK_PATH $LINK_LIBRARIES && $POST_BUILD"
+  command = cmd.exe /C "$PRE_LINK && "D:\ProgramFiles\Microsoft Visual Studio\2019\Enterprise\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E vs_link_exe --intdir=$OBJECT_DIR --rc="C:\Program Files (x86)\WINDOW~2\10\bin\100183~1.0\x64\rc.exe" --mt="C:\Program Files (x86)\WINDOW~2\10\bin\100183~1.0\x64\mt.exe" --manifests $MANIFESTS -- D:\PROGRA~2\MICROS~1\2019\ENTERP~1\VC\Tools\MSVC\1424~1.283\bin\Hostx64\x64\link.exe /nologo $in  /out:$TARGET_FILE /implib:$TARGET_IMPLIB /pdb:$TARGET_PDB /version:0.0  $LINK_FLAGS $LINK_PATH $LINK_LIBRARIES && $POST_BUILD"
   description = Linking CXX executable $TARGET_FILE
   restat = $RESTAT
 
@@ -543,7 +543,7 @@ rule CXX_EXECUTABLE_LINKER__10-viewport-array
 
 rule CXX_COMPILER__11-doublewrite
   deps = msvc
-  command = D:\program\VS\VC\Tools\MSVC\14.24.28314\bin\HostX64\x64\cl.exe  /nologo /TP $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
+  command = D:\PROGRA~2\MICROS~1\2019\ENTERP~1\VC\Tools\MSVC\1424~1.283\bin\HostX64\x64\cl.exe  /nologo /TP $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
   description = Building CXX object $out
 
 
@@ -551,7 +551,7 @@ rule CXX_COMPILER__11-doublewrite
 # Rule for linking CXX executable.
 
 rule CXX_EXECUTABLE_LINKER__11-doublewrite
-  command = cmd.exe /C "$PRE_LINK && D:\program\VS\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe -E vs_link_exe --intdir=$OBJECT_DIR --rc=C:\PROGRA~2\WINDOW~1\10\bin\100183~1.0\x64\rc.exe --mt=C:\PROGRA~2\WINDOW~1\10\bin\100183~1.0\x64\mt.exe --manifests $MANIFESTS -- D:\program\VS\VC\Tools\MSVC\14.24.28314\bin\Hostx64\x64\link.exe /nologo $in  /out:$TARGET_FILE /implib:$TARGET_IMPLIB /pdb:$TARGET_PDB /version:0.0  $LINK_FLAGS $LINK_PATH $LINK_LIBRARIES && $POST_BUILD"
+  command = cmd.exe /C "$PRE_LINK && "D:\ProgramFiles\Microsoft Visual Studio\2019\Enterprise\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E vs_link_exe --intdir=$OBJECT_DIR --rc="C:\Program Files (x86)\WINDOW~2\10\bin\100183~1.0\x64\rc.exe" --mt="C:\Program Files (x86)\WINDOW~2\10\bin\100183~1.0\x64\mt.exe" --manifests $MANIFESTS -- D:\PROGRA~2\MICROS~1\2019\ENTERP~1\VC\Tools\MSVC\1424~1.283\bin\Hostx64\x64\link.exe /nologo $in  /out:$TARGET_FILE /implib:$TARGET_IMPLIB /pdb:$TARGET_PDB /version:0.0  $LINK_FLAGS $LINK_PATH $LINK_LIBRARIES && $POST_BUILD"
   description = Linking CXX executable $TARGET_FILE
   restat = $RESTAT
 
@@ -561,7 +561,7 @@ rule CXX_EXECUTABLE_LINKER__11-doublewrite
 
 rule CXX_COMPILER__11-overdrawcount
   deps = msvc
-  command = D:\program\VS\VC\Tools\MSVC\14.24.28314\bin\HostX64\x64\cl.exe  /nologo /TP $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
+  command = D:\PROGRA~2\MICROS~1\2019\ENTERP~1\VC\Tools\MSVC\1424~1.283\bin\HostX64\x64\cl.exe  /nologo /TP $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
   description = Building CXX object $out
 
 
@@ -569,7 +569,7 @@ rule CXX_COMPILER__11-overdrawcount
 # Rule for linking CXX executable.
 
 rule CXX_EXECUTABLE_LINKER__11-overdrawcount
-  command = cmd.exe /C "$PRE_LINK && D:\program\VS\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe -E vs_link_exe --intdir=$OBJECT_DIR --rc=C:\PROGRA~2\WINDOW~1\10\bin\100183~1.0\x64\rc.exe --mt=C:\PROGRA~2\WINDOW~1\10\bin\100183~1.0\x64\mt.exe --manifests $MANIFESTS -- D:\program\VS\VC\Tools\MSVC\14.24.28314\bin\Hostx64\x64\link.exe /nologo $in  /out:$TARGET_FILE /implib:$TARGET_IMPLIB /pdb:$TARGET_PDB /version:0.0  $LINK_FLAGS $LINK_PATH $LINK_LIBRARIES && $POST_BUILD"
+  command = cmd.exe /C "$PRE_LINK && "D:\ProgramFiles\Microsoft Visual Studio\2019\Enterprise\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E vs_link_exe --intdir=$OBJECT_DIR --rc="C:\Program Files (x86)\WINDOW~2\10\bin\100183~1.0\x64\rc.exe" --mt="C:\Program Files (x86)\WINDOW~2\10\bin\100183~1.0\x64\mt.exe" --manifests $MANIFESTS -- D:\PROGRA~2\MICROS~1\2019\ENTERP~1\VC\Tools\MSVC\1424~1.283\bin\Hostx64\x64\link.exe /nologo $in  /out:$TARGET_FILE /implib:$TARGET_IMPLIB /pdb:$TARGET_PDB /version:0.0  $LINK_FLAGS $LINK_PATH $LINK_LIBRARIES && $POST_BUILD"
   description = Linking CXX executable $TARGET_FILE
   restat = $RESTAT
 
@@ -579,7 +579,7 @@ rule CXX_EXECUTABLE_LINKER__11-overdrawcount
 
 rule CXX_COMPILER__12-particlesimulator
   deps = msvc
-  command = D:\program\VS\VC\Tools\MSVC\14.24.28314\bin\HostX64\x64\cl.exe  /nologo /TP $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
+  command = D:\PROGRA~2\MICROS~1\2019\ENTERP~1\VC\Tools\MSVC\1424~1.283\bin\HostX64\x64\cl.exe  /nologo /TP $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
   description = Building CXX object $out
 
 
@@ -587,7 +587,7 @@ rule CXX_COMPILER__12-particlesimulator
 # Rule for linking CXX executable.
 
 rule CXX_EXECUTABLE_LINKER__12-particlesimulator
-  command = cmd.exe /C "$PRE_LINK && D:\program\VS\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe -E vs_link_exe --intdir=$OBJECT_DIR --rc=C:\PROGRA~2\WINDOW~1\10\bin\100183~1.0\x64\rc.exe --mt=C:\PROGRA~2\WINDOW~1\10\bin\100183~1.0\x64\mt.exe --manifests $MANIFESTS -- D:\program\VS\VC\Tools\MSVC\14.24.28314\bin\Hostx64\x64\link.exe /nologo $in  /out:$TARGET_FILE /implib:$TARGET_IMPLIB /pdb:$TARGET_PDB /version:0.0  $LINK_FLAGS $LINK_PATH $LINK_LIBRARIES && $POST_BUILD"
+  command = cmd.exe /C "$PRE_LINK && "D:\ProgramFiles\Microsoft Visual Studio\2019\Enterprise\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E vs_link_exe --intdir=$OBJECT_DIR --rc="C:\Program Files (x86)\WINDOW~2\10\bin\100183~1.0\x64\rc.exe" --mt="C:\Program Files (x86)\WINDOW~2\10\bin\100183~1.0\x64\mt.exe" --manifests $MANIFESTS -- D:\PROGRA~2\MICROS~1\2019\ENTERP~1\VC\Tools\MSVC\1424~1.283\bin\Hostx64\x64\link.exe /nologo $in  /out:$TARGET_FILE /implib:$TARGET_IMPLIB /pdb:$TARGET_PDB /version:0.0  $LINK_FLAGS $LINK_PATH $LINK_LIBRARIES && $POST_BUILD"
   description = Linking CXX executable $TARGET_FILE
   restat = $RESTAT
 
@@ -597,7 +597,7 @@ rule CXX_EXECUTABLE_LINKER__12-particlesimulator
 
 rule CXX_COMPILER__12-raytracer
   deps = msvc
-  command = D:\program\VS\VC\Tools\MSVC\14.24.28314\bin\HostX64\x64\cl.exe  /nologo /TP $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
+  command = D:\PROGRA~2\MICROS~1\2019\ENTERP~1\VC\Tools\MSVC\1424~1.283\bin\HostX64\x64\cl.exe  /nologo /TP $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
   description = Building CXX object $out
 
 
@@ -605,7 +605,7 @@ rule CXX_COMPILER__12-raytracer
 # Rule for linking CXX executable.
 
 rule CXX_EXECUTABLE_LINKER__12-raytracer
-  command = cmd.exe /C "$PRE_LINK && D:\program\VS\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe -E vs_link_exe --intdir=$OBJECT_DIR --rc=C:\PROGRA~2\WINDOW~1\10\bin\100183~1.0\x64\rc.exe --mt=C:\PROGRA~2\WINDOW~1\10\bin\100183~1.0\x64\mt.exe --manifests $MANIFESTS -- D:\program\VS\VC\Tools\MSVC\14.24.28314\bin\Hostx64\x64\link.exe /nologo $in  /out:$TARGET_FILE /implib:$TARGET_IMPLIB /pdb:$TARGET_PDB /version:0.0  $LINK_FLAGS $LINK_PATH $LINK_LIBRARIES && $POST_BUILD"
+  command = cmd.exe /C "$PRE_LINK && "D:\ProgramFiles\Microsoft Visual Studio\2019\Enterprise\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E vs_link_exe --intdir=$OBJECT_DIR --rc="C:\Program Files (x86)\WINDOW~2\10\bin\100183~1.0\x64\rc.exe" --mt="C:\Program Files (x86)\WINDOW~2\10\bin\100183~1.0\x64\mt.exe" --manifests $MANIFESTS -- D:\PROGRA~2\MICROS~1\2019\ENTERP~1\VC\Tools\MSVC\1424~1.283\bin\Hostx64\x64\link.exe /nologo $in  /out:$TARGET_FILE /implib:$TARGET_IMPLIB /pdb:$TARGET_PDB /version:0.0  $LINK_FLAGS $LINK_PATH $LINK_LIBRARIES && $POST_BUILD"
   description = Linking CXX executable $TARGET_FILE
   restat = $RESTAT
 
@@ -615,7 +615,7 @@ rule CXX_EXECUTABLE_LINKER__12-raytracer
 
 rule CXX_COMPILER__12-simplecompute
   deps = msvc
-  command = D:\program\VS\VC\Tools\MSVC\14.24.28314\bin\HostX64\x64\cl.exe  /nologo /TP $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
+  command = D:\PROGRA~2\MICROS~1\2019\ENTERP~1\VC\Tools\MSVC\1424~1.283\bin\HostX64\x64\cl.exe  /nologo /TP $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
   description = Building CXX object $out
 
 
@@ -623,7 +623,7 @@ rule CXX_COMPILER__12-simplecompute
 # Rule for linking CXX executable.
 
 rule CXX_EXECUTABLE_LINKER__12-simplecompute
-  command = cmd.exe /C "$PRE_LINK && D:\program\VS\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe -E vs_link_exe --intdir=$OBJECT_DIR --rc=C:\PROGRA~2\WINDOW~1\10\bin\100183~1.0\x64\rc.exe --mt=C:\PROGRA~2\WINDOW~1\10\bin\100183~1.0\x64\mt.exe --manifests $MANIFESTS -- D:\program\VS\VC\Tools\MSVC\14.24.28314\bin\Hostx64\x64\link.exe /nologo $in  /out:$TARGET_FILE /implib:$TARGET_IMPLIB /pdb:$TARGET_PDB /version:0.0  $LINK_FLAGS $LINK_PATH $LINK_LIBRARIES && $POST_BUILD"
+  command = cmd.exe /C "$PRE_LINK && "D:\ProgramFiles\Microsoft Visual Studio\2019\Enterprise\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E vs_link_exe --intdir=$OBJECT_DIR --rc="C:\Program Files (x86)\WINDOW~2\10\bin\100183~1.0\x64\rc.exe" --mt="C:\Program Files (x86)\WINDOW~2\10\bin\100183~1.0\x64\mt.exe" --manifests $MANIFESTS -- D:\PROGRA~2\MICROS~1\2019\ENTERP~1\VC\Tools\MSVC\1424~1.283\bin\Hostx64\x64\link.exe /nologo $in  /out:$TARGET_FILE /implib:$TARGET_IMPLIB /pdb:$TARGET_PDB /version:0.0  $LINK_FLAGS $LINK_PATH $LINK_LIBRARIES && $POST_BUILD"
   description = Linking CXX executable $TARGET_FILE
   restat = $RESTAT
 
@@ -633,7 +633,7 @@ rule CXX_EXECUTABLE_LINKER__12-simplecompute
 
 rule C_COMPILER__glfw
   deps = msvc
-  command = D:\program\VS\VC\Tools\MSVC\14.24.28314\bin\HostX64\x64\cl.exe  /nologo $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
+  command = D:\PROGRA~2\MICROS~1\2019\ENTERP~1\VC\Tools\MSVC\1424~1.283\bin\HostX64\x64\cl.exe  /nologo $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
   description = Building C object $out
 
 
@@ -641,7 +641,7 @@ rule C_COMPILER__glfw
 # Rule for linking C static library.
 
 rule C_STATIC_LIBRARY_LINKER__glfw
-  command = cmd.exe /C "$PRE_LINK && D:\program\VS\VC\Tools\MSVC\14.24.28314\bin\Hostx64\x64\link.exe /lib /nologo $LINK_FLAGS /out:$TARGET_FILE $in  && $POST_BUILD"
+  command = cmd.exe /C "$PRE_LINK && D:\PROGRA~2\MICROS~1\2019\ENTERP~1\VC\Tools\MSVC\1424~1.283\bin\Hostx64\x64\link.exe /lib /nologo $LINK_FLAGS /out:$TARGET_FILE $in  && $POST_BUILD"
   description = Linking C static library $TARGET_FILE
   restat = $RESTAT
 
@@ -651,7 +651,7 @@ rule C_STATIC_LIBRARY_LINKER__glfw
 
 rule C_COMPILER__boing
   deps = msvc
-  command = D:\program\VS\VC\Tools\MSVC\14.24.28314\bin\HostX64\x64\cl.exe  /nologo $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
+  command = D:\PROGRA~2\MICROS~1\2019\ENTERP~1\VC\Tools\MSVC\1424~1.283\bin\HostX64\x64\cl.exe  /nologo $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
   description = Building C object $out
 
 
@@ -659,7 +659,7 @@ rule C_COMPILER__boing
 # Rule for linking C executable.
 
 rule C_EXECUTABLE_LINKER__boing
-  command = cmd.exe /C "$PRE_LINK && D:\program\VS\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe -E vs_link_exe --intdir=$OBJECT_DIR --rc=C:\PROGRA~2\WINDOW~1\10\bin\100183~1.0\x64\rc.exe --mt=C:\PROGRA~2\WINDOW~1\10\bin\100183~1.0\x64\mt.exe --manifests $MANIFESTS -- D:\program\VS\VC\Tools\MSVC\14.24.28314\bin\Hostx64\x64\link.exe /nologo $in  /out:$TARGET_FILE /implib:$TARGET_IMPLIB /pdb:$TARGET_PDB /version:0.0  $LINK_FLAGS $LINK_PATH $LINK_LIBRARIES && $POST_BUILD"
+  command = cmd.exe /C "$PRE_LINK && "D:\ProgramFiles\Microsoft Visual Studio\2019\Enterprise\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E vs_link_exe --intdir=$OBJECT_DIR --rc="C:\Program Files (x86)\WINDOW~2\10\bin\100183~1.0\x64\rc.exe" --mt="C:\Program Files (x86)\WINDOW~2\10\bin\100183~1.0\x64\mt.exe" --manifests $MANIFESTS -- D:\PROGRA~2\MICROS~1\2019\ENTERP~1\VC\Tools\MSVC\1424~1.283\bin\Hostx64\x64\link.exe /nologo $in  /out:$TARGET_FILE /implib:$TARGET_IMPLIB /pdb:$TARGET_PDB /version:0.0  $LINK_FLAGS $LINK_PATH $LINK_LIBRARIES && $POST_BUILD"
   description = Linking C executable $TARGET_FILE
   restat = $RESTAT
 
@@ -669,7 +669,7 @@ rule C_EXECUTABLE_LINKER__boing
 
 rule C_COMPILER__simple
   deps = msvc
-  command = D:\program\VS\VC\Tools\MSVC\14.24.28314\bin\HostX64\x64\cl.exe  /nologo $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
+  command = D:\PROGRA~2\MICROS~1\2019\ENTERP~1\VC\Tools\MSVC\1424~1.283\bin\HostX64\x64\cl.exe  /nologo $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
   description = Building C object $out
 
 
@@ -677,7 +677,7 @@ rule C_COMPILER__simple
 # Rule for linking C executable.
 
 rule C_EXECUTABLE_LINKER__simple
-  command = cmd.exe /C "$PRE_LINK && D:\program\VS\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe -E vs_link_exe --intdir=$OBJECT_DIR --rc=C:\PROGRA~2\WINDOW~1\10\bin\100183~1.0\x64\rc.exe --mt=C:\PROGRA~2\WINDOW~1\10\bin\100183~1.0\x64\mt.exe --manifests $MANIFESTS -- D:\program\VS\VC\Tools\MSVC\14.24.28314\bin\Hostx64\x64\link.exe /nologo $in  /out:$TARGET_FILE /implib:$TARGET_IMPLIB /pdb:$TARGET_PDB /version:0.0  $LINK_FLAGS $LINK_PATH $LINK_LIBRARIES && $POST_BUILD"
+  command = cmd.exe /C "$PRE_LINK && "D:\ProgramFiles\Microsoft Visual Studio\2019\Enterprise\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E vs_link_exe --intdir=$OBJECT_DIR --rc="C:\Program Files (x86)\WINDOW~2\10\bin\100183~1.0\x64\rc.exe" --mt="C:\Program Files (x86)\WINDOW~2\10\bin\100183~1.0\x64\mt.exe" --manifests $MANIFESTS -- D:\PROGRA~2\MICROS~1\2019\ENTERP~1\VC\Tools\MSVC\1424~1.283\bin\Hostx64\x64\link.exe /nologo $in  /out:$TARGET_FILE /implib:$TARGET_IMPLIB /pdb:$TARGET_PDB /version:0.0  $LINK_FLAGS $LINK_PATH $LINK_LIBRARIES && $POST_BUILD"
   description = Linking C executable $TARGET_FILE
   restat = $RESTAT
 
@@ -687,7 +687,7 @@ rule C_EXECUTABLE_LINKER__simple
 
 rule C_COMPILER__gears
   deps = msvc
-  command = D:\program\VS\VC\Tools\MSVC\14.24.28314\bin\HostX64\x64\cl.exe  /nologo $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
+  command = D:\PROGRA~2\MICROS~1\2019\ENTERP~1\VC\Tools\MSVC\1424~1.283\bin\HostX64\x64\cl.exe  /nologo $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
   description = Building C object $out
 
 
@@ -695,7 +695,7 @@ rule C_COMPILER__gears
 # Rule for linking C executable.
 
 rule C_EXECUTABLE_LINKER__gears
-  command = cmd.exe /C "$PRE_LINK && D:\program\VS\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe -E vs_link_exe --intdir=$OBJECT_DIR --rc=C:\PROGRA~2\WINDOW~1\10\bin\100183~1.0\x64\rc.exe --mt=C:\PROGRA~2\WINDOW~1\10\bin\100183~1.0\x64\mt.exe --manifests $MANIFESTS -- D:\program\VS\VC\Tools\MSVC\14.24.28314\bin\Hostx64\x64\link.exe /nologo $in  /out:$TARGET_FILE /implib:$TARGET_IMPLIB /pdb:$TARGET_PDB /version:0.0  $LINK_FLAGS $LINK_PATH $LINK_LIBRARIES && $POST_BUILD"
+  command = cmd.exe /C "$PRE_LINK && "D:\ProgramFiles\Microsoft Visual Studio\2019\Enterprise\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E vs_link_exe --intdir=$OBJECT_DIR --rc="C:\Program Files (x86)\WINDOW~2\10\bin\100183~1.0\x64\rc.exe" --mt="C:\Program Files (x86)\WINDOW~2\10\bin\100183~1.0\x64\mt.exe" --manifests $MANIFESTS -- D:\PROGRA~2\MICROS~1\2019\ENTERP~1\VC\Tools\MSVC\1424~1.283\bin\Hostx64\x64\link.exe /nologo $in  /out:$TARGET_FILE /implib:$TARGET_IMPLIB /pdb:$TARGET_PDB /version:0.0  $LINK_FLAGS $LINK_PATH $LINK_LIBRARIES && $POST_BUILD"
   description = Linking C executable $TARGET_FILE
   restat = $RESTAT
 
@@ -705,7 +705,7 @@ rule C_EXECUTABLE_LINKER__gears
 
 rule C_COMPILER__wave
   deps = msvc
-  command = D:\program\VS\VC\Tools\MSVC\14.24.28314\bin\HostX64\x64\cl.exe  /nologo $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
+  command = D:\PROGRA~2\MICROS~1\2019\ENTERP~1\VC\Tools\MSVC\1424~1.283\bin\HostX64\x64\cl.exe  /nologo $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
   description = Building C object $out
 
 
@@ -713,7 +713,7 @@ rule C_COMPILER__wave
 # Rule for linking C executable.
 
 rule C_EXECUTABLE_LINKER__wave
-  command = cmd.exe /C "$PRE_LINK && D:\program\VS\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe -E vs_link_exe --intdir=$OBJECT_DIR --rc=C:\PROGRA~2\WINDOW~1\10\bin\100183~1.0\x64\rc.exe --mt=C:\PROGRA~2\WINDOW~1\10\bin\100183~1.0\x64\mt.exe --manifests $MANIFESTS -- D:\program\VS\VC\Tools\MSVC\14.24.28314\bin\Hostx64\x64\link.exe /nologo $in  /out:$TARGET_FILE /implib:$TARGET_IMPLIB /pdb:$TARGET_PDB /version:0.0  $LINK_FLAGS $LINK_PATH $LINK_LIBRARIES && $POST_BUILD"
+  command = cmd.exe /C "$PRE_LINK && "D:\ProgramFiles\Microsoft Visual Studio\2019\Enterprise\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E vs_link_exe --intdir=$OBJECT_DIR --rc="C:\Program Files (x86)\WINDOW~2\10\bin\100183~1.0\x64\rc.exe" --mt="C:\Program Files (x86)\WINDOW~2\10\bin\100183~1.0\x64\mt.exe" --manifests $MANIFESTS -- D:\PROGRA~2\MICROS~1\2019\ENTERP~1\VC\Tools\MSVC\1424~1.283\bin\Hostx64\x64\link.exe /nologo $in  /out:$TARGET_FILE /implib:$TARGET_IMPLIB /pdb:$TARGET_PDB /version:0.0  $LINK_FLAGS $LINK_PATH $LINK_LIBRARIES && $POST_BUILD"
   description = Linking C executable $TARGET_FILE
   restat = $RESTAT
 
@@ -723,7 +723,7 @@ rule C_EXECUTABLE_LINKER__wave
 
 rule C_COMPILER__particles
   deps = msvc
-  command = D:\program\VS\VC\Tools\MSVC\14.24.28314\bin\HostX64\x64\cl.exe  /nologo $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
+  command = D:\PROGRA~2\MICROS~1\2019\ENTERP~1\VC\Tools\MSVC\1424~1.283\bin\HostX64\x64\cl.exe  /nologo $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
   description = Building C object $out
 
 
@@ -731,7 +731,7 @@ rule C_COMPILER__particles
 # Rule for linking C executable.
 
 rule C_EXECUTABLE_LINKER__particles
-  command = cmd.exe /C "$PRE_LINK && D:\program\VS\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe -E vs_link_exe --intdir=$OBJECT_DIR --rc=C:\PROGRA~2\WINDOW~1\10\bin\100183~1.0\x64\rc.exe --mt=C:\PROGRA~2\WINDOW~1\10\bin\100183~1.0\x64\mt.exe --manifests $MANIFESTS -- D:\program\VS\VC\Tools\MSVC\14.24.28314\bin\Hostx64\x64\link.exe /nologo $in  /out:$TARGET_FILE /implib:$TARGET_IMPLIB /pdb:$TARGET_PDB /version:0.0  $LINK_FLAGS $LINK_PATH $LINK_LIBRARIES && $POST_BUILD"
+  command = cmd.exe /C "$PRE_LINK && "D:\ProgramFiles\Microsoft Visual Studio\2019\Enterprise\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E vs_link_exe --intdir=$OBJECT_DIR --rc="C:\Program Files (x86)\WINDOW~2\10\bin\100183~1.0\x64\rc.exe" --mt="C:\Program Files (x86)\WINDOW~2\10\bin\100183~1.0\x64\mt.exe" --manifests $MANIFESTS -- D:\PROGRA~2\MICROS~1\2019\ENTERP~1\VC\Tools\MSVC\1424~1.283\bin\Hostx64\x64\link.exe /nologo $in  /out:$TARGET_FILE /implib:$TARGET_IMPLIB /pdb:$TARGET_PDB /version:0.0  $LINK_FLAGS $LINK_PATH $LINK_LIBRARIES && $POST_BUILD"
   description = Linking C executable $TARGET_FILE
   restat = $RESTAT
 
@@ -741,7 +741,7 @@ rule C_EXECUTABLE_LINKER__particles
 
 rule C_COMPILER__heightmap
   deps = msvc
-  command = D:\program\VS\VC\Tools\MSVC\14.24.28314\bin\HostX64\x64\cl.exe  /nologo $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
+  command = D:\PROGRA~2\MICROS~1\2019\ENTERP~1\VC\Tools\MSVC\1424~1.283\bin\HostX64\x64\cl.exe  /nologo $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
   description = Building C object $out
 
 
@@ -749,7 +749,7 @@ rule C_COMPILER__heightmap
 # Rule for linking C executable.
 
 rule C_EXECUTABLE_LINKER__heightmap
-  command = cmd.exe /C "$PRE_LINK && D:\program\VS\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe -E vs_link_exe --intdir=$OBJECT_DIR --rc=C:\PROGRA~2\WINDOW~1\10\bin\100183~1.0\x64\rc.exe --mt=C:\PROGRA~2\WINDOW~1\10\bin\100183~1.0\x64\mt.exe --manifests $MANIFESTS -- D:\program\VS\VC\Tools\MSVC\14.24.28314\bin\Hostx64\x64\link.exe /nologo $in  /out:$TARGET_FILE /implib:$TARGET_IMPLIB /pdb:$TARGET_PDB /version:0.0  $LINK_FLAGS $LINK_PATH $LINK_LIBRARIES && $POST_BUILD"
+  command = cmd.exe /C "$PRE_LINK && "D:\ProgramFiles\Microsoft Visual Studio\2019\Enterprise\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E vs_link_exe --intdir=$OBJECT_DIR --rc="C:\Program Files (x86)\WINDOW~2\10\bin\100183~1.0\x64\rc.exe" --mt="C:\Program Files (x86)\WINDOW~2\10\bin\100183~1.0\x64\mt.exe" --manifests $MANIFESTS -- D:\PROGRA~2\MICROS~1\2019\ENTERP~1\VC\Tools\MSVC\1424~1.283\bin\Hostx64\x64\link.exe /nologo $in  /out:$TARGET_FILE /implib:$TARGET_IMPLIB /pdb:$TARGET_PDB /version:0.0  $LINK_FLAGS $LINK_PATH $LINK_LIBRARIES && $POST_BUILD"
   description = Linking C executable $TARGET_FILE
   restat = $RESTAT
 
@@ -759,7 +759,7 @@ rule C_EXECUTABLE_LINKER__heightmap
 
 rule C_COMPILER__splitview
   deps = msvc
-  command = D:\program\VS\VC\Tools\MSVC\14.24.28314\bin\HostX64\x64\cl.exe  /nologo $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
+  command = D:\PROGRA~2\MICROS~1\2019\ENTERP~1\VC\Tools\MSVC\1424~1.283\bin\HostX64\x64\cl.exe  /nologo $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
   description = Building C object $out
 
 
@@ -767,7 +767,7 @@ rule C_COMPILER__splitview
 # Rule for linking C executable.
 
 rule C_EXECUTABLE_LINKER__splitview
-  command = cmd.exe /C "$PRE_LINK && D:\program\VS\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe -E vs_link_exe --intdir=$OBJECT_DIR --rc=C:\PROGRA~2\WINDOW~1\10\bin\100183~1.0\x64\rc.exe --mt=C:\PROGRA~2\WINDOW~1\10\bin\100183~1.0\x64\mt.exe --manifests $MANIFESTS -- D:\program\VS\VC\Tools\MSVC\14.24.28314\bin\Hostx64\x64\link.exe /nologo $in  /out:$TARGET_FILE /implib:$TARGET_IMPLIB /pdb:$TARGET_PDB /version:0.0  $LINK_FLAGS $LINK_PATH $LINK_LIBRARIES && $POST_BUILD"
+  command = cmd.exe /C "$PRE_LINK && "D:\ProgramFiles\Microsoft Visual Studio\2019\Enterprise\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E vs_link_exe --intdir=$OBJECT_DIR --rc="C:\Program Files (x86)\WINDOW~2\10\bin\100183~1.0\x64\rc.exe" --mt="C:\Program Files (x86)\WINDOW~2\10\bin\100183~1.0\x64\mt.exe" --manifests $MANIFESTS -- D:\PROGRA~2\MICROS~1\2019\ENTERP~1\VC\Tools\MSVC\1424~1.283\bin\Hostx64\x64\link.exe /nologo $in  /out:$TARGET_FILE /implib:$TARGET_IMPLIB /pdb:$TARGET_PDB /version:0.0  $LINK_FLAGS $LINK_PATH $LINK_LIBRARIES && $POST_BUILD"
   description = Linking C executable $TARGET_FILE
   restat = $RESTAT
 
@@ -777,7 +777,7 @@ rule C_EXECUTABLE_LINKER__splitview
 
 rule C_COMPILER__clipboard
   deps = msvc
-  command = D:\program\VS\VC\Tools\MSVC\14.24.28314\bin\HostX64\x64\cl.exe  /nologo $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
+  command = D:\PROGRA~2\MICROS~1\2019\ENTERP~1\VC\Tools\MSVC\1424~1.283\bin\HostX64\x64\cl.exe  /nologo $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
   description = Building C object $out
 
 
@@ -785,7 +785,7 @@ rule C_COMPILER__clipboard
 # Rule for linking C executable.
 
 rule C_EXECUTABLE_LINKER__clipboard
-  command = cmd.exe /C "$PRE_LINK && D:\program\VS\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe -E vs_link_exe --intdir=$OBJECT_DIR --rc=C:\PROGRA~2\WINDOW~1\10\bin\100183~1.0\x64\rc.exe --mt=C:\PROGRA~2\WINDOW~1\10\bin\100183~1.0\x64\mt.exe --manifests $MANIFESTS -- D:\program\VS\VC\Tools\MSVC\14.24.28314\bin\Hostx64\x64\link.exe /nologo $in  /out:$TARGET_FILE /implib:$TARGET_IMPLIB /pdb:$TARGET_PDB /version:0.0  $LINK_FLAGS $LINK_PATH $LINK_LIBRARIES && $POST_BUILD"
+  command = cmd.exe /C "$PRE_LINK && "D:\ProgramFiles\Microsoft Visual Studio\2019\Enterprise\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E vs_link_exe --intdir=$OBJECT_DIR --rc="C:\Program Files (x86)\WINDOW~2\10\bin\100183~1.0\x64\rc.exe" --mt="C:\Program Files (x86)\WINDOW~2\10\bin\100183~1.0\x64\mt.exe" --manifests $MANIFESTS -- D:\PROGRA~2\MICROS~1\2019\ENTERP~1\VC\Tools\MSVC\1424~1.283\bin\Hostx64\x64\link.exe /nologo $in  /out:$TARGET_FILE /implib:$TARGET_IMPLIB /pdb:$TARGET_PDB /version:0.0  $LINK_FLAGS $LINK_PATH $LINK_LIBRARIES && $POST_BUILD"
   description = Linking C executable $TARGET_FILE
   restat = $RESTAT
 
@@ -795,7 +795,7 @@ rule C_EXECUTABLE_LINKER__clipboard
 
 rule C_COMPILER__joysticks
   deps = msvc
-  command = D:\program\VS\VC\Tools\MSVC\14.24.28314\bin\HostX64\x64\cl.exe  /nologo $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
+  command = D:\PROGRA~2\MICROS~1\2019\ENTERP~1\VC\Tools\MSVC\1424~1.283\bin\HostX64\x64\cl.exe  /nologo $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
   description = Building C object $out
 
 
@@ -803,7 +803,7 @@ rule C_COMPILER__joysticks
 # Rule for linking C executable.
 
 rule C_EXECUTABLE_LINKER__joysticks
-  command = cmd.exe /C "$PRE_LINK && D:\program\VS\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe -E vs_link_exe --intdir=$OBJECT_DIR --rc=C:\PROGRA~2\WINDOW~1\10\bin\100183~1.0\x64\rc.exe --mt=C:\PROGRA~2\WINDOW~1\10\bin\100183~1.0\x64\mt.exe --manifests $MANIFESTS -- D:\program\VS\VC\Tools\MSVC\14.24.28314\bin\Hostx64\x64\link.exe /nologo $in  /out:$TARGET_FILE /implib:$TARGET_IMPLIB /pdb:$TARGET_PDB /version:0.0  $LINK_FLAGS $LINK_PATH $LINK_LIBRARIES && $POST_BUILD"
+  command = cmd.exe /C "$PRE_LINK && "D:\ProgramFiles\Microsoft Visual Studio\2019\Enterprise\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E vs_link_exe --intdir=$OBJECT_DIR --rc="C:\Program Files (x86)\WINDOW~2\10\bin\100183~1.0\x64\rc.exe" --mt="C:\Program Files (x86)\WINDOW~2\10\bin\100183~1.0\x64\mt.exe" --manifests $MANIFESTS -- D:\PROGRA~2\MICROS~1\2019\ENTERP~1\VC\Tools\MSVC\1424~1.283\bin\Hostx64\x64\link.exe /nologo $in  /out:$TARGET_FILE /implib:$TARGET_IMPLIB /pdb:$TARGET_PDB /version:0.0  $LINK_FLAGS $LINK_PATH $LINK_LIBRARIES && $POST_BUILD"
   description = Linking C executable $TARGET_FILE
   restat = $RESTAT
 
@@ -813,7 +813,7 @@ rule C_EXECUTABLE_LINKER__joysticks
 
 rule C_COMPILER__events
   deps = msvc
-  command = D:\program\VS\VC\Tools\MSVC\14.24.28314\bin\HostX64\x64\cl.exe  /nologo $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
+  command = D:\PROGRA~2\MICROS~1\2019\ENTERP~1\VC\Tools\MSVC\1424~1.283\bin\HostX64\x64\cl.exe  /nologo $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
   description = Building C object $out
 
 
@@ -821,7 +821,7 @@ rule C_COMPILER__events
 # Rule for linking C executable.
 
 rule C_EXECUTABLE_LINKER__events
-  command = cmd.exe /C "$PRE_LINK && D:\program\VS\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe -E vs_link_exe --intdir=$OBJECT_DIR --rc=C:\PROGRA~2\WINDOW~1\10\bin\100183~1.0\x64\rc.exe --mt=C:\PROGRA~2\WINDOW~1\10\bin\100183~1.0\x64\mt.exe --manifests $MANIFESTS -- D:\program\VS\VC\Tools\MSVC\14.24.28314\bin\Hostx64\x64\link.exe /nologo $in  /out:$TARGET_FILE /implib:$TARGET_IMPLIB /pdb:$TARGET_PDB /version:0.0  $LINK_FLAGS $LINK_PATH $LINK_LIBRARIES && $POST_BUILD"
+  command = cmd.exe /C "$PRE_LINK && "D:\ProgramFiles\Microsoft Visual Studio\2019\Enterprise\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E vs_link_exe --intdir=$OBJECT_DIR --rc="C:\Program Files (x86)\WINDOW~2\10\bin\100183~1.0\x64\rc.exe" --mt="C:\Program Files (x86)\WINDOW~2\10\bin\100183~1.0\x64\mt.exe" --manifests $MANIFESTS -- D:\PROGRA~2\MICROS~1\2019\ENTERP~1\VC\Tools\MSVC\1424~1.283\bin\Hostx64\x64\link.exe /nologo $in  /out:$TARGET_FILE /implib:$TARGET_IMPLIB /pdb:$TARGET_PDB /version:0.0  $LINK_FLAGS $LINK_PATH $LINK_LIBRARIES && $POST_BUILD"
   description = Linking C executable $TARGET_FILE
   restat = $RESTAT
 
@@ -831,7 +831,7 @@ rule C_EXECUTABLE_LINKER__events
 
 rule C_COMPILER__msaa
   deps = msvc
-  command = D:\program\VS\VC\Tools\MSVC\14.24.28314\bin\HostX64\x64\cl.exe  /nologo $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
+  command = D:\PROGRA~2\MICROS~1\2019\ENTERP~1\VC\Tools\MSVC\1424~1.283\bin\HostX64\x64\cl.exe  /nologo $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
   description = Building C object $out
 
 
@@ -839,7 +839,7 @@ rule C_COMPILER__msaa
 # Rule for linking C executable.
 
 rule C_EXECUTABLE_LINKER__msaa
-  command = cmd.exe /C "$PRE_LINK && D:\program\VS\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe -E vs_link_exe --intdir=$OBJECT_DIR --rc=C:\PROGRA~2\WINDOW~1\10\bin\100183~1.0\x64\rc.exe --mt=C:\PROGRA~2\WINDOW~1\10\bin\100183~1.0\x64\mt.exe --manifests $MANIFESTS -- D:\program\VS\VC\Tools\MSVC\14.24.28314\bin\Hostx64\x64\link.exe /nologo $in  /out:$TARGET_FILE /implib:$TARGET_IMPLIB /pdb:$TARGET_PDB /version:0.0  $LINK_FLAGS $LINK_PATH $LINK_LIBRARIES && $POST_BUILD"
+  command = cmd.exe /C "$PRE_LINK && "D:\ProgramFiles\Microsoft Visual Studio\2019\Enterprise\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E vs_link_exe --intdir=$OBJECT_DIR --rc="C:\Program Files (x86)\WINDOW~2\10\bin\100183~1.0\x64\rc.exe" --mt="C:\Program Files (x86)\WINDOW~2\10\bin\100183~1.0\x64\mt.exe" --manifests $MANIFESTS -- D:\PROGRA~2\MICROS~1\2019\ENTERP~1\VC\Tools\MSVC\1424~1.283\bin\Hostx64\x64\link.exe /nologo $in  /out:$TARGET_FILE /implib:$TARGET_IMPLIB /pdb:$TARGET_PDB /version:0.0  $LINK_FLAGS $LINK_PATH $LINK_LIBRARIES && $POST_BUILD"
   description = Linking C executable $TARGET_FILE
   restat = $RESTAT
 
@@ -849,7 +849,7 @@ rule C_EXECUTABLE_LINKER__msaa
 
 rule C_COMPILER__iconify
   deps = msvc
-  command = D:\program\VS\VC\Tools\MSVC\14.24.28314\bin\HostX64\x64\cl.exe  /nologo $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
+  command = D:\PROGRA~2\MICROS~1\2019\ENTERP~1\VC\Tools\MSVC\1424~1.283\bin\HostX64\x64\cl.exe  /nologo $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
   description = Building C object $out
 
 
@@ -857,7 +857,7 @@ rule C_COMPILER__iconify
 # Rule for linking C executable.
 
 rule C_EXECUTABLE_LINKER__iconify
-  command = cmd.exe /C "$PRE_LINK && D:\program\VS\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe -E vs_link_exe --intdir=$OBJECT_DIR --rc=C:\PROGRA~2\WINDOW~1\10\bin\100183~1.0\x64\rc.exe --mt=C:\PROGRA~2\WINDOW~1\10\bin\100183~1.0\x64\mt.exe --manifests $MANIFESTS -- D:\program\VS\VC\Tools\MSVC\14.24.28314\bin\Hostx64\x64\link.exe /nologo $in  /out:$TARGET_FILE /implib:$TARGET_IMPLIB /pdb:$TARGET_PDB /version:0.0  $LINK_FLAGS $LINK_PATH $LINK_LIBRARIES && $POST_BUILD"
+  command = cmd.exe /C "$PRE_LINK && "D:\ProgramFiles\Microsoft Visual Studio\2019\Enterprise\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E vs_link_exe --intdir=$OBJECT_DIR --rc="C:\Program Files (x86)\WINDOW~2\10\bin\100183~1.0\x64\rc.exe" --mt="C:\Program Files (x86)\WINDOW~2\10\bin\100183~1.0\x64\mt.exe" --manifests $MANIFESTS -- D:\PROGRA~2\MICROS~1\2019\ENTERP~1\VC\Tools\MSVC\1424~1.283\bin\Hostx64\x64\link.exe /nologo $in  /out:$TARGET_FILE /implib:$TARGET_IMPLIB /pdb:$TARGET_PDB /version:0.0  $LINK_FLAGS $LINK_PATH $LINK_LIBRARIES && $POST_BUILD"
   description = Linking C executable $TARGET_FILE
   restat = $RESTAT
 
@@ -867,7 +867,7 @@ rule C_EXECUTABLE_LINKER__iconify
 
 rule C_COMPILER__gamma
   deps = msvc
-  command = D:\program\VS\VC\Tools\MSVC\14.24.28314\bin\HostX64\x64\cl.exe  /nologo $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
+  command = D:\PROGRA~2\MICROS~1\2019\ENTERP~1\VC\Tools\MSVC\1424~1.283\bin\HostX64\x64\cl.exe  /nologo $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
   description = Building C object $out
 
 
@@ -875,7 +875,7 @@ rule C_COMPILER__gamma
 # Rule for linking C executable.
 
 rule C_EXECUTABLE_LINKER__gamma
-  command = cmd.exe /C "$PRE_LINK && D:\program\VS\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe -E vs_link_exe --intdir=$OBJECT_DIR --rc=C:\PROGRA~2\WINDOW~1\10\bin\100183~1.0\x64\rc.exe --mt=C:\PROGRA~2\WINDOW~1\10\bin\100183~1.0\x64\mt.exe --manifests $MANIFESTS -- D:\program\VS\VC\Tools\MSVC\14.24.28314\bin\Hostx64\x64\link.exe /nologo $in  /out:$TARGET_FILE /implib:$TARGET_IMPLIB /pdb:$TARGET_PDB /version:0.0  $LINK_FLAGS $LINK_PATH $LINK_LIBRARIES && $POST_BUILD"
+  command = cmd.exe /C "$PRE_LINK && "D:\ProgramFiles\Microsoft Visual Studio\2019\Enterprise\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E vs_link_exe --intdir=$OBJECT_DIR --rc="C:\Program Files (x86)\WINDOW~2\10\bin\100183~1.0\x64\rc.exe" --mt="C:\Program Files (x86)\WINDOW~2\10\bin\100183~1.0\x64\mt.exe" --manifests $MANIFESTS -- D:\PROGRA~2\MICROS~1\2019\ENTERP~1\VC\Tools\MSVC\1424~1.283\bin\Hostx64\x64\link.exe /nologo $in  /out:$TARGET_FILE /implib:$TARGET_IMPLIB /pdb:$TARGET_PDB /version:0.0  $LINK_FLAGS $LINK_PATH $LINK_LIBRARIES && $POST_BUILD"
   description = Linking C executable $TARGET_FILE
   restat = $RESTAT
 
@@ -885,7 +885,7 @@ rule C_EXECUTABLE_LINKER__gamma
 
 rule C_COMPILER__glfwinfo
   deps = msvc
-  command = D:\program\VS\VC\Tools\MSVC\14.24.28314\bin\HostX64\x64\cl.exe  /nologo $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
+  command = D:\PROGRA~2\MICROS~1\2019\ENTERP~1\VC\Tools\MSVC\1424~1.283\bin\HostX64\x64\cl.exe  /nologo $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
   description = Building C object $out
 
 
@@ -893,7 +893,7 @@ rule C_COMPILER__glfwinfo
 # Rule for linking C executable.
 
 rule C_EXECUTABLE_LINKER__glfwinfo
-  command = cmd.exe /C "$PRE_LINK && D:\program\VS\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe -E vs_link_exe --intdir=$OBJECT_DIR --rc=C:\PROGRA~2\WINDOW~1\10\bin\100183~1.0\x64\rc.exe --mt=C:\PROGRA~2\WINDOW~1\10\bin\100183~1.0\x64\mt.exe --manifests $MANIFESTS -- D:\program\VS\VC\Tools\MSVC\14.24.28314\bin\Hostx64\x64\link.exe /nologo $in  /out:$TARGET_FILE /implib:$TARGET_IMPLIB /pdb:$TARGET_PDB /version:0.0  $LINK_FLAGS $LINK_PATH $LINK_LIBRARIES && $POST_BUILD"
+  command = cmd.exe /C "$PRE_LINK && "D:\ProgramFiles\Microsoft Visual Studio\2019\Enterprise\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E vs_link_exe --intdir=$OBJECT_DIR --rc="C:\Program Files (x86)\WINDOW~2\10\bin\100183~1.0\x64\rc.exe" --mt="C:\Program Files (x86)\WINDOW~2\10\bin\100183~1.0\x64\mt.exe" --manifests $MANIFESTS -- D:\PROGRA~2\MICROS~1\2019\ENTERP~1\VC\Tools\MSVC\1424~1.283\bin\Hostx64\x64\link.exe /nologo $in  /out:$TARGET_FILE /implib:$TARGET_IMPLIB /pdb:$TARGET_PDB /version:0.0  $LINK_FLAGS $LINK_PATH $LINK_LIBRARIES && $POST_BUILD"
   description = Linking C executable $TARGET_FILE
   restat = $RESTAT
 
@@ -903,7 +903,7 @@ rule C_EXECUTABLE_LINKER__glfwinfo
 
 rule C_COMPILER__monitors
   deps = msvc
-  command = D:\program\VS\VC\Tools\MSVC\14.24.28314\bin\HostX64\x64\cl.exe  /nologo $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
+  command = D:\PROGRA~2\MICROS~1\2019\ENTERP~1\VC\Tools\MSVC\1424~1.283\bin\HostX64\x64\cl.exe  /nologo $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
   description = Building C object $out
 
 
@@ -911,7 +911,7 @@ rule C_COMPILER__monitors
 # Rule for linking C executable.
 
 rule C_EXECUTABLE_LINKER__monitors
-  command = cmd.exe /C "$PRE_LINK && D:\program\VS\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe -E vs_link_exe --intdir=$OBJECT_DIR --rc=C:\PROGRA~2\WINDOW~1\10\bin\100183~1.0\x64\rc.exe --mt=C:\PROGRA~2\WINDOW~1\10\bin\100183~1.0\x64\mt.exe --manifests $MANIFESTS -- D:\program\VS\VC\Tools\MSVC\14.24.28314\bin\Hostx64\x64\link.exe /nologo $in  /out:$TARGET_FILE /implib:$TARGET_IMPLIB /pdb:$TARGET_PDB /version:0.0  $LINK_FLAGS $LINK_PATH $LINK_LIBRARIES && $POST_BUILD"
+  command = cmd.exe /C "$PRE_LINK && "D:\ProgramFiles\Microsoft Visual Studio\2019\Enterprise\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E vs_link_exe --intdir=$OBJECT_DIR --rc="C:\Program Files (x86)\WINDOW~2\10\bin\100183~1.0\x64\rc.exe" --mt="C:\Program Files (x86)\WINDOW~2\10\bin\100183~1.0\x64\mt.exe" --manifests $MANIFESTS -- D:\PROGRA~2\MICROS~1\2019\ENTERP~1\VC\Tools\MSVC\1424~1.283\bin\Hostx64\x64\link.exe /nologo $in  /out:$TARGET_FILE /implib:$TARGET_IMPLIB /pdb:$TARGET_PDB /version:0.0  $LINK_FLAGS $LINK_PATH $LINK_LIBRARIES && $POST_BUILD"
   description = Linking C executable $TARGET_FILE
   restat = $RESTAT
 
@@ -921,7 +921,7 @@ rule C_EXECUTABLE_LINKER__monitors
 
 rule C_COMPILER__reopen
   deps = msvc
-  command = D:\program\VS\VC\Tools\MSVC\14.24.28314\bin\HostX64\x64\cl.exe  /nologo $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
+  command = D:\PROGRA~2\MICROS~1\2019\ENTERP~1\VC\Tools\MSVC\1424~1.283\bin\HostX64\x64\cl.exe  /nologo $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
   description = Building C object $out
 
 
@@ -929,7 +929,7 @@ rule C_COMPILER__reopen
 # Rule for linking C executable.
 
 rule C_EXECUTABLE_LINKER__reopen
-  command = cmd.exe /C "$PRE_LINK && D:\program\VS\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe -E vs_link_exe --intdir=$OBJECT_DIR --rc=C:\PROGRA~2\WINDOW~1\10\bin\100183~1.0\x64\rc.exe --mt=C:\PROGRA~2\WINDOW~1\10\bin\100183~1.0\x64\mt.exe --manifests $MANIFESTS -- D:\program\VS\VC\Tools\MSVC\14.24.28314\bin\Hostx64\x64\link.exe /nologo $in  /out:$TARGET_FILE /implib:$TARGET_IMPLIB /pdb:$TARGET_PDB /version:0.0  $LINK_FLAGS $LINK_PATH $LINK_LIBRARIES && $POST_BUILD"
+  command = cmd.exe /C "$PRE_LINK && "D:\ProgramFiles\Microsoft Visual Studio\2019\Enterprise\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E vs_link_exe --intdir=$OBJECT_DIR --rc="C:\Program Files (x86)\WINDOW~2\10\bin\100183~1.0\x64\rc.exe" --mt="C:\Program Files (x86)\WINDOW~2\10\bin\100183~1.0\x64\mt.exe" --manifests $MANIFESTS -- D:\PROGRA~2\MICROS~1\2019\ENTERP~1\VC\Tools\MSVC\1424~1.283\bin\Hostx64\x64\link.exe /nologo $in  /out:$TARGET_FILE /implib:$TARGET_IMPLIB /pdb:$TARGET_PDB /version:0.0  $LINK_FLAGS $LINK_PATH $LINK_LIBRARIES && $POST_BUILD"
   description = Linking C executable $TARGET_FILE
   restat = $RESTAT
 
@@ -939,7 +939,7 @@ rule C_EXECUTABLE_LINKER__reopen
 
 rule C_COMPILER__cursor
   deps = msvc
-  command = D:\program\VS\VC\Tools\MSVC\14.24.28314\bin\HostX64\x64\cl.exe  /nologo $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
+  command = D:\PROGRA~2\MICROS~1\2019\ENTERP~1\VC\Tools\MSVC\1424~1.283\bin\HostX64\x64\cl.exe  /nologo $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
   description = Building C object $out
 
 
@@ -947,7 +947,7 @@ rule C_COMPILER__cursor
 # Rule for linking C executable.
 
 rule C_EXECUTABLE_LINKER__cursor
-  command = cmd.exe /C "$PRE_LINK && D:\program\VS\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe -E vs_link_exe --intdir=$OBJECT_DIR --rc=C:\PROGRA~2\WINDOW~1\10\bin\100183~1.0\x64\rc.exe --mt=C:\PROGRA~2\WINDOW~1\10\bin\100183~1.0\x64\mt.exe --manifests $MANIFESTS -- D:\program\VS\VC\Tools\MSVC\14.24.28314\bin\Hostx64\x64\link.exe /nologo $in  /out:$TARGET_FILE /implib:$TARGET_IMPLIB /pdb:$TARGET_PDB /version:0.0  $LINK_FLAGS $LINK_PATH $LINK_LIBRARIES && $POST_BUILD"
+  command = cmd.exe /C "$PRE_LINK && "D:\ProgramFiles\Microsoft Visual Studio\2019\Enterprise\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E vs_link_exe --intdir=$OBJECT_DIR --rc="C:\Program Files (x86)\WINDOW~2\10\bin\100183~1.0\x64\rc.exe" --mt="C:\Program Files (x86)\WINDOW~2\10\bin\100183~1.0\x64\mt.exe" --manifests $MANIFESTS -- D:\PROGRA~2\MICROS~1\2019\ENTERP~1\VC\Tools\MSVC\1424~1.283\bin\Hostx64\x64\link.exe /nologo $in  /out:$TARGET_FILE /implib:$TARGET_IMPLIB /pdb:$TARGET_PDB /version:0.0  $LINK_FLAGS $LINK_PATH $LINK_LIBRARIES && $POST_BUILD"
   description = Linking C executable $TARGET_FILE
   restat = $RESTAT
 
@@ -957,7 +957,7 @@ rule C_EXECUTABLE_LINKER__cursor
 
 rule C_COMPILER__empty
   deps = msvc
-  command = D:\program\VS\VC\Tools\MSVC\14.24.28314\bin\HostX64\x64\cl.exe  /nologo $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
+  command = D:\PROGRA~2\MICROS~1\2019\ENTERP~1\VC\Tools\MSVC\1424~1.283\bin\HostX64\x64\cl.exe  /nologo $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
   description = Building C object $out
 
 
@@ -965,7 +965,7 @@ rule C_COMPILER__empty
 # Rule for linking C executable.
 
 rule C_EXECUTABLE_LINKER__empty
-  command = cmd.exe /C "$PRE_LINK && D:\program\VS\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe -E vs_link_exe --intdir=$OBJECT_DIR --rc=C:\PROGRA~2\WINDOW~1\10\bin\100183~1.0\x64\rc.exe --mt=C:\PROGRA~2\WINDOW~1\10\bin\100183~1.0\x64\mt.exe --manifests $MANIFESTS -- D:\program\VS\VC\Tools\MSVC\14.24.28314\bin\Hostx64\x64\link.exe /nologo $in  /out:$TARGET_FILE /implib:$TARGET_IMPLIB /pdb:$TARGET_PDB /version:0.0  $LINK_FLAGS $LINK_PATH $LINK_LIBRARIES && $POST_BUILD"
+  command = cmd.exe /C "$PRE_LINK && "D:\ProgramFiles\Microsoft Visual Studio\2019\Enterprise\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E vs_link_exe --intdir=$OBJECT_DIR --rc="C:\Program Files (x86)\WINDOW~2\10\bin\100183~1.0\x64\rc.exe" --mt="C:\Program Files (x86)\WINDOW~2\10\bin\100183~1.0\x64\mt.exe" --manifests $MANIFESTS -- D:\PROGRA~2\MICROS~1\2019\ENTERP~1\VC\Tools\MSVC\1424~1.283\bin\Hostx64\x64\link.exe /nologo $in  /out:$TARGET_FILE /implib:$TARGET_IMPLIB /pdb:$TARGET_PDB /version:0.0  $LINK_FLAGS $LINK_PATH $LINK_LIBRARIES && $POST_BUILD"
   description = Linking C executable $TARGET_FILE
   restat = $RESTAT
 
@@ -975,7 +975,7 @@ rule C_EXECUTABLE_LINKER__empty
 
 rule C_COMPILER__sharing
   deps = msvc
-  command = D:\program\VS\VC\Tools\MSVC\14.24.28314\bin\HostX64\x64\cl.exe  /nologo $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
+  command = D:\PROGRA~2\MICROS~1\2019\ENTERP~1\VC\Tools\MSVC\1424~1.283\bin\HostX64\x64\cl.exe  /nologo $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
   description = Building C object $out
 
 
@@ -983,7 +983,7 @@ rule C_COMPILER__sharing
 # Rule for linking C executable.
 
 rule C_EXECUTABLE_LINKER__sharing
-  command = cmd.exe /C "$PRE_LINK && D:\program\VS\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe -E vs_link_exe --intdir=$OBJECT_DIR --rc=C:\PROGRA~2\WINDOW~1\10\bin\100183~1.0\x64\rc.exe --mt=C:\PROGRA~2\WINDOW~1\10\bin\100183~1.0\x64\mt.exe --manifests $MANIFESTS -- D:\program\VS\VC\Tools\MSVC\14.24.28314\bin\Hostx64\x64\link.exe /nologo $in  /out:$TARGET_FILE /implib:$TARGET_IMPLIB /pdb:$TARGET_PDB /version:0.0  $LINK_FLAGS $LINK_PATH $LINK_LIBRARIES && $POST_BUILD"
+  command = cmd.exe /C "$PRE_LINK && "D:\ProgramFiles\Microsoft Visual Studio\2019\Enterprise\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E vs_link_exe --intdir=$OBJECT_DIR --rc="C:\Program Files (x86)\WINDOW~2\10\bin\100183~1.0\x64\rc.exe" --mt="C:\Program Files (x86)\WINDOW~2\10\bin\100183~1.0\x64\mt.exe" --manifests $MANIFESTS -- D:\PROGRA~2\MICROS~1\2019\ENTERP~1\VC\Tools\MSVC\1424~1.283\bin\Hostx64\x64\link.exe /nologo $in  /out:$TARGET_FILE /implib:$TARGET_IMPLIB /pdb:$TARGET_PDB /version:0.0  $LINK_FLAGS $LINK_PATH $LINK_LIBRARIES && $POST_BUILD"
   description = Linking C executable $TARGET_FILE
   restat = $RESTAT
 
@@ -993,7 +993,7 @@ rule C_EXECUTABLE_LINKER__sharing
 
 rule C_COMPILER__tearing
   deps = msvc
-  command = D:\program\VS\VC\Tools\MSVC\14.24.28314\bin\HostX64\x64\cl.exe  /nologo $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
+  command = D:\PROGRA~2\MICROS~1\2019\ENTERP~1\VC\Tools\MSVC\1424~1.283\bin\HostX64\x64\cl.exe  /nologo $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
   description = Building C object $out
 
 
@@ -1001,7 +1001,7 @@ rule C_COMPILER__tearing
 # Rule for linking C executable.
 
 rule C_EXECUTABLE_LINKER__tearing
-  command = cmd.exe /C "$PRE_LINK && D:\program\VS\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe -E vs_link_exe --intdir=$OBJECT_DIR --rc=C:\PROGRA~2\WINDOW~1\10\bin\100183~1.0\x64\rc.exe --mt=C:\PROGRA~2\WINDOW~1\10\bin\100183~1.0\x64\mt.exe --manifests $MANIFESTS -- D:\program\VS\VC\Tools\MSVC\14.24.28314\bin\Hostx64\x64\link.exe /nologo $in  /out:$TARGET_FILE /implib:$TARGET_IMPLIB /pdb:$TARGET_PDB /version:0.0  $LINK_FLAGS $LINK_PATH $LINK_LIBRARIES && $POST_BUILD"
+  command = cmd.exe /C "$PRE_LINK && "D:\ProgramFiles\Microsoft Visual Studio\2019\Enterprise\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E vs_link_exe --intdir=$OBJECT_DIR --rc="C:\Program Files (x86)\WINDOW~2\10\bin\100183~1.0\x64\rc.exe" --mt="C:\Program Files (x86)\WINDOW~2\10\bin\100183~1.0\x64\mt.exe" --manifests $MANIFESTS -- D:\PROGRA~2\MICROS~1\2019\ENTERP~1\VC\Tools\MSVC\1424~1.283\bin\Hostx64\x64\link.exe /nologo $in  /out:$TARGET_FILE /implib:$TARGET_IMPLIB /pdb:$TARGET_PDB /version:0.0  $LINK_FLAGS $LINK_PATH $LINK_LIBRARIES && $POST_BUILD"
   description = Linking C executable $TARGET_FILE
   restat = $RESTAT
 
@@ -1011,7 +1011,7 @@ rule C_EXECUTABLE_LINKER__tearing
 
 rule C_COMPILER__threads
   deps = msvc
-  command = D:\program\VS\VC\Tools\MSVC\14.24.28314\bin\HostX64\x64\cl.exe  /nologo $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
+  command = D:\PROGRA~2\MICROS~1\2019\ENTERP~1\VC\Tools\MSVC\1424~1.283\bin\HostX64\x64\cl.exe  /nologo $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
   description = Building C object $out
 
 
@@ -1019,7 +1019,7 @@ rule C_COMPILER__threads
 # Rule for linking C executable.
 
 rule C_EXECUTABLE_LINKER__threads
-  command = cmd.exe /C "$PRE_LINK && D:\program\VS\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe -E vs_link_exe --intdir=$OBJECT_DIR --rc=C:\PROGRA~2\WINDOW~1\10\bin\100183~1.0\x64\rc.exe --mt=C:\PROGRA~2\WINDOW~1\10\bin\100183~1.0\x64\mt.exe --manifests $MANIFESTS -- D:\program\VS\VC\Tools\MSVC\14.24.28314\bin\Hostx64\x64\link.exe /nologo $in  /out:$TARGET_FILE /implib:$TARGET_IMPLIB /pdb:$TARGET_PDB /version:0.0  $LINK_FLAGS $LINK_PATH $LINK_LIBRARIES && $POST_BUILD"
+  command = cmd.exe /C "$PRE_LINK && "D:\ProgramFiles\Microsoft Visual Studio\2019\Enterprise\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E vs_link_exe --intdir=$OBJECT_DIR --rc="C:\Program Files (x86)\WINDOW~2\10\bin\100183~1.0\x64\rc.exe" --mt="C:\Program Files (x86)\WINDOW~2\10\bin\100183~1.0\x64\mt.exe" --manifests $MANIFESTS -- D:\PROGRA~2\MICROS~1\2019\ENTERP~1\VC\Tools\MSVC\1424~1.283\bin\Hostx64\x64\link.exe /nologo $in  /out:$TARGET_FILE /implib:$TARGET_IMPLIB /pdb:$TARGET_PDB /version:0.0  $LINK_FLAGS $LINK_PATH $LINK_LIBRARIES && $POST_BUILD"
   description = Linking C executable $TARGET_FILE
   restat = $RESTAT
 
@@ -1029,7 +1029,7 @@ rule C_EXECUTABLE_LINKER__threads
 
 rule C_COMPILER__title
   deps = msvc
-  command = D:\program\VS\VC\Tools\MSVC\14.24.28314\bin\HostX64\x64\cl.exe  /nologo $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
+  command = D:\PROGRA~2\MICROS~1\2019\ENTERP~1\VC\Tools\MSVC\1424~1.283\bin\HostX64\x64\cl.exe  /nologo $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
   description = Building C object $out
 
 
@@ -1037,7 +1037,7 @@ rule C_COMPILER__title
 # Rule for linking C executable.
 
 rule C_EXECUTABLE_LINKER__title
-  command = cmd.exe /C "$PRE_LINK && D:\program\VS\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe -E vs_link_exe --intdir=$OBJECT_DIR --rc=C:\PROGRA~2\WINDOW~1\10\bin\100183~1.0\x64\rc.exe --mt=C:\PROGRA~2\WINDOW~1\10\bin\100183~1.0\x64\mt.exe --manifests $MANIFESTS -- D:\program\VS\VC\Tools\MSVC\14.24.28314\bin\Hostx64\x64\link.exe /nologo $in  /out:$TARGET_FILE /implib:$TARGET_IMPLIB /pdb:$TARGET_PDB /version:0.0  $LINK_FLAGS $LINK_PATH $LINK_LIBRARIES && $POST_BUILD"
+  command = cmd.exe /C "$PRE_LINK && "D:\ProgramFiles\Microsoft Visual Studio\2019\Enterprise\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E vs_link_exe --intdir=$OBJECT_DIR --rc="C:\Program Files (x86)\WINDOW~2\10\bin\100183~1.0\x64\rc.exe" --mt="C:\Program Files (x86)\WINDOW~2\10\bin\100183~1.0\x64\mt.exe" --manifests $MANIFESTS -- D:\PROGRA~2\MICROS~1\2019\ENTERP~1\VC\Tools\MSVC\1424~1.283\bin\Hostx64\x64\link.exe /nologo $in  /out:$TARGET_FILE /implib:$TARGET_IMPLIB /pdb:$TARGET_PDB /version:0.0  $LINK_FLAGS $LINK_PATH $LINK_LIBRARIES && $POST_BUILD"
   description = Linking C executable $TARGET_FILE
   restat = $RESTAT
 
@@ -1047,7 +1047,7 @@ rule C_EXECUTABLE_LINKER__title
 
 rule C_COMPILER__windows
   deps = msvc
-  command = D:\program\VS\VC\Tools\MSVC\14.24.28314\bin\HostX64\x64\cl.exe  /nologo $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
+  command = D:\PROGRA~2\MICROS~1\2019\ENTERP~1\VC\Tools\MSVC\1424~1.283\bin\HostX64\x64\cl.exe  /nologo $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
   description = Building C object $out
 
 
@@ -1055,7 +1055,7 @@ rule C_COMPILER__windows
 # Rule for linking C executable.
 
 rule C_EXECUTABLE_LINKER__windows
-  command = cmd.exe /C "$PRE_LINK && D:\program\VS\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe -E vs_link_exe --intdir=$OBJECT_DIR --rc=C:\PROGRA~2\WINDOW~1\10\bin\100183~1.0\x64\rc.exe --mt=C:\PROGRA~2\WINDOW~1\10\bin\100183~1.0\x64\mt.exe --manifests $MANIFESTS -- D:\program\VS\VC\Tools\MSVC\14.24.28314\bin\Hostx64\x64\link.exe /nologo $in  /out:$TARGET_FILE /implib:$TARGET_IMPLIB /pdb:$TARGET_PDB /version:0.0  $LINK_FLAGS $LINK_PATH $LINK_LIBRARIES && $POST_BUILD"
+  command = cmd.exe /C "$PRE_LINK && "D:\ProgramFiles\Microsoft Visual Studio\2019\Enterprise\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E vs_link_exe --intdir=$OBJECT_DIR --rc="C:\Program Files (x86)\WINDOW~2\10\bin\100183~1.0\x64\rc.exe" --mt="C:\Program Files (x86)\WINDOW~2\10\bin\100183~1.0\x64\mt.exe" --manifests $MANIFESTS -- D:\PROGRA~2\MICROS~1\2019\ENTERP~1\VC\Tools\MSVC\1424~1.283\bin\Hostx64\x64\link.exe /nologo $in  /out:$TARGET_FILE /implib:$TARGET_IMPLIB /pdb:$TARGET_PDB /version:0.0  $LINK_FLAGS $LINK_PATH $LINK_LIBRARIES && $POST_BUILD"
   description = Linking C executable $TARGET_FILE
   restat = $RESTAT
 
@@ -1064,7 +1064,7 @@ rule C_EXECUTABLE_LINKER__windows
 # Rule for re-running cmake.
 
 rule RERUN_CMAKE
-  command = D:\program\VS\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe -SE:\opengl\routines -BE:\opengl\routines\out\build\x64-Debug
+  command = "D:\ProgramFiles\Microsoft Visual Studio\2019\Enterprise\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -SE:\opengl\routines -BE:\opengl\routines\out\build\x64-Debug
   description = Re-running CMake...
   generator = 1
 
@@ -1073,7 +1073,7 @@ rule RERUN_CMAKE
 # Rule for cleaning all built files.
 
 rule CLEAN
-  command = D:\PROGRAM\VS\COMMON7\IDE\COMMONEXTENSIONS\MICROSOFT\CMAKE\Ninja\ninja.exe -t clean
+  command = "D:\ProgramFiles\Microsoft Visual Studio\2019\Enterprise\Common7\IDE\CommonExtensions\Microsoft\CMake\Ninja\ninja.exe" -t clean
   description = Cleaning all built files...
 
 
@@ -1081,6 +1081,6 @@ rule CLEAN
 # Rule for printing all primary targets available.
 
 rule HELP
-  command = D:\PROGRAM\VS\COMMON7\IDE\COMMONEXTENSIONS\MICROSOFT\CMAKE\Ninja\ninja.exe -t targets
+  command = "D:\ProgramFiles\Microsoft Visual Studio\2019\Enterprise\Common7\IDE\CommonExtensions\Microsoft\CMake\Ninja\ninja.exe" -t targets
   description = All primary targets available:
 

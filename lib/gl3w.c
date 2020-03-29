@@ -518,6 +518,7 @@ PFNGLENDQUERYINDEXEDPROC gl3wEndQueryIndexed;
 PFNGLGETQUERYINDEXEDIVPROC gl3wGetQueryIndexediv;
 PFNGLRELEASESHADERCOMPILERPROC gl3wReleaseShaderCompiler;
 PFNGLSHADERBINARYPROC gl3wShaderBinary;
+PFNGLSPECIALIZESHADERPROC gl3wSpecializeShader;
 PFNGLGETSHADERPRECISIONFORMATPROC gl3wGetShaderPrecisionFormat;
 PFNGLDEPTHRANGEFPROC gl3wDepthRangef;
 PFNGLCLEARDEPTHFPROC gl3wClearDepthf;
@@ -1221,6 +1222,7 @@ static void load_procs(void)
 	gl3wGetQueryIndexediv = (PFNGLGETQUERYINDEXEDIVPROC) get_proc("glGetQueryIndexediv");
 	gl3wReleaseShaderCompiler = (PFNGLRELEASESHADERCOMPILERPROC) get_proc("glReleaseShaderCompiler");
 	gl3wShaderBinary = (PFNGLSHADERBINARYPROC) get_proc("glShaderBinary");
+	gl3wSpecializeShader = (PFNGLSPECIALIZESHADERPROC)get_proc("glSpecializeShader");
 	gl3wGetShaderPrecisionFormat = (PFNGLGETSHADERPRECISIONFORMATPROC) get_proc("glGetShaderPrecisionFormat");
 	gl3wDepthRangef = (PFNGLDEPTHRANGEFPROC) get_proc("glDepthRangef");
 	gl3wClearDepthf = (PFNGLCLEARDEPTHFPROC) get_proc("glClearDepthf");

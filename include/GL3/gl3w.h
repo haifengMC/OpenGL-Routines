@@ -412,6 +412,7 @@ extern PFNGLENDQUERYINDEXEDPROC gl3wEndQueryIndexed;
 extern PFNGLGETQUERYINDEXEDIVPROC gl3wGetQueryIndexediv;
 extern PFNGLRELEASESHADERCOMPILERPROC gl3wReleaseShaderCompiler;
 extern PFNGLSHADERBINARYPROC gl3wShaderBinary;
+extern PFNGLSPECIALIZESHADERPROC gl3wSpecializeShader;
 extern PFNGLGETSHADERPRECISIONFORMATPROC gl3wGetShaderPrecisionFormat;
 extern PFNGLDEPTHRANGEFPROC gl3wDepthRangef;
 extern PFNGLCLEARDEPTHFPROC gl3wClearDepthf;
@@ -1113,6 +1114,7 @@ extern PFNGLTEXPAGECOMMITMENTARBPROC gl3wTexPageCommitmentARB;
 #define glGetQueryIndexediv		gl3wGetQueryIndexediv
 #define glReleaseShaderCompiler		gl3wReleaseShaderCompiler
 #define glShaderBinary		gl3wShaderBinary
+#define glSpecializeShader	gl3wSpecializeShader
 #define glGetShaderPrecisionFormat		gl3wGetShaderPrecisionFormat
 #define glDepthRangef		gl3wDepthRangef
 #define glClearDepthf		gl3wClearDepthf
