@@ -38,6 +38,7 @@ typedef struct {
     GLuint       shader;
 } ShaderInfo;
 
+GLuint LoadShader(ShaderInfo*);
 GLuint LoadShaders(ShaderInfo*, GLenum = GLLS_FILENAME);
 
 //----------------------------------------------------------------------------

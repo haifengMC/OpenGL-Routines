@@ -56,6 +56,50 @@ ReadShader( const char* filename )
 //----------------------------------------------------------------------------
 
 GLuint
+LoadShader(ShaderInfo* shader)
+{
+    if (!shader) 
+        return 0;
+    if (!shader->type) 
+        return 0;
+    const char* source = ReadShader(shader->filename);
+    if (!source) 
+        return 0;
+
+    GLuint tmpShader = glCreateShader(shader->type);
+    glShaderSource(tmpShader, 1, &source, NULL);
+    delete[] source;
+    glCompileShader(tmpShader);
+
+	GLint compiled;
+	glGetShaderiv(tmpShader, GL_COMPILE_STATUS, &compiled);
+    if (!compiled)
+    {
+#ifdef _DEBUG
+		GLsizei len;
+		glGetShaderiv(tmpShader, GL_INFO_LOG_LENGTH, &len);
+
+		GLchar* log = new GLchar[len + 1];
+		glGetShaderInfoLog(tmpShader, len, &len, log);
+		std::ostringstream os;
+		os << "Shader[" << tmpShader << "] compilation failed: " << log << std::endl;
+#ifdef WIN32
+		OutputDebugString(os.str().c_str());
+#endif // WIN32
+		std::cerr << os.str();
+		delete[] log;
+#endif /* DEBUG */
+
+		return 0;
+    }
+
+    shader->shader = tmpShader;
+    return tmpShader;
+}
+
+//----------------------------------------------------------------------------
+
+GLuint
 LoadShaders(ShaderInfo* shaders, GLenum usage)
 {
     if ( shaders == NULL ) { return 0; }

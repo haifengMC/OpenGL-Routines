@@ -30,6 +30,13 @@ void VermilionApplication::cursor_position_callback(GLFWwindow* window, double x
 	pThis->OnCursor(x, y);
 }
 
+void VermilionApplication::scroll_callback(GLFWwindow* window, double x, double y)
+{
+	VermilionApplication* pThis = (VermilionApplication*)glfwGetWindowUserPointer(window);
+
+    pThis->OnScroll(x, y);
+}
+
 void VermilionApplication::char_callback(GLFWwindow* window, unsigned int codepoint)
 {
     VermilionApplication* pThis = (VermilionApplication*)glfwGetWindowUserPointer(window);
@@ -74,6 +81,7 @@ void VermilionApplication::Initialize(const char * title)
     glfwSetWindowSizeCallback(m_pWindow, window_size_callback);
     glfwSetKeyCallback(m_pWindow, key_callback);
 	glfwSetMouseButtonCallback(m_pWindow, mouse_button_callback);
+    glfwSetScrollCallback(m_pWindow, scroll_callback);
 	glfwSetCursorPosCallback(m_pWindow, cursor_position_callback);
 	glfwSetCharCallback(m_pWindow, char_callback);
     glfwSetDropCallback(m_pWindow, drop_callback);
