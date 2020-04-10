@@ -8,4 +8,6 @@
 
 #define BUFFER_OFFSET(a) ((void*)(a))
 
+#define countof(X) sizeof(X) /sizeof((X)[0])
+
 #endif /* __VGL_H__ */
