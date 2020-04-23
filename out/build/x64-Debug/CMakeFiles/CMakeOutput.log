@@ -1,16 +1,16 @@
 The system is: Windows - 6.1.7601 - AMD64
 Compiling the C compiler identification source file "CMakeCCompilerId.c" succeeded.
-Compiler: D:/ProgramFiles/Microsoft Visual Studio/2019/Enterprise/VC/Tools/MSVC/14.24.28314/bin/HostX64/x64/cl.exe 
+Compiler: E:/programs/VS2019/VC/Tools/MSVC/14.25.28610/bin/HostX64/x64/cl.exe 
 Build flags: 
 Id flags:  
 
 The output was:
 0
-用于 x64 的 Microsoft (R) C/C++ 优化编译器 19.24.28314 版
+用于 x64 的 Microsoft (R) C/C++ 优化编译器 19.25.28614 版
 版权所有(C) Microsoft Corporation。保留所有权利。
 
 CMakeCCompilerId.c
-Microsoft (R) Incremental Linker Version 14.24.28314.0
+Microsoft (R) Incremental Linker Version 14.25.28614.0
 Copyright (C) Microsoft Corporation.  All rights reserved.
 
 /out:CMakeCCompilerId.exe 
@@ -21,20 +21,20 @@ Compilation of the C compiler identification source "CMakeCCompilerId.c" produce
 
 Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "CMakeCCompilerId.obj"
 
-The C compiler identification is MSVC, found in "E:/opengl/routines/out/build/x64-Debug/CMakeFiles/3.15.19101501-MSVC_2/CompilerIdC/CMakeCCompilerId.exe"
+The C compiler identification is MSVC, found in "E:/opengl/routines/out/build/x64-Debug/CMakeFiles/3.16.19112601-MSVC_2/CompilerIdC/CMakeCCompilerId.exe"
 
 Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" succeeded.
-Compiler: D:/ProgramFiles/Microsoft Visual Studio/2019/Enterprise/VC/Tools/MSVC/14.24.28314/bin/HostX64/x64/cl.exe 
+Compiler: E:/programs/VS2019/VC/Tools/MSVC/14.25.28610/bin/HostX64/x64/cl.exe 
 Build flags: 
 Id flags:  
 
 The output was:
 0
-用于 x64 的 Microsoft (R) C/C++ 优化编译器 19.24.28314 版
+用于 x64 的 Microsoft (R) C/C++ 优化编译器 19.25.28614 版
 版权所有(C) Microsoft Corporation。保留所有权利。
 
 CMakeCXXCompilerId.cpp
-Microsoft (R) Incremental Linker Version 14.24.28314.0
+Microsoft (R) Incremental Linker Version 14.25.28614.0
 Copyright (C) Microsoft Corporation.  All rights reserved.
 
 /out:CMakeCXXCompilerId.exe 
@@ -45,37 +45,37 @@ Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" p
 
 Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "CMakeCXXCompilerId.obj"
 
-The CXX compiler identification is MSVC, found in "E:/opengl/routines/out/build/x64-Debug/CMakeFiles/3.15.19101501-MSVC_2/CompilerIdCXX/CMakeCXXCompilerId.exe"
+The CXX compiler identification is MSVC, found in "E:/opengl/routines/out/build/x64-Debug/CMakeFiles/3.16.19112601-MSVC_2/CompilerIdCXX/CMakeCXXCompilerId.exe"
 
 Determining if the C compiler works passed with the following output:
 Change Dir: E:/opengl/routines/out/build/x64-Debug/CMakeFiles/CMakeTmp
 
-Run Build Command(s):D:/ProgramFiles/Microsoft Visual Studio/2019/Enterprise/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_43ea7 && [1/2] Building C object CMakeFiles\cmTC_43ea7.dir\testCCompiler.c.obj
-[2/2] Linking C executable cmTC_43ea7.exe
+Run Build Command(s):E:\PROGRAMS\VS2019\COMMON7\IDE\COMMONEXTENSIONS\MICROSOFT\CMAKE\Ninja\ninja.exe cmTC_0a09f && [1/2] Building C object CMakeFiles\cmTC_0a09f.dir\testCCompiler.c.obj
+[2/2] Linking C executable cmTC_0a09f.exe
 
 
 
 Detecting C compiler ABI info compiled with the following output:
 Change Dir: E:/opengl/routines/out/build/x64-Debug/CMakeFiles/CMakeTmp
 
-Run Build Command(s):D:/ProgramFiles/Microsoft Visual Studio/2019/Enterprise/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_a2a64 && [1/2] Building C object CMakeFiles\cmTC_a2a64.dir\CMakeCCompilerABI.c.obj
-[2/2] Linking C executable cmTC_a2a64.exe
+Run Build Command(s):E:\PROGRAMS\VS2019\COMMON7\IDE\COMMONEXTENSIONS\MICROSOFT\CMAKE\Ninja\ninja.exe cmTC_8ebb3 && [1/2] Building C object CMakeFiles\cmTC_8ebb3.dir\CMakeCCompilerABI.c.obj
+[2/2] Linking C executable cmTC_8ebb3.exe
 
 
 
 Determining if the CXX compiler works passed with the following output:
 Change Dir: E:/opengl/routines/out/build/x64-Debug/CMakeFiles/CMakeTmp
 
-Run Build Command(s):D:/ProgramFiles/Microsoft Visual Studio/2019/Enterprise/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_ecf8f && [1/2] Building CXX object CMakeFiles\cmTC_ecf8f.dir\testCXXCompiler.cxx.obj
-[2/2] Linking CXX executable cmTC_ecf8f.exe
+Run Build Command(s):E:\PROGRAMS\VS2019\COMMON7\IDE\COMMONEXTENSIONS\MICROSOFT\CMAKE\Ninja\ninja.exe cmTC_671c1 && [1/2] Building CXX object CMakeFiles\cmTC_671c1.dir\testCXXCompiler.cxx.obj
+[2/2] Linking CXX executable cmTC_671c1.exe
 
 
 
 Detecting CXX compiler ABI info compiled with the following output:
 Change Dir: E:/opengl/routines/out/build/x64-Debug/CMakeFiles/CMakeTmp
 
-Run Build Command(s):D:/ProgramFiles/Microsoft Visual Studio/2019/Enterprise/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_49982 && [1/2] Building CXX object CMakeFiles\cmTC_49982.dir\CMakeCXXCompilerABI.cpp.obj
-[2/2] Linking CXX executable cmTC_49982.exe
+Run Build Command(s):E:\PROGRAMS\VS2019\COMMON7\IDE\COMMONEXTENSIONS\MICROSOFT\CMAKE\Ninja\ninja.exe cmTC_90b4c && [1/2] Building CXX object CMakeFiles\cmTC_90b4c.dir\CMakeCXXCompilerABI.cpp.obj
+[2/2] Linking CXX executable cmTC_90b4c.exe
 
 
 

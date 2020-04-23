@@ -38,6 +38,21 @@ typedef struct {
     GLuint       shader;
 } ShaderInfo;
 
+typedef struct {
+	GLenum type;
+	const GLchar* suffix;
+} ShaderSuffix;
+
+const ShaderSuffix suffixes[] =
+{
+	{GL_VERTEX_SHADER, ".vert"},
+	{GL_TESS_CONTROL_SHADER, ".tesc"},
+	{GL_TESS_EVALUATION_SHADER, ".tese"},
+	{GL_GEOMETRY_SHADER, ".geom"},
+	{GL_FRAGMENT_SHADER, ".frag"},
+	{GL_COMPUTE_SHADER, ".comp"},
+};
+
 GLuint LoadShader(ShaderInfo*);
 GLuint LoadShaders(ShaderInfo*, GLenum = GLLS_FILENAME);
 GLuint LoadShadersBySpirV(ShaderInfo*);
