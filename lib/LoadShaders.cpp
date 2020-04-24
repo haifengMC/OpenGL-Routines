@@ -32,8 +32,7 @@ ReadShader(const char* filename, std::string* errMsg = NULL)
 #ifdef _DEBUG
         std::ostringstream os;
         os << "Unable to open file '" << filename << "'" << std::endl;
-        if (!errMsg)
-            errMsg->append(os.str());
+        if (errMsg) errMsg->append(os.str());
 #endif /* DEBUG */
         return NULL;
     }
@@ -82,8 +81,7 @@ LoadShader(ShaderInfo* shader, std::string* errMsg)
 		glGetShaderInfoLog(tmpShader, len, &len, log);
 		std::ostringstream os;
 		os << "Shader[" << tmpShader << "] compilation failed: " << log << std::endl;
-		if (!errMsg)
-			errMsg->append(os.str());
+		if (errMsg) errMsg->append(os.str());
 		delete[] log;
 #endif /* DEBUG */
 
