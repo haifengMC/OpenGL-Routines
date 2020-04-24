@@ -19,7 +19,7 @@ extern "C" {
 //----------------------------------------------------------------------------
 
 static const GLchar*
-ReadShader(const char* filename, std::string* errMsg = NULL)
+ReadShader(const char* filename, std::string* errMsg = NULL, GLenum errMode = GLLS_ERRMSG_ALL)
 {
 #ifdef WIN32
 	FILE* infile;
@@ -32,7 +32,10 @@ ReadShader(const char* filename, std::string* errMsg = NULL)
 #ifdef _DEBUG
         std::ostringstream os;
         os << "Unable to open file '" << filename << "'" << std::endl;
-        if (errMsg) errMsg->append(os.str());
+		std::string* fileMsg = NULL;
+		if (GLLS_ERRMSG_ALL == errMode || GLLS_ERRMSG_FILE == errMode)
+			fileMsg = errMsg;
+        if (fileMsg) fileMsg->append(os.str());
 #endif /* DEBUG */
         return NULL;
     }
@@ -54,13 +57,14 @@ ReadShader(const char* filename, std::string* errMsg = NULL)
 //----------------------------------------------------------------------------
 
 GLuint
-LoadShader(ShaderInfo* shader, std::string* errMsg)
+LoadShader(ShaderInfo* shader, std::string* errMsg, GLenum errMode)
 {
     if (!shader) 
         return 0;
     if (!shader->type) 
         return 0;
-    const char* source = ReadShader(shader->filename);
+
+    const char* source = ReadShader(shader->filename, errMsg, errMode);
     if (!source) 
         return 0;
 
@@ -81,7 +85,12 @@ LoadShader(ShaderInfo* shader, std::string* errMsg)
 		glGetShaderInfoLog(tmpShader, len, &len, log);
 		std::ostringstream os;
 		os << "Shader[" << tmpShader << "] compilation failed: " << log << std::endl;
-		if (errMsg) errMsg->append(os.str());
+
+		std::string* shaderMsg = NULL;
+		if (GLLS_ERRMSG_ALL == errMode || GLLS_ERRMSG_GLSL == errMode || GLLS_ERRMSG_SHADER)
+            shaderMsg = errMsg;
+		if (shaderMsg) shaderMsg->append(os.str());
+
 		delete[] log;
 #endif /* DEBUG */
 

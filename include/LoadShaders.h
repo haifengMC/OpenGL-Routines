@@ -29,7 +29,16 @@ extern "C" {
 enum
 {
     GLLS_FILENAME,
-    GLLS_SOURCE
+    GLLS_SOURCE,
+};
+
+enum
+{
+	GLLS_ERRMSG_ALL,		//显示所有错误信息
+	GLLS_ERRMSG_FILE,		//显示所有文件操作错误信息
+	GLLS_ERRMSG_SHADER,		//显示所有着色器编译错误信息
+	GLLS_ERRMSG_PROGRAM,	//显示所有程序编译错误信息
+	GLLS_ERRMSG_GLSL,		//显示所有着色器错误信息
 };
 
 typedef struct {
@@ -53,7 +62,7 @@ const ShaderSuffix suffixes[] =
 	{GL_COMPUTE_SHADER, ".comp"},
 };
 
-GLuint LoadShader(ShaderInfo*, std::string* = NULL);
+GLuint LoadShader(ShaderInfo*, std::string* = NULL, GLenum = GLLS_ERRMSG_ALL);
 GLuint LoadShaders(ShaderInfo*, GLenum = GLLS_FILENAME);
 GLuint LoadShadersBySpirV(ShaderInfo*);
 
