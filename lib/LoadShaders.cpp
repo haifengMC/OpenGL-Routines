@@ -84,10 +84,10 @@ LoadShader(ShaderInfo* shader, std::string* errMsg, GLenum errMode)
 		GLchar* log = new GLchar[len + 1];
 		glGetShaderInfoLog(tmpShader, len, &len, log);
 		std::ostringstream os;
-		os << "Shader[" << tmpShader << "] compilation failed: " << log << std::endl;
+		os << "Shader[" << tmpShader << "] compilation failed: " << log;
 
 		std::string* shaderMsg = NULL;
-		if (GLLS_ERRMSG_ALL == errMode || GLLS_ERRMSG_GLSL == errMode || GLLS_ERRMSG_SHADER)
+		if (GLLS_ERRMSG_ALL == errMode || GLLS_ERRMSG_GLSL == errMode || GLLS_ERRMSG_SHADER == errMode)
             shaderMsg = errMsg;
 		if (shaderMsg) shaderMsg->append(os.str());
 
