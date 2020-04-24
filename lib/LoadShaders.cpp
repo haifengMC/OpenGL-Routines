@@ -7,6 +7,7 @@
 #include <cstdlib>
 #include <iostream>
 #include <sstream>
+#include <string>
 
 #include <GL3/gl3w.h>
 #include "LoadShaders.h"
@@ -18,7 +19,7 @@ extern "C" {
 //----------------------------------------------------------------------------
 
 static const GLchar*
-ReadShader( const char* filename )
+ReadShader(const char* filename, std::string* errMsg = NULL)
 {
 #ifdef WIN32
 	FILE* infile;
@@ -27,14 +28,12 @@ ReadShader( const char* filename )
     FILE* infile = fopen( filename, "rb" );
 #endif // WIN32
 
-    if ( !infile ) {
+    if (!infile) {
 #ifdef _DEBUG
         std::ostringstream os;
         os << "Unable to open file '" << filename << "'" << std::endl;
-#ifdef WIN32
-		OutputDebugString(os.str().c_str());
-#endif // WIN32
-        std::cerr << os.str();
+        if (!errMsg)
+            errMsg->append(os.str());
 #endif /* DEBUG */
         return NULL;
     }
@@ -56,7 +55,7 @@ ReadShader( const char* filename )
 //----------------------------------------------------------------------------
 
 GLuint
-LoadShader(ShaderInfo* shader)
+LoadShader(ShaderInfo* shader, std::string* errMsg)
 {
     if (!shader) 
         return 0;
@@ -83,10 +82,8 @@ LoadShader(ShaderInfo* shader)
 		glGetShaderInfoLog(tmpShader, len, &len, log);
 		std::ostringstream os;
 		os << "Shader[" << tmpShader << "] compilation failed: " << log << std::endl;
-#ifdef WIN32
-		OutputDebugString(os.str().c_str());
-#endif // WIN32
-		std::cerr << os.str();
+		if (!errMsg)
+			errMsg->append(os.str());
 		delete[] log;
 #endif /* DEBUG */
 

@@ -10,6 +10,8 @@
 
 #include "vmath.h"
 
+#include "global.h"
+
 #include "LoadShaders.h"
 
 #include <stdio.h>

@@ -12,6 +12,8 @@
 
 #include "vbm.h"
 
+#include "global.h"
+
 #include <stdio.h>
 
 using namespace vmath;

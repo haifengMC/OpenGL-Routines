@@ -8,6 +8,7 @@
 
 #include "vgl.h"
 #include "vapp.h"
+#include "global.h"
 #include "LoadShaders.h"
 
 enum VAO_IDs { Triangles, NumVAOs };

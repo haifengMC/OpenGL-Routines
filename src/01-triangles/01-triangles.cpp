@@ -5,7 +5,9 @@
 //////////////////////////////////////////////////////////////////////////////
 
 #include "vgl.h"
+#include "global.h"
 #include "LoadShaders.h"
+
 
 enum VAO_IDs { Triangles, NumVAOs };
 enum Buffer_IDs { ArrayBuffer, NumBuffers };

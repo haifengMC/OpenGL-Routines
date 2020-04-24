@@ -53,7 +53,7 @@ const ShaderSuffix suffixes[] =
 	{GL_COMPUTE_SHADER, ".comp"},
 };
 
-GLuint LoadShader(ShaderInfo*);
+GLuint LoadShader(ShaderInfo*, std::string* = NULL);
 GLuint LoadShaders(ShaderInfo*, GLenum = GLLS_FILENAME);
 GLuint LoadShadersBySpirV(ShaderInfo*);
 

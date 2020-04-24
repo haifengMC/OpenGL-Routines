@@ -1,5 +1,5 @@
 /*
- * Copyright © 2012-2015 Graham Sellers
+ * Copyright ?2012-2015 Graham Sellers
  *
  * This code is part of the OpenGL Programming Guide, 9th Edition.
  *
@@ -30,6 +30,7 @@
 
 #include "vapp.h"
 #include "mat.h"
+#include "global.h"
 #include "LoadShaders.h"
 #include "Shapes/Teapot.h"
 

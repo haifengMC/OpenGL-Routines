@@ -11,6 +11,7 @@
 #include "vmath.h"
 
 #include "vbm.h"
+#include "global.h"
 #include "LoadShaders.h"
 
 #include <stdio.h>

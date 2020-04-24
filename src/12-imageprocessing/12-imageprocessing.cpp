@@ -4,6 +4,7 @@
    $Date$
    $Id$
  */
+#include "global.h"
 
 // #define USE_GL3W
 #include <vermilion.h>

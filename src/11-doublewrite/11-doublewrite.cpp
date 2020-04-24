@@ -4,6 +4,7 @@
    $Date$
    $Id$
  */
+#include "global.h"
 
 #include "vapp.h"
 #include "vutils.h"
