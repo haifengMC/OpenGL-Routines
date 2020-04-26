@@ -26,13 +26,14 @@ extern "C" {
 //  LoadShaders() returns the shader program value (as returned by
 //    glCreateProgram()) on success, or zero on failure. 
 //
-enum
+enum : GLenum
 {
-    GLLS_FILENAME,
+	GLLS_FILENAME_TEXT,
+	GLLS_FILENAME_BINARY,
     GLLS_SOURCE,
 };
 
-enum
+enum : GLenum
 {
 	GLLS_ERRMSG_ALL,		//显示所有错误信息
 	GLLS_ERRMSG_FILE,		//显示所有文件操作错误信息
@@ -46,6 +47,27 @@ typedef struct {
     const char*  filename;
     GLuint       shader;
 } ShaderInfo;
+
+typedef struct _ShaderSource
+{
+	GLenum      type;
+	const char* filename;
+	std::string source;
+} ShaderSource;
+
+typedef struct _ErrMsg
+{
+	GLenum		type;
+	std::string msg;
+} ErrMsg;
+
+typedef struct _ShaderInfoEx
+{
+	GLenum       type;
+	GLuint       shader;
+	ShaderSource source;
+	ErrMsg*		 errMsg;//输出错误信息
+} ShaderInfoEx;
 
 typedef struct {
 	GLenum type;
@@ -62,9 +84,18 @@ const ShaderSuffix suffixes[] =
 	{GL_COMPUTE_SHADER, ".comp"},
 };
 
+
+
 GLuint LoadShader(ShaderInfo*, std::string* = NULL, GLenum = GLLS_ERRMSG_ALL);
-GLuint LoadShaders(ShaderInfo*, GLenum = GLLS_FILENAME);
+//GLuint LoadShaderEx(ShaderInfoEx*);
+
+GLuint LoadShaders(ShaderInfo*, GLenum = GLLS_FILENAME_TEXT);
+//GLuint LoadShadersEx(ShaderInfoEx*);
+
 GLuint LoadShadersBySpirV(ShaderInfo*);
+//GLuint LoadShadersBySpirVEx(ShaderInfoEx*);
+
+GLuint LoadProgramByBinary(const std::string& fileName, ErrMsg* errMsg = NULL);
 
 //----------------------------------------------------------------------------
 

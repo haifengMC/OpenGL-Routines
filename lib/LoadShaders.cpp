@@ -56,6 +56,51 @@ ReadShader(const char* filename, std::string* errMsg = NULL, GLenum errMode = GL
 
 //----------------------------------------------------------------------------
 
+static GLboolean ReadShaderEx(ShaderSource& sSource, ErrMsg* errMsg = NULL)
+{
+    if (GLLS_FILENAME_TEXT != sSource.type || GLLS_FILENAME_BINARY != sSource.type)
+        return GL_TRUE;
+
+#ifdef WIN32
+	FILE* infile;
+	fopen_s(&infile, sSource.filename, "rb");
+#else
+	FILE* infile = fopen(sSource.filename, "rb");
+#endif // WIN32
+
+	if (!infile) 
+    {
+		std::ostringstream os;
+		os << "无法打开文件 '" << sSource.filename << "'" << std::endl;
+		if (errMsg && (GLLS_ERRMSG_ALL == errMsg->type || GLLS_ERRMSG_FILE == errMsg->type))
+            errMsg->msg.append(os.str());
+		return GL_FALSE;
+	}
+
+	fseek(infile, 0, SEEK_END);
+    int fileL = 0, len  = ftell(infile);
+	fseek(infile, 0, SEEK_SET);
+
+    GLchar* source = NULL;
+    if (GLLS_FILENAME_TEXT == sSource.type)
+        fileL = len + 1;
+    else
+        fileL = len;
+
+    source = new GLchar[fileL];
+    memset(source, 0, fileL);
+
+	fread(source, 1, len, infile);
+	fclose(infile);
+
+    sSource.source.append(source, fileL);
+
+    delete[] source;
+	return GL_TRUE;
+}
+
+//----------------------------------------------------------------------------
+
 GLuint
 LoadShader(ShaderInfo* shader, std::string* errMsg, GLenum errMode)
 {
@@ -117,7 +162,7 @@ LoadShaders(ShaderInfo* shaders, GLenum usage)
         entry->shader = shader;
 
         const GLchar* source;
-        if (GLLS_FILENAME == usage) source = ReadShader(entry->filename);
+        if (GLLS_FILENAME_TEXT == usage || GLLS_FILENAME_BINARY == usage) source = ReadShader(entry->filename);
         else if (GLLS_SOURCE == usage) source = entry->filename;
        
         if ( source == NULL ) {
@@ -130,7 +175,7 @@ LoadShaders(ShaderInfo* shaders, GLenum usage)
         }
 
         glShaderSource( shader, 1, &source, NULL );
-        if (GLLS_FILENAME == usage) delete [] source;
+        if (GLLS_FILENAME_TEXT == usage || GLLS_FILENAME_BINARY == usage) delete [] source;
 
         glCompileShader( shader );
 
@@ -308,6 +353,43 @@ LoadShadersBySpirV(ShaderInfo* shaders)
 	}
 
 	return program;
+}
+
+GLuint LoadProgramByBinary(const std::string& fileName, ErrMsg* errMsg)
+{
+    ShaderSource sSource = { GLLS_FILENAME_BINARY, fileName.c_str() };
+    if (!ReadShaderEx(sSource, errMsg))
+        return 0;
+
+	GLint formats = 0;
+    glGetIntegerv(GL_NUM_PROGRAM_BINARY_FORMATS, &formats);
+	GLenum* binaryFormats = new GLenum[formats];
+	glGetIntegerv(GL_PROGRAM_BINARY_FORMATS, (GLint*)binaryFormats);
+
+	GLuint prog = glCreateProgram();
+	glProgramBinary(prog, *binaryFormats, sSource.source.c_str(), sSource.source.size());
+	delete[] binaryFormats;
+
+	GLint linked = 0;
+	glGetProgramiv(prog, GL_LINK_STATUS, &linked);
+	if (!linked)
+	{
+		GLsizei len;
+		glGetProgramiv(prog, GL_INFO_LOG_LENGTH, &len);
+
+		GLchar* log = new GLchar[len + 1];
+		glGetProgramInfoLog(prog, len, &len, log);
+		std::ostringstream os;
+		os << "Program[" << prog << "] shader linking failed: " << log << std::endl;
+        if (errMsg && (GLLS_ERRMSG_ALL == errMsg->type || GLLS_ERRMSG_GLSL == errMsg->type || GLLS_ERRMSG_PROGRAM || errMsg->type))
+            errMsg->msg.append(os.str().c_str());
+       
+		delete[] log;
+
+		return 0;
+	}
+
+	return prog;
 }
 
 #ifdef __cplusplus
