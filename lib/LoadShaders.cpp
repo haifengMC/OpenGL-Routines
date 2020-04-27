@@ -58,7 +58,7 @@ ReadShader(const char* filename, std::string* errMsg = NULL, GLenum errMode = GL
 
 static GLboolean ReadShaderEx(ShaderSource& sSource, ErrMsg* errMsg = NULL)
 {
-    if (GLLS_FILENAME_TEXT != sSource.type || GLLS_FILENAME_BINARY != sSource.type)
+    if (GLLS_FILENAME_TEXT != sSource.type && GLLS_FILENAME_BINARY != sSource.type)
         return GL_TRUE;
 
 #ifdef WIN32
