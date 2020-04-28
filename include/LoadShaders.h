@@ -59,6 +59,7 @@ typedef struct _ErrMsg
 {
 	GLenum		type;
 	std::string msg;
+	GLboolean err() { return msg.empty() ? GL_FALSE : GL_TRUE; }
 } ErrMsg;
 
 typedef struct _ShaderInfoEx
