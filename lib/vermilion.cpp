@@ -30,7 +30,7 @@ void VermilionApplication::cursor_position_callback(GLFWwindow* window, double x
 	pThis->OnCursor(x, y);
     int width = 0, height = 0;
     glfwGetWindowSize(window, &width, &height);
-    pThis->OnCursorNorm((x - width) / width * 2, (y - height) / height * 2);
+    pThis->OnCursorNorm((x * 2 - width) / width, (height - y * 2) / height);
 
 }
 
