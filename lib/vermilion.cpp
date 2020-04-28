@@ -28,6 +28,10 @@ void VermilionApplication::cursor_position_callback(GLFWwindow* window, double x
 	VermilionApplication* pThis = (VermilionApplication*)glfwGetWindowUserPointer(window);
 
 	pThis->OnCursor(x, y);
+    int width = 0, height = 0;
+    glfwGetWindowSize(window, &width, &height);
+    pThis->OnCursorNorm((x - width) / width * 2, (y - height) / height * 2);
+
 }
 
 void VermilionApplication::scroll_callback(GLFWwindow* window, double x, double y)

@@ -62,6 +62,7 @@ public:
     virtual void OnKey(int key, int scancode, int action, int mods) { /* NOTHING */ }//键盘回调
 	virtual void OnMouse(int button, int action, int mods) { /* NOTHING */ }//鼠标点击回调
 	virtual void OnCursor(double x, double y) { /* NOTHING */ }//光标位置回调
+	virtual void OnCursorNorm(float x, float y) { /* NOTHING */ }//光标归一化位置回调
     virtual void OnScroll(double x, double y) { /* NOTHING */ }//滚动回调
 	virtual void OnChar(unsigned int codepoint) { /* NOTHING */ }
 	virtual void OnDrop(int num, const char** file) { /* NOTHING */ }//拖进文件回调
