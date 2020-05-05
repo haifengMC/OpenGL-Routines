@@ -165,6 +165,12 @@ public:
 		if (!index) return &head;
 		else return this->vValue<Tail...>::operator[](index - 1);
 	}
+
+	const void* operator[](const unsigned int& index) const 
+	{
+		if (!index) return &head;
+		else return this->vValue<Tail...>::operator[](index - 1);
+	}
 };
 
 
@@ -177,5 +183,6 @@ std::ostream& operator<<(std::ostream& os, const vValue<Head, Tail...>& bmw)
 	return os << bmw.head << (vValue<Tail...>)bmw;
 }
 std::ostream& operator<<(std::ostream& os, const vValue<>& bmw) { return os << "}"; }
+
 
 
