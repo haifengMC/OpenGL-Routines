@@ -7,7 +7,7 @@
 #define MUL_ARGS_F(n, T) T
 #define MUL_ARGS_NF(n, T) T##n
 #define MUL_ARGS_CONST_F(n, T) const T& t##n
-#define MUL_ARGS(n, f, T) COMB(REPEAT_, n)(n, f, T)
+#define MUL_ARGS(n, f, T) REPEAT(n, f, T)
 #define MUL_CLASS(c, n) \
 	template<typename T>\
 	class c : public vValue<MUL_ARGS(n, MUL_ARGS_F, T)>\
