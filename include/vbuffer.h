@@ -1,9 +1,10 @@
 #pragma once
 
-template<typename T, typename TC = unsigned char, typename C = unsigned char>
+template<typename T = unsigned short, typename TC = unsigned char, typename C = unsigned char>
 class BufferCountData
 {
 	C index = 0;
+	T offset = 0;
 	std::string bufName;
 	T size = 0;
 	TC count = 0;
@@ -13,11 +14,12 @@ public:
 	const std::string& getName() const { return bufName; }
 	bool isVaild() const { return total ? true : false; }
 	void setIndex(const T& index) { this->index = index; }
-	const T& getIndex() const { return index; }
+	void setOffset(const T& offset) { this->offset = offset; }
+	const C& getIndex() const { return index; }
 	const T& getSize() const { return size; }
 	const TC& getCount() const { return count; }
 	const T& getTotal() const { return total; }
-	T getOffset(const TC& cntId) const 
+	T getOffset(const TC& cntId) const
 	{
 		if (isVaild() && cntId < count)
 			return cntId * size;
@@ -27,35 +29,42 @@ public:
 	T operator[](const TC& cntId) const { return getOffset(cntId); }
 };
 
-template<typename T, typename TC = unsigned char, typename C = unsigned char>
+template<typename T = unsigned short, typename TC = unsigned char, typename C = unsigned char>
 class BufferCountManager
 {
 	C index = 0;
+	T size = 0;
 	std::list<BufferCountData<T, TC, C>> bufCntData;
 	std::map<C, BufferCountData<T, TC, C>*> indexMap;
 	std::map<std::string, BufferCountData<T, TC, C>*> nameMap;
 public:
+	const T& getSize() const { return size; }
+
 	bool addData(const std::string& name, const T& size, const T& count)
 	{
-		BufferCountData bc(name, size, count);
+		BufferCountData<T, TC, C> bc(name, size, count);
 		if (!bc.isVaild())
 			return false;
-		
+
 		if (nameMap.find(bc.getName()) != nameMap.end())
 			return false;
 
 		bc.setIndex(index++);
+		bc.setOffset(this->size);
+		this->size += bc.getTotal();
 
-		std::list<BufferCountData<T, TC>>::iterator it = bufCntData.insert(bufCntData.end(), std::move(bc));
-		indexMap.insert(bc.getIndex(), &*it);
-		nameMap.insert(bc.getName(), &*it);
+		typename std::list<BufferCountData<T, TC, C>>::iterator it = bufCntData.insert(bufCntData.end(), std::move(bc));
+		indexMap.insert(std::make_pair(it->getIndex(), &*it));
+		nameMap.insert(std::make_pair(it->getName(), &*it));
 
 		return true;
 	}
+	typename std::map<C, BufferCountData<T, TC, C>*>::const_iterator begin() const { return indexMap.begin(); }
+	typename std::map<C, BufferCountData<T, TC, C>*>::const_iterator end() const { return indexMap.end(); }
 
 	const BufferCountData<T, TC, C>* getDataByName(const std::string& name) const
 	{
-		std::map<std::string, BufferCountData<T, TC, C>*>::const_iterator it = nameMap.find(name);
+		typename std::map<std::string, BufferCountData<T, TC, C>*>::const_iterator it = nameMap.find(name);
 		if (it == nameMap.end())
 			return NULL;
 
@@ -64,7 +73,7 @@ public:
 
 	const BufferCountData<T, TC, C>* getDataById(const C& index) const
 	{
-		std::map<C, BufferCountData<T, TC, C>*>::const_iterator it = indexMap.find(index);
+		typename std::map<C, BufferCountData<T, TC, C>*>::const_iterator it = indexMap.find(index);
 		if (it == indexMap.end())
 			return NULL;
 
@@ -73,7 +82,7 @@ public:
 
 	const BufferCountData<T, TC, C>* operator[](const std::string& name) const
 	{
-		std::map<std::string, BufferCountData<T, TC, C>*>::const_iterator it = nameMap.find(name);
+		typename std::map<std::string, BufferCountData<T, TC, C>*>::const_iterator it = nameMap.find(name);
 		if (it == nameMap.end())
 			return NULL;
 
@@ -82,10 +91,21 @@ public:
 
 	const BufferCountData<T, TC, C>* operator[](const C& index) const
 	{
-		std::map<C, BufferCountData<T, TC, C>*>::const_iterator it = indexMap.find(index);
+		typename std::map<C, BufferCountData<T, TC, C>*>::const_iterator it = indexMap.find(index);
 		if (it == indexMap.end())
 			return NULL;
 
 		return it->second;
 	}
 };
+
+template<typename T, typename TC, typename C>
+std::ostream& operator<<(std::ostream& os, const BufferCountManager<T, TC, C>& bufCntMgr)
+{
+	for (std::pair<C, BufferCountData<T, TC, C>*> it : bufCntMgr)
+	{
+		os << it.second->getName() << " ";
+	}
+
+	return os;
+}
