@@ -74,8 +74,8 @@ public:
 	unsigned int read(void* buf, const unsigned int& len) { return 0; }
 	unsigned int write(void* buf, const unsigned int& len) const { return 0; }
 
-	bool operator==(const vValue<>& bmw) const { return true; }
-	bool operator<(const vValue<>& bmw) const { return false; }
+	bool operator==(const vValue<>& value) const { return true; }
+	bool operator<(const vValue<>& value) const { return false; }
 	vValue<>& operator()() { return *this; }
 	void* operator[](const unsigned int& index) const { return NULL; }
 };
@@ -100,6 +100,10 @@ public:
 		head = std::move(h);
 		vValue<>::tNum = sizeof...(Tail) + 1;
 	}
+
+	Head& getHead() { return head; }
+	const Head& getHead() const { return head; }
+	bool isFirst() const { return this->num() == sizeof...(Tail) + 1; }
 
 	size_t size() const { return Copier<Head>(head).size() + this->vValue<Tail...>::size(); }
 	unsigned int read(void* buf, const unsigned int& len)
@@ -129,29 +133,29 @@ public:
 	}
 
 	//==, !=
-	bool operator==(const vValue<Head, Tail...>& bmw) const
+	bool operator==(const vValue<Head, Tail...>& value) const
 	{
-		if (head == bmw.head)
-			return (vValue<Tail...>) * this == (vValue<Tail...>)bmw;
+		if (head == value.head)
+			return (vValue<Tail...>) * this == (vValue<Tail...>)value;
 		else
 			return false;
 	}
-	bool operator!=(const vValue<Head, Tail...>& bmw) const { return !(*this == bmw); }
+	bool operator!=(const vValue<Head, Tail...>& value) const { return !(*this == value); }
 
 	//<, >, <=, >=
-	bool operator<(const vValue<Head, Tail...>& bmw) const
+	bool operator<(const vValue<Head, Tail...>& value) const
 	{
-		if (head < bmw.head)
+		if (head < value.head)
 			return true;
 
-		if (head == bmw.head)
-			return (vValue<Tail...>) * this < (vValue<Tail...>)bmw;
+		if (head == value.head)
+			return (vValue<Tail...>) * this < (vValue<Tail...>)value;
 
 		return false;
 	}
-	bool operator>(const vValue<Head, Tail...>& bmw) const { return bmw < *this; }
-	bool operator<=(const vValue<Head, Tail...>& bmw) const { return !(bmw < *this); }
-	bool operator>=(const vValue<Head, Tail...>& bmw) const { return !(*this < bmw); }
+	bool operator>(const vValue<Head, Tail...>& value) const { return value < *this; }
+	bool operator<=(const vValue<Head, Tail...>& value) const { return !(value < *this); }
+	bool operator>=(const vValue<Head, Tail...>& value) const { return !(*this < value); }
 
 	vValue<Head, Tail...>& operator()(const Head& h, const Tail&... t)
 	{
@@ -175,14 +179,29 @@ public:
 
 
 template<typename Head, typename... Tail>
-std::ostream& operator<<(std::ostream& os, const vValue<Head, Tail...>& bmw)
+std::ostream& operator<<(std::ostream& os, const vValue<Head, Tail...>& value)
 {
-	if (sizeof...(Tail) + 1 == bmw.num()) os << "{";
+	if (sizeof...(Tail) + 1 == value.num()) os << "{";
 	else os << ",";
 
-	return os << bmw.head << (vValue<Tail...>)bmw;
+	return os << value.getHead() << (vValue<Tail...>)value;
 }
-std::ostream& operator<<(std::ostream& os, const vValue<>& bmw) { return os << "}"; }
+std::ostream& operator<<(std::ostream& os, const vValue<>& value) { return os << "}"; }
 
+template <typename Archiver, typename Head, typename... Tail>
+Archiver& operator&(Archiver& ar, vValue<Head, Tail...>& value)
+{
+	if (!value.num())
+		return ar;
+
+	size_t num = value.num();
+	if (value.isFirst())
+		ar.StartArray(&num);
+
+	vValue<Tail...> fVal = (vValue<Tail...>)value;
+	return ar& value.getHead()& fVal;
+}
+template <typename Archiver>
+Archiver& operator&(Archiver& ar, const vValue<>& value) { return ar.EndArray(); }
 
 
