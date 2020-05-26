@@ -181,10 +181,11 @@ public:
 template<typename Head, typename... Tail>
 std::ostream& operator<<(std::ostream& os, const vValue<Head, Tail...>& value)
 {
-	if (sizeof...(Tail) + 1 == value.num()) os << "{";
+	if (value.isFirst()) os << "{";
 	else os << ",";
 
-	return os << value.getHead() << (vValue<Tail...>)value;
+	vValue<Tail...>& fVal = (vValue<Tail...>&)value;
+	return os << value.getHead() << fVal;
 }
 std::ostream& operator<<(std::ostream& os, const vValue<>& value) { return os << "}"; }
 
@@ -198,7 +199,7 @@ Archiver& operator&(Archiver& ar, vValue<Head, Tail...>& value)
 	if (value.isFirst())
 		ar.StartArray(&num);
 
-	vValue<Tail...> fVal = (vValue<Tail...>)value;
+	vValue<Tail...>& fVal = (vValue<Tail...>&)value;
 	return ar& value.getHead()& fVal;
 }
 template <typename Archiver>
