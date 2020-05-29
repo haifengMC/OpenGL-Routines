@@ -1,4 +1,5 @@
 #pragma once
+#include "uValue.h"
 
 template<typename T>
 class Copier//拷贝适配器
@@ -170,7 +171,7 @@ public:
 		else return this->vValue<Tail...>::operator[](index - 1);
 	}
 
-	const void* operator[](const unsigned int& index) const 
+	const void* operator[](const unsigned int& index) const
 	{
 		if (!index) return &head;
 		else return this->vValue<Tail...>::operator[](index - 1);
