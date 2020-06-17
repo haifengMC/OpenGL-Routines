@@ -22,7 +22,7 @@ public:
 	T getOffset(const TC& cntId) const
 	{
 		if (isVaild() && cntId < count)
-			return cntId * size;
+			return offset + cntId * size;
 
 		return 0;
 	}
@@ -39,6 +39,22 @@ class BufferCountManager
 	std::map<std::string, BufferCountData<T, TC, C>*> nameMap;
 public:
 	const T& getSize() const { return size; }
+	const T& getSize(const std::string& name) const 
+	{
+		const BufferCountData<T, TC, C>* pCnt = getDataByName(name);
+		if (!pCnt)
+			return T();
+
+		return pCnt->getTotal();
+	}
+	const T& getOffset(const std::string& name, const TC& cntId = 0) const
+	{
+		const BufferCountData<T, TC, C>* pCnt = getDataByName(name);
+		if (!pCnt)
+			return T();
+
+		return pCnt->getOffset(cntId);
+	}
 
 	bool addData(const std::string& name, const T& size, const T& count)
 	{

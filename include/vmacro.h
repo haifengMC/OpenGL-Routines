@@ -2,6 +2,7 @@
 #include "vmacroBase.h"
 
 #define EXPAND(...) __VA_ARGS__
+#define EXPAND_F(F, ...) EXPAND(F(__VA_ARGS__))
 
 #define TO_STRING(X) TO_STRING1(X)
 #define COMB(X, Y) COMB1(X, Y)
@@ -12,6 +13,7 @@
 #define EXCP_M(X) !X
 #define OR_M(X) ||X
 #define SPACE_M(X) X
+#define UDRL_M(X) COMB(_, X)
 
 //递增 递减 符号 相反数 取模
 #define DEC(n) COMB(DEC_, n)//--
@@ -25,10 +27,12 @@
 #define GETARG(N, ...) EXPAND(COMB(GETARG_, N)(N, GETARG_F, __VA_ARGS__))
 #define CUTARGS(N, ...) EXPAND(COMB(GETARG_, N)(N, CUTARGS_F, __VA_ARGS__))
 #define CUTARGS_B(N, ...) EXPAND(COMB(CUTARGS_B_, N)(N, __VA_ARGS__))
+#define CUTARGS_C(B, E, ...) EXPAND(CUTARGS(1, EXPAND(CUTARGS_B(RIS(B), X, ##__VA_ARGS__)), EXPAND(CUTARGS(RIS(E), X, ##__VA_ARGS__))))
 
 //条件判断
 #define SWITCH_CASE(conf, ...) EXPAND(GETARG(RIS(conf), ##__VA_ARGS__))
-#define SWITCH_CASE_ARGS_N(conf, n, ...) EXPAND(COMB(GETARG_, RIS(conf))(RIS(conf), GETARG_F, CUTARGS_B, CUTARGS)(n, ##__VA_ARGS__))
+#define SWITCH_CASE_ARGS_R(conf, b, e, ...) EXPAND_F(COMB(GETARG_, RIS(conf))(RIS(conf), GETARG_F, SWITCH_CASE_ARGS_R_F, CUTARGS_C), b, e, ##__VA_ARGS__)
+#define SWITCH_CASE_ARGS_N(conf, n, ...) EXPAND(SWITCH_CASE_ARGS_R(conf, 0, n, ##__VA_ARGS__))
 #define SWITCH_CASE_ARGS(conf, ...) EXPAND(SWITCH_CASE_ARGS_N(conf, 1, ##__VA_ARGS__))
 #define IF(n) SWITCH_CASE(RIS(SIGN(n)), 1, 0, 1)
 
@@ -56,37 +60,88 @@
 #define MAX(X, Y) SWITCH_CASE(GT(X, Y), Y, X)
 
 //REPEAT系列
-#define REPEAT_N_F_SEP(n, f, fn, sep, ...) COMB(REPEAT_, n)(1, DIV(EXPAND(NUM(##__VA_ARGS__)), fn), n, f, fn, RIS, sep, ##__VA_ARGS__)
-#define REPEAT_N_F_SEP_ZERO(n, f, fn, sep, ...) COMB(f(0, CUTARGS_B(fn, ##__VA_ARGS__)), COMMA_M(REPEAT_N_F_SEP(n, f, fn, sep, CUTARGS(1, ##__VA_ARGS__))))
-#define REVERSE_REPEAT_N_F_SEP(n, f, fn, sep, ...) COMB(REPEAT_, n)(n, DIV(EXPAND(NUM(##__VA_ARGS__)), fn), n, f, fn, DEC, sep, ##__VA_ARGS__)
-#define REVERSE_REPEAT_N_F_SEP_ZERO(n, f, fn, sep, ...) COMB(REVERSE_REPEAT_N_F_SEP(n, f, fn, sep, ##__VA_ARGS__), COMMA_M(f(0, SWITCH_CASE(LS(n, EXPAND(NUM(##__VA_ARGS__))), GETARG(EXPAND(NUM(##__VA_ARGS__)), ##__VA_ARGS__), GETARG(n, ##__VA_ARGS__)))))
+//REPEAT系列开始---------------------------------------------------------------------------------------------------------------------------------------------------
+#define REPEAT_N_F_A_SEP(n, f, fn, an, sep, ...) COMB(REPEAT_, n)(1, DIV(NUM(CUTARGS(an, ##__VA_ARGS__)), fn), n, f, fn, an, RIS, sep, ##__VA_ARGS__)
+#define REPEAT_N_F_A_SEP_ZERO(n, f, fn, an, sep, ...) COMB(EXPAND_F(f, 0, CUTARGS_B(ADD(fn, an), CUTARGS_B(fn, CUTARGS(an, ##__VA_ARGS__)), CUTARGS_B(an, ##__VA_ARGS__))), sep(REPEAT_N_F_A_SEP(DEC(n), f, fn, an, sep, CUTARGS_C(an, ADD(an, fn), ##__VA_ARGS__))))
+#define REVERSE_REPEAT_N_F_A_SEP(n, f, fn, an, sep, ...) COMB(REPEAT_, n)(n, DIV(NUM(CUTARGS(an, ##__VA_ARGS__)), fn), n, f, fn, an, DEC, sep, ##__VA_ARGS__)
+#define REVERSE_REPEAT_N_F_A_SEP_ZERO(n, f, fn, an, sep, ...) COMB(REVERSE_REPEAT_N_F_A_SEP(DEC(n), f, fn, an, sep, ##__VA_ARGS__), sep(EXPAND_F(f, 0, CUTARGS_B(fn, CUTARGS(ADD(an, MUL(fn, DEC(MIN(n, DIV(NUM(CUTARGS(an, ##__VA_ARGS__)), fn))))), ##__VA_ARGS__)), CUTARGS_B(an, ##__VA_ARGS__)))) 
 
-#define REPEAT_N_F(n, f, fn, ...) EXPAND(REPEAT_N_F_SEP(n, f, fn, COMMA_M, ##__VA_ARGS__))
-#define REPEAT_N_F_ZERO(n, f, fn, ...) EXPAND(REPEAT_N_F_SEP_ZERO(n, f, fn, COMMA_M, ##__VA_ARGS__))
-#define REVERSE_REPEAT_N_F(n, f, fn, ...) EXPAND(REVERSE_REPEAT_N_F_SEP(n, f, fn, COMMA_M, ##__VA_ARGS__))
-#define REVERSE_REPEAT_N_F_ZERO(n, f, fn, ...) EXPAND(REVERSE_REPEAT_N_F_SEP_ZERO(n, f, fn, COMMA_M, ##__VA_ARGS__))
+//---------------------------------------------------------------------------------------------------------------------------------------------------------------
+#define REPEAT_N_F_A(n, f, fn, an, ...) REPEAT_N_F_A_SEP(n, f, fn, an, COMMA_M, ##__VA_ARGS__)
+#define REPEAT_N_F_A_ZERO(n, f, fn, an, ...) REPEAT_N_F_A_SEP_ZERO(n, f, fn, an, COMMA_M, ##__VA_ARGS__)
+#define REVERSE_REPEAT_N_F_A(n, f, fn, an, ...) REVERSE_REPEAT_N_F_A_SEP(n, f, fn, an, COMMA_M, ##__VA_ARGS__)
+#define REVERSE_REPEAT_N_F_A_ZERO(n, f, fn, an, ...) REVERSE_REPEAT_N_F_A_SEP_ZERO(n, f, fn, an, COMMA_M, ##__VA_ARGS__)
 
-#define REPEAT_F_SEP(f, fn, sep, ...) EXPAND(REPEAT_N_F_SEP(DIV(EXPAND(NUM(##__VA_ARGS__)), fn), f, fn, sep, ##__VA_ARGS__))
-#define REPEAT_F_SEP_ZERO(f, fn, sep, ...) EXPAND(REPEAT_N_F_SEP_ZERO(DIV(EXPAND(NUM(##__VA_ARGS__)), fn), f, fn, sep, ##__VA_ARGS__))
-#define REVERSE_REPEAT_F_SEP(f, fn, sep, ...) EXPAND(REVERSE_REPEAT_N_F_SEP(DIV(EXPAND(NUM(##__VA_ARGS__)), fn), f, fn, sep, ##__VA_ARGS__))
-#define REVERSE_REPEAT_F_SEP_ZERO(f, fn, sep, ...) EXPAND(REVERSE_REPEAT_N_F_SEP_ZERO(DIV(EXPAND(NUM(##__VA_ARGS__)), fn), f, fn, sep, ##__VA_ARGS__))
+#define REPEAT_N_F_SEP(n, f, fn, sep, ...) REPEAT_N_F_A_SEP(n, f, fn, 0, sep, ##__VA_ARGS__)
+#define REPEAT_N_F_SEP_ZERO(n, f, fn, sep, ...) REPEAT_N_F_A_SEP_ZERO(n, f, fn, 0, sep, ##__VA_ARGS__)
+#define REVERSE_REPEAT_N_F_SEP(n, f, fn, sep, ...) REVERSE_REPEAT_N_F_A_SEP(n, f, fn, 0, sep, ##__VA_ARGS__)
+#define REVERSE_REPEAT_N_F_SEP_ZERO(n, f, fn, sep, ...) REVERSE_REPEAT_N_F_A_SEP_ZERO(n, f, fn, 0, sep, ##__VA_ARGS__)
 
-#define REPEAT_F(f, fn, ...) EXPAND(REPEAT_F_SEP(f, fn, COMMA_M, ##__VA_ARGS__))
-#define REPEAT_F_ZERO(f, fn, ...) EXPAND(REPEAT_F_SEP_ZERO(f, fn, COMMA_M, ##__VA_ARGS__))
-#define REVERSE_REPEAT_F(f, fn, ...) EXPAND(REVERSE_REPEAT_F_SEP(f, fn, COMMA_M, ##__VA_ARGS__))
-#define REVERSE_REPEAT_F_ZERO(f, fn, ...) EXPAND(REVERSE_REPEAT_F_SEP_ZERO(f, fn, COMMA_M, ##__VA_ARGS__))
+#define REPEAT_N_A_SEP(n, f, an, sep, ...) REPEAT_N_F_A_SEP(n, f, 1, an, sep, ##__VA_ARGS__)
+#define REPEAT_N_A_SEP_ZERO(n, f, an, sep, ...) REPEAT_N_F_A_SEP_ZERO(n, f, 1, an, sep, ##__VA_ARGS__)
+#define REVERSE_REPEAT_N_A_SEP(n, f, an, sep, ...) REVERSE_REPEAT_N_F_A_SEP(n, f, 1, an, sep, ##__VA_ARGS__)
+#define REVERSE_REPEAT_N_A_SEP_ZERO(n, f, an, sep, ...) REVERSE_REPEAT_N_F_A_SEP_ZERO(n, f, 1, an, sep, ##__VA_ARGS__)
 
-#define REPEAT_N(n, f, ...) EXPAND(REPEAT_N_F(n, f, 1, ##__VA_ARGS__))
-#define REPEAT_N_ZERO(n, f, ...) EXPAND(REPEAT_N_F_ZERO(n, f, 1, ##__VA_ARGS__))
-#define REVERSE_REPEAT_N(n, f, ...) EXPAND(REVERSE_REPEAT_N_F(n, f, 1, ##__VA_ARGS__))
-#define REVERSE_REPEAT_N_ZERO(n, f, ...) EXPAND(REVERSE_REPEAT_N_F_ZERO(n, f, 1, ##__VA_ARGS__))
+#define REPEAT_F_A_SEP(f, fn, an, sep, ...) REPEAT_N_F_A_SEP(DIV(EXPAND(NUM(CUTARGS(an, ##__VA_ARGS__))), fn), f, fn, an, sep, ##__VA_ARGS__)
+#define REPEAT_F_A_SEP_ZERO(f, fn, an, sep, ...) REPEAT_N_F_A_SEP_ZERO(DIV(EXPAND(NUM(CUTARGS(an, ##__VA_ARGS__))), fn), f, fn, an, sep, ##__VA_ARGS__)
+#define REVERSE_REPEAT_F_A_SEP(f, fn, an, sep, ...) REVERSE_REPEAT_N_F_A_SEP(DIV(EXPAND(NUM(CUTARGS(an, ##__VA_ARGS__))), fn), f, fn, an, sep, ##__VA_ARGS__)
+#define REVERSE_REPEAT_F_A_SEP_ZERO(f, fn, an, sep, ...) REVERSE_REPEAT_N_F_A_SEP_ZERO(DIV(EXPAND(NUM(CUTARGS(an, ##__VA_ARGS__))), fn), f, fn, an, sep, ##__VA_ARGS__)
 
-#define REPEAT(f, ...) EXPAND(REPEAT_F(f, 1, ##__VA_ARGS__))
-#define REPEAT_ZERO(f, ...) EXPAND(REPEAT_F_ZERO(f, 1, ##__VA_ARGS__))
-#define REVERSE_REPEAT(f, ...) EXPAND(REVERSE_REPEAT_F(f, 1, ##__VA_ARGS__))
-#define REVERSE_REPEAT_ZERO(f, ...) EXPAND(REVERSE_REPEAT_F_ZERO(f, 1, ##__VA_ARGS__))
+//---------------------------------------------------------------------------------------------------------------------------------------------------------------
+#define REPEAT_N_F(n, f, fn, ...) REPEAT_N_F_A(n, f, fn, 0, ##__VA_ARGS__)
+#define REPEAT_N_F_ZERO(n, f, fn, ...) REPEAT_N_F_A_ZERO(n, f, fn, 0, ##__VA_ARGS__)
+#define REVERSE_REPEAT_N_F(n, f, fn, ...) REVERSE_REPEAT_N_F_A(n, f, fn, 0, ##__VA_ARGS__)
+#define REVERSE_REPEAT_N_F_ZERO(n, f, fn, ...) REVERSE_REPEAT_N_F_A_ZERO(n, f, fn, 0, ##__VA_ARGS__)
 
-#define REPEAT_SEP(f, sep, ...) EXPAND(REPEAT_F_SEP(f, 1, sep, ##__VA_ARGS__))
-#define REPEAT_SEP_ZERO(f, sep, ...) EXPAND(REPEAT_F_SEP_ZERO(f, 1, sep, ##__VA_ARGS__)
-#define REVERSE_REPEAT_SEP(f, sep, ...) EXPAND(REVERSE_REPEAT_F_SEP(f, 1, sep, ##__VA_ARGS__)
-#define REVERSE_REPEAT_SEP_ZERO(f, sep, ...) EXPAND(REVERSE_REPEAT_F_SEP_ZERO(f, 1, sep, ##__VA_ARGS__))
+#define REPEAT_N_A(n, f, an, ...) REPEAT_N_F_A(n, f, 1, an, ##__VA_ARGS__)
+#define REPEAT_N_A_ZERO(n, f, an, ...) REPEAT_N_F_A_ZERO(n, f, 1, an, ##__VA_ARGS__)
+#define REVERSE_REPEAT_N_A(n, f, an, ...) REVERSE_REPEAT_N_F_A(n, f, 1, an, ##__VA_ARGS__)
+#define REVERSE_REPEAT_N_A_ZERO(n, f, an, ...) REVERSE_REPEAT_N_F_A_ZERO(n, f, 1, an, ##__VA_ARGS__)
+
+#define REPEAT_N_SEP(n, f, sep, ...) REPEAT_N_F_SEP(n, f, 1, sep, ##__VA_ARGS__)								  //
+#define REPEAT_N_SEP_ZERO(n, f, sep, ...) REPEAT_N_F_SEP_ZERO(n, f, 1, sep, ##__VA_ARGS__)						  //
+#define REVERSE_REPEAT_N_SEP(n, f, sep, ...) REVERSE_REPEAT_N_F_SEP(n, f, 1, sep, ##__VA_ARGS__)				  //
+#define REVERSE_REPEAT_N_SEP_ZERO(n, f, sep, ...) REVERSE_REPEAT_N_F_SEP_ZERO(n, f, 1, sep, ##__VA_ARGS__)		  //
+
+#define REPEAT_F_A(f, fn, an, ...) REPEAT_F_A_SEP(f, fn, an, COMMA_M, ##__VA_ARGS__)							  //
+#define REPEAT_F_A_ZERO(f, fn, an, ...) REPEAT_F_A_SEP_ZERO(f, fn, an, COMMA_M, ##__VA_ARGS__)					  //
+#define REVERSE_REPEAT_F_A(f, fn, an, ...) REVERSE_REPEAT_F_A_SEP(f, fn, an, COMMA_M, ##__VA_ARGS__)			  //
+#define REVERSE_REPEAT_F_A_ZERO(f, fn, an, ...) REVERSE_REPEAT_F_A_SEP_ZERO(f, fn, an, COMMA_M, ##__VA_ARGS__)	  
+
+#define REPEAT_F_SEP(f, fn, sep, ...) REPEAT_F_A_SEP(f, fn, 0, sep, ##__VA_ARGS__)								  //
+#define REPEAT_F_SEP_ZERO(f, fn, sep, ...) REPEAT_F_A_SEP_ZERO(f, fn, 0, sep, ##__VA_ARGS__)					  //
+#define REVERSE_REPEAT_F_SEP(f, fn, sep, ...) REVERSE_REPEAT_F_A_SEP(f, fn, 0, sep, ##__VA_ARGS__)
+#define REVERSE_REPEAT_F_SEP_ZERO(f, fn, sep, ...) REVERSE_REPEAT_F_A_SEP_ZERO(f, fn, 0, sep, ##__VA_ARGS__)
+
+#define REPEAT_A_SEP(f, an, sep, ...) REPEAT_F_A_SEP(f, 1, an, sep, ##__VA_ARGS__)								  //
+#define REPEAT_A_SEP_ZERO(f, an, sep, ...) REPEAT_F_A_SEP_ZERO(f, 1, an, sep, ##__VA_ARGS__)
+#define REVERSE_REPEAT_A_SEP(f, an, sep, ...) REVERSE_REPEAT_F_A_SEP(f, 1, an, sep, ##__VA_ARGS__)
+#define REVERSE_REPEAT_A_SEP_ZERO(f, an, sep, ...) REVERSE_REPEAT_F_A_SEP_ZERO(f, 1, an, sep, ##__VA_ARGS__)
+
+//---------------------------------------------------------------------------------------------------------------------------------------------------------------
+#define REPEAT_N(n, f, ...) REPEAT_N_F(n, f, 1, ##__VA_ARGS__) 													  //
+#define REPEAT_N_ZERO(n, f, ...) REPEAT_N_F_ZERO(n, f, 1, ##__VA_ARGS__) 										  //
+#define REVERSE_REPEAT_N(n, f, ...) REVERSE_REPEAT_N_F(n, f, 1, ##__VA_ARGS__) 									  //
+#define REVERSE_REPEAT_N_ZERO(n, f, ...)REVERSE_REPEAT_N_F_ZERO(n, f, 1, ##__VA_ARGS__)							  //
+
+#define REPEAT_F(f, fn, ...) REPEAT_F_SEP(f, fn, COMMA_M, ##__VA_ARGS__) 										  //
+#define REPEAT_F_ZERO(f, fn, ...) REPEAT_F_SEP_ZERO(f, fn, COMMA_M, ##__VA_ARGS__) 								  //
+#define REVERSE_REPEAT_F(f, fn, ...) REVERSE_REPEAT_F_SEP(f, fn, COMMA_M, ##__VA_ARGS__) 						  //
+#define REVERSE_REPEAT_F_ZERO(f, fn, ...)REVERSE_REPEAT_F_SEP_ZERO(f, fn, COMMA_M, ##__VA_ARGS__)				  //
+
+#define REPEAT_A(f, an, ...) REPEAT_A_SEP(f, an, COMMA_M, ##__VA_ARGS__) 										  //
+#define REPEAT_A_ZERO(f, an, ...) REPEAT_A_SEP_ZERO(f, an, COMMA_M, ##__VA_ARGS__)								  //
+#define REVERSE_REPEAT_A(f, an, ...) REVERSE_REPEAT_A_SEP(f, an, COMMA_M, ##__VA_ARGS__) 
+#define REVERSE_REPEAT_A_ZERO(f, an, ...)REVERSE_REPEAT_A_SEP_ZERO(f, an, COMMA_M, ##__VA_ARGS__)
+
+#define REPEAT_SEP(f, sep, ...) REPEAT_A_SEP(f, 0, sep, ##__VA_ARGS__) 											  //
+#define REPEAT_SEP_ZERO(f, sep, ...) REPEAT_A_SEP_ZERO(f, 0, sep, ##__VA_ARGS__)								  //
+#define REVERSE_REPEAT_SEP(f, sep, ...) REVERSE_REPEAT_A_SEP(f, 0, sep, ##__VA_ARGS__) 							  //
+#define REVERSE_REPEAT_SEP_ZERO(f, sep, ...)REVERSE_REPEAT_A_SEP_ZERO(f, 0, sep, ##__VA_ARGS__)					  //
+
+#define REPEAT(f, ...) REPEAT_SEP(f, COMMA_M, ##__VA_ARGS__) 													  //
+#define REPEAT_ZERO(f, ...) REPEAT_SEP_ZERO(f, COMMA_M, ##__VA_ARGS__) 											  //
+#define REVERSE_REPEAT(f, ...) REVERSE_REPEAT_SEP(f, COMMA_M, ##__VA_ARGS__) 									  //
+#define REVERSE_REPEAT_ZERO(f, ...) REVERSE_REPEAT_SEP_ZERO(f, COMMA_M, ##__VA_ARGS__) 							  
+
+//REPEAT系列结束---------------------------------------------------------------------------------------------------------------------------------------------------
