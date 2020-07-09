@@ -40,7 +40,7 @@ add_library(vermilion
             lib/loadtexture.cpp
             lib/vermilion.cpp
             lib/vbm.cpp
-)
+ "lib/hYaml/hNodeEx.cpp")
 
 set(RUN_DIR ${PROJECT_SOURCE_DIR}/bin)
 
@@ -86,7 +86,7 @@ if (OPENMP_FOUND)
 endif()
 
 foreach(EXAMPLE ${EXAMPLES})
-  add_executable(${EXAMPLE} WIN32 src/${EXAMPLE}/${EXAMPLE}.cpp ${COMMON_HEADERS})
+  add_executable(${EXAMPLE} WIN32 src/${EXAMPLE}/${EXAMPLE}.cpp ${COMMON_HEADERS} "lib/hYaml/hNodeEx.cpp")
   set_property(TARGET ${EXAMPLE} PROPERTY DEBUG_POSTFIX _d)
   target_link_libraries(${EXAMPLE} ${COMMON_LIBS})
   if(MSVC)

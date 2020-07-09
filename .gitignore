@@ -5,3 +5,5 @@ bin/*
 !bin/media/
 *.lib
 /.vs
+/hYaml/hYaml.dir/Debug/hYaml.tlog
+/hYaml/hYaml.dir/Debug
