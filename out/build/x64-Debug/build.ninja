@@ -94,6 +94,14 @@ build CMakeFiles\vermilion.dir\lib\vbm.cpp.obj: CXX_COMPILER__vermilion ..\..\..
   TARGET_COMPILE_PDB = CMakeFiles\vermilion.dir\vermilion.pdb
   TARGET_PDB = lib\vermilion_d.pdb
 
+build CMakeFiles\vermilion.dir\lib\hYaml\hNodeEx.cpp.obj: CXX_COMPILER__vermilion ..\..\..\lib\hYaml\hNodeEx.cpp || cmake_object_order_depends_target_vermilion
+  FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc -openmp /MDd /Zi /Ob0 /Od /RTC1
+  INCLUDES = -I..\..\..\include -I..\..\..\lib\glfw\include
+  OBJECT_DIR = CMakeFiles\vermilion.dir
+  OBJECT_FILE_DIR = CMakeFiles\vermilion.dir\lib\hYaml
+  TARGET_COMPILE_PDB = CMakeFiles\vermilion.dir\vermilion.pdb
+  TARGET_PDB = lib\vermilion_d.pdb
+
 
 # =============================================================================
 # Link build statements for STATIC_LIBRARY target vermilion
@@ -102,7 +110,7 @@ build CMakeFiles\vermilion.dir\lib\vbm.cpp.obj: CXX_COMPILER__vermilion ..\..\..
 #############################################
 # Link the static library lib\vermilion_d.lib
 
-build lib\vermilion_d.lib: CXX_STATIC_LIBRARY_LINKER__vermilion CMakeFiles\vermilion.dir\lib\gl3w.c.obj CMakeFiles\vermilion.dir\lib\LoadShaders.cpp.obj CMakeFiles\vermilion.dir\lib\targa.cpp.obj CMakeFiles\vermilion.dir\lib\vdds.cpp.obj CMakeFiles\vermilion.dir\lib\loadtexture.cpp.obj CMakeFiles\vermilion.dir\lib\vermilion.cpp.obj CMakeFiles\vermilion.dir\lib\vbm.cpp.obj
+build lib\vermilion_d.lib: CXX_STATIC_LIBRARY_LINKER__vermilion CMakeFiles\vermilion.dir\lib\gl3w.c.obj CMakeFiles\vermilion.dir\lib\LoadShaders.cpp.obj CMakeFiles\vermilion.dir\lib\targa.cpp.obj CMakeFiles\vermilion.dir\lib\vdds.cpp.obj CMakeFiles\vermilion.dir\lib\loadtexture.cpp.obj CMakeFiles\vermilion.dir\lib\vermilion.cpp.obj CMakeFiles\vermilion.dir\lib\vbm.cpp.obj CMakeFiles\vermilion.dir\lib\hYaml\hNodeEx.cpp.obj
   LANGUAGE_COMPILE_FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc -openmp /MDd /Zi /Ob0 /Od /RTC1
   LINK_FLAGS = /machine:x64
   OBJECT_DIR = CMakeFiles\vermilion.dir
@@ -129,6 +137,14 @@ build CMakeFiles\03-primitiverestart.dir\src\03-primitiverestart\03-primitiveres
   TARGET_COMPILE_PDB = CMakeFiles\03-primitiverestart.dir\
   TARGET_PDB = ..\..\..\bin\03-primitiverestart_d.pdb
 
+build CMakeFiles\03-primitiverestart.dir\lib\hYaml\hNodeEx.cpp.obj: CXX_COMPILER__03-primitiverestart ..\..\..\lib\hYaml\hNodeEx.cpp || cmake_object_order_depends_target_03-primitiverestart
+  FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc -openmp /MDd /Zi /Ob0 /Od /RTC1
+  INCLUDES = -I..\..\..\include -I..\..\..\lib\glfw\include
+  OBJECT_DIR = CMakeFiles\03-primitiverestart.dir
+  OBJECT_FILE_DIR = CMakeFiles\03-primitiverestart.dir\lib\hYaml
+  TARGET_COMPILE_PDB = CMakeFiles\03-primitiverestart.dir\
+  TARGET_PDB = ..\..\..\bin\03-primitiverestart_d.pdb
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target 03-primitiverestart
@@ -137,7 +153,7 @@ build CMakeFiles\03-primitiverestart.dir\src\03-primitiverestart\03-primitiveres
 #############################################
 # Link the executable ..\..\..\bin\03-primitiverestart_d.exe
 
-build ..\..\..\bin\03-primitiverestart_d.exe: CXX_EXECUTABLE_LINKER__03-primitiverestart CMakeFiles\03-primitiverestart.dir\src\03-primitiverestart\03-primitiverestart.cpp.obj | lib\vermilion_d.lib || lib\vermilion_d.lib
+build ..\..\..\bin\03-primitiverestart_d.exe: CXX_EXECUTABLE_LINKER__03-primitiverestart CMakeFiles\03-primitiverestart.dir\src\03-primitiverestart\03-primitiverestart.cpp.obj CMakeFiles\03-primitiverestart.dir\lib\hYaml\hNodeEx.cpp.obj | lib\vermilion_d.lib || lib\vermilion_d.lib
   FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc -openmp /MDd /Zi /Ob0 /Od /RTC1
   LINK_FLAGS = /machine:x64 /debug /INCREMENTAL /subsystem:windows
   LINK_LIBRARIES = lib\vermilion_d.lib  opengl32.lib  glu32.lib  glfw3_d.lib  kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib
@@ -167,6 +183,14 @@ build CMakeFiles\03-pointsprites.dir\src\03-pointsprites\03-pointsprites.cpp.obj
   TARGET_COMPILE_PDB = CMakeFiles\03-pointsprites.dir\
   TARGET_PDB = ..\..\..\bin\03-pointsprites_d.pdb
 
+build CMakeFiles\03-pointsprites.dir\lib\hYaml\hNodeEx.cpp.obj: CXX_COMPILER__03-pointsprites ..\..\..\lib\hYaml\hNodeEx.cpp || cmake_object_order_depends_target_03-pointsprites
+  FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc -openmp /MDd /Zi /Ob0 /Od /RTC1
+  INCLUDES = -I..\..\..\include -I..\..\..\lib\glfw\include
+  OBJECT_DIR = CMakeFiles\03-pointsprites.dir
+  OBJECT_FILE_DIR = CMakeFiles\03-pointsprites.dir\lib\hYaml
+  TARGET_COMPILE_PDB = CMakeFiles\03-pointsprites.dir\
+  TARGET_PDB = ..\..\..\bin\03-pointsprites_d.pdb
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target 03-pointsprites
@@ -175,7 +199,7 @@ build CMakeFiles\03-pointsprites.dir\src\03-pointsprites\03-pointsprites.cpp.obj
 #############################################
 # Link the executable ..\..\..\bin\03-pointsprites_d.exe
 
-build ..\..\..\bin\03-pointsprites_d.exe: CXX_EXECUTABLE_LINKER__03-pointsprites CMakeFiles\03-pointsprites.dir\src\03-pointsprites\03-pointsprites.cpp.obj | lib\vermilion_d.lib || lib\vermilion_d.lib
+build ..\..\..\bin\03-pointsprites_d.exe: CXX_EXECUTABLE_LINKER__03-pointsprites CMakeFiles\03-pointsprites.dir\src\03-pointsprites\03-pointsprites.cpp.obj CMakeFiles\03-pointsprites.dir\lib\hYaml\hNodeEx.cpp.obj | lib\vermilion_d.lib || lib\vermilion_d.lib
   FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc -openmp /MDd /Zi /Ob0 /Od /RTC1
   LINK_FLAGS = /machine:x64 /debug /INCREMENTAL /subsystem:windows
   LINK_LIBRARIES = lib\vermilion_d.lib  opengl32.lib  glu32.lib  glfw3_d.lib  kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib
@@ -205,6 +229,14 @@ build CMakeFiles\03-instancing2.dir\src\03-instancing2\03-instancing2.cpp.obj: C
   TARGET_COMPILE_PDB = CMakeFiles\03-instancing2.dir\
   TARGET_PDB = ..\..\..\bin\03-instancing2_d.pdb
 
+build CMakeFiles\03-instancing2.dir\lib\hYaml\hNodeEx.cpp.obj: CXX_COMPILER__03-instancing2 ..\..\..\lib\hYaml\hNodeEx.cpp || cmake_object_order_depends_target_03-instancing2
+  FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc -openmp /MDd /Zi /Ob0 /Od /RTC1
+  INCLUDES = -I..\..\..\include -I..\..\..\lib\glfw\include
+  OBJECT_DIR = CMakeFiles\03-instancing2.dir
+  OBJECT_FILE_DIR = CMakeFiles\03-instancing2.dir\lib\hYaml
+  TARGET_COMPILE_PDB = CMakeFiles\03-instancing2.dir\
+  TARGET_PDB = ..\..\..\bin\03-instancing2_d.pdb
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target 03-instancing2
@@ -213,7 +245,7 @@ build CMakeFiles\03-instancing2.dir\src\03-instancing2\03-instancing2.cpp.obj: C
 #############################################
 # Link the executable ..\..\..\bin\03-instancing2_d.exe
 
-build ..\..\..\bin\03-instancing2_d.exe: CXX_EXECUTABLE_LINKER__03-instancing2 CMakeFiles\03-instancing2.dir\src\03-instancing2\03-instancing2.cpp.obj | lib\vermilion_d.lib || lib\vermilion_d.lib
+build ..\..\..\bin\03-instancing2_d.exe: CXX_EXECUTABLE_LINKER__03-instancing2 CMakeFiles\03-instancing2.dir\src\03-instancing2\03-instancing2.cpp.obj CMakeFiles\03-instancing2.dir\lib\hYaml\hNodeEx.cpp.obj | lib\vermilion_d.lib || lib\vermilion_d.lib
   FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc -openmp /MDd /Zi /Ob0 /Od /RTC1
   LINK_FLAGS = /machine:x64 /debug /INCREMENTAL /subsystem:windows
   LINK_LIBRARIES = lib\vermilion_d.lib  opengl32.lib  glu32.lib  glfw3_d.lib  kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib
@@ -243,6 +275,14 @@ build CMakeFiles\01-keypress.dir\src\01-keypress\01-keypress.cpp.obj: CXX_COMPIL
   TARGET_COMPILE_PDB = CMakeFiles\01-keypress.dir\
   TARGET_PDB = ..\..\..\bin\01-keypress_d.pdb
 
+build CMakeFiles\01-keypress.dir\lib\hYaml\hNodeEx.cpp.obj: CXX_COMPILER__01-keypress ..\..\..\lib\hYaml\hNodeEx.cpp || cmake_object_order_depends_target_01-keypress
+  FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc -openmp /MDd /Zi /Ob0 /Od /RTC1
+  INCLUDES = -I..\..\..\include -I..\..\..\lib\glfw\include
+  OBJECT_DIR = CMakeFiles\01-keypress.dir
+  OBJECT_FILE_DIR = CMakeFiles\01-keypress.dir\lib\hYaml
+  TARGET_COMPILE_PDB = CMakeFiles\01-keypress.dir\
+  TARGET_PDB = ..\..\..\bin\01-keypress_d.pdb
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target 01-keypress
@@ -251,7 +291,7 @@ build CMakeFiles\01-keypress.dir\src\01-keypress\01-keypress.cpp.obj: CXX_COMPIL
 #############################################
 # Link the executable ..\..\..\bin\01-keypress_d.exe
 
-build ..\..\..\bin\01-keypress_d.exe: CXX_EXECUTABLE_LINKER__01-keypress CMakeFiles\01-keypress.dir\src\01-keypress\01-keypress.cpp.obj | lib\vermilion_d.lib || lib\vermilion_d.lib
+build ..\..\..\bin\01-keypress_d.exe: CXX_EXECUTABLE_LINKER__01-keypress CMakeFiles\01-keypress.dir\src\01-keypress\01-keypress.cpp.obj CMakeFiles\01-keypress.dir\lib\hYaml\hNodeEx.cpp.obj | lib\vermilion_d.lib || lib\vermilion_d.lib
   FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc -openmp /MDd /Zi /Ob0 /Od /RTC1
   LINK_FLAGS = /machine:x64 /debug /INCREMENTAL /subsystem:windows
   LINK_LIBRARIES = lib\vermilion_d.lib  opengl32.lib  glu32.lib  glfw3_d.lib  kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib
@@ -281,6 +321,14 @@ build CMakeFiles\03-instancing.dir\src\03-instancing\03-instancing.cpp.obj: CXX_
   TARGET_COMPILE_PDB = CMakeFiles\03-instancing.dir\
   TARGET_PDB = ..\..\..\bin\03-instancing_d.pdb
 
+build CMakeFiles\03-instancing.dir\lib\hYaml\hNodeEx.cpp.obj: CXX_COMPILER__03-instancing ..\..\..\lib\hYaml\hNodeEx.cpp || cmake_object_order_depends_target_03-instancing
+  FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc -openmp /MDd /Zi /Ob0 /Od /RTC1
+  INCLUDES = -I..\..\..\include -I..\..\..\lib\glfw\include
+  OBJECT_DIR = CMakeFiles\03-instancing.dir
+  OBJECT_FILE_DIR = CMakeFiles\03-instancing.dir\lib\hYaml
+  TARGET_COMPILE_PDB = CMakeFiles\03-instancing.dir\
+  TARGET_PDB = ..\..\..\bin\03-instancing_d.pdb
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target 03-instancing
@@ -289,7 +337,7 @@ build CMakeFiles\03-instancing.dir\src\03-instancing\03-instancing.cpp.obj: CXX_
 #############################################
 # Link the executable ..\..\..\bin\03-instancing_d.exe
 
-build ..\..\..\bin\03-instancing_d.exe: CXX_EXECUTABLE_LINKER__03-instancing CMakeFiles\03-instancing.dir\src\03-instancing\03-instancing.cpp.obj | lib\vermilion_d.lib || lib\vermilion_d.lib
+build ..\..\..\bin\03-instancing_d.exe: CXX_EXECUTABLE_LINKER__03-instancing CMakeFiles\03-instancing.dir\src\03-instancing\03-instancing.cpp.obj CMakeFiles\03-instancing.dir\lib\hYaml\hNodeEx.cpp.obj | lib\vermilion_d.lib || lib\vermilion_d.lib
   FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc -openmp /MDd /Zi /Ob0 /Od /RTC1
   LINK_FLAGS = /machine:x64 /debug /INCREMENTAL /subsystem:windows
   LINK_LIBRARIES = lib\vermilion_d.lib  opengl32.lib  glu32.lib  glfw3_d.lib  kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib
@@ -319,6 +367,14 @@ build CMakeFiles\06-multitexture.dir\src\06-multitexture\06-multitexture.cpp.obj
   TARGET_COMPILE_PDB = CMakeFiles\06-multitexture.dir\
   TARGET_PDB = ..\..\..\bin\06-multitexture_d.pdb
 
+build CMakeFiles\06-multitexture.dir\lib\hYaml\hNodeEx.cpp.obj: CXX_COMPILER__06-multitexture ..\..\..\lib\hYaml\hNodeEx.cpp || cmake_object_order_depends_target_06-multitexture
+  FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc -openmp /MDd /Zi /Ob0 /Od /RTC1
+  INCLUDES = -I..\..\..\include -I..\..\..\lib\glfw\include
+  OBJECT_DIR = CMakeFiles\06-multitexture.dir
+  OBJECT_FILE_DIR = CMakeFiles\06-multitexture.dir\lib\hYaml
+  TARGET_COMPILE_PDB = CMakeFiles\06-multitexture.dir\
+  TARGET_PDB = ..\..\..\bin\06-multitexture_d.pdb
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target 06-multitexture
@@ -327,7 +383,7 @@ build CMakeFiles\06-multitexture.dir\src\06-multitexture\06-multitexture.cpp.obj
 #############################################
 # Link the executable ..\..\..\bin\06-multitexture_d.exe
 
-build ..\..\..\bin\06-multitexture_d.exe: CXX_EXECUTABLE_LINKER__06-multitexture CMakeFiles\06-multitexture.dir\src\06-multitexture\06-multitexture.cpp.obj | lib\vermilion_d.lib || lib\vermilion_d.lib
+build ..\..\..\bin\06-multitexture_d.exe: CXX_EXECUTABLE_LINKER__06-multitexture CMakeFiles\06-multitexture.dir\src\06-multitexture\06-multitexture.cpp.obj CMakeFiles\06-multitexture.dir\lib\hYaml\hNodeEx.cpp.obj | lib\vermilion_d.lib || lib\vermilion_d.lib
   FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc -openmp /MDd /Zi /Ob0 /Od /RTC1
   LINK_FLAGS = /machine:x64 /debug /INCREMENTAL /subsystem:windows
   LINK_LIBRARIES = lib\vermilion_d.lib  opengl32.lib  glu32.lib  glfw3_d.lib  kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib
@@ -357,6 +413,14 @@ build CMakeFiles\01-triangles.dir\src\01-triangles\01-triangles.cpp.obj: CXX_COM
   TARGET_COMPILE_PDB = CMakeFiles\01-triangles.dir\
   TARGET_PDB = ..\..\..\bin\01-triangles_d.pdb
 
+build CMakeFiles\01-triangles.dir\lib\hYaml\hNodeEx.cpp.obj: CXX_COMPILER__01-triangles ..\..\..\lib\hYaml\hNodeEx.cpp || cmake_object_order_depends_target_01-triangles
+  FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc -openmp /MDd /Zi /Ob0 /Od /RTC1
+  INCLUDES = -I..\..\..\include -I..\..\..\lib\glfw\include
+  OBJECT_DIR = CMakeFiles\01-triangles.dir
+  OBJECT_FILE_DIR = CMakeFiles\01-triangles.dir\lib\hYaml
+  TARGET_COMPILE_PDB = CMakeFiles\01-triangles.dir\
+  TARGET_PDB = ..\..\..\bin\01-triangles_d.pdb
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target 01-triangles
@@ -365,7 +429,7 @@ build CMakeFiles\01-triangles.dir\src\01-triangles\01-triangles.cpp.obj: CXX_COM
 #############################################
 # Link the executable ..\..\..\bin\01-triangles_d.exe
 
-build ..\..\..\bin\01-triangles_d.exe: CXX_EXECUTABLE_LINKER__01-triangles CMakeFiles\01-triangles.dir\src\01-triangles\01-triangles.cpp.obj | lib\vermilion_d.lib || lib\vermilion_d.lib
+build ..\..\..\bin\01-triangles_d.exe: CXX_EXECUTABLE_LINKER__01-triangles CMakeFiles\01-triangles.dir\src\01-triangles\01-triangles.cpp.obj CMakeFiles\01-triangles.dir\lib\hYaml\hNodeEx.cpp.obj | lib\vermilion_d.lib || lib\vermilion_d.lib
   FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc -openmp /MDd /Zi /Ob0 /Od /RTC1
   LINK_FLAGS = /machine:x64 /debug /INCREMENTAL /subsystem:windows
   LINK_LIBRARIES = lib\vermilion_d.lib  opengl32.lib  glu32.lib  glfw3_d.lib  kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib
@@ -395,6 +459,14 @@ build CMakeFiles\06-mipfilters.dir\src\06-mipfilters\06-mipfilters.cpp.obj: CXX_
   TARGET_COMPILE_PDB = CMakeFiles\06-mipfilters.dir\
   TARGET_PDB = ..\..\..\bin\06-mipfilters_d.pdb
 
+build CMakeFiles\06-mipfilters.dir\lib\hYaml\hNodeEx.cpp.obj: CXX_COMPILER__06-mipfilters ..\..\..\lib\hYaml\hNodeEx.cpp || cmake_object_order_depends_target_06-mipfilters
+  FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc -openmp /MDd /Zi /Ob0 /Od /RTC1
+  INCLUDES = -I..\..\..\include -I..\..\..\lib\glfw\include
+  OBJECT_DIR = CMakeFiles\06-mipfilters.dir
+  OBJECT_FILE_DIR = CMakeFiles\06-mipfilters.dir\lib\hYaml
+  TARGET_COMPILE_PDB = CMakeFiles\06-mipfilters.dir\
+  TARGET_PDB = ..\..\..\bin\06-mipfilters_d.pdb
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target 06-mipfilters
@@ -403,7 +475,7 @@ build CMakeFiles\06-mipfilters.dir\src\06-mipfilters\06-mipfilters.cpp.obj: CXX_
 #############################################
 # Link the executable ..\..\..\bin\06-mipfilters_d.exe
 
-build ..\..\..\bin\06-mipfilters_d.exe: CXX_EXECUTABLE_LINKER__06-mipfilters CMakeFiles\06-mipfilters.dir\src\06-mipfilters\06-mipfilters.cpp.obj | lib\vermilion_d.lib || lib\vermilion_d.lib
+build ..\..\..\bin\06-mipfilters_d.exe: CXX_EXECUTABLE_LINKER__06-mipfilters CMakeFiles\06-mipfilters.dir\src\06-mipfilters\06-mipfilters.cpp.obj CMakeFiles\06-mipfilters.dir\lib\hYaml\hNodeEx.cpp.obj | lib\vermilion_d.lib || lib\vermilion_d.lib
   FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc -openmp /MDd /Zi /Ob0 /Od /RTC1
   LINK_FLAGS = /machine:x64 /debug /INCREMENTAL /subsystem:windows
   LINK_LIBRARIES = lib\vermilion_d.lib  opengl32.lib  glu32.lib  glfw3_d.lib  kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib
@@ -433,6 +505,14 @@ build CMakeFiles\06-cubemap.dir\src\06-cubemap\06-cubemap.cpp.obj: CXX_COMPILER_
   TARGET_COMPILE_PDB = CMakeFiles\06-cubemap.dir\
   TARGET_PDB = ..\..\..\bin\06-cubemap_d.pdb
 
+build CMakeFiles\06-cubemap.dir\lib\hYaml\hNodeEx.cpp.obj: CXX_COMPILER__06-cubemap ..\..\..\lib\hYaml\hNodeEx.cpp || cmake_object_order_depends_target_06-cubemap
+  FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc -openmp /MDd /Zi /Ob0 /Od /RTC1
+  INCLUDES = -I..\..\..\include -I..\..\..\lib\glfw\include
+  OBJECT_DIR = CMakeFiles\06-cubemap.dir
+  OBJECT_FILE_DIR = CMakeFiles\06-cubemap.dir\lib\hYaml
+  TARGET_COMPILE_PDB = CMakeFiles\06-cubemap.dir\
+  TARGET_PDB = ..\..\..\bin\06-cubemap_d.pdb
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target 06-cubemap
@@ -441,7 +521,7 @@ build CMakeFiles\06-cubemap.dir\src\06-cubemap\06-cubemap.cpp.obj: CXX_COMPILER_
 #############################################
 # Link the executable ..\..\..\bin\06-cubemap_d.exe
 
-build ..\..\..\bin\06-cubemap_d.exe: CXX_EXECUTABLE_LINKER__06-cubemap CMakeFiles\06-cubemap.dir\src\06-cubemap\06-cubemap.cpp.obj | lib\vermilion_d.lib || lib\vermilion_d.lib
+build ..\..\..\bin\06-cubemap_d.exe: CXX_EXECUTABLE_LINKER__06-cubemap CMakeFiles\06-cubemap.dir\src\06-cubemap\06-cubemap.cpp.obj CMakeFiles\06-cubemap.dir\lib\hYaml\hNodeEx.cpp.obj | lib\vermilion_d.lib || lib\vermilion_d.lib
   FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc -openmp /MDd /Zi /Ob0 /Od /RTC1
   LINK_FLAGS = /machine:x64 /debug /INCREMENTAL /subsystem:windows
   LINK_LIBRARIES = lib\vermilion_d.lib  opengl32.lib  glu32.lib  glfw3_d.lib  kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib
@@ -471,6 +551,14 @@ build CMakeFiles\03-drawcommands.dir\src\03-drawcommands\03-drawcommands.cpp.obj
   TARGET_COMPILE_PDB = CMakeFiles\03-drawcommands.dir\
   TARGET_PDB = ..\..\..\bin\03-drawcommands_d.pdb
 
+build CMakeFiles\03-drawcommands.dir\lib\hYaml\hNodeEx.cpp.obj: CXX_COMPILER__03-drawcommands ..\..\..\lib\hYaml\hNodeEx.cpp || cmake_object_order_depends_target_03-drawcommands
+  FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc -openmp /MDd /Zi /Ob0 /Od /RTC1
+  INCLUDES = -I..\..\..\include -I..\..\..\lib\glfw\include
+  OBJECT_DIR = CMakeFiles\03-drawcommands.dir
+  OBJECT_FILE_DIR = CMakeFiles\03-drawcommands.dir\lib\hYaml
+  TARGET_COMPILE_PDB = CMakeFiles\03-drawcommands.dir\
+  TARGET_PDB = ..\..\..\bin\03-drawcommands_d.pdb
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target 03-drawcommands
@@ -479,7 +567,7 @@ build CMakeFiles\03-drawcommands.dir\src\03-drawcommands\03-drawcommands.cpp.obj
 #############################################
 # Link the executable ..\..\..\bin\03-drawcommands_d.exe
 
-build ..\..\..\bin\03-drawcommands_d.exe: CXX_EXECUTABLE_LINKER__03-drawcommands CMakeFiles\03-drawcommands.dir\src\03-drawcommands\03-drawcommands.cpp.obj | lib\vermilion_d.lib || lib\vermilion_d.lib
+build ..\..\..\bin\03-drawcommands_d.exe: CXX_EXECUTABLE_LINKER__03-drawcommands CMakeFiles\03-drawcommands.dir\src\03-drawcommands\03-drawcommands.cpp.obj CMakeFiles\03-drawcommands.dir\lib\hYaml\hNodeEx.cpp.obj | lib\vermilion_d.lib || lib\vermilion_d.lib
   FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc -openmp /MDd /Zi /Ob0 /Od /RTC1
   LINK_FLAGS = /machine:x64 /debug /INCREMENTAL /subsystem:windows
   LINK_LIBRARIES = lib\vermilion_d.lib  opengl32.lib  glu32.lib  glfw3_d.lib  kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib
@@ -509,6 +597,14 @@ build CMakeFiles\03-instancing3.dir\src\03-instancing3\03-instancing3.cpp.obj: C
   TARGET_COMPILE_PDB = CMakeFiles\03-instancing3.dir\
   TARGET_PDB = ..\..\..\bin\03-instancing3_d.pdb
 
+build CMakeFiles\03-instancing3.dir\lib\hYaml\hNodeEx.cpp.obj: CXX_COMPILER__03-instancing3 ..\..\..\lib\hYaml\hNodeEx.cpp || cmake_object_order_depends_target_03-instancing3
+  FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc -openmp /MDd /Zi /Ob0 /Od /RTC1
+  INCLUDES = -I..\..\..\include -I..\..\..\lib\glfw\include
+  OBJECT_DIR = CMakeFiles\03-instancing3.dir
+  OBJECT_FILE_DIR = CMakeFiles\03-instancing3.dir\lib\hYaml
+  TARGET_COMPILE_PDB = CMakeFiles\03-instancing3.dir\
+  TARGET_PDB = ..\..\..\bin\03-instancing3_d.pdb
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target 03-instancing3
@@ -517,7 +613,7 @@ build CMakeFiles\03-instancing3.dir\src\03-instancing3\03-instancing3.cpp.obj: C
 #############################################
 # Link the executable ..\..\..\bin\03-instancing3_d.exe
 
-build ..\..\..\bin\03-instancing3_d.exe: CXX_EXECUTABLE_LINKER__03-instancing3 CMakeFiles\03-instancing3.dir\src\03-instancing3\03-instancing3.cpp.obj | lib\vermilion_d.lib || lib\vermilion_d.lib
+build ..\..\..\bin\03-instancing3_d.exe: CXX_EXECUTABLE_LINKER__03-instancing3 CMakeFiles\03-instancing3.dir\src\03-instancing3\03-instancing3.cpp.obj CMakeFiles\03-instancing3.dir\lib\hYaml\hNodeEx.cpp.obj | lib\vermilion_d.lib || lib\vermilion_d.lib
   FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc -openmp /MDd /Zi /Ob0 /Od /RTC1
   LINK_FLAGS = /machine:x64 /debug /INCREMENTAL /subsystem:windows
   LINK_LIBRARIES = lib\vermilion_d.lib  opengl32.lib  glu32.lib  glfw3_d.lib  kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib
@@ -559,6 +655,14 @@ build CMakeFiles\03-xfb.dir\src\03-xfb\03-xfb.cpp.obj: CXX_COMPILER__03-xfb ..\.
   TARGET_COMPILE_PDB = CMakeFiles\03-xfb.dir\
   TARGET_PDB = ..\..\..\bin\03-xfb_d.pdb
 
+build CMakeFiles\03-xfb.dir\lib\hYaml\hNodeEx.cpp.obj: CXX_COMPILER__03-xfb ..\..\..\lib\hYaml\hNodeEx.cpp || cmake_object_order_depends_target_03-xfb
+  FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc -openmp /MDd /Zi /Ob0 /Od /RTC1
+  INCLUDES = -I..\..\..\include -I..\..\..\lib\glfw\include
+  OBJECT_DIR = CMakeFiles\03-xfb.dir
+  OBJECT_FILE_DIR = CMakeFiles\03-xfb.dir\lib\hYaml
+  TARGET_COMPILE_PDB = CMakeFiles\03-xfb.dir\
+  TARGET_PDB = ..\..\..\bin\03-xfb_d.pdb
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target 03-xfb
@@ -567,7 +671,7 @@ build CMakeFiles\03-xfb.dir\src\03-xfb\03-xfb.cpp.obj: CXX_COMPILER__03-xfb ..\.
 #############################################
 # Link the executable ..\..\..\bin\03-xfb_d.exe
 
-build ..\..\..\bin\03-xfb_d.exe: CXX_EXECUTABLE_LINKER__03-xfb CMakeFiles\03-xfb.dir\src\03-xfb\03-xfb.cpp.obj | lib\vermilion_d.lib || lib\vermilion_d.lib
+build ..\..\..\bin\03-xfb_d.exe: CXX_EXECUTABLE_LINKER__03-xfb CMakeFiles\03-xfb.dir\src\03-xfb\03-xfb.cpp.obj CMakeFiles\03-xfb.dir\lib\hYaml\hNodeEx.cpp.obj | lib\vermilion_d.lib || lib\vermilion_d.lib
   FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc -openmp /MDd /Zi /Ob0 /Od /RTC1
   LINK_FLAGS = /machine:x64 /debug /INCREMENTAL /subsystem:windows
   LINK_LIBRARIES = lib\vermilion_d.lib  opengl32.lib  glu32.lib  glfw3_d.lib  kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib
@@ -597,6 +701,14 @@ build CMakeFiles\04-gouraud.dir\src\04-gouraud\04-gouraud.cpp.obj: CXX_COMPILER_
   TARGET_COMPILE_PDB = CMakeFiles\04-gouraud.dir\
   TARGET_PDB = ..\..\..\bin\04-gouraud_d.pdb
 
+build CMakeFiles\04-gouraud.dir\lib\hYaml\hNodeEx.cpp.obj: CXX_COMPILER__04-gouraud ..\..\..\lib\hYaml\hNodeEx.cpp || cmake_object_order_depends_target_04-gouraud
+  FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc -openmp /MDd /Zi /Ob0 /Od /RTC1
+  INCLUDES = -I..\..\..\include -I..\..\..\lib\glfw\include
+  OBJECT_DIR = CMakeFiles\04-gouraud.dir
+  OBJECT_FILE_DIR = CMakeFiles\04-gouraud.dir\lib\hYaml
+  TARGET_COMPILE_PDB = CMakeFiles\04-gouraud.dir\
+  TARGET_PDB = ..\..\..\bin\04-gouraud_d.pdb
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target 04-gouraud
@@ -605,7 +717,7 @@ build CMakeFiles\04-gouraud.dir\src\04-gouraud\04-gouraud.cpp.obj: CXX_COMPILER_
 #############################################
 # Link the executable ..\..\..\bin\04-gouraud_d.exe
 
-build ..\..\..\bin\04-gouraud_d.exe: CXX_EXECUTABLE_LINKER__04-gouraud CMakeFiles\04-gouraud.dir\src\04-gouraud\04-gouraud.cpp.obj | lib\vermilion_d.lib || lib\vermilion_d.lib
+build ..\..\..\bin\04-gouraud_d.exe: CXX_EXECUTABLE_LINKER__04-gouraud CMakeFiles\04-gouraud.dir\src\04-gouraud\04-gouraud.cpp.obj CMakeFiles\04-gouraud.dir\lib\hYaml\hNodeEx.cpp.obj | lib\vermilion_d.lib || lib\vermilion_d.lib
   FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc -openmp /MDd /Zi /Ob0 /Od /RTC1
   LINK_FLAGS = /machine:x64 /debug /INCREMENTAL /subsystem:windows
   LINK_LIBRARIES = lib\vermilion_d.lib  opengl32.lib  glu32.lib  glfw3_d.lib  kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib
@@ -635,6 +747,14 @@ build CMakeFiles\04-gouraud-float.dir\src\04-gouraud-float\04-gouraud-float.cpp.
   TARGET_COMPILE_PDB = CMakeFiles\04-gouraud-float.dir\
   TARGET_PDB = ..\..\..\bin\04-gouraud-float_d.pdb
 
+build CMakeFiles\04-gouraud-float.dir\lib\hYaml\hNodeEx.cpp.obj: CXX_COMPILER__04-gouraud-float ..\..\..\lib\hYaml\hNodeEx.cpp || cmake_object_order_depends_target_04-gouraud-float
+  FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc -openmp /MDd /Zi /Ob0 /Od /RTC1
+  INCLUDES = -I..\..\..\include -I..\..\..\lib\glfw\include
+  OBJECT_DIR = CMakeFiles\04-gouraud-float.dir
+  OBJECT_FILE_DIR = CMakeFiles\04-gouraud-float.dir\lib\hYaml
+  TARGET_COMPILE_PDB = CMakeFiles\04-gouraud-float.dir\
+  TARGET_PDB = ..\..\..\bin\04-gouraud-float_d.pdb
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target 04-gouraud-float
@@ -643,7 +763,7 @@ build CMakeFiles\04-gouraud-float.dir\src\04-gouraud-float\04-gouraud-float.cpp.
 #############################################
 # Link the executable ..\..\..\bin\04-gouraud-float_d.exe
 
-build ..\..\..\bin\04-gouraud-float_d.exe: CXX_EXECUTABLE_LINKER__04-gouraud-float CMakeFiles\04-gouraud-float.dir\src\04-gouraud-float\04-gouraud-float.cpp.obj | lib\vermilion_d.lib || lib\vermilion_d.lib
+build ..\..\..\bin\04-gouraud-float_d.exe: CXX_EXECUTABLE_LINKER__04-gouraud-float CMakeFiles\04-gouraud-float.dir\src\04-gouraud-float\04-gouraud-float.cpp.obj CMakeFiles\04-gouraud-float.dir\lib\hYaml\hNodeEx.cpp.obj | lib\vermilion_d.lib || lib\vermilion_d.lib
   FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc -openmp /MDd /Zi /Ob0 /Od /RTC1
   LINK_FLAGS = /machine:x64 /debug /INCREMENTAL /subsystem:windows
   LINK_LIBRARIES = lib\vermilion_d.lib  opengl32.lib  glu32.lib  glfw3_d.lib  kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib
@@ -673,6 +793,14 @@ build CMakeFiles\04-shadowmap.dir\src\04-shadowmap\04-shadowmap.cpp.obj: CXX_COM
   TARGET_COMPILE_PDB = CMakeFiles\04-shadowmap.dir\
   TARGET_PDB = ..\..\..\bin\04-shadowmap_d.pdb
 
+build CMakeFiles\04-shadowmap.dir\lib\hYaml\hNodeEx.cpp.obj: CXX_COMPILER__04-shadowmap ..\..\..\lib\hYaml\hNodeEx.cpp || cmake_object_order_depends_target_04-shadowmap
+  FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc -openmp /MDd /Zi /Ob0 /Od /RTC1
+  INCLUDES = -I..\..\..\include -I..\..\..\lib\glfw\include
+  OBJECT_DIR = CMakeFiles\04-shadowmap.dir
+  OBJECT_FILE_DIR = CMakeFiles\04-shadowmap.dir\lib\hYaml
+  TARGET_COMPILE_PDB = CMakeFiles\04-shadowmap.dir\
+  TARGET_PDB = ..\..\..\bin\04-shadowmap_d.pdb
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target 04-shadowmap
@@ -681,7 +809,7 @@ build CMakeFiles\04-shadowmap.dir\src\04-shadowmap\04-shadowmap.cpp.obj: CXX_COM
 #############################################
 # Link the executable ..\..\..\bin\04-shadowmap_d.exe
 
-build ..\..\..\bin\04-shadowmap_d.exe: CXX_EXECUTABLE_LINKER__04-shadowmap CMakeFiles\04-shadowmap.dir\src\04-shadowmap\04-shadowmap.cpp.obj | lib\vermilion_d.lib || lib\vermilion_d.lib
+build ..\..\..\bin\04-shadowmap_d.exe: CXX_EXECUTABLE_LINKER__04-shadowmap CMakeFiles\04-shadowmap.dir\src\04-shadowmap\04-shadowmap.cpp.obj CMakeFiles\04-shadowmap.dir\lib\hYaml\hNodeEx.cpp.obj | lib\vermilion_d.lib || lib\vermilion_d.lib
   FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc -openmp /MDd /Zi /Ob0 /Od /RTC1
   LINK_FLAGS = /machine:x64 /debug /INCREMENTAL /subsystem:windows
   LINK_LIBRARIES = lib\vermilion_d.lib  opengl32.lib  glu32.lib  glfw3_d.lib  kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib
@@ -711,6 +839,14 @@ build CMakeFiles\06-load-texture.dir\src\06-load-texture\06-load-texture.cpp.obj
   TARGET_COMPILE_PDB = CMakeFiles\06-load-texture.dir\
   TARGET_PDB = ..\..\..\bin\06-load-texture_d.pdb
 
+build CMakeFiles\06-load-texture.dir\lib\hYaml\hNodeEx.cpp.obj: CXX_COMPILER__06-load-texture ..\..\..\lib\hYaml\hNodeEx.cpp || cmake_object_order_depends_target_06-load-texture
+  FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc -openmp /MDd /Zi /Ob0 /Od /RTC1
+  INCLUDES = -I..\..\..\include -I..\..\..\lib\glfw\include
+  OBJECT_DIR = CMakeFiles\06-load-texture.dir
+  OBJECT_FILE_DIR = CMakeFiles\06-load-texture.dir\lib\hYaml
+  TARGET_COMPILE_PDB = CMakeFiles\06-load-texture.dir\
+  TARGET_PDB = ..\..\..\bin\06-load-texture_d.pdb
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target 06-load-texture
@@ -719,7 +855,7 @@ build CMakeFiles\06-load-texture.dir\src\06-load-texture\06-load-texture.cpp.obj
 #############################################
 # Link the executable ..\..\..\bin\06-load-texture_d.exe
 
-build ..\..\..\bin\06-load-texture_d.exe: CXX_EXECUTABLE_LINKER__06-load-texture CMakeFiles\06-load-texture.dir\src\06-load-texture\06-load-texture.cpp.obj | lib\vermilion_d.lib || lib\vermilion_d.lib
+build ..\..\..\bin\06-load-texture_d.exe: CXX_EXECUTABLE_LINKER__06-load-texture CMakeFiles\06-load-texture.dir\src\06-load-texture\06-load-texture.cpp.obj CMakeFiles\06-load-texture.dir\lib\hYaml\hNodeEx.cpp.obj | lib\vermilion_d.lib || lib\vermilion_d.lib
   FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc -openmp /MDd /Zi /Ob0 /Od /RTC1
   LINK_FLAGS = /machine:x64 /debug /INCREMENTAL /subsystem:windows
   LINK_LIBRARIES = lib\vermilion_d.lib  opengl32.lib  glu32.lib  glfw3_d.lib  kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib
@@ -749,6 +885,14 @@ build CMakeFiles\06-statictexture.dir\src\06-statictexture\06-statictexture.cpp.
   TARGET_COMPILE_PDB = CMakeFiles\06-statictexture.dir\
   TARGET_PDB = ..\..\..\bin\06-statictexture_d.pdb
 
+build CMakeFiles\06-statictexture.dir\lib\hYaml\hNodeEx.cpp.obj: CXX_COMPILER__06-statictexture ..\..\..\lib\hYaml\hNodeEx.cpp || cmake_object_order_depends_target_06-statictexture
+  FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc -openmp /MDd /Zi /Ob0 /Od /RTC1
+  INCLUDES = -I..\..\..\include -I..\..\..\lib\glfw\include
+  OBJECT_DIR = CMakeFiles\06-statictexture.dir
+  OBJECT_FILE_DIR = CMakeFiles\06-statictexture.dir\lib\hYaml
+  TARGET_COMPILE_PDB = CMakeFiles\06-statictexture.dir\
+  TARGET_PDB = ..\..\..\bin\06-statictexture_d.pdb
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target 06-statictexture
@@ -757,7 +901,7 @@ build CMakeFiles\06-statictexture.dir\src\06-statictexture\06-statictexture.cpp.
 #############################################
 # Link the executable ..\..\..\bin\06-statictexture_d.exe
 
-build ..\..\..\bin\06-statictexture_d.exe: CXX_EXECUTABLE_LINKER__06-statictexture CMakeFiles\06-statictexture.dir\src\06-statictexture\06-statictexture.cpp.obj | lib\vermilion_d.lib || lib\vermilion_d.lib
+build ..\..\..\bin\06-statictexture_d.exe: CXX_EXECUTABLE_LINKER__06-statictexture CMakeFiles\06-statictexture.dir\src\06-statictexture\06-statictexture.cpp.obj CMakeFiles\06-statictexture.dir\lib\hYaml\hNodeEx.cpp.obj | lib\vermilion_d.lib || lib\vermilion_d.lib
   FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc -openmp /MDd /Zi /Ob0 /Od /RTC1
   LINK_FLAGS = /machine:x64 /debug /INCREMENTAL /subsystem:windows
   LINK_LIBRARIES = lib\vermilion_d.lib  opengl32.lib  glu32.lib  glfw3_d.lib  kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib
@@ -787,6 +931,14 @@ build CMakeFiles\06-texturewrapping.dir\src\06-texturewrapping\06-texturewrappin
   TARGET_COMPILE_PDB = CMakeFiles\06-texturewrapping.dir\
   TARGET_PDB = ..\..\..\bin\06-texturewrapping_d.pdb
 
+build CMakeFiles\06-texturewrapping.dir\lib\hYaml\hNodeEx.cpp.obj: CXX_COMPILER__06-texturewrapping ..\..\..\lib\hYaml\hNodeEx.cpp || cmake_object_order_depends_target_06-texturewrapping
+  FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc -openmp /MDd /Zi /Ob0 /Od /RTC1
+  INCLUDES = -I..\..\..\include -I..\..\..\lib\glfw\include
+  OBJECT_DIR = CMakeFiles\06-texturewrapping.dir
+  OBJECT_FILE_DIR = CMakeFiles\06-texturewrapping.dir\lib\hYaml
+  TARGET_COMPILE_PDB = CMakeFiles\06-texturewrapping.dir\
+  TARGET_PDB = ..\..\..\bin\06-texturewrapping_d.pdb
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target 06-texturewrapping
@@ -795,7 +947,7 @@ build CMakeFiles\06-texturewrapping.dir\src\06-texturewrapping\06-texturewrappin
 #############################################
 # Link the executable ..\..\..\bin\06-texturewrapping_d.exe
 
-build ..\..\..\bin\06-texturewrapping_d.exe: CXX_EXECUTABLE_LINKER__06-texturewrapping CMakeFiles\06-texturewrapping.dir\src\06-texturewrapping\06-texturewrapping.cpp.obj | lib\vermilion_d.lib || lib\vermilion_d.lib
+build ..\..\..\bin\06-texturewrapping_d.exe: CXX_EXECUTABLE_LINKER__06-texturewrapping CMakeFiles\06-texturewrapping.dir\src\06-texturewrapping\06-texturewrapping.cpp.obj CMakeFiles\06-texturewrapping.dir\lib\hYaml\hNodeEx.cpp.obj | lib\vermilion_d.lib || lib\vermilion_d.lib
   FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc -openmp /MDd /Zi /Ob0 /Od /RTC1
   LINK_FLAGS = /machine:x64 /debug /INCREMENTAL /subsystem:windows
   LINK_LIBRARIES = lib\vermilion_d.lib  opengl32.lib  glu32.lib  glfw3_d.lib  kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib
@@ -836,6 +988,14 @@ build CMakeFiles\06-volumetexturing.dir\src\06-volumetexturing\06-volumetexturin
   TARGET_COMPILE_PDB = CMakeFiles\06-volumetexturing.dir\
   TARGET_PDB = ..\..\..\bin\06-volumetexturing_d.pdb
 
+build CMakeFiles\06-volumetexturing.dir\lib\hYaml\hNodeEx.cpp.obj: CXX_COMPILER__06-volumetexturing ..\..\..\lib\hYaml\hNodeEx.cpp || cmake_object_order_depends_target_06-volumetexturing
+  FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc -openmp /MDd /Zi /Ob0 /Od /RTC1
+  INCLUDES = -I..\..\..\include -I..\..\..\lib\glfw\include
+  OBJECT_DIR = CMakeFiles\06-volumetexturing.dir
+  OBJECT_FILE_DIR = CMakeFiles\06-volumetexturing.dir\lib\hYaml
+  TARGET_COMPILE_PDB = CMakeFiles\06-volumetexturing.dir\
+  TARGET_PDB = ..\..\..\bin\06-volumetexturing_d.pdb
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target 06-volumetexturing
@@ -844,7 +1004,7 @@ build CMakeFiles\06-volumetexturing.dir\src\06-volumetexturing\06-volumetexturin
 #############################################
 # Link the executable ..\..\..\bin\06-volumetexturing_d.exe
 
-build ..\..\..\bin\06-volumetexturing_d.exe: CXX_EXECUTABLE_LINKER__06-volumetexturing CMakeFiles\06-volumetexturing.dir\src\06-volumetexturing\06-volumetexturing.cpp.obj | lib\vermilion_d.lib || lib\vermilion_d.lib
+build ..\..\..\bin\06-volumetexturing_d.exe: CXX_EXECUTABLE_LINKER__06-volumetexturing CMakeFiles\06-volumetexturing.dir\src\06-volumetexturing\06-volumetexturing.cpp.obj CMakeFiles\06-volumetexturing.dir\lib\hYaml\hNodeEx.cpp.obj | lib\vermilion_d.lib || lib\vermilion_d.lib
   FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc -openmp /MDd /Zi /Ob0 /Od /RTC1
   LINK_FLAGS = /machine:x64 /debug /INCREMENTAL /subsystem:windows
   LINK_LIBRARIES = lib\vermilion_d.lib  opengl32.lib  glu32.lib  glfw3_d.lib  kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib
@@ -874,6 +1034,14 @@ build CMakeFiles\11-oit.dir\src\11-oit\11-oit.cpp.obj: CXX_COMPILER__11-oit ..\.
   TARGET_COMPILE_PDB = CMakeFiles\11-oit.dir\
   TARGET_PDB = ..\..\..\bin\11-oit_d.pdb
 
+build CMakeFiles\11-oit.dir\lib\hYaml\hNodeEx.cpp.obj: CXX_COMPILER__11-oit ..\..\..\lib\hYaml\hNodeEx.cpp || cmake_object_order_depends_target_11-oit
+  FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc -openmp /MDd /Zi /Ob0 /Od /RTC1
+  INCLUDES = -I..\..\..\include -I..\..\..\lib\glfw\include
+  OBJECT_DIR = CMakeFiles\11-oit.dir
+  OBJECT_FILE_DIR = CMakeFiles\11-oit.dir\lib\hYaml
+  TARGET_COMPILE_PDB = CMakeFiles\11-oit.dir\
+  TARGET_PDB = ..\..\..\bin\11-oit_d.pdb
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target 11-oit
@@ -882,7 +1050,7 @@ build CMakeFiles\11-oit.dir\src\11-oit\11-oit.cpp.obj: CXX_COMPILER__11-oit ..\.
 #############################################
 # Link the executable ..\..\..\bin\11-oit_d.exe
 
-build ..\..\..\bin\11-oit_d.exe: CXX_EXECUTABLE_LINKER__11-oit CMakeFiles\11-oit.dir\src\11-oit\11-oit.cpp.obj | lib\vermilion_d.lib || lib\vermilion_d.lib
+build ..\..\..\bin\11-oit_d.exe: CXX_EXECUTABLE_LINKER__11-oit CMakeFiles\11-oit.dir\src\11-oit\11-oit.cpp.obj CMakeFiles\11-oit.dir\lib\hYaml\hNodeEx.cpp.obj | lib\vermilion_d.lib || lib\vermilion_d.lib
   FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc -openmp /MDd /Zi /Ob0 /Od /RTC1
   LINK_FLAGS = /machine:x64 /debug /INCREMENTAL /subsystem:windows
   LINK_LIBRARIES = lib\vermilion_d.lib  opengl32.lib  glu32.lib  glfw3_d.lib  kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib
@@ -912,6 +1080,14 @@ build CMakeFiles\08-lightmodels.dir\src\08-lightmodels\08-lightmodels.cpp.obj: C
   TARGET_COMPILE_PDB = CMakeFiles\08-lightmodels.dir\
   TARGET_PDB = ..\..\..\bin\08-lightmodels_d.pdb
 
+build CMakeFiles\08-lightmodels.dir\lib\hYaml\hNodeEx.cpp.obj: CXX_COMPILER__08-lightmodels ..\..\..\lib\hYaml\hNodeEx.cpp || cmake_object_order_depends_target_08-lightmodels
+  FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc -openmp /MDd /Zi /Ob0 /Od /RTC1
+  INCLUDES = -I..\..\..\include -I..\..\..\lib\glfw\include
+  OBJECT_DIR = CMakeFiles\08-lightmodels.dir
+  OBJECT_FILE_DIR = CMakeFiles\08-lightmodels.dir\lib\hYaml
+  TARGET_COMPILE_PDB = CMakeFiles\08-lightmodels.dir\
+  TARGET_PDB = ..\..\..\bin\08-lightmodels_d.pdb
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target 08-lightmodels
@@ -920,7 +1096,7 @@ build CMakeFiles\08-lightmodels.dir\src\08-lightmodels\08-lightmodels.cpp.obj: C
 #############################################
 # Link the executable ..\..\..\bin\08-lightmodels_d.exe
 
-build ..\..\..\bin\08-lightmodels_d.exe: CXX_EXECUTABLE_LINKER__08-lightmodels CMakeFiles\08-lightmodels.dir\src\08-lightmodels\08-lightmodels.cpp.obj | lib\vermilion_d.lib || lib\vermilion_d.lib
+build ..\..\..\bin\08-lightmodels_d.exe: CXX_EXECUTABLE_LINKER__08-lightmodels CMakeFiles\08-lightmodels.dir\src\08-lightmodels\08-lightmodels.cpp.obj CMakeFiles\08-lightmodels.dir\lib\hYaml\hNodeEx.cpp.obj | lib\vermilion_d.lib || lib\vermilion_d.lib
   FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc -openmp /MDd /Zi /Ob0 /Od /RTC1
   LINK_FLAGS = /machine:x64 /debug /INCREMENTAL /subsystem:windows
   LINK_LIBRARIES = lib\vermilion_d.lib  opengl32.lib  glu32.lib  glfw3_d.lib  kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib
@@ -950,6 +1126,14 @@ build CMakeFiles\09-simpletess.dir\src\09-simpletess\09-simpletess.cpp.obj: CXX_
   TARGET_COMPILE_PDB = CMakeFiles\09-simpletess.dir\
   TARGET_PDB = ..\..\..\bin\09-simpletess_d.pdb
 
+build CMakeFiles\09-simpletess.dir\lib\hYaml\hNodeEx.cpp.obj: CXX_COMPILER__09-simpletess ..\..\..\lib\hYaml\hNodeEx.cpp || cmake_object_order_depends_target_09-simpletess
+  FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc -openmp /MDd /Zi /Ob0 /Od /RTC1
+  INCLUDES = -I..\..\..\include -I..\..\..\lib\glfw\include
+  OBJECT_DIR = CMakeFiles\09-simpletess.dir
+  OBJECT_FILE_DIR = CMakeFiles\09-simpletess.dir\lib\hYaml
+  TARGET_COMPILE_PDB = CMakeFiles\09-simpletess.dir\
+  TARGET_PDB = ..\..\..\bin\09-simpletess_d.pdb
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target 09-simpletess
@@ -958,7 +1142,7 @@ build CMakeFiles\09-simpletess.dir\src\09-simpletess\09-simpletess.cpp.obj: CXX_
 #############################################
 # Link the executable ..\..\..\bin\09-simpletess_d.exe
 
-build ..\..\..\bin\09-simpletess_d.exe: CXX_EXECUTABLE_LINKER__09-simpletess CMakeFiles\09-simpletess.dir\src\09-simpletess\09-simpletess.cpp.obj | lib\vermilion_d.lib || lib\vermilion_d.lib
+build ..\..\..\bin\09-simpletess_d.exe: CXX_EXECUTABLE_LINKER__09-simpletess CMakeFiles\09-simpletess.dir\src\09-simpletess\09-simpletess.cpp.obj CMakeFiles\09-simpletess.dir\lib\hYaml\hNodeEx.cpp.obj | lib\vermilion_d.lib || lib\vermilion_d.lib
   FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc -openmp /MDd /Zi /Ob0 /Od /RTC1
   LINK_FLAGS = /machine:x64 /debug /INCREMENTAL /subsystem:windows
   LINK_LIBRARIES = lib\vermilion_d.lib  opengl32.lib  glu32.lib  glfw3_d.lib  kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib
@@ -1000,6 +1184,14 @@ build CMakeFiles\09-teapot.dir\src\09-teapot\09-teapot.cpp.obj: CXX_COMPILER__09
   TARGET_COMPILE_PDB = CMakeFiles\09-teapot.dir\
   TARGET_PDB = ..\..\..\bin\09-teapot_d.pdb
 
+build CMakeFiles\09-teapot.dir\lib\hYaml\hNodeEx.cpp.obj: CXX_COMPILER__09-teapot ..\..\..\lib\hYaml\hNodeEx.cpp || cmake_object_order_depends_target_09-teapot
+  FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc -openmp /MDd /Zi /Ob0 /Od /RTC1
+  INCLUDES = -I..\..\..\include -I..\..\..\lib\glfw\include
+  OBJECT_DIR = CMakeFiles\09-teapot.dir
+  OBJECT_FILE_DIR = CMakeFiles\09-teapot.dir\lib\hYaml
+  TARGET_COMPILE_PDB = CMakeFiles\09-teapot.dir\
+  TARGET_PDB = ..\..\..\bin\09-teapot_d.pdb
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target 09-teapot
@@ -1008,7 +1200,7 @@ build CMakeFiles\09-teapot.dir\src\09-teapot\09-teapot.cpp.obj: CXX_COMPILER__09
 #############################################
 # Link the executable ..\..\..\bin\09-teapot_d.exe
 
-build ..\..\..\bin\09-teapot_d.exe: CXX_EXECUTABLE_LINKER__09-teapot CMakeFiles\09-teapot.dir\src\09-teapot\09-teapot.cpp.obj | lib\vermilion_d.lib || lib\vermilion_d.lib
+build ..\..\..\bin\09-teapot_d.exe: CXX_EXECUTABLE_LINKER__09-teapot CMakeFiles\09-teapot.dir\src\09-teapot\09-teapot.cpp.obj CMakeFiles\09-teapot.dir\lib\hYaml\hNodeEx.cpp.obj | lib\vermilion_d.lib || lib\vermilion_d.lib
   FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc -openmp /MDd /Zi /Ob0 /Od /RTC1
   LINK_FLAGS = /machine:x64 /debug /INCREMENTAL /subsystem:windows
   LINK_LIBRARIES = lib\vermilion_d.lib  opengl32.lib  glu32.lib  glfw3_d.lib  kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib
@@ -1038,6 +1230,14 @@ build CMakeFiles\10-draw-xfb.dir\src\10-draw-xfb\10-draw-xfb.cpp.obj: CXX_COMPIL
   TARGET_COMPILE_PDB = CMakeFiles\10-draw-xfb.dir\
   TARGET_PDB = ..\..\..\bin\10-draw-xfb_d.pdb
 
+build CMakeFiles\10-draw-xfb.dir\lib\hYaml\hNodeEx.cpp.obj: CXX_COMPILER__10-draw-xfb ..\..\..\lib\hYaml\hNodeEx.cpp || cmake_object_order_depends_target_10-draw-xfb
+  FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc -openmp /MDd /Zi /Ob0 /Od /RTC1
+  INCLUDES = -I..\..\..\include -I..\..\..\lib\glfw\include
+  OBJECT_DIR = CMakeFiles\10-draw-xfb.dir
+  OBJECT_FILE_DIR = CMakeFiles\10-draw-xfb.dir\lib\hYaml
+  TARGET_COMPILE_PDB = CMakeFiles\10-draw-xfb.dir\
+  TARGET_PDB = ..\..\..\bin\10-draw-xfb_d.pdb
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target 10-draw-xfb
@@ -1046,7 +1246,7 @@ build CMakeFiles\10-draw-xfb.dir\src\10-draw-xfb\10-draw-xfb.cpp.obj: CXX_COMPIL
 #############################################
 # Link the executable ..\..\..\bin\10-draw-xfb_d.exe
 
-build ..\..\..\bin\10-draw-xfb_d.exe: CXX_EXECUTABLE_LINKER__10-draw-xfb CMakeFiles\10-draw-xfb.dir\src\10-draw-xfb\10-draw-xfb.cpp.obj | lib\vermilion_d.lib || lib\vermilion_d.lib
+build ..\..\..\bin\10-draw-xfb_d.exe: CXX_EXECUTABLE_LINKER__10-draw-xfb CMakeFiles\10-draw-xfb.dir\src\10-draw-xfb\10-draw-xfb.cpp.obj CMakeFiles\10-draw-xfb.dir\lib\hYaml\hNodeEx.cpp.obj | lib\vermilion_d.lib || lib\vermilion_d.lib
   FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc -openmp /MDd /Zi /Ob0 /Od /RTC1
   LINK_FLAGS = /machine:x64 /debug /INCREMENTAL /subsystem:windows
   LINK_LIBRARIES = lib\vermilion_d.lib  opengl32.lib  glu32.lib  glfw3_d.lib  kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib
@@ -1076,6 +1276,14 @@ build CMakeFiles\10-fur.dir\src\10-fur\10-fur.cpp.obj: CXX_COMPILER__10-fur ..\.
   TARGET_COMPILE_PDB = CMakeFiles\10-fur.dir\
   TARGET_PDB = ..\..\..\bin\10-fur_d.pdb
 
+build CMakeFiles\10-fur.dir\lib\hYaml\hNodeEx.cpp.obj: CXX_COMPILER__10-fur ..\..\..\lib\hYaml\hNodeEx.cpp || cmake_object_order_depends_target_10-fur
+  FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc -openmp /MDd /Zi /Ob0 /Od /RTC1
+  INCLUDES = -I..\..\..\include -I..\..\..\lib\glfw\include
+  OBJECT_DIR = CMakeFiles\10-fur.dir
+  OBJECT_FILE_DIR = CMakeFiles\10-fur.dir\lib\hYaml
+  TARGET_COMPILE_PDB = CMakeFiles\10-fur.dir\
+  TARGET_PDB = ..\..\..\bin\10-fur_d.pdb
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target 10-fur
@@ -1084,7 +1292,7 @@ build CMakeFiles\10-fur.dir\src\10-fur\10-fur.cpp.obj: CXX_COMPILER__10-fur ..\.
 #############################################
 # Link the executable ..\..\..\bin\10-fur_d.exe
 
-build ..\..\..\bin\10-fur_d.exe: CXX_EXECUTABLE_LINKER__10-fur CMakeFiles\10-fur.dir\src\10-fur\10-fur.cpp.obj | lib\vermilion_d.lib || lib\vermilion_d.lib
+build ..\..\..\bin\10-fur_d.exe: CXX_EXECUTABLE_LINKER__10-fur CMakeFiles\10-fur.dir\src\10-fur\10-fur.cpp.obj CMakeFiles\10-fur.dir\lib\hYaml\hNodeEx.cpp.obj | lib\vermilion_d.lib || lib\vermilion_d.lib
   FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc -openmp /MDd /Zi /Ob0 /Od /RTC1
   LINK_FLAGS = /machine:x64 /debug /INCREMENTAL /subsystem:windows
   LINK_LIBRARIES = lib\vermilion_d.lib  opengl32.lib  glu32.lib  glfw3_d.lib  kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib
@@ -1114,6 +1322,14 @@ build CMakeFiles\12-imageprocessing.dir\src\12-imageprocessing\12-imageprocessin
   TARGET_COMPILE_PDB = CMakeFiles\12-imageprocessing.dir\
   TARGET_PDB = ..\..\..\bin\12-imageprocessing_d.pdb
 
+build CMakeFiles\12-imageprocessing.dir\lib\hYaml\hNodeEx.cpp.obj: CXX_COMPILER__12-imageprocessing ..\..\..\lib\hYaml\hNodeEx.cpp || cmake_object_order_depends_target_12-imageprocessing
+  FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc -openmp /MDd /Zi /Ob0 /Od /RTC1
+  INCLUDES = -I..\..\..\include -I..\..\..\lib\glfw\include
+  OBJECT_DIR = CMakeFiles\12-imageprocessing.dir
+  OBJECT_FILE_DIR = CMakeFiles\12-imageprocessing.dir\lib\hYaml
+  TARGET_COMPILE_PDB = CMakeFiles\12-imageprocessing.dir\
+  TARGET_PDB = ..\..\..\bin\12-imageprocessing_d.pdb
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target 12-imageprocessing
@@ -1122,7 +1338,7 @@ build CMakeFiles\12-imageprocessing.dir\src\12-imageprocessing\12-imageprocessin
 #############################################
 # Link the executable ..\..\..\bin\12-imageprocessing_d.exe
 
-build ..\..\..\bin\12-imageprocessing_d.exe: CXX_EXECUTABLE_LINKER__12-imageprocessing CMakeFiles\12-imageprocessing.dir\src\12-imageprocessing\12-imageprocessing.cpp.obj | lib\vermilion_d.lib || lib\vermilion_d.lib
+build ..\..\..\bin\12-imageprocessing_d.exe: CXX_EXECUTABLE_LINKER__12-imageprocessing CMakeFiles\12-imageprocessing.dir\src\12-imageprocessing\12-imageprocessing.cpp.obj CMakeFiles\12-imageprocessing.dir\lib\hYaml\hNodeEx.cpp.obj | lib\vermilion_d.lib || lib\vermilion_d.lib
   FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc -openmp /MDd /Zi /Ob0 /Od /RTC1
   LINK_FLAGS = /machine:x64 /debug /INCREMENTAL /subsystem:windows
   LINK_LIBRARIES = lib\vermilion_d.lib  opengl32.lib  glu32.lib  glfw3_d.lib  kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib
@@ -1152,6 +1368,14 @@ build CMakeFiles\10-viewport-array.dir\src\10-viewport-array\10-viewport-array.c
   TARGET_COMPILE_PDB = CMakeFiles\10-viewport-array.dir\
   TARGET_PDB = ..\..\..\bin\10-viewport-array_d.pdb
 
+build CMakeFiles\10-viewport-array.dir\lib\hYaml\hNodeEx.cpp.obj: CXX_COMPILER__10-viewport-array ..\..\..\lib\hYaml\hNodeEx.cpp || cmake_object_order_depends_target_10-viewport-array
+  FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc -openmp /MDd /Zi /Ob0 /Od /RTC1
+  INCLUDES = -I..\..\..\include -I..\..\..\lib\glfw\include
+  OBJECT_DIR = CMakeFiles\10-viewport-array.dir
+  OBJECT_FILE_DIR = CMakeFiles\10-viewport-array.dir\lib\hYaml
+  TARGET_COMPILE_PDB = CMakeFiles\10-viewport-array.dir\
+  TARGET_PDB = ..\..\..\bin\10-viewport-array_d.pdb
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target 10-viewport-array
@@ -1160,7 +1384,7 @@ build CMakeFiles\10-viewport-array.dir\src\10-viewport-array\10-viewport-array.c
 #############################################
 # Link the executable ..\..\..\bin\10-viewport-array_d.exe
 
-build ..\..\..\bin\10-viewport-array_d.exe: CXX_EXECUTABLE_LINKER__10-viewport-array CMakeFiles\10-viewport-array.dir\src\10-viewport-array\10-viewport-array.cpp.obj | lib\vermilion_d.lib || lib\vermilion_d.lib
+build ..\..\..\bin\10-viewport-array_d.exe: CXX_EXECUTABLE_LINKER__10-viewport-array CMakeFiles\10-viewport-array.dir\src\10-viewport-array\10-viewport-array.cpp.obj CMakeFiles\10-viewport-array.dir\lib\hYaml\hNodeEx.cpp.obj | lib\vermilion_d.lib || lib\vermilion_d.lib
   FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc -openmp /MDd /Zi /Ob0 /Od /RTC1
   LINK_FLAGS = /machine:x64 /debug /INCREMENTAL /subsystem:windows
   LINK_LIBRARIES = lib\vermilion_d.lib  opengl32.lib  glu32.lib  glfw3_d.lib  kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib
@@ -1196,6 +1420,14 @@ build CMakeFiles\11-doublewrite.dir\src\11-doublewrite\11-doublewrite.cpp.obj: C
   TARGET_COMPILE_PDB = CMakeFiles\11-doublewrite.dir\
   TARGET_PDB = ..\..\..\bin\11-doublewrite_d.pdb
 
+build CMakeFiles\11-doublewrite.dir\lib\hYaml\hNodeEx.cpp.obj: CXX_COMPILER__11-doublewrite ..\..\..\lib\hYaml\hNodeEx.cpp || cmake_object_order_depends_target_11-doublewrite
+  FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc -openmp /MDd /Zi /Ob0 /Od /RTC1
+  INCLUDES = -I..\..\..\include -I..\..\..\lib\glfw\include
+  OBJECT_DIR = CMakeFiles\11-doublewrite.dir
+  OBJECT_FILE_DIR = CMakeFiles\11-doublewrite.dir\lib\hYaml
+  TARGET_COMPILE_PDB = CMakeFiles\11-doublewrite.dir\
+  TARGET_PDB = ..\..\..\bin\11-doublewrite_d.pdb
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target 11-doublewrite
@@ -1204,7 +1436,7 @@ build CMakeFiles\11-doublewrite.dir\src\11-doublewrite\11-doublewrite.cpp.obj: C
 #############################################
 # Link the executable ..\..\..\bin\11-doublewrite_d.exe
 
-build ..\..\..\bin\11-doublewrite_d.exe: CXX_EXECUTABLE_LINKER__11-doublewrite CMakeFiles\11-doublewrite.dir\src\11-doublewrite\11-doublewrite.cpp.obj | lib\vermilion_d.lib || lib\vermilion_d.lib
+build ..\..\..\bin\11-doublewrite_d.exe: CXX_EXECUTABLE_LINKER__11-doublewrite CMakeFiles\11-doublewrite.dir\src\11-doublewrite\11-doublewrite.cpp.obj CMakeFiles\11-doublewrite.dir\lib\hYaml\hNodeEx.cpp.obj | lib\vermilion_d.lib || lib\vermilion_d.lib
   FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc -openmp /MDd /Zi /Ob0 /Od /RTC1
   LINK_FLAGS = /machine:x64 /debug /INCREMENTAL /subsystem:windows
   LINK_LIBRARIES = lib\vermilion_d.lib  opengl32.lib  glu32.lib  glfw3_d.lib  kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib
@@ -1234,6 +1466,14 @@ build CMakeFiles\11-overdrawcount.dir\src\11-overdrawcount\11-overdrawcount.cpp.
   TARGET_COMPILE_PDB = CMakeFiles\11-overdrawcount.dir\
   TARGET_PDB = ..\..\..\bin\11-overdrawcount_d.pdb
 
+build CMakeFiles\11-overdrawcount.dir\lib\hYaml\hNodeEx.cpp.obj: CXX_COMPILER__11-overdrawcount ..\..\..\lib\hYaml\hNodeEx.cpp || cmake_object_order_depends_target_11-overdrawcount
+  FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc -openmp /MDd /Zi /Ob0 /Od /RTC1
+  INCLUDES = -I..\..\..\include -I..\..\..\lib\glfw\include
+  OBJECT_DIR = CMakeFiles\11-overdrawcount.dir
+  OBJECT_FILE_DIR = CMakeFiles\11-overdrawcount.dir\lib\hYaml
+  TARGET_COMPILE_PDB = CMakeFiles\11-overdrawcount.dir\
+  TARGET_PDB = ..\..\..\bin\11-overdrawcount_d.pdb
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target 11-overdrawcount
@@ -1242,7 +1482,7 @@ build CMakeFiles\11-overdrawcount.dir\src\11-overdrawcount\11-overdrawcount.cpp.
 #############################################
 # Link the executable ..\..\..\bin\11-overdrawcount_d.exe
 
-build ..\..\..\bin\11-overdrawcount_d.exe: CXX_EXECUTABLE_LINKER__11-overdrawcount CMakeFiles\11-overdrawcount.dir\src\11-overdrawcount\11-overdrawcount.cpp.obj | lib\vermilion_d.lib || lib\vermilion_d.lib
+build ..\..\..\bin\11-overdrawcount_d.exe: CXX_EXECUTABLE_LINKER__11-overdrawcount CMakeFiles\11-overdrawcount.dir\src\11-overdrawcount\11-overdrawcount.cpp.obj CMakeFiles\11-overdrawcount.dir\lib\hYaml\hNodeEx.cpp.obj | lib\vermilion_d.lib || lib\vermilion_d.lib
   FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc -openmp /MDd /Zi /Ob0 /Od /RTC1
   LINK_FLAGS = /machine:x64 /debug /INCREMENTAL /subsystem:windows
   LINK_LIBRARIES = lib\vermilion_d.lib  opengl32.lib  glu32.lib  glfw3_d.lib  kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib
@@ -1272,6 +1512,14 @@ build CMakeFiles\12-particlesimulator.dir\src\12-particlesimulator\12-particlesi
   TARGET_COMPILE_PDB = CMakeFiles\12-particlesimulator.dir\
   TARGET_PDB = ..\..\..\bin\12-particlesimulator_d.pdb
 
+build CMakeFiles\12-particlesimulator.dir\lib\hYaml\hNodeEx.cpp.obj: CXX_COMPILER__12-particlesimulator ..\..\..\lib\hYaml\hNodeEx.cpp || cmake_object_order_depends_target_12-particlesimulator
+  FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc -openmp /MDd /Zi /Ob0 /Od /RTC1
+  INCLUDES = -I..\..\..\include -I..\..\..\lib\glfw\include
+  OBJECT_DIR = CMakeFiles\12-particlesimulator.dir
+  OBJECT_FILE_DIR = CMakeFiles\12-particlesimulator.dir\lib\hYaml
+  TARGET_COMPILE_PDB = CMakeFiles\12-particlesimulator.dir\
+  TARGET_PDB = ..\..\..\bin\12-particlesimulator_d.pdb
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target 12-particlesimulator
@@ -1280,7 +1528,7 @@ build CMakeFiles\12-particlesimulator.dir\src\12-particlesimulator\12-particlesi
 #############################################
 # Link the executable ..\..\..\bin\12-particlesimulator_d.exe
 
-build ..\..\..\bin\12-particlesimulator_d.exe: CXX_EXECUTABLE_LINKER__12-particlesimulator CMakeFiles\12-particlesimulator.dir\src\12-particlesimulator\12-particlesimulator.cpp.obj | lib\vermilion_d.lib || lib\vermilion_d.lib
+build ..\..\..\bin\12-particlesimulator_d.exe: CXX_EXECUTABLE_LINKER__12-particlesimulator CMakeFiles\12-particlesimulator.dir\src\12-particlesimulator\12-particlesimulator.cpp.obj CMakeFiles\12-particlesimulator.dir\lib\hYaml\hNodeEx.cpp.obj | lib\vermilion_d.lib || lib\vermilion_d.lib
   FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc -openmp /MDd /Zi /Ob0 /Od /RTC1
   LINK_FLAGS = /machine:x64 /debug /INCREMENTAL /subsystem:windows
   LINK_LIBRARIES = lib\vermilion_d.lib  opengl32.lib  glu32.lib  glfw3_d.lib  kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib
@@ -1310,6 +1558,14 @@ build CMakeFiles\12-raytracer.dir\src\12-raytracer\12-raytracer.cpp.obj: CXX_COM
   TARGET_COMPILE_PDB = CMakeFiles\12-raytracer.dir\
   TARGET_PDB = ..\..\..\bin\12-raytracer_d.pdb
 
+build CMakeFiles\12-raytracer.dir\lib\hYaml\hNodeEx.cpp.obj: CXX_COMPILER__12-raytracer ..\..\..\lib\hYaml\hNodeEx.cpp || cmake_object_order_depends_target_12-raytracer
+  FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc -openmp /MDd /Zi /Ob0 /Od /RTC1
+  INCLUDES = -I..\..\..\include -I..\..\..\lib\glfw\include
+  OBJECT_DIR = CMakeFiles\12-raytracer.dir
+  OBJECT_FILE_DIR = CMakeFiles\12-raytracer.dir\lib\hYaml
+  TARGET_COMPILE_PDB = CMakeFiles\12-raytracer.dir\
+  TARGET_PDB = ..\..\..\bin\12-raytracer_d.pdb
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target 12-raytracer
@@ -1318,7 +1574,7 @@ build CMakeFiles\12-raytracer.dir\src\12-raytracer\12-raytracer.cpp.obj: CXX_COM
 #############################################
 # Link the executable ..\..\..\bin\12-raytracer_d.exe
 
-build ..\..\..\bin\12-raytracer_d.exe: CXX_EXECUTABLE_LINKER__12-raytracer CMakeFiles\12-raytracer.dir\src\12-raytracer\12-raytracer.cpp.obj | lib\vermilion_d.lib || lib\vermilion_d.lib
+build ..\..\..\bin\12-raytracer_d.exe: CXX_EXECUTABLE_LINKER__12-raytracer CMakeFiles\12-raytracer.dir\src\12-raytracer\12-raytracer.cpp.obj CMakeFiles\12-raytracer.dir\lib\hYaml\hNodeEx.cpp.obj | lib\vermilion_d.lib || lib\vermilion_d.lib
   FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc -openmp /MDd /Zi /Ob0 /Od /RTC1
   LINK_FLAGS = /machine:x64 /debug /INCREMENTAL /subsystem:windows
   LINK_LIBRARIES = lib\vermilion_d.lib  opengl32.lib  glu32.lib  glfw3_d.lib  kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib
@@ -1348,6 +1604,14 @@ build CMakeFiles\12-simplecompute.dir\src\12-simplecompute\12-simplecompute.cpp.
   TARGET_COMPILE_PDB = CMakeFiles\12-simplecompute.dir\
   TARGET_PDB = ..\..\..\bin\12-simplecompute_d.pdb
 
+build CMakeFiles\12-simplecompute.dir\lib\hYaml\hNodeEx.cpp.obj: CXX_COMPILER__12-simplecompute ..\..\..\lib\hYaml\hNodeEx.cpp || cmake_object_order_depends_target_12-simplecompute
+  FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc -openmp /MDd /Zi /Ob0 /Od /RTC1
+  INCLUDES = -I..\..\..\include -I..\..\..\lib\glfw\include
+  OBJECT_DIR = CMakeFiles\12-simplecompute.dir
+  OBJECT_FILE_DIR = CMakeFiles\12-simplecompute.dir\lib\hYaml
+  TARGET_COMPILE_PDB = CMakeFiles\12-simplecompute.dir\
+  TARGET_PDB = ..\..\..\bin\12-simplecompute_d.pdb
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target 12-simplecompute
@@ -1356,7 +1620,7 @@ build CMakeFiles\12-simplecompute.dir\src\12-simplecompute\12-simplecompute.cpp.
 #############################################
 # Link the executable ..\..\..\bin\12-simplecompute_d.exe
 
-build ..\..\..\bin\12-simplecompute_d.exe: CXX_EXECUTABLE_LINKER__12-simplecompute CMakeFiles\12-simplecompute.dir\src\12-simplecompute\12-simplecompute.cpp.obj | lib\vermilion_d.lib || lib\vermilion_d.lib
+build ..\..\..\bin\12-simplecompute_d.exe: CXX_EXECUTABLE_LINKER__12-simplecompute CMakeFiles\12-simplecompute.dir\src\12-simplecompute\12-simplecompute.cpp.obj CMakeFiles\12-simplecompute.dir\lib\hYaml\hNodeEx.cpp.obj | lib\vermilion_d.lib || lib\vermilion_d.lib
   FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc -openmp /MDd /Zi /Ob0 /Od /RTC1
   LINK_FLAGS = /machine:x64 /debug /INCREMENTAL /subsystem:windows
   LINK_LIBRARIES = lib\vermilion_d.lib  opengl32.lib  glu32.lib  glfw3_d.lib  kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib
@@ -3089,14 +3353,14 @@ default all
 #############################################
 # Re-run CMake if any of its inputs changed.
 
-build build.ninja: RERUN_CMAKE | ..\..\..\CMakeLists.txt ..\..\..\build\templates\vs2013.vcxproj.user.in ..\..\..\lib\glfw\CMakeLists.txt ..\..\..\lib\glfw\cmake_uninstall.cmake.in ..\..\..\lib\glfw\docs\Doxyfile.in ..\..\..\lib\glfw\examples\CMakeLists.txt ..\..\..\lib\glfw\src\CMakeLists.txt ..\..\..\lib\glfw\src\glfw3.pc.in ..\..\..\lib\glfw\src\glfw3Config.cmake.in ..\..\..\lib\glfw\src\glfw_config.h.in ..\..\..\lib\glfw\tests\CMakeLists.txt CMakeCache.txt CMakeFiles\3.16.19112601-MSVC_2\CMakeCCompiler.cmake CMakeFiles\3.16.19112601-MSVC_2\CMakeCXXCompiler.cmake CMakeFiles\3.16.19112601-MSVC_2\CMakeRCCompiler.cmake CMakeFiles\3.16.19112601-MSVC_2\CMakeSystem.cmake CMakeFiles\FindOpenMP\OpenMPCheckVersion.c CMakeFiles\FindOpenMP\OpenMPCheckVersion.cpp CMakeFiles\FindOpenMP\OpenMPTryFlag.c CMakeFiles\FindOpenMP\OpenMPTryFlag.cpp E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\BasicConfigVersion-SameMajorVersion.cmake.in E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\CMakeCCompiler.cmake.in E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\CMakeCCompilerABI.c E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\CMakeCInformation.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\CMakeCXXCompiler.cmake.in E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\CMakeCXXCompilerABI.cpp E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\CMakeCXXInformation.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\CMakeCommonLanguageInclude.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\CMakeCompilerIdDetection.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\CMakeDetermineCCompiler.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\CMakeDetermineCXXCompiler.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\CMakeDetermineCompileFeatures.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\CMakeDetermineCompiler.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\CMakeDetermineCompilerABI.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\CMakeDetermineCompilerId.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\CMakeDetermineRCCompiler.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\CMakeDetermineSystem.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\CMakeFindBinUtils.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\CMakeGenericSystem.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\CMakeInitializeConfigs.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\CMakeLanguageInformation.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\CMakePackageConfigHelpers.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\CMakeParseImplicitIncludeInfo.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\CMakeParseImplicitLinkInfo.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\CMakeRCCompiler.cmake.in E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\CMakeRCInformation.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\CMakeSystem.cmake.in E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\CMakeSystemSpecificInformation.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\CMakeSystemSpecificInitialize.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\CMakeTestCCompiler.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\CMakeTestCXXCompiler.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\CMakeTestCompilerCommon.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\CMakeTestRCCompiler.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\CheckCSourceCompiles.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\CheckIncludeFile.c.in E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\CheckIncludeFile.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\CheckLibraryExists.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\Compiler\ADSP-DetermineCompiler.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\Compiler\ARMCC-DetermineCompiler.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\Compiler\ARMClang-DetermineCompiler.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\Compiler\AppleClang-DetermineCompiler.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\Compiler\Borland-DetermineCompiler.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\Compiler\Bruce-C-DetermineCompiler.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\Compiler\CMakeCommonCompilerMacros.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\Compiler\Clang-DetermineCompiler.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\Compiler\Clang-DetermineCompilerInternal.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\Compiler\Comeau-CXX-DetermineCompiler.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\Compiler\Compaq-C-DetermineCompiler.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\Compiler\Compaq-CXX-DetermineCompiler.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\Compiler\Cray-DetermineCompiler.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\Compiler\Embarcadero-DetermineCompiler.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\Compiler\Fujitsu-DetermineCompiler.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\Compiler\GHS-DetermineCompiler.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\Compiler\GNU-C-DetermineCompiler.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\Compiler\GNU-CXX-DetermineCompiler.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\Compiler\HP-C-DetermineCompiler.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\Compiler\HP-CXX-DetermineCompiler.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\Compiler\IAR-DetermineCompiler.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\Compiler\IBMCPP-C-DetermineVersionInternal.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\Compiler\IBMCPP-CXX-DetermineVersionInternal.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\Compiler\Intel-DetermineCompiler.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\Compiler\MSVC-C.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\Compiler\MSVC-CXX.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\Compiler\MSVC-DetermineCompiler.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\Compiler\NVIDIA-DetermineCompiler.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\Compiler\OpenWatcom-DetermineCompiler.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\Compiler\PGI-DetermineCompiler.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\Compiler\PathScale-DetermineCompiler.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\Compiler\SCO-DetermineCompiler.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\Compiler\SDCC-C-DetermineCompiler.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\Compiler\SunPro-C-DetermineCompiler.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\Compiler\SunPro-CXX-DetermineCompiler.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\Compiler\TI-DetermineCompiler.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\Compiler\TinyCC-C-DetermineCompiler.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\Compiler\VisualAge-C-DetermineCompiler.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\Compiler\VisualAge-CXX-DetermineCompiler.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\Compiler\Watcom-DetermineCompiler.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\Compiler\XL-C-DetermineCompiler.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\Compiler\XL-CXX-DetermineCompiler.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\Compiler\XLClang-C-DetermineCompiler.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\Compiler\XLClang-CXX-DetermineCompiler.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\Compiler\zOS-C-DetermineCompiler.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\Compiler\zOS-CXX-DetermineCompiler.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\FindDoxygen.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\FindOpenGL.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\FindOpenMP.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\FindPackageHandleStandardArgs.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\FindPackageMessage.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\FindThreads.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\Internal\FeatureTesting.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\Platform\Windows-Determine-CXX.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\Platform\Windows-MSVC-C.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\Platform\Windows-MSVC-CXX.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\Platform\Windows-MSVC.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\Platform\Windows.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\Platform\WindowsPaths.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\WriteBasicConfigVersionFile.cmake
+build build.ninja: RERUN_CMAKE | ..\..\..\CMakeLists.txt ..\..\..\build\templates\vs2013.vcxproj.user.in ..\..\..\lib\glfw\CMakeLists.txt ..\..\..\lib\glfw\cmake_uninstall.cmake.in ..\..\..\lib\glfw\docs\Doxyfile.in ..\..\..\lib\glfw\examples\CMakeLists.txt ..\..\..\lib\glfw\src\CMakeLists.txt ..\..\..\lib\glfw\src\glfw3.pc.in ..\..\..\lib\glfw\src\glfw3Config.cmake.in ..\..\..\lib\glfw\src\glfw_config.h.in ..\..\..\lib\glfw\tests\CMakeLists.txt CMakeCache.txt CMakeFiles\3.16.19112601-MSVC_2\CMakeCCompiler.cmake CMakeFiles\3.16.19112601-MSVC_2\CMakeCXXCompiler.cmake CMakeFiles\3.16.19112601-MSVC_2\CMakeRCCompiler.cmake CMakeFiles\3.16.19112601-MSVC_2\CMakeSystem.cmake CMakeFiles\FindOpenMP\OpenMPCheckVersion.c CMakeFiles\FindOpenMP\OpenMPCheckVersion.cpp CMakeFiles\FindOpenMP\OpenMPTryFlag.c CMakeFiles\FindOpenMP\OpenMPTryFlag.cpp E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\BasicConfigVersion-SameMajorVersion.cmake.in E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\CMakeCCompiler.cmake.in E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\CMakeCCompilerABI.c E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\CMakeCInformation.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\CMakeCXXCompiler.cmake.in E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\CMakeCXXCompilerABI.cpp E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\CMakeCXXInformation.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\CMakeCommonLanguageInclude.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\CMakeCompilerIdDetection.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\CMakeDetermineCCompiler.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\CMakeDetermineCXXCompiler.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\CMakeDetermineCompileFeatures.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\CMakeDetermineCompiler.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\CMakeDetermineCompilerABI.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\CMakeDetermineCompilerId.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\CMakeDetermineRCCompiler.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\CMakeDetermineSystem.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\CMakeFindBinUtils.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\CMakeGenericSystem.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\CMakeInitializeConfigs.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\CMakeLanguageInformation.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\CMakeNinjaFindMake.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\CMakePackageConfigHelpers.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\CMakeParseImplicitIncludeInfo.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\CMakeParseImplicitLinkInfo.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\CMakeRCCompiler.cmake.in E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\CMakeRCInformation.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\CMakeSystem.cmake.in E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\CMakeSystemSpecificInformation.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\CMakeSystemSpecificInitialize.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\CMakeTestCCompiler.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\CMakeTestCXXCompiler.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\CMakeTestCompilerCommon.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\CMakeTestRCCompiler.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\CheckCSourceCompiles.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\CheckIncludeFile.c.in E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\CheckIncludeFile.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\CheckLibraryExists.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\Compiler\ADSP-DetermineCompiler.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\Compiler\ARMCC-DetermineCompiler.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\Compiler\ARMClang-DetermineCompiler.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\Compiler\AppleClang-DetermineCompiler.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\Compiler\Borland-DetermineCompiler.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\Compiler\Bruce-C-DetermineCompiler.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\Compiler\CMakeCommonCompilerMacros.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\Compiler\Clang-DetermineCompiler.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\Compiler\Clang-DetermineCompilerInternal.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\Compiler\Comeau-CXX-DetermineCompiler.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\Compiler\Compaq-C-DetermineCompiler.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\Compiler\Compaq-CXX-DetermineCompiler.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\Compiler\Cray-DetermineCompiler.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\Compiler\Embarcadero-DetermineCompiler.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\Compiler\Fujitsu-DetermineCompiler.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\Compiler\GHS-DetermineCompiler.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\Compiler\GNU-C-DetermineCompiler.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\Compiler\GNU-CXX-DetermineCompiler.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\Compiler\HP-C-DetermineCompiler.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\Compiler\HP-CXX-DetermineCompiler.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\Compiler\IAR-DetermineCompiler.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\Compiler\IBMCPP-C-DetermineVersionInternal.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\Compiler\IBMCPP-CXX-DetermineVersionInternal.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\Compiler\Intel-DetermineCompiler.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\Compiler\MSVC-C.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\Compiler\MSVC-CXX.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\Compiler\MSVC-DetermineCompiler.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\Compiler\NVIDIA-DetermineCompiler.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\Compiler\OpenWatcom-DetermineCompiler.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\Compiler\PGI-DetermineCompiler.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\Compiler\PathScale-DetermineCompiler.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\Compiler\SCO-DetermineCompiler.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\Compiler\SDCC-C-DetermineCompiler.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\Compiler\SunPro-C-DetermineCompiler.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\Compiler\SunPro-CXX-DetermineCompiler.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\Compiler\TI-DetermineCompiler.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\Compiler\TinyCC-C-DetermineCompiler.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\Compiler\VisualAge-C-DetermineCompiler.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\Compiler\VisualAge-CXX-DetermineCompiler.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\Compiler\Watcom-DetermineCompiler.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\Compiler\XL-C-DetermineCompiler.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\Compiler\XL-CXX-DetermineCompiler.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\Compiler\XLClang-C-DetermineCompiler.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\Compiler\XLClang-CXX-DetermineCompiler.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\Compiler\zOS-C-DetermineCompiler.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\Compiler\zOS-CXX-DetermineCompiler.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\FindDoxygen.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\FindOpenGL.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\FindOpenMP.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\FindPackageHandleStandardArgs.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\FindPackageMessage.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\FindThreads.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\Internal\FeatureTesting.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\Platform\Windows-Determine-CXX.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\Platform\Windows-MSVC-C.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\Platform\Windows-MSVC-CXX.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\Platform\Windows-MSVC.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\Platform\Windows.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\Platform\WindowsPaths.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\WriteBasicConfigVersionFile.cmake
   pool = console
 
 
 #############################################
 # A missing CMake input file is not an error.
 
-build ..\..\..\CMakeLists.txt ..\..\..\build\templates\vs2013.vcxproj.user.in ..\..\..\lib\glfw\CMakeLists.txt ..\..\..\lib\glfw\cmake_uninstall.cmake.in ..\..\..\lib\glfw\docs\Doxyfile.in ..\..\..\lib\glfw\examples\CMakeLists.txt ..\..\..\lib\glfw\src\CMakeLists.txt ..\..\..\lib\glfw\src\glfw3.pc.in ..\..\..\lib\glfw\src\glfw3Config.cmake.in ..\..\..\lib\glfw\src\glfw_config.h.in ..\..\..\lib\glfw\tests\CMakeLists.txt CMakeCache.txt CMakeFiles\3.16.19112601-MSVC_2\CMakeCCompiler.cmake CMakeFiles\3.16.19112601-MSVC_2\CMakeCXXCompiler.cmake CMakeFiles\3.16.19112601-MSVC_2\CMakeRCCompiler.cmake CMakeFiles\3.16.19112601-MSVC_2\CMakeSystem.cmake CMakeFiles\FindOpenMP\OpenMPCheckVersion.c CMakeFiles\FindOpenMP\OpenMPCheckVersion.cpp CMakeFiles\FindOpenMP\OpenMPTryFlag.c CMakeFiles\FindOpenMP\OpenMPTryFlag.cpp E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\BasicConfigVersion-SameMajorVersion.cmake.in E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\CMakeCCompiler.cmake.in E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\CMakeCCompilerABI.c E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\CMakeCInformation.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\CMakeCXXCompiler.cmake.in E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\CMakeCXXCompilerABI.cpp E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\CMakeCXXInformation.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\CMakeCommonLanguageInclude.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\CMakeCompilerIdDetection.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\CMakeDetermineCCompiler.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\CMakeDetermineCXXCompiler.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\CMakeDetermineCompileFeatures.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\CMakeDetermineCompiler.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\CMakeDetermineCompilerABI.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\CMakeDetermineCompilerId.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\CMakeDetermineRCCompiler.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\CMakeDetermineSystem.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\CMakeFindBinUtils.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\CMakeGenericSystem.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\CMakeInitializeConfigs.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\CMakeLanguageInformation.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\CMakePackageConfigHelpers.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\CMakeParseImplicitIncludeInfo.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\CMakeParseImplicitLinkInfo.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\CMakeRCCompiler.cmake.in E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\CMakeRCInformation.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\CMakeSystem.cmake.in E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\CMakeSystemSpecificInformation.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\CMakeSystemSpecificInitialize.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\CMakeTestCCompiler.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\CMakeTestCXXCompiler.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\CMakeTestCompilerCommon.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\CMakeTestRCCompiler.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\CheckCSourceCompiles.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\CheckIncludeFile.c.in E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\CheckIncludeFile.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\CheckLibraryExists.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\Compiler\ADSP-DetermineCompiler.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\Compiler\ARMCC-DetermineCompiler.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\Compiler\ARMClang-DetermineCompiler.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\Compiler\AppleClang-DetermineCompiler.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\Compiler\Borland-DetermineCompiler.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\Compiler\Bruce-C-DetermineCompiler.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\Compiler\CMakeCommonCompilerMacros.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\Compiler\Clang-DetermineCompiler.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\Compiler\Clang-DetermineCompilerInternal.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\Compiler\Comeau-CXX-DetermineCompiler.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\Compiler\Compaq-C-DetermineCompiler.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\Compiler\Compaq-CXX-DetermineCompiler.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\Compiler\Cray-DetermineCompiler.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\Compiler\Embarcadero-DetermineCompiler.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\Compiler\Fujitsu-DetermineCompiler.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\Compiler\GHS-DetermineCompiler.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\Compiler\GNU-C-DetermineCompiler.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\Compiler\GNU-CXX-DetermineCompiler.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\Compiler\HP-C-DetermineCompiler.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\Compiler\HP-CXX-DetermineCompiler.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\Compiler\IAR-DetermineCompiler.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\Compiler\IBMCPP-C-DetermineVersionInternal.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\Compiler\IBMCPP-CXX-DetermineVersionInternal.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\Compiler\Intel-DetermineCompiler.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\Compiler\MSVC-C.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\Compiler\MSVC-CXX.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\Compiler\MSVC-DetermineCompiler.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\Compiler\NVIDIA-DetermineCompiler.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\Compiler\OpenWatcom-DetermineCompiler.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\Compiler\PGI-DetermineCompiler.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\Compiler\PathScale-DetermineCompiler.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\Compiler\SCO-DetermineCompiler.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\Compiler\SDCC-C-DetermineCompiler.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\Compiler\SunPro-C-DetermineCompiler.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\Compiler\SunPro-CXX-DetermineCompiler.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\Compiler\TI-DetermineCompiler.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\Compiler\TinyCC-C-DetermineCompiler.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\Compiler\VisualAge-C-DetermineCompiler.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\Compiler\VisualAge-CXX-DetermineCompiler.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\Compiler\Watcom-DetermineCompiler.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\Compiler\XL-C-DetermineCompiler.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\Compiler\XL-CXX-DetermineCompiler.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\Compiler\XLClang-C-DetermineCompiler.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\Compiler\XLClang-CXX-DetermineCompiler.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\Compiler\zOS-C-DetermineCompiler.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\Compiler\zOS-CXX-DetermineCompiler.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\FindDoxygen.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\FindOpenGL.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\FindOpenMP.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\FindPackageHandleStandardArgs.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\FindPackageMessage.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\FindThreads.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\Internal\FeatureTesting.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\Platform\Windows-Determine-CXX.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\Platform\Windows-MSVC-C.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\Platform\Windows-MSVC-CXX.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\Platform\Windows-MSVC.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\Platform\Windows.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\Platform\WindowsPaths.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\WriteBasicConfigVersionFile.cmake: phony
+build ..\..\..\CMakeLists.txt ..\..\..\build\templates\vs2013.vcxproj.user.in ..\..\..\lib\glfw\CMakeLists.txt ..\..\..\lib\glfw\cmake_uninstall.cmake.in ..\..\..\lib\glfw\docs\Doxyfile.in ..\..\..\lib\glfw\examples\CMakeLists.txt ..\..\..\lib\glfw\src\CMakeLists.txt ..\..\..\lib\glfw\src\glfw3.pc.in ..\..\..\lib\glfw\src\glfw3Config.cmake.in ..\..\..\lib\glfw\src\glfw_config.h.in ..\..\..\lib\glfw\tests\CMakeLists.txt CMakeCache.txt CMakeFiles\3.16.19112601-MSVC_2\CMakeCCompiler.cmake CMakeFiles\3.16.19112601-MSVC_2\CMakeCXXCompiler.cmake CMakeFiles\3.16.19112601-MSVC_2\CMakeRCCompiler.cmake CMakeFiles\3.16.19112601-MSVC_2\CMakeSystem.cmake CMakeFiles\FindOpenMP\OpenMPCheckVersion.c CMakeFiles\FindOpenMP\OpenMPCheckVersion.cpp CMakeFiles\FindOpenMP\OpenMPTryFlag.c CMakeFiles\FindOpenMP\OpenMPTryFlag.cpp E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\BasicConfigVersion-SameMajorVersion.cmake.in E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\CMakeCCompiler.cmake.in E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\CMakeCCompilerABI.c E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\CMakeCInformation.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\CMakeCXXCompiler.cmake.in E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\CMakeCXXCompilerABI.cpp E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\CMakeCXXInformation.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\CMakeCommonLanguageInclude.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\CMakeCompilerIdDetection.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\CMakeDetermineCCompiler.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\CMakeDetermineCXXCompiler.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\CMakeDetermineCompileFeatures.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\CMakeDetermineCompiler.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\CMakeDetermineCompilerABI.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\CMakeDetermineCompilerId.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\CMakeDetermineRCCompiler.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\CMakeDetermineSystem.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\CMakeFindBinUtils.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\CMakeGenericSystem.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\CMakeInitializeConfigs.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\CMakeLanguageInformation.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\CMakeNinjaFindMake.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\CMakePackageConfigHelpers.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\CMakeParseImplicitIncludeInfo.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\CMakeParseImplicitLinkInfo.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\CMakeRCCompiler.cmake.in E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\CMakeRCInformation.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\CMakeSystem.cmake.in E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\CMakeSystemSpecificInformation.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\CMakeSystemSpecificInitialize.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\CMakeTestCCompiler.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\CMakeTestCXXCompiler.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\CMakeTestCompilerCommon.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\CMakeTestRCCompiler.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\CheckCSourceCompiles.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\CheckIncludeFile.c.in E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\CheckIncludeFile.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\CheckLibraryExists.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\Compiler\ADSP-DetermineCompiler.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\Compiler\ARMCC-DetermineCompiler.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\Compiler\ARMClang-DetermineCompiler.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\Compiler\AppleClang-DetermineCompiler.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\Compiler\Borland-DetermineCompiler.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\Compiler\Bruce-C-DetermineCompiler.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\Compiler\CMakeCommonCompilerMacros.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\Compiler\Clang-DetermineCompiler.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\Compiler\Clang-DetermineCompilerInternal.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\Compiler\Comeau-CXX-DetermineCompiler.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\Compiler\Compaq-C-DetermineCompiler.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\Compiler\Compaq-CXX-DetermineCompiler.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\Compiler\Cray-DetermineCompiler.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\Compiler\Embarcadero-DetermineCompiler.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\Compiler\Fujitsu-DetermineCompiler.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\Compiler\GHS-DetermineCompiler.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\Compiler\GNU-C-DetermineCompiler.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\Compiler\GNU-CXX-DetermineCompiler.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\Compiler\HP-C-DetermineCompiler.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\Compiler\HP-CXX-DetermineCompiler.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\Compiler\IAR-DetermineCompiler.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\Compiler\IBMCPP-C-DetermineVersionInternal.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\Compiler\IBMCPP-CXX-DetermineVersionInternal.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\Compiler\Intel-DetermineCompiler.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\Compiler\MSVC-C.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\Compiler\MSVC-CXX.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\Compiler\MSVC-DetermineCompiler.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\Compiler\NVIDIA-DetermineCompiler.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\Compiler\OpenWatcom-DetermineCompiler.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\Compiler\PGI-DetermineCompiler.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\Compiler\PathScale-DetermineCompiler.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\Compiler\SCO-DetermineCompiler.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\Compiler\SDCC-C-DetermineCompiler.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\Compiler\SunPro-C-DetermineCompiler.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\Compiler\SunPro-CXX-DetermineCompiler.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\Compiler\TI-DetermineCompiler.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\Compiler\TinyCC-C-DetermineCompiler.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\Compiler\VisualAge-C-DetermineCompiler.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\Compiler\VisualAge-CXX-DetermineCompiler.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\Compiler\Watcom-DetermineCompiler.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\Compiler\XL-C-DetermineCompiler.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\Compiler\XL-CXX-DetermineCompiler.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\Compiler\XLClang-C-DetermineCompiler.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\Compiler\XLClang-CXX-DetermineCompiler.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\Compiler\zOS-C-DetermineCompiler.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\Compiler\zOS-CXX-DetermineCompiler.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\FindDoxygen.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\FindOpenGL.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\FindOpenMP.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\FindPackageHandleStandardArgs.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\FindPackageMessage.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\FindThreads.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\Internal\FeatureTesting.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\Platform\Windows-Determine-CXX.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\Platform\Windows-MSVC-C.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\Platform\Windows-MSVC-CXX.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\Platform\Windows-MSVC.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\Platform\Windows.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\Platform\WindowsPaths.cmake E$:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.16\Modules\WriteBasicConfigVersionFile.cmake: phony
 
 
 #############################################

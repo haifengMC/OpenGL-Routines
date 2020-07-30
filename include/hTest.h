@@ -28,8 +28,8 @@
 	void testName::test_title()\
 	{\
 		std::string s(10, '-');\
-		cout << s << endl;\
-		cout << TO_STRING(testName) << endl;\
-		cout << s << endl;\
+		std::cout << s << std::endl;\
+		std::cout << TO_STRING(testName) << std::endl;\
+		std::cout << s << std::endl;\
 	}\
 	void testName::test_func()

@@ -22,7 +22,7 @@ msvc_deps_prefix = 注意: 包含文件:
 
 rule C_COMPILER__vermilion
   deps = msvc
-  command = E:\programs\VS2019\VC\Tools\MSVC\14.25.28610\bin\HostX64\x64\cl.exe  /nologo $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
+  command = e:\programs\vs2019\VC\Tools\MSVC\14.25.28610\bin\HostX64\x64\cl.exe  /nologo $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
   description = Building C object $out
 
 
@@ -31,7 +31,7 @@ rule C_COMPILER__vermilion
 
 rule CXX_COMPILER__vermilion
   deps = msvc
-  command = E:\programs\VS2019\VC\Tools\MSVC\14.25.28610\bin\HostX64\x64\cl.exe  /nologo /TP $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
+  command = e:\programs\vs2019\VC\Tools\MSVC\14.25.28610\bin\HostX64\x64\cl.exe  /nologo /TP $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
   description = Building CXX object $out
 
 
@@ -49,7 +49,7 @@ rule CXX_STATIC_LIBRARY_LINKER__vermilion
 
 rule CXX_COMPILER__03-primitiverestart
   deps = msvc
-  command = E:\programs\VS2019\VC\Tools\MSVC\14.25.28610\bin\HostX64\x64\cl.exe  /nologo /TP $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
+  command = e:\programs\vs2019\VC\Tools\MSVC\14.25.28610\bin\HostX64\x64\cl.exe  /nologo /TP $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
   description = Building CXX object $out
 
 
@@ -67,7 +67,7 @@ rule CXX_EXECUTABLE_LINKER__03-primitiverestart
 
 rule CXX_COMPILER__03-pointsprites
   deps = msvc
-  command = E:\programs\VS2019\VC\Tools\MSVC\14.25.28610\bin\HostX64\x64\cl.exe  /nologo /TP $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
+  command = e:\programs\vs2019\VC\Tools\MSVC\14.25.28610\bin\HostX64\x64\cl.exe  /nologo /TP $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
   description = Building CXX object $out
 
 
@@ -85,7 +85,7 @@ rule CXX_EXECUTABLE_LINKER__03-pointsprites
 
 rule CXX_COMPILER__03-instancing2
   deps = msvc
-  command = E:\programs\VS2019\VC\Tools\MSVC\14.25.28610\bin\HostX64\x64\cl.exe  /nologo /TP $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
+  command = e:\programs\vs2019\VC\Tools\MSVC\14.25.28610\bin\HostX64\x64\cl.exe  /nologo /TP $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
   description = Building CXX object $out
 
 
@@ -103,7 +103,7 @@ rule CXX_EXECUTABLE_LINKER__03-instancing2
 
 rule CXX_COMPILER__01-keypress
   deps = msvc
-  command = E:\programs\VS2019\VC\Tools\MSVC\14.25.28610\bin\HostX64\x64\cl.exe  /nologo /TP $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
+  command = e:\programs\vs2019\VC\Tools\MSVC\14.25.28610\bin\HostX64\x64\cl.exe  /nologo /TP $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
   description = Building CXX object $out
 
 
@@ -121,7 +121,7 @@ rule CXX_EXECUTABLE_LINKER__01-keypress
 
 rule CXX_COMPILER__03-instancing
   deps = msvc
-  command = E:\programs\VS2019\VC\Tools\MSVC\14.25.28610\bin\HostX64\x64\cl.exe  /nologo /TP $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
+  command = e:\programs\vs2019\VC\Tools\MSVC\14.25.28610\bin\HostX64\x64\cl.exe  /nologo /TP $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
   description = Building CXX object $out
 
 
@@ -139,7 +139,7 @@ rule CXX_EXECUTABLE_LINKER__03-instancing
 
 rule CXX_COMPILER__06-multitexture
   deps = msvc
-  command = E:\programs\VS2019\VC\Tools\MSVC\14.25.28610\bin\HostX64\x64\cl.exe  /nologo /TP $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
+  command = e:\programs\vs2019\VC\Tools\MSVC\14.25.28610\bin\HostX64\x64\cl.exe  /nologo /TP $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
   description = Building CXX object $out
 
 
@@ -157,7 +157,7 @@ rule CXX_EXECUTABLE_LINKER__06-multitexture
 
 rule CXX_COMPILER__01-triangles
   deps = msvc
-  command = E:\programs\VS2019\VC\Tools\MSVC\14.25.28610\bin\HostX64\x64\cl.exe  /nologo /TP $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
+  command = e:\programs\vs2019\VC\Tools\MSVC\14.25.28610\bin\HostX64\x64\cl.exe  /nologo /TP $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
   description = Building CXX object $out
 
 
@@ -175,7 +175,7 @@ rule CXX_EXECUTABLE_LINKER__01-triangles
 
 rule CXX_COMPILER__06-mipfilters
   deps = msvc
-  command = E:\programs\VS2019\VC\Tools\MSVC\14.25.28610\bin\HostX64\x64\cl.exe  /nologo /TP $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
+  command = e:\programs\vs2019\VC\Tools\MSVC\14.25.28610\bin\HostX64\x64\cl.exe  /nologo /TP $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
   description = Building CXX object $out
 
 
@@ -193,7 +193,7 @@ rule CXX_EXECUTABLE_LINKER__06-mipfilters
 
 rule CXX_COMPILER__06-cubemap
   deps = msvc
-  command = E:\programs\VS2019\VC\Tools\MSVC\14.25.28610\bin\HostX64\x64\cl.exe  /nologo /TP $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
+  command = e:\programs\vs2019\VC\Tools\MSVC\14.25.28610\bin\HostX64\x64\cl.exe  /nologo /TP $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
   description = Building CXX object $out
 
 
@@ -211,7 +211,7 @@ rule CXX_EXECUTABLE_LINKER__06-cubemap
 
 rule CXX_COMPILER__03-drawcommands
   deps = msvc
-  command = E:\programs\VS2019\VC\Tools\MSVC\14.25.28610\bin\HostX64\x64\cl.exe  /nologo /TP $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
+  command = e:\programs\vs2019\VC\Tools\MSVC\14.25.28610\bin\HostX64\x64\cl.exe  /nologo /TP $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
   description = Building CXX object $out
 
 
@@ -229,7 +229,7 @@ rule CXX_EXECUTABLE_LINKER__03-drawcommands
 
 rule CXX_COMPILER__03-instancing3
   deps = msvc
-  command = E:\programs\VS2019\VC\Tools\MSVC\14.25.28610\bin\HostX64\x64\cl.exe  /nologo /TP $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
+  command = e:\programs\vs2019\VC\Tools\MSVC\14.25.28610\bin\HostX64\x64\cl.exe  /nologo /TP $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
   description = Building CXX object $out
 
 
@@ -255,7 +255,7 @@ rule CUSTOM_COMMAND
 
 rule CXX_COMPILER__03-xfb
   deps = msvc
-  command = E:\programs\VS2019\VC\Tools\MSVC\14.25.28610\bin\HostX64\x64\cl.exe  /nologo /TP $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
+  command = e:\programs\vs2019\VC\Tools\MSVC\14.25.28610\bin\HostX64\x64\cl.exe  /nologo /TP $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
   description = Building CXX object $out
 
 
@@ -273,7 +273,7 @@ rule CXX_EXECUTABLE_LINKER__03-xfb
 
 rule CXX_COMPILER__04-gouraud
   deps = msvc
-  command = E:\programs\VS2019\VC\Tools\MSVC\14.25.28610\bin\HostX64\x64\cl.exe  /nologo /TP $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
+  command = e:\programs\vs2019\VC\Tools\MSVC\14.25.28610\bin\HostX64\x64\cl.exe  /nologo /TP $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
   description = Building CXX object $out
 
 
@@ -291,7 +291,7 @@ rule CXX_EXECUTABLE_LINKER__04-gouraud
 
 rule CXX_COMPILER__04-gouraud-float
   deps = msvc
-  command = E:\programs\VS2019\VC\Tools\MSVC\14.25.28610\bin\HostX64\x64\cl.exe  /nologo /TP $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
+  command = e:\programs\vs2019\VC\Tools\MSVC\14.25.28610\bin\HostX64\x64\cl.exe  /nologo /TP $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
   description = Building CXX object $out
 
 
@@ -309,7 +309,7 @@ rule CXX_EXECUTABLE_LINKER__04-gouraud-float
 
 rule CXX_COMPILER__04-shadowmap
   deps = msvc
-  command = E:\programs\VS2019\VC\Tools\MSVC\14.25.28610\bin\HostX64\x64\cl.exe  /nologo /TP $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
+  command = e:\programs\vs2019\VC\Tools\MSVC\14.25.28610\bin\HostX64\x64\cl.exe  /nologo /TP $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
   description = Building CXX object $out
 
 
@@ -327,7 +327,7 @@ rule CXX_EXECUTABLE_LINKER__04-shadowmap
 
 rule CXX_COMPILER__06-load-texture
   deps = msvc
-  command = E:\programs\VS2019\VC\Tools\MSVC\14.25.28610\bin\HostX64\x64\cl.exe  /nologo /TP $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
+  command = e:\programs\vs2019\VC\Tools\MSVC\14.25.28610\bin\HostX64\x64\cl.exe  /nologo /TP $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
   description = Building CXX object $out
 
 
@@ -345,7 +345,7 @@ rule CXX_EXECUTABLE_LINKER__06-load-texture
 
 rule CXX_COMPILER__06-statictexture
   deps = msvc
-  command = E:\programs\VS2019\VC\Tools\MSVC\14.25.28610\bin\HostX64\x64\cl.exe  /nologo /TP $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
+  command = e:\programs\vs2019\VC\Tools\MSVC\14.25.28610\bin\HostX64\x64\cl.exe  /nologo /TP $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
   description = Building CXX object $out
 
 
@@ -363,7 +363,7 @@ rule CXX_EXECUTABLE_LINKER__06-statictexture
 
 rule CXX_COMPILER__06-texturewrapping
   deps = msvc
-  command = E:\programs\VS2019\VC\Tools\MSVC\14.25.28610\bin\HostX64\x64\cl.exe  /nologo /TP $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
+  command = e:\programs\vs2019\VC\Tools\MSVC\14.25.28610\bin\HostX64\x64\cl.exe  /nologo /TP $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
   description = Building CXX object $out
 
 
@@ -381,7 +381,7 @@ rule CXX_EXECUTABLE_LINKER__06-texturewrapping
 
 rule CXX_COMPILER__06-volumetexturing
   deps = msvc
-  command = E:\programs\VS2019\VC\Tools\MSVC\14.25.28610\bin\HostX64\x64\cl.exe  /nologo /TP $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
+  command = e:\programs\vs2019\VC\Tools\MSVC\14.25.28610\bin\HostX64\x64\cl.exe  /nologo /TP $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
   description = Building CXX object $out
 
 
@@ -399,7 +399,7 @@ rule CXX_EXECUTABLE_LINKER__06-volumetexturing
 
 rule CXX_COMPILER__11-oit
   deps = msvc
-  command = E:\programs\VS2019\VC\Tools\MSVC\14.25.28610\bin\HostX64\x64\cl.exe  /nologo /TP $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
+  command = e:\programs\vs2019\VC\Tools\MSVC\14.25.28610\bin\HostX64\x64\cl.exe  /nologo /TP $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
   description = Building CXX object $out
 
 
@@ -417,7 +417,7 @@ rule CXX_EXECUTABLE_LINKER__11-oit
 
 rule CXX_COMPILER__08-lightmodels
   deps = msvc
-  command = E:\programs\VS2019\VC\Tools\MSVC\14.25.28610\bin\HostX64\x64\cl.exe  /nologo /TP $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
+  command = e:\programs\vs2019\VC\Tools\MSVC\14.25.28610\bin\HostX64\x64\cl.exe  /nologo /TP $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
   description = Building CXX object $out
 
 
@@ -435,7 +435,7 @@ rule CXX_EXECUTABLE_LINKER__08-lightmodels
 
 rule CXX_COMPILER__09-simpletess
   deps = msvc
-  command = E:\programs\VS2019\VC\Tools\MSVC\14.25.28610\bin\HostX64\x64\cl.exe  /nologo /TP $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
+  command = e:\programs\vs2019\VC\Tools\MSVC\14.25.28610\bin\HostX64\x64\cl.exe  /nologo /TP $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
   description = Building CXX object $out
 
 
@@ -453,7 +453,7 @@ rule CXX_EXECUTABLE_LINKER__09-simpletess
 
 rule CXX_COMPILER__09-teapot
   deps = msvc
-  command = E:\programs\VS2019\VC\Tools\MSVC\14.25.28610\bin\HostX64\x64\cl.exe  /nologo /TP $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
+  command = e:\programs\vs2019\VC\Tools\MSVC\14.25.28610\bin\HostX64\x64\cl.exe  /nologo /TP $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
   description = Building CXX object $out
 
 
@@ -471,7 +471,7 @@ rule CXX_EXECUTABLE_LINKER__09-teapot
 
 rule CXX_COMPILER__10-draw-xfb
   deps = msvc
-  command = E:\programs\VS2019\VC\Tools\MSVC\14.25.28610\bin\HostX64\x64\cl.exe  /nologo /TP $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
+  command = e:\programs\vs2019\VC\Tools\MSVC\14.25.28610\bin\HostX64\x64\cl.exe  /nologo /TP $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
   description = Building CXX object $out
 
 
@@ -489,7 +489,7 @@ rule CXX_EXECUTABLE_LINKER__10-draw-xfb
 
 rule CXX_COMPILER__10-fur
   deps = msvc
-  command = E:\programs\VS2019\VC\Tools\MSVC\14.25.28610\bin\HostX64\x64\cl.exe  /nologo /TP $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
+  command = e:\programs\vs2019\VC\Tools\MSVC\14.25.28610\bin\HostX64\x64\cl.exe  /nologo /TP $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
   description = Building CXX object $out
 
 
@@ -507,7 +507,7 @@ rule CXX_EXECUTABLE_LINKER__10-fur
 
 rule CXX_COMPILER__12-imageprocessing
   deps = msvc
-  command = E:\programs\VS2019\VC\Tools\MSVC\14.25.28610\bin\HostX64\x64\cl.exe  /nologo /TP $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
+  command = e:\programs\vs2019\VC\Tools\MSVC\14.25.28610\bin\HostX64\x64\cl.exe  /nologo /TP $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
   description = Building CXX object $out
 
 
@@ -525,7 +525,7 @@ rule CXX_EXECUTABLE_LINKER__12-imageprocessing
 
 rule CXX_COMPILER__10-viewport-array
   deps = msvc
-  command = E:\programs\VS2019\VC\Tools\MSVC\14.25.28610\bin\HostX64\x64\cl.exe  /nologo /TP $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
+  command = e:\programs\vs2019\VC\Tools\MSVC\14.25.28610\bin\HostX64\x64\cl.exe  /nologo /TP $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
   description = Building CXX object $out
 
 
@@ -543,7 +543,7 @@ rule CXX_EXECUTABLE_LINKER__10-viewport-array
 
 rule CXX_COMPILER__11-doublewrite
   deps = msvc
-  command = E:\programs\VS2019\VC\Tools\MSVC\14.25.28610\bin\HostX64\x64\cl.exe  /nologo /TP $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
+  command = e:\programs\vs2019\VC\Tools\MSVC\14.25.28610\bin\HostX64\x64\cl.exe  /nologo /TP $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
   description = Building CXX object $out
 
 
@@ -561,7 +561,7 @@ rule CXX_EXECUTABLE_LINKER__11-doublewrite
 
 rule CXX_COMPILER__11-overdrawcount
   deps = msvc
-  command = E:\programs\VS2019\VC\Tools\MSVC\14.25.28610\bin\HostX64\x64\cl.exe  /nologo /TP $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
+  command = e:\programs\vs2019\VC\Tools\MSVC\14.25.28610\bin\HostX64\x64\cl.exe  /nologo /TP $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
   description = Building CXX object $out
 
 
@@ -579,7 +579,7 @@ rule CXX_EXECUTABLE_LINKER__11-overdrawcount
 
 rule CXX_COMPILER__12-particlesimulator
   deps = msvc
-  command = E:\programs\VS2019\VC\Tools\MSVC\14.25.28610\bin\HostX64\x64\cl.exe  /nologo /TP $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
+  command = e:\programs\vs2019\VC\Tools\MSVC\14.25.28610\bin\HostX64\x64\cl.exe  /nologo /TP $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
   description = Building CXX object $out
 
 
@@ -597,7 +597,7 @@ rule CXX_EXECUTABLE_LINKER__12-particlesimulator
 
 rule CXX_COMPILER__12-raytracer
   deps = msvc
-  command = E:\programs\VS2019\VC\Tools\MSVC\14.25.28610\bin\HostX64\x64\cl.exe  /nologo /TP $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
+  command = e:\programs\vs2019\VC\Tools\MSVC\14.25.28610\bin\HostX64\x64\cl.exe  /nologo /TP $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
   description = Building CXX object $out
 
 
@@ -615,7 +615,7 @@ rule CXX_EXECUTABLE_LINKER__12-raytracer
 
 rule CXX_COMPILER__12-simplecompute
   deps = msvc
-  command = E:\programs\VS2019\VC\Tools\MSVC\14.25.28610\bin\HostX64\x64\cl.exe  /nologo /TP $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
+  command = e:\programs\vs2019\VC\Tools\MSVC\14.25.28610\bin\HostX64\x64\cl.exe  /nologo /TP $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
   description = Building CXX object $out
 
 
@@ -633,7 +633,7 @@ rule CXX_EXECUTABLE_LINKER__12-simplecompute
 
 rule C_COMPILER__glfw
   deps = msvc
-  command = E:\programs\VS2019\VC\Tools\MSVC\14.25.28610\bin\HostX64\x64\cl.exe  /nologo $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
+  command = e:\programs\vs2019\VC\Tools\MSVC\14.25.28610\bin\HostX64\x64\cl.exe  /nologo $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
   description = Building C object $out
 
 
@@ -651,7 +651,7 @@ rule C_STATIC_LIBRARY_LINKER__glfw
 
 rule C_COMPILER__boing
   deps = msvc
-  command = E:\programs\VS2019\VC\Tools\MSVC\14.25.28610\bin\HostX64\x64\cl.exe  /nologo $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
+  command = e:\programs\vs2019\VC\Tools\MSVC\14.25.28610\bin\HostX64\x64\cl.exe  /nologo $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
   description = Building C object $out
 
 
@@ -669,7 +669,7 @@ rule C_EXECUTABLE_LINKER__boing
 
 rule C_COMPILER__simple
   deps = msvc
-  command = E:\programs\VS2019\VC\Tools\MSVC\14.25.28610\bin\HostX64\x64\cl.exe  /nologo $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
+  command = e:\programs\vs2019\VC\Tools\MSVC\14.25.28610\bin\HostX64\x64\cl.exe  /nologo $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
   description = Building C object $out
 
 
@@ -687,7 +687,7 @@ rule C_EXECUTABLE_LINKER__simple
 
 rule C_COMPILER__gears
   deps = msvc
-  command = E:\programs\VS2019\VC\Tools\MSVC\14.25.28610\bin\HostX64\x64\cl.exe  /nologo $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
+  command = e:\programs\vs2019\VC\Tools\MSVC\14.25.28610\bin\HostX64\x64\cl.exe  /nologo $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
   description = Building C object $out
 
 
@@ -705,7 +705,7 @@ rule C_EXECUTABLE_LINKER__gears
 
 rule C_COMPILER__wave
   deps = msvc
-  command = E:\programs\VS2019\VC\Tools\MSVC\14.25.28610\bin\HostX64\x64\cl.exe  /nologo $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
+  command = e:\programs\vs2019\VC\Tools\MSVC\14.25.28610\bin\HostX64\x64\cl.exe  /nologo $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
   description = Building C object $out
 
 
@@ -723,7 +723,7 @@ rule C_EXECUTABLE_LINKER__wave
 
 rule C_COMPILER__particles
   deps = msvc
-  command = E:\programs\VS2019\VC\Tools\MSVC\14.25.28610\bin\HostX64\x64\cl.exe  /nologo $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
+  command = e:\programs\vs2019\VC\Tools\MSVC\14.25.28610\bin\HostX64\x64\cl.exe  /nologo $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
   description = Building C object $out
 
 
@@ -741,7 +741,7 @@ rule C_EXECUTABLE_LINKER__particles
 
 rule C_COMPILER__heightmap
   deps = msvc
-  command = E:\programs\VS2019\VC\Tools\MSVC\14.25.28610\bin\HostX64\x64\cl.exe  /nologo $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
+  command = e:\programs\vs2019\VC\Tools\MSVC\14.25.28610\bin\HostX64\x64\cl.exe  /nologo $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
   description = Building C object $out
 
 
@@ -759,7 +759,7 @@ rule C_EXECUTABLE_LINKER__heightmap
 
 rule C_COMPILER__splitview
   deps = msvc
-  command = E:\programs\VS2019\VC\Tools\MSVC\14.25.28610\bin\HostX64\x64\cl.exe  /nologo $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
+  command = e:\programs\vs2019\VC\Tools\MSVC\14.25.28610\bin\HostX64\x64\cl.exe  /nologo $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
   description = Building C object $out
 
 
@@ -777,7 +777,7 @@ rule C_EXECUTABLE_LINKER__splitview
 
 rule C_COMPILER__clipboard
   deps = msvc
-  command = E:\programs\VS2019\VC\Tools\MSVC\14.25.28610\bin\HostX64\x64\cl.exe  /nologo $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
+  command = e:\programs\vs2019\VC\Tools\MSVC\14.25.28610\bin\HostX64\x64\cl.exe  /nologo $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
   description = Building C object $out
 
 
@@ -795,7 +795,7 @@ rule C_EXECUTABLE_LINKER__clipboard
 
 rule C_COMPILER__joysticks
   deps = msvc
-  command = E:\programs\VS2019\VC\Tools\MSVC\14.25.28610\bin\HostX64\x64\cl.exe  /nologo $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
+  command = e:\programs\vs2019\VC\Tools\MSVC\14.25.28610\bin\HostX64\x64\cl.exe  /nologo $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
   description = Building C object $out
 
 
@@ -813,7 +813,7 @@ rule C_EXECUTABLE_LINKER__joysticks
 
 rule C_COMPILER__events
   deps = msvc
-  command = E:\programs\VS2019\VC\Tools\MSVC\14.25.28610\bin\HostX64\x64\cl.exe  /nologo $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
+  command = e:\programs\vs2019\VC\Tools\MSVC\14.25.28610\bin\HostX64\x64\cl.exe  /nologo $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
   description = Building C object $out
 
 
@@ -831,7 +831,7 @@ rule C_EXECUTABLE_LINKER__events
 
 rule C_COMPILER__msaa
   deps = msvc
-  command = E:\programs\VS2019\VC\Tools\MSVC\14.25.28610\bin\HostX64\x64\cl.exe  /nologo $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
+  command = e:\programs\vs2019\VC\Tools\MSVC\14.25.28610\bin\HostX64\x64\cl.exe  /nologo $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
   description = Building C object $out
 
 
@@ -849,7 +849,7 @@ rule C_EXECUTABLE_LINKER__msaa
 
 rule C_COMPILER__iconify
   deps = msvc
-  command = E:\programs\VS2019\VC\Tools\MSVC\14.25.28610\bin\HostX64\x64\cl.exe  /nologo $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
+  command = e:\programs\vs2019\VC\Tools\MSVC\14.25.28610\bin\HostX64\x64\cl.exe  /nologo $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
   description = Building C object $out
 
 
@@ -867,7 +867,7 @@ rule C_EXECUTABLE_LINKER__iconify
 
 rule C_COMPILER__gamma
   deps = msvc
-  command = E:\programs\VS2019\VC\Tools\MSVC\14.25.28610\bin\HostX64\x64\cl.exe  /nologo $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
+  command = e:\programs\vs2019\VC\Tools\MSVC\14.25.28610\bin\HostX64\x64\cl.exe  /nologo $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
   description = Building C object $out
 
 
@@ -885,7 +885,7 @@ rule C_EXECUTABLE_LINKER__gamma
 
 rule C_COMPILER__glfwinfo
   deps = msvc
-  command = E:\programs\VS2019\VC\Tools\MSVC\14.25.28610\bin\HostX64\x64\cl.exe  /nologo $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
+  command = e:\programs\vs2019\VC\Tools\MSVC\14.25.28610\bin\HostX64\x64\cl.exe  /nologo $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
   description = Building C object $out
 
 
@@ -903,7 +903,7 @@ rule C_EXECUTABLE_LINKER__glfwinfo
 
 rule C_COMPILER__monitors
   deps = msvc
-  command = E:\programs\VS2019\VC\Tools\MSVC\14.25.28610\bin\HostX64\x64\cl.exe  /nologo $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
+  command = e:\programs\vs2019\VC\Tools\MSVC\14.25.28610\bin\HostX64\x64\cl.exe  /nologo $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
   description = Building C object $out
 
 
@@ -921,7 +921,7 @@ rule C_EXECUTABLE_LINKER__monitors
 
 rule C_COMPILER__reopen
   deps = msvc
-  command = E:\programs\VS2019\VC\Tools\MSVC\14.25.28610\bin\HostX64\x64\cl.exe  /nologo $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
+  command = e:\programs\vs2019\VC\Tools\MSVC\14.25.28610\bin\HostX64\x64\cl.exe  /nologo $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
   description = Building C object $out
 
 
@@ -939,7 +939,7 @@ rule C_EXECUTABLE_LINKER__reopen
 
 rule C_COMPILER__cursor
   deps = msvc
-  command = E:\programs\VS2019\VC\Tools\MSVC\14.25.28610\bin\HostX64\x64\cl.exe  /nologo $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
+  command = e:\programs\vs2019\VC\Tools\MSVC\14.25.28610\bin\HostX64\x64\cl.exe  /nologo $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
   description = Building C object $out
 
 
@@ -957,7 +957,7 @@ rule C_EXECUTABLE_LINKER__cursor
 
 rule C_COMPILER__empty
   deps = msvc
-  command = E:\programs\VS2019\VC\Tools\MSVC\14.25.28610\bin\HostX64\x64\cl.exe  /nologo $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
+  command = e:\programs\vs2019\VC\Tools\MSVC\14.25.28610\bin\HostX64\x64\cl.exe  /nologo $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
   description = Building C object $out
 
 
@@ -975,7 +975,7 @@ rule C_EXECUTABLE_LINKER__empty
 
 rule C_COMPILER__sharing
   deps = msvc
-  command = E:\programs\VS2019\VC\Tools\MSVC\14.25.28610\bin\HostX64\x64\cl.exe  /nologo $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
+  command = e:\programs\vs2019\VC\Tools\MSVC\14.25.28610\bin\HostX64\x64\cl.exe  /nologo $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
   description = Building C object $out
 
 
@@ -993,7 +993,7 @@ rule C_EXECUTABLE_LINKER__sharing
 
 rule C_COMPILER__tearing
   deps = msvc
-  command = E:\programs\VS2019\VC\Tools\MSVC\14.25.28610\bin\HostX64\x64\cl.exe  /nologo $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
+  command = e:\programs\vs2019\VC\Tools\MSVC\14.25.28610\bin\HostX64\x64\cl.exe  /nologo $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
   description = Building C object $out
 
 
@@ -1011,7 +1011,7 @@ rule C_EXECUTABLE_LINKER__tearing
 
 rule C_COMPILER__threads
   deps = msvc
-  command = E:\programs\VS2019\VC\Tools\MSVC\14.25.28610\bin\HostX64\x64\cl.exe  /nologo $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
+  command = e:\programs\vs2019\VC\Tools\MSVC\14.25.28610\bin\HostX64\x64\cl.exe  /nologo $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
   description = Building C object $out
 
 
@@ -1029,7 +1029,7 @@ rule C_EXECUTABLE_LINKER__threads
 
 rule C_COMPILER__title
   deps = msvc
-  command = E:\programs\VS2019\VC\Tools\MSVC\14.25.28610\bin\HostX64\x64\cl.exe  /nologo $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
+  command = e:\programs\vs2019\VC\Tools\MSVC\14.25.28610\bin\HostX64\x64\cl.exe  /nologo $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
   description = Building C object $out
 
 
@@ -1047,7 +1047,7 @@ rule C_EXECUTABLE_LINKER__title
 
 rule C_COMPILER__windows
   deps = msvc
-  command = E:\programs\VS2019\VC\Tools\MSVC\14.25.28610\bin\HostX64\x64\cl.exe  /nologo $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
+  command = e:\programs\vs2019\VC\Tools\MSVC\14.25.28610\bin\HostX64\x64\cl.exe  /nologo $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB /FS -c $in
   description = Building C object $out
 
 
@@ -1073,7 +1073,7 @@ rule RERUN_CMAKE
 # Rule for cleaning all built files.
 
 rule CLEAN
-  command = E:\PROGRAMS\VS2019\COMMON7\IDE\COMMONEXTENSIONS\MICROSOFT\CMAKE\Ninja\ninja.exe -t clean
+  command = E:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\Ninja\ninja.exe -t clean
   description = Cleaning all built files...
 
 
@@ -1081,6 +1081,6 @@ rule CLEAN
 # Rule for printing all primary targets available.
 
 rule HELP
-  command = E:\PROGRAMS\VS2019\COMMON7\IDE\COMMONEXTENSIONS\MICROSOFT\CMAKE\Ninja\ninja.exe -t targets
+  command = E:\programs\VS2019\Common7\IDE\CommonExtensions\Microsoft\CMake\Ninja\ninja.exe -t targets
   description = All primary targets available:
 

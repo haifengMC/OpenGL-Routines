@@ -1,9 +1,9 @@
 Determining if the include file pthread.h exists failed with the following output:
 Change Dir: E:/opengl/routines/out/build/x64-Debug/CMakeFiles/CMakeTmp
 
-Run Build Command(s):E:\PROGRAMS\VS2019\COMMON7\IDE\COMMONEXTENSIONS\MICROSOFT\CMAKE\Ninja\ninja.exe cmTC_e5648 && [1/2] Building C object CMakeFiles\cmTC_e5648.dir\CheckIncludeFile.c.obj
-FAILED: CMakeFiles/cmTC_e5648.dir/CheckIncludeFile.c.obj 
-E:\programs\VS2019\VC\Tools\MSVC\14.25.28610\bin\HostX64\x64\cl.exe  /nologo   /DWIN32 /D_WINDOWS /W3 -openmp  /MDd /Zi /Ob0 /Od /RTC1 /showIncludes /FoCMakeFiles\cmTC_e5648.dir\CheckIncludeFile.c.obj /FdCMakeFiles\cmTC_e5648.dir\ /FS -c CheckIncludeFile.c
+Run Build Command(s):E:/programs/VS2019/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe cmTC_35c05 && [1/2] Building C object CMakeFiles\cmTC_35c05.dir\CheckIncludeFile.c.obj
+FAILED: CMakeFiles/cmTC_35c05.dir/CheckIncludeFile.c.obj 
+e:\programs\vs2019\VC\Tools\MSVC\14.25.28610\bin\HostX64\x64\cl.exe  /nologo   /DWIN32 /D_WINDOWS /W3 -openmp  /MDd /Zi /Ob0 /Od /RTC1 /showIncludes /FoCMakeFiles\cmTC_35c05.dir\CheckIncludeFile.c.obj /FdCMakeFiles\cmTC_35c05.dir\ /FS -c CheckIncludeFile.c
 CheckIncludeFile.c(1): fatal error C1083: 无法打开包括文件: “pthread.h”: No such file or directory
 ninja: build stopped: subcommand failed.
 

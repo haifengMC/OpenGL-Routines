@@ -22,7 +22,7 @@ BUILD_SHARED_LIBS:BOOL=OFF
 CMAKE_BUILD_TYPE:STRING=Debug
 
 //No help, variable specified on the command line.
-CMAKE_CXX_COMPILER:FILEPATH=E:/programs/VS2019/VC/Tools/MSVC/14.25.28610/bin/HostX64/x64/cl.exe
+CMAKE_CXX_COMPILER:FILEPATH=e:/programs/vs2019/VC/Tools/MSVC/14.25.28610/bin/HostX64/x64/cl.exe
 
 //Flags used by the CXX compiler during all build types.
 CMAKE_CXX_FLAGS:STRING=/DWIN32 /D_WINDOWS /W3 /GR /EHsc
@@ -43,7 +43,7 @@ CMAKE_CXX_FLAGS_RELWITHDEBINFO:STRING=/MD /Zi /O2 /Ob1 /DNDEBUG
 CMAKE_CXX_STANDARD_LIBRARIES:STRING=kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib
 
 //No help, variable specified on the command line.
-CMAKE_C_COMPILER:FILEPATH=E:/programs/VS2019/VC/Tools/MSVC/14.25.28610/bin/HostX64/x64/cl.exe
+CMAKE_C_COMPILER:FILEPATH=e:/programs/vs2019/VC/Tools/MSVC/14.25.28610/bin/HostX64/x64/cl.exe
 
 //Flags used by the C compiler during all build types.
 CMAKE_C_FLAGS:STRING=/DWIN32 /D_WINDOWS /W3
@@ -81,14 +81,14 @@ CMAKE_EXE_LINKER_FLAGS_RELWITHDEBINFO:STRING=/debug /INCREMENTAL
 //Enable/Disable output of compile commands during generation.
 CMAKE_EXPORT_COMPILE_COMMANDS:BOOL=OFF
 
-//No help, variable specified on the command line.
-CMAKE_INSTALL_PREFIX:PATH=E:/opengl/routines/out/install/x64-Debug
+//Install path prefix, prepended onto install directories.
+CMAKE_INSTALL_PREFIX:PATH=C:/Program Files (x86)/vermilion9
 
 //Path to a program.
 CMAKE_LINKER:FILEPATH=E:/programs/VS2019/VC/Tools/MSVC/14.25.28610/bin/Hostx64/x64/link.exe
 
-//No help, variable specified on the command line.
-CMAKE_MAKE_PROGRAM:UNINITIALIZED=E:\PROGRAMS\VS2019\COMMON7\IDE\COMMONEXTENSIONS\MICROSOFT\CMAKE\Ninja\ninja.exe
+//Program used to build from build.ninja files.
+CMAKE_MAKE_PROGRAM:FILEPATH=E:/programs/VS2019/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe
 
 //Flags used by the linker during the creation of modules during
 // all build types.
@@ -335,6 +335,8 @@ CMAKE_HAVE_PTHREAD_H:INTERNAL=
 CMAKE_HOME_DIRECTORY:INTERNAL=E:/opengl/routines
 //ADVANCED property for variable: CMAKE_LINKER
 CMAKE_LINKER-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_MAKE_PROGRAM
+CMAKE_MAKE_PROGRAM-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_MODULE_LINKER_FLAGS
 CMAKE_MODULE_LINKER_FLAGS-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_MODULE_LINKER_FLAGS_DEBUG
