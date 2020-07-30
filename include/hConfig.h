@@ -2,8 +2,55 @@
 #include "vmacro.h"
 #include "hYaml/hYamlEx.h"
 
+#define CFGENUM_DECODE_F(n, em, nm) case (size_t)nm::em: rhs = nm::em; break
+#define CFGENUM_OS_F(n, em, nm) case nm::em: os << TO_STRING(em); break
+
+//enum
+#define DECL_ENUM(enumName, def, ...)\
+	std::ostream& operator<<(std::ostream& os, const enumName& rhs)\
+	{\
+		switch (rhs)\
+		{\
+			REPEAT_A_SEP(CFGENUM_OS_F, 1, SEM_M, enumName, ##__VA_ARGS__);\
+			default:\
+				os << TO_STRING(def);\
+				break;\
+		}\
+		return os;\
+	}
+
+#define BEG_ENUM(enumName)\
+	enum class enumName : size_t
+
+#define END_ENUM(enumName, def, ...);\
+	std::ostream& operator<<(std::ostream& os, const enumName& rhs);\
+	template <>\
+	struct YAML::convert<enumName>\
+	{\
+		static Node encode(const enumName& rhs)\
+		{\
+			return Node((size_t)rhs);\
+		}\
+		static bool decode(const Node& n, enumName& rhs)\
+		{\
+			if (!n.IsScalar())\
+				return false;\
+			switch (n.as<size_t>())\
+			{\
+				REPEAT_A_SEP(CFGENUM_DECODE_F, 1, SEM_M, enumName, ##__VA_ARGS__);\
+				default:\
+					rhs = enumName::def;\
+					break;\
+			}\
+			return true;\
+		}\
+	};
+
+//struct
+//须初始化
 #define CFGSTRUCT_F(n, va) node[TO_STRING(va)] & rhs.va
 #define CFGDATA_F(n, va) node[TO_STRING(va)] & va
+
 #define BEG_CFGSTRUCT(className) \
 	struct className
 #define END_CFGSTRUCT(className, ...) ;\
@@ -28,16 +75,46 @@
 		}\
 	};
 
-#define DECL_CFGDATA(className) \
-	className(const std::string & fileName);\
-	bool loadCfg();\
-	bool saveCfg();
+//map
+//须初始化
+#define DECL_CFGMAP(KTy, KVa) \
+	const KTy& index() const { return KVa; }
+#define BEG_CFGMAP(className) \
+	BEG_CFGSTRUCT(COMB(className, Item))
+#define END_CFGMAP(className, KTy, KVa, ...) ;\
+	END_CFGSTRUCT(COMB(className, Item), KVa, ##__VA_ARGS__)\
+	typedef std::map<KTy, COMB(className, Item)> className;\
+	template <>\
+	struct YAML::convert<className>\
+	{\
+		static Node encode(const className& rhs)\
+		{\
+			Node node(NodeType::Sequence);\
+			for (typename className::const_iterator it = rhs.begin();\
+				it != rhs.end(); ++it)\
+				node.push_back(it->second);\
+			return node;\
+		}\
+		static bool decode(const Node& node, className& rhs)\
+		{\
+			if (!node.IsSequence())\
+				return false;\
+			rhs.clear();\
+			for (const_iterator it = node.begin(); it != node.end(); ++it)\
+			{\
+				COMB(className, Item) tmp;\
+				if (convert<COMB(className, Item)>::decode(*it, tmp))\
+					rhs[tmp.index()] = tmp;\
+			}\
+			return true;\
+		}\
+	};
 
-#define BEG_CFGDATA(className) \
-	struct className : public CfgData 
-#define END_CFGDATA(className, ...) ;\
-	className::className(const std::string& fileName) :CfgData(fileName) {}\
-	bool className::loadCfg()\
+//data
+//须初始化
+#define DECL_CFGDATA(className, ...) \
+	className(const std::string& fileName) :CfgData(fileName) {}\
+	bool loadCfg()\
 	{\
 		YAML::NodeEx node;\
 		if (!(fileName >> node))\
@@ -47,7 +124,7 @@
 		REPEAT_SEP(CFGDATA_F, SEM_M, ##__VA_ARGS__); \
 		return true;\
 	}\
-	bool className::saveCfg()\
+	bool saveCfg()\
 	{\
 		YAML::NodeEx node;\
 		node(YAML::IOType::PutOut);\
@@ -55,6 +132,10 @@
 		setMarks(node);\
 		return fileName << node;\
 	}
+
+#define BEG_CFGDATA(className) \
+	struct className : public CfgData 
+#define END_CFGDATA() ;
 
 struct CfgData
 {
@@ -65,13 +146,13 @@ struct CfgData
 		std::string tag;
 		Mark(const std::list<std::string>& title,
 			const YAML::EmitterStyle::value& style,
-			const std::string& tag) : title(title), style(style), tag(tag) {}
+			const std::string& tag);
 	};
 
 	virtual bool loadCfg() = 0;
 	virtual bool saveCfg() = 0;
 
-	CfgData(const std::string& fileName) : fileName(fileName) {}
+	CfgData(const std::string& fileName);
 
 protected:
 	std::string fileName;
@@ -81,72 +162,4 @@ protected:
 	bool setMarks(YAML::NodeEx& node);
 private:
 	bool addMark(const YAML::NodeEx& node, const std::list<std::string>& title);
-};
-
-bool CfgData::checkMarks(const YAML::NodeEx& node, std::list<std::string> title)
-{
-	addMark(node, title);
-	switch (node.Type())
-	{
-	case YAML::NodeType::Undefined:
-	case YAML::NodeType::Null:
-	case YAML::NodeType::Scalar:
-		break;
-	case YAML::NodeType::Sequence:
-	{
-		title.push_back("");
-		size_t count = 0;
-		for (YAML::const_iterator it = node.begin(); it != node.end(); ++it, ++count)
-		{
-			std::string buf = std::to_string(count);
-			title.back().swap(buf);
-			checkMarks(YAML::Node(*it), title);
-		}
-	}
-	break;
-	case YAML::NodeType::Map:
-		title.push_back("");
-		for (YAML::const_iterator it = node.begin(); it != node.end(); ++it)
-		{
-			std::string buf = it->first.Scalar();
-			title.back().swap(buf);
-			checkMarks(it->second, title);
-		}
-		break;
-	default:
-		break;
-	}
-
-	return true;
-}
-
-bool CfgData::setMarks(YAML::NodeEx& node)
-{
-	for (const Mark& mark : marks)
-	{
-		YAML::NodeEx n = node;
-		for (const std::string& tt : mark.title)
-			n.reset(n[tt]);
-
-		n.SetStyle(mark.style);
-		n.SetTag(mark.tag);
-	}
-
-	return true;
-}
-
-bool CfgData::addMark(const YAML::NodeEx& node, const std::list<std::string>& title)
-{
-	if (YAML::EmitterStyle::Default == node.Style() && node.Tag() == "?")
-		return false;
-
-	Mark m(title, node.Style(), node.Tag());
-	marks.push_back(m);
-
-	return true;
-}
-
-struct MapCfgData
-{
-	virtual const size_t& index() const = 0;
 };
