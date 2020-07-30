@@ -6,9 +6,9 @@ namespace hTool
 {
 	enum class RandomType : size_t
 	{
-		UniformInt,		//平均分布(整数)
-		UniformReal,	//平均分布(实数)
-		Normal,			//正态分布
+		UniformReal,		//平均分布(实数)
+		UniformInt,			//平均分布(整数)
+		Normal,				//正态分布
 	};
 
 	class hRandom : public Singleton<hRandom>

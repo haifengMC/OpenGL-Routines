@@ -7,20 +7,20 @@ namespace hTool
 	{
 		switch (type)
 		{
-		case RandomType::UniformInt:
-			{
-				typename std::uniform_int<>::param_type param(min, max);
-				uniformInt.param(param);
-				for (size_t i = 0; i < n; ++i)
-					buf[i] = uniformInt(gen);
-			}
-			break;
 		case RandomType::UniformReal:
 			{
 				typename std::uniform_real<>::param_type param(min, max);
 				uniformReal.param(param);
 				for (size_t i = 0; i < n; ++i)
 					buf[i] = uniformReal(gen);
+			}
+			break;
+		case RandomType::UniformInt:
+			{
+				typename std::uniform_int<>::param_type param(min, max);
+				uniformInt.param(param);
+				for (size_t i = 0; i < n; ++i)
+					buf[i] = uniformInt(gen);
 			}
 			break;
 		case RandomType::Normal:
