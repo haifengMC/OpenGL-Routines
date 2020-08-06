@@ -7,6 +7,7 @@
 #include <array>
 #include <set>
 #include <map>
+#include <initializer_list>
 
 #include <random>
 
