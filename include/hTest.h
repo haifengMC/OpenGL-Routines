@@ -1,4 +1,5 @@
 #pragma once
+#include "hSingleton.h"
 
 #define TEST_INIT(testNode, testFunc)\
 	class testNode : public Singleton<testNode>\

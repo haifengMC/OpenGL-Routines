@@ -14,6 +14,7 @@
 #include <thread>
 #include <mutex>
 #include <chrono>
+#include <functional>
 
 #include <stdio.h>
 #include <stdlib.h>     /* srand, rand */

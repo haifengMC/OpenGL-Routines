@@ -76,7 +76,7 @@ namespace hTool
 		template <typename T, size_t N>
 		size_t operator()(const RandomType& type, T (&buf)[N], const double& min, const double& max);
 		template <typename T>
-		size_t operator()(const RandomType& type, T*& buf, const size_t& bufN, hRWeightMap<T>& weightM);
+		size_t operator()(const RandomType& type, T* const& buf, const size_t& bufN, hRWeightMap<T>& weightM);
 		template <typename T, size_t N>
 		size_t operator()(const RandomType& type, T(&buf)[N], hRWeightMap<T>& weightM);
 	};

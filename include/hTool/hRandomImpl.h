@@ -205,7 +205,7 @@ namespace hTool
 	}
 
 	template <typename T>
-	size_t hRandom::operator()(const RandomType& type, T*& buf, const size_t& bufN, hRWeightMap<T>& weightM)
+	size_t hRandom::operator()(const RandomType& type, T* const& buf, const size_t& bufN, hRWeightMap<T>& weightM)
 	{
 		switch (type)
 		{
