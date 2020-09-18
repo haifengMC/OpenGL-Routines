@@ -34,6 +34,21 @@ namespace hTool
 	}
 
 	template<typename T>
+	bool hRWeight<T>::getRandVal(std::vector<T>& buf, const size_t& randWeight)
+	{
+		if (randWeight >= total)
+			return false;
+
+		size_t randId = randWeight / weight;
+		buf.push_back(tVec[randId]);
+		std::swap(tVec[randId], tVec.back());
+		tVec.pop_back();
+		total = total < weight ? 0 : total - weight;
+
+		return true;
+	}
+
+	template<typename T>
 	hRWeight<T>& hRWeight<T>::operator=(std::initializer_list<T> il)
 	{
 		tVec = il;
@@ -117,6 +132,39 @@ namespace hTool
 		return false;
 	}
 
+	template<typename T>
+	bool hRWeightMap<T>::getRandVal(std::vector<T>& buf, const size_t& randWeight)
+	{
+		if (randWeight >= total)
+			return false;
+
+		size_t tmpWeight = 0;
+		for (typename std::map<size_t, hRWeight<T>>::iterator itWeight = weights.begin();
+			itWeight != weights.end();
+			itWeight->second.empty() ? itWeight = weights.erase(itWeight) : ++itWeight)
+		{
+			hRWeight<T>& weight = itWeight->second;
+
+			if (randWeight >= tmpWeight + weight.getTotal())
+			{
+				tmpWeight += weight.getTotal();
+				continue;
+			}
+
+			bool ret = weight.getRandVal(buf, randWeight - tmpWeight);
+			if (ret)
+			{
+				total -= weight.getWeight();
+				if (weight.empty())
+					weights.erase(itWeight);
+			}
+
+			return ret;
+		}
+
+		return false;
+	}
+
 	template <typename T>
 	void hRWeightMap<T>::pushBack(const size_t weight, const T& t)
 	{
@@ -163,7 +211,7 @@ namespace hTool
 	}
 
 	template <typename T>
-	size_t hRandom::operator()(const RandomType& type, T*& buf, const size_t& n, const double& min, const double& max)
+	size_t hRandom::operator()(RandomType type, T* buf, size_t n, double min, double max)
 	{
 		switch (type)
 		{
@@ -199,13 +247,13 @@ namespace hTool
 	}
 
 	template <typename T, size_t N>
-	size_t hRandom::operator()(const RandomType& type, T(&buf)[N], const double& min, const double& max)
+	size_t hRandom::operator()(RandomType type, T(&buf)[N], double min, double max)
 	{
 		return this->operator()(type, buf, N, min, max);
 	}
 
 	template <typename T>
-	size_t hRandom::operator()(const RandomType& type, T* const& buf, const size_t& bufN, hRWeightMap<T>& weightM)
+	size_t hRandom::operator()(RandomType type, T* buf, size_t bufN, hRWeightMap<T>& weightM)
 	{
 		switch (type)
 		{
@@ -231,10 +279,47 @@ namespace hTool
 		default:
 			break;
 		}
+
+		return 0;
 	}
+
 	template<typename T, size_t N>
-	inline size_t hRandom::operator()(const RandomType& type, T(&buf)[N], hRWeightMap<T>& weightM)
+	size_t hRandom::operator()(RandomType type, T(&buf)[N], hRWeightMap<T>& weightM)
 	{
 		return this->operator()(type, buf, N, weightM);
+	}
+
+
+	template<typename T>
+	size_t hRandom::operator()(RandomType type, std::vector<T>& buf, size_t bufN, hRWeightMap<T>& weightM)
+	{
+		switch (type)
+		{
+		case RandomType::UniformDeInt:
+		{
+			if (!bufN || !weightM.getTotal())
+				return 0;
+
+			size_t ret = 0;
+			for (size_t i = 0; i < bufN; ++i)
+			{
+				size_t total = weightM.getTotal() ? weightM.getTotal() - 1 : 0;
+				typename std::uniform_int<>::param_type param(0, total);
+				uniformInt.param(param);
+
+				size_t randWeight = uniformInt(gen);
+				if (!weightM.getRandVal(buf, randWeight))
+					return ret;
+
+				++ret;
+			}
+			return ret;
+		}
+		break;
+		default:
+			break;
+		}
+
+		return 0;
 	}
 }

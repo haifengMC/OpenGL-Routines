@@ -31,6 +31,7 @@ namespace hTool
 		const size_t& getTotal() const { return total; }
 		const std::vector<T>& getVal() const { return tVec; }
 		bool getRandVal(T* pT, size_t& idx, const size_t& randWeight);
+		bool getRandVal(std::vector<T>& buf, const size_t& randWeight);
 
 		hRWeight& operator=(std::initializer_list<T> il);
 		hRWeight& operator+=(std::initializer_list<T> il);
@@ -48,6 +49,7 @@ namespace hTool
 	public:
 		const size_t& getTotal() const { return total; }
 		bool getRandVal(T* pT, size_t& idx, const size_t& randWeight);
+		bool getRandVal(std::vector<T>& buf, const size_t& randWeight);
 
 		hRWeightMap() {}
 		void pushBack(const size_t weight, const T& t);
@@ -72,13 +74,15 @@ namespace hTool
 		hRandom();
 
 		template <typename T>
-		size_t operator()(const RandomType& type, T*& buf, const size_t& n, const double& min, const double& max);
+		size_t operator()(RandomType type, T* buf, size_t n, double min, double max);
 		template <typename T, size_t N>
-		size_t operator()(const RandomType& type, T (&buf)[N], const double& min, const double& max);
+		size_t operator()(RandomType type, T (&buf)[N], double min, double max);
 		template <typename T>
-		size_t operator()(const RandomType& type, T* const& buf, const size_t& bufN, hRWeightMap<T>& weightM);
+		size_t operator()(RandomType type, T* buf, size_t bufN, hRWeightMap<T>& weightM);
 		template <typename T, size_t N>
-		size_t operator()(const RandomType& type, T(&buf)[N], hRWeightMap<T>& weightM);
+		size_t operator()(RandomType type, T(&buf)[N], hRWeightMap<T>& weightM);
+		template <typename T>
+		size_t operator()(RandomType type, std::vector<T>& buf, size_t bufN, hRWeightMap<T>& weightM);
 	};
 #define RANDOM hTool::hRandom::getMe()
 }

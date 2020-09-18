@@ -39,3 +39,10 @@
 		std::cout << s << std::endl;\
 	}\
 	void testName::test_func()
+
+#define TEST_MAIN(testFunc)\
+	int main()\
+	{\
+		testFunc();\
+		return 0;\
+	}

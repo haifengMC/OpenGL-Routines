@@ -1,5 +1,8 @@
 #pragma once
 
+//通用工具
+#include "hTool/hCommon.h"
+#include "hTool/hCommonImpl.h"
 //输出助手
 #include "hTool/hOutPutHelper.h"
 #include "hTool/hOutPutHelperImpl.h"
@@ -9,3 +12,6 @@
 //随机数生成器
 #include "hTool/hRandom.h"
 #include "hTool/hRandomImpl.h"
+//智能指针
+#include "hTool/hAutoPtr.h"
+#include "hTool/hAutoPtrImpl.h"
