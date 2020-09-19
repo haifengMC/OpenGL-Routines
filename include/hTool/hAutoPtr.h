@@ -25,7 +25,7 @@ namespace hTool
 
 		operator bool() const;
 		T* operator->();
-
+		T& operator*();
 	private:
 		void copy(const hAutoPtr& ap);
 		void move(hAutoPtr&& ap);

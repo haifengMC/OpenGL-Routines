@@ -91,6 +91,14 @@ namespace hTool
 	}
 
 	template<typename T>
+	T& hAutoPtr<T>::operator*() {
+		if (!pT)
+			abort();
+
+		return *pT;
+	}
+
+	template<typename T>
 	void hAutoPtr<T>::copy(const hAutoPtr& ap)
 	{
 		pT = ap.pT;
