@@ -1,18 +1,24 @@
 #pragma once
 #include "hSingleton.h"
 
-#define TEST_INIT(testNode, testFunc)\
+#define TEST_INIT()\
+	struct testBase \
+	{\
+		virtual void test_title() = 0;\
+		virtual void test_func() = 0;\
+	};\
 	class testNode : public Singleton<testNode>\
 	{\
 	public:\
-		std::vector<std::pair<void(*)(), void(*)()>> tests;\
+		std::vector<testBase*> tests;\
+		void addTest(testBase* pTest) { tests.push_back(pTest); }\
 		void run()\
 		{\
-			for (std::pair<void(*)(), void(*)()>& t : tests)\
+			for (testBase* pTest : tests)\
 			{\
-				t.first();\
+				pTest->test_title();\
 				auto start = std::chrono::high_resolution_clock::now();\
-				t.second();\
+				pTest->test_func();\
 				auto elapsed = std::chrono::duration_cast<std::chrono::microseconds>(std::chrono::high_resolution_clock::now() - start).count();\
 				std::cout << "<-- " << elapsed << " usec -->" << std::endl; \
 			}\
@@ -20,17 +26,13 @@
 	};\
 	void testFunc() { testNode::getMe().run(); }
 
-#define TEST(testNode, testName)\
-	class testName : public SingletonH<testName>\
+#define TEST(testName)\
+	struct testName: public Singleton<testName>, public testBase\
 	{\
-	public:\
-		testName()\
-		{\
-			testNode::getMe().tests.push_back(std::make_pair(test_title, test_func));\
-		}\
-		static void test_title();\
-		static void test_func();\
+		void test_title();\
+		void test_func();\
 	};\
+	struct Reg##testName { Reg##testName(){ testNode::getMe().addTest(testName::instance()); } } reg##testName;\
 	void testName::test_title()\
 	{\
 		std::string s(20, '-');\
@@ -40,7 +42,7 @@
 	}\
 	void testName::test_func()
 
-#define TEST_MAIN(testFunc)\
+#define TEST_MAIN()\
 	int main()\
 	{\
 		testFunc();\

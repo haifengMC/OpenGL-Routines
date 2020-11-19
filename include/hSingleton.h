@@ -12,45 +12,54 @@ public:
 template<typename T, typename TFty = SingletonFactory<T>>
 class Singleton
 {
-	static T* pInst;
 	Singleton(const Singleton&) = delete;
 	const Singleton& operator=(const Singleton&) = delete;
+protected:
+	static T* pInst;
 public:
 	Singleton() {}
 	~Singleton() { delMe(); }
 
-	static T& getMe()
+	static T* instance()
 	{
 		if (!pInst)
 			pInst = TFty::instance();
 
-		return *pInst;
+		return pInst;
 	}
-
+		
+	static T& getMe() { return *instance(); }
 	static void delMe() { DEL(pInst); }
 };
 template<typename T, typename TFty>
-T* Singleton<T, TFty>::pInst = NULL;
+T* Singleton<T, TFty>::pInst =NULL;
 
-template<typename T>
-class SingletonHFactory
-{
-public:
-	static T& instance() {  return  *new T(); }
-};
-
-template<typename T, typename TFty = SingletonHFactory<T>>
-class SingletonH
-{
-	static T& inst;
-	SingletonH(const SingletonH&) = delete;
-	const SingletonH& operator=(const SingletonH&) = delete;
-public:
-	SingletonH() {}
-	~SingletonH() { delMe(); }
-
-	static T& getMe() { return inst; }
-	static void delMe() { delete& inst; }
-};
-template<typename T, typename TFty>
-T& SingletonH<T, TFty>::inst = TFty::instance();;
+//template<typename T>
+//class SingletonHFactory
+//{
+//public:
+//	static T* instance() {  return  new T(); }
+//};
+//
+//template<typename T, size_t N, typename TFty = SingletonHFactory<T>>
+//class SingletonH
+//{
+//	SingletonH(const SingletonH&) = delete;
+//	const SingletonH& operator=(const SingletonH&) = delete;
+//protected:
+//	static T* pInst;
+//public:
+//	SingletonH() {}
+//	~SingletonH() { delMe(); }
+//
+//	static T& getMe() 
+//	{
+//		if (!pInst)
+//			pInst = TFty::instance();
+//
+//		return *pInst;
+//	}
+//	static void delMe() { DEL(pInst); }
+//};
+//template<typename T, typename TFty>
+//T* SingletonH<T, TFty>::pInst = TFty::instance();

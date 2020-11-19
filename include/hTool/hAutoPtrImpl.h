@@ -83,7 +83,8 @@ namespace hTool
 	}
 
 	template<typename T>
-	T* hAutoPtr<T>::operator->() {
+	T* hAutoPtr<T>::operator->() 
+	{
 		if (!pT)
 			abort();
 
@@ -91,7 +92,17 @@ namespace hTool
 	}
 
 	template<typename T>
-	T& hAutoPtr<T>::operator*() {
+	const T* hAutoPtr<T>::operator->() const 
+	{
+		if (!pT)
+			abort();
+
+		return pT;
+	}
+
+	template<typename T>
+	T& hAutoPtr<T>::operator*() 
+	{
 		if (!pT)
 			abort();
 

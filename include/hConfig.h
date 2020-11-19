@@ -2,34 +2,27 @@
 #include "vmacro.h"
 #include "hYaml/hYamlEx.h"
 
-#define CFGENUM_DECODE_F(n, em, nm) case (size_t)nm::em: rhs = nm::em; break
-#define CFGENUM_OS_F(n, em, nm) case nm::em: os << TO_STRING(em); break
+#define CFGENUM_DECODE_F(n, em, nm) case nm::em: rhs = nm::em; break
+#define CFGENUM_OS_F(n, em, nm) case nm::em: return TO_STRING(em)
 
 //enum
-#define DECL_ENUM(enumName, def, ...)\
-	std::ostream& operator<<(std::ostream& os, const enumName& rhs)\
-	{\
-		switch (rhs)\
-		{\
-			REPEAT_A_SEP(CFGENUM_OS_F, 1, SEM_M, enumName, ##__VA_ARGS__);\
-			default:\
-				os << TO_STRING(def);\
-				break;\
-		}\
-		return os;\
-	}
-
 #define BEG_ENUM(enumName)\
-	enum class enumName : size_t
+	struct enumName { enum _Value
 
-#define END_ENUM(enumName, def, ...);\
-	std::ostream& operator<<(std::ostream& os, const enumName& rhs);\
+#define END_ENUM(enumName, def, ...) value;\
+	enumName(_Value v = enumName::def) { value = v; }\
+	operator size_t() const { return value; }\
+	bool operator<(const enumName& p) const { return value < p.value; }\
+	const char* getName() const{\
+		switch (value){\
+			REPEAT_A_SEP(CFGENUM_OS_F, 1, SEM_M, enumName, ##__VA_ARGS__);\
+			default: return TO_STRING(def);}}};\
 	template <>\
 	struct YAML::convert<enumName>\
 	{\
 		static Node encode(const enumName& rhs)\
 		{\
-			return Node((size_t)rhs);\
+			return Node((size_t)rhs.value);\
 		}\
 		static bool decode(const Node& n, enumName& rhs)\
 		{\
