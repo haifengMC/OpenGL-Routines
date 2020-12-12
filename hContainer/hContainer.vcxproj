@@ -20,8 +20,8 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
-    <ProjectGuid>{AAE53CE5-1A17-4F88-A208-9D9E4319AC5A}</ProjectGuid>
-    <RootNamespace>hYaml</RootNamespace>
+    <ProjectGuid>{AF58C510-42EE-430C-AE97-977F90FEC856}</ProjectGuid>
+    <RootNamespace>hContainer</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -42,7 +42,7 @@
     <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v142</PlatformToolset>
-    <CharacterSet>MultiByte</CharacterSet>
+    <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
@@ -72,8 +72,8 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
     <OutDir>E:\opengl\routines\lib\</OutDir>
-    <IntDir>hYaml.dir\Debug\</IntDir>
-    <TargetName>hYaml_d</TargetName>
+    <IntDir>hContainer.dir\Debug\</IntDir>
+    <TargetName>$(ProjectName)_d</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
@@ -90,17 +90,17 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>E:\opengl\routines\include;E:\yaml\yaml-cpp-master\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>E:\opengl\routines\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
     <Lib>
-      <AdditionalDependencies>yaml-cppd.lib</AdditionalDependencies>
+      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
     </Lib>
     <Lib>
-      <AdditionalLibraryDirectories>E:\yaml\yaml-cpp-master\bin\Debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -148,14 +148,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\lib\hYaml\hNodeEx.cpp" />
-    <ClCompile Include="hConfig.cpp" />
+    <ClCompile Include="hMemory.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\include\hYaml\hConvertEx.h" />
-    <ClInclude Include="..\include\hYaml\hImplEx.h" />
-    <ClInclude Include="..\include\hYaml\hNodeEx.h" />
-    <ClInclude Include="..\include\hYaml\hYamlEx.h" />
+    <ClInclude Include="..\include\hContainer.h" />
+    <ClInclude Include="..\include\hContainer\hMemory.h" />
+    <ClInclude Include="..\include\hContainer\hMemoryImpl.h" />
+    <ClInclude Include="..\include\hContainer\hVector.h" />
+    <ClInclude Include="..\include\hContainer\hVectorImpl.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

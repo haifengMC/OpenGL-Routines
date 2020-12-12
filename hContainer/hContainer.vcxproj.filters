@@ -15,24 +15,24 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\lib\hYaml\hNodeEx.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="hConfig.cpp">
+    <ClCompile Include="hMemory.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\include\hYaml\hConvertEx.h">
+    <ClInclude Include="..\include\hContainer\hMemory.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="..\include\hYaml\hImplEx.h">
+    <ClInclude Include="..\include\hContainer\hMemoryImpl.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="..\include\hYaml\hNodeEx.h">
+    <ClInclude Include="..\include\hContainer\hVector.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="..\include\hYaml\hYamlEx.h">
+    <ClInclude Include="..\include\hContainer\hVectorImpl.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\hContainer.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

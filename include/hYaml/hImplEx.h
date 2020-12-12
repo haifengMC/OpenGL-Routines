@@ -1,4 +1,3 @@
-#include "hNodeEx.h"
 #pragma once
 
 namespace YAML
