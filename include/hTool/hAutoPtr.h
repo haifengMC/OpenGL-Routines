@@ -11,10 +11,10 @@ namespace hTool
 
 	public:
 		hAutoPtr();
-		~hAutoPtr();
-
+		hAutoPtr(T* t);
 		hAutoPtr(const hAutoPtr& ap);
 		hAutoPtr(hAutoPtr&& ap);
+		~hAutoPtr();
 
 		hAutoPtr& operator=(const hAutoPtr& ap);
 		hAutoPtr& operator=(hAutoPtr&& ap);

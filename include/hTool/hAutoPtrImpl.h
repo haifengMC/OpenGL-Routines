@@ -6,20 +6,55 @@ namespace hTool
 	std::map<T*, size_t*> hAutoPtr<T>::pTMap;
 
 	template<typename T>
-	hAutoPtr<T>::hAutoPtr() {}
+	hAutoPtr<T>::hAutoPtr() 
+	{
+#if(defined _D_AUTOPTR | defined _D_AUTOPTR_DETAIL)
+		std::cout << "hAutoPtr<T>::hAutoPtr()" << std::endl;
+#endif
+	}
 
 	template<typename T>
-	hAutoPtr<T>::~hAutoPtr() { destory(); }
+	hAutoPtr<T>::hAutoPtr(T* t) 
+	{
+#if(defined _D_AUTOPTR | defined _D_AUTOPTR_DETAIL)
+		std::cout << "hAutoPtr<T>::hAutoPtr(T* t)" << std::endl;
+#endif
+		bind(t); 
+	}
 
 	template<typename T>
-	hAutoPtr<T>::hAutoPtr(const hAutoPtr& ap) { copy(ap); }
+	hAutoPtr<T>::~hAutoPtr() 
+	{
+#if(defined _D_AUTOPTR | defined _D_AUTOPTR_DETAIL)
+		std::cout << "hAutoPtr<T>::~hAutoPtr()" << std::endl;
+#endif
+		destory();
+	}
 
 	template<typename T>
-	hAutoPtr<T>::hAutoPtr(hAutoPtr&& ap) { move(std::move(ap)); }
+	hAutoPtr<T>::hAutoPtr(const hAutoPtr& ap) 
+	{
+#if(defined _D_AUTOPTR | defined _D_AUTOPTR_DETAIL)
+		std::cout << "hAutoPtr<T>::hAutoPtr(const hAutoPtr& ap)" << std::endl;
+#endif
+		copy(ap); 
+	}
+
+	template<typename T>
+	hAutoPtr<T>::hAutoPtr(hAutoPtr&& ap) 
+	{
+#if(defined _D_AUTOPTR | defined _D_AUTOPTR_DETAIL)
+		std::cout << "hAutoPtr<T>::hAutoPtr(hAutoPtr&& ap)" << std::endl;
+#endif
+		move(std::move(ap)); 
+	}
 
 	template<typename T>
 	hAutoPtr<T>& hAutoPtr<T>::operator=(const hAutoPtr& ap)
 	{
+#if(defined _D_AUTOPTR | defined _D_AUTOPTR_DETAIL)
+		std::cout << "hAutoPtr<T>::operator=(const hAutoPtr& ap)" << std::endl;
+#endif
 		if (pT == ap.pT)
 			return *this;
 		destory();
@@ -31,6 +66,9 @@ namespace hTool
 	template<typename T>
 	hAutoPtr<T>& hAutoPtr<T>::operator=(hAutoPtr&& ap)
 	{
+#if(defined _D_AUTOPTR | defined _D_AUTOPTR_DETAIL)
+		std::cout << "hAutoPtr<T>::operator=(hAutoPtr&& ap)" << std::endl;
+#endif
 		if (!pT)
 			destory();
 		move(std::move(ap));
@@ -41,6 +79,9 @@ namespace hTool
 	template<typename T>
 	void hAutoPtr<T>::bind(T* pT)
 	{
+#ifdef _D_AUTOPTR_DETAIL
+		std::cout << "hAutoPtr<T>::bind(T* pT)" << std::endl;
+#endif
 		if (!pT)
 			return;
 
@@ -69,6 +110,9 @@ namespace hTool
 	template<typename... Args>
 	void hAutoPtr<T>::emplace(Args... args)
 	{
+#ifdef _D_AUTOPTR_DETAIL
+		std::cout << "hAutoPtr<T>::emplace(Args... args)" << std::endl;
+#endif
 		destory();
 
 		num = new size_t(0);
@@ -79,12 +123,18 @@ namespace hTool
 	template<typename T>
 	hAutoPtr<T>::operator bool() const
 	{
+#ifdef _D_AUTOPTR_DETAIL
+		std::cout << "hAutoPtr<T>::operator bool()" << std::endl;
+#endif
 		return pT;
 	}
 
 	template<typename T>
 	T* hAutoPtr<T>::operator->() 
 	{
+#ifdef _D_AUTOPTR_DETAIL
+		std::cout << "hAutoPtr<T>::operator->()" << std::endl;
+#endif
 		if (!pT)
 			abort();
 
@@ -94,6 +144,9 @@ namespace hTool
 	template<typename T>
 	const T* hAutoPtr<T>::operator->() const 
 	{
+#ifdef _D_AUTOPTR_DETAIL
+		std::cout << "hAutoPtr<T>::operator->() const" << std::endl;
+#endif
 		if (!pT)
 			abort();
 
@@ -103,6 +156,9 @@ namespace hTool
 	template<typename T>
 	T& hAutoPtr<T>::operator*() 
 	{
+#ifdef _D_AUTOPTR_DETAIL
+		std::cout << "hAutoPtr<T>::operator*()" << std::endl;
+#endif
 		if (!pT)
 			abort();
 
@@ -112,6 +168,9 @@ namespace hTool
 	template<typename T>
 	void hAutoPtr<T>::copy(const hAutoPtr& ap)
 	{
+#ifdef _D_AUTOPTR_DETAIL
+		std::cout << "hAutoPtr<T>::copy(const hAutoPtr& ap)" << std::endl;
+#endif
 		pT = ap.pT;
 		num = ap.num;
 		++* num;
@@ -120,6 +179,9 @@ namespace hTool
 	template<typename T>
 	void hAutoPtr<T>::move(hAutoPtr&& ap)
 	{
+#ifdef _D_AUTOPTR_DETAIL
+		std::cout << "hAutoPtr<T>::move(hAutoPtr&& ap)" << std::endl;
+#endif
 		pT = ap.pT;
 		num = ap.num;
 		ap.pT = NULL;
@@ -129,6 +191,9 @@ namespace hTool
 	template<typename T>
 	void hAutoPtr<T>::destory()
 	{
+#ifdef _D_AUTOPTR_DETAIL
+		std::cout << "hAutoPtr<T>::destory()" << std::endl;
+#endif
 		if (num && *num)
 		{
 			--* num;
