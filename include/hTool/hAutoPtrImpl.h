@@ -23,12 +23,13 @@ namespace hTool
 	}
 
 	template<typename T>
-	hAutoPtr<T>::~hAutoPtr() 
+	template< typename... Args>
+	hAutoPtr<T>::hAutoPtr(Args... args)
 	{
 #if(defined _D_AUTOPTR | defined _D_AUTOPTR_DETAIL)
 		std::cout << "hAutoPtr<T>::~hAutoPtr()" << std::endl;
 #endif
-		destory();
+		emplace(args ...);
 	}
 
 	template<typename T>
@@ -47,6 +48,15 @@ namespace hTool
 		std::cout << "hAutoPtr<T>::hAutoPtr(hAutoPtr&& ap)" << std::endl;
 #endif
 		move(std::move(ap)); 
+	}
+
+	template<typename T>
+	hAutoPtr<T>::~hAutoPtr()
+	{
+#if(defined _D_AUTOPTR | defined _D_AUTOPTR_DETAIL)
+		std::cout << "hAutoPtr<T>::~hAutoPtr()" << std::endl;
+#endif
+		destory();
 	}
 
 	template<typename T>

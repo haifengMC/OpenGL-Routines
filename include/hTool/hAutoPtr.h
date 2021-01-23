@@ -12,6 +12,8 @@ namespace hTool
 	public:
 		hAutoPtr();
 		hAutoPtr(T* t);
+		template< typename... Args>
+		hAutoPtr(Args... args);
 		hAutoPtr(const hAutoPtr& ap);
 		hAutoPtr(hAutoPtr&& ap);
 		~hAutoPtr();
