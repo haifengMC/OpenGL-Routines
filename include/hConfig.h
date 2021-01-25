@@ -145,27 +145,6 @@ struct Logger
 
 //data
 //Ðë³õÊ¼»¯
-#define DECL_CFGDATA(className, ...) \
-	className(const std::string& fileName) :CfgData(fileName) {}\
-	bool loadCfg()\
-	{\
-		YAML::NodeEx node;\
-		if (!(fileName >> node))\
-			return false;\
-		node(YAML::IOType::PutIn);\
-		checkMarks(node);\
-		REPEAT_SEP(CFGDATA_F, SEM_M, ##__VA_ARGS__); \
-		return true;\
-	}\
-	bool saveCfg()\
-	{\
-		YAML::NodeEx node;\
-		node(YAML::IOType::PutOut);\
-		REPEAT_SEP(CFGDATA_F, SEM_M, ##__VA_ARGS__); \
-		setMarks(node);\
-		return fileName << node;\
-	}
-
 #define BEG_CFGDATA(className) \
 	struct className : public CfgData { struct _Data
 #define END_CFGDATA(className, ...) data;\
