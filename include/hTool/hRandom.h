@@ -16,22 +16,23 @@ namespace hTool
 	class hRWeight
 	{
 
-		size_t weight = 0;
-		std::vector<T> tVec;
+		size_t _weight = 0;
+		std::vector<T> _tVec;
 
-		size_t total = 0;
+		size_t _total = 0;
 	public:
 		hRWeight() {}
-		hRWeight(const size_t& weight);
+		hRWeight(size_t weight);
+		hRWeight(size_t weight, std::initializer_list<T> il);
 
-		void pushBack(const size_t weight, const T& t);
-		bool empty() const { return tVec.empty(); }
+		void pushBack(size_t weight, const T& t);
+		bool empty() const { return _tVec.empty(); }
 
-		const size_t& getWeight() const { return weight; }
-		const size_t& getTotal() const { return total; }
-		const std::vector<T>& getVal() const { return tVec; }
-		bool getRandVal(T* pT, size_t& idx, const size_t& randWeight);
-		bool getRandVal(std::vector<T>& buf, const size_t& randWeight);
+		size_t getWeight() const { return _weight; }
+		size_t getTotal() const { return _total; }
+		const std::vector<T>& getVal() const { return _tVec; }
+		bool getRandVal(T* pT, size_t& idx, size_t randWeight);
+		bool getRandVal(std::vector<T>& buf, size_t randWeight);
 
 		hRWeight& operator=(std::initializer_list<T> il);
 		hRWeight& operator+=(std::initializer_list<T> il);
@@ -47,12 +48,11 @@ namespace hTool
 		size_t total = 0;
 		std::map<size_t, hRWeight<T>> weights;
 	public:
-		const size_t& getTotal() const { return total; }
-		bool getRandVal(T* pT, size_t& idx, const size_t& randWeight);
-		bool getRandVal(std::vector<T>& buf, const size_t& randWeight);
+		size_t getTotal() const { return total; }
+		bool getRandVal(std::vector<T>& buf, size_t num);
 
 		hRWeightMap() {}
-		void pushBack(const size_t weight, const T& t);
+		void pushBack(size_t weight, const T& t);
 
 		hRWeightMap(std::initializer_list<hRWeight<T>> il) { *this = il; }
 		hRWeightMap& operator=(std::initializer_list<hRWeight<T>> il);

@@ -146,7 +146,7 @@ namespace hTool
 		std::cout << "hAutoPtr<T>::operator->()" << std::endl;
 #endif
 		if (!pT)
-			abort();
+			throw std::runtime_error("¿ÕÖ¸Õë");
 
 		return pT;
 	}

@@ -3,47 +3,58 @@
 namespace hTool
 {
 	template <typename T>
-	hRWeight<T>::hRWeight(const size_t& weight) : weight(weight) {}
+	hRWeight<T>::hRWeight(size_t weight)
+	{
+		_weight = weight;
+	}
 
 	template <typename T>
-	void hRWeight<T>::pushBack(const size_t weight, const T& t)
+	hRWeight<T>::hRWeight(size_t weight, std::initializer_list<T> il)
 	{
-		if (!this->weight)
-			this->weight = weight;
+		_weight = weight;
+		_tVec = il;
+		_total = _weight * il.size();
+	}
 
-		if (this->weight != weight)
+	template <typename T>
+	void hRWeight<T>::pushBack(size_t weight, const T& t)
+	{
+		if (!_weight)
+			_weight = weight;
+
+		if (_weight != weight)
 			return;
 
-		total += weight;
-		tVec.push_back(t);
+		_total += _weight;
+		_tVec.push_back(t);
 	}
 
 	template<typename T>
-	bool hRWeight<T>::getRandVal(T* pT, size_t& idx, const size_t& randWeight)
+	bool hRWeight<T>::getRandVal(T* pT, size_t& idx, size_t randWeight)
 	{
-		if (randWeight >= total)
+		if (randWeight >= _total)
 			return false;
 
-		size_t randId = randWeight / weight;
-		pT[idx++] = tVec[randId];
-		std::swap(tVec[randId], tVec.back());
-		tVec.pop_back();
-		total = total < weight ? 0 : total - weight;
+		size_t randId = randWeight / _weight;
+		pT[idx++] = _tVec[randId];
+		std::swap(_tVec[randId], _tVec.back());
+		_tVec.pop_back();
+		_total = _total < _weight ? 0 : _total - _weight;
 
 		return true;
 	}
 
 	template<typename T>
-	bool hRWeight<T>::getRandVal(std::vector<T>& buf, const size_t& randWeight)
+	bool hRWeight<T>::getRandVal(std::vector<T>& buf, size_t randWeight)
 	{
-		if (randWeight >= total)
+		if (randWeight >= _total)
 			return false;
 
-		size_t randId = randWeight / weight;
-		buf.push_back(tVec[randId]);
-		std::swap(tVec[randId], tVec.back());
-		tVec.pop_back();
-		total = total < weight ? 0 : total - weight;
+		size_t randId = randWeight / _weight;
+		buf.push_back(_tVec[randId]);
+		std::swap(_tVec[randId], _tVec.back());
+		_tVec.pop_back();
+		_total = _total < _weight ? 0 : _total - _weight;
 
 		return true;
 	}
@@ -51,8 +62,8 @@ namespace hTool
 	template<typename T>
 	hRWeight<T>& hRWeight<T>::operator=(std::initializer_list<T> il)
 	{
-		tVec = il;
-		total = weight * il.size();
+		_tVec = il;
+		_total = _weight * il.size();
 
 		return *this;
 	}
@@ -61,9 +72,9 @@ namespace hTool
 	hRWeight<T>& hRWeight<T>::operator+=(std::initializer_list<T> il)
 	{
 		for (auto& t : il)
-			tVec.push_back(t);
+			_tVec.push_back(t);
 
-		total += weight * il.size();
+		_total += _weight * il.size();
 
 		return *this;
 	}
@@ -71,16 +82,16 @@ namespace hTool
 	template<typename T>
 	hRWeight<T>& hRWeight<T>::operator+=(const hRWeight<T>& w)
 	{
-		if (!weight)
-			weight = w.getWeight();
+		if (!_weight)
+			_weight = w.getWeight();
 
-		if (weight != w.getWeight())
+		if (_weight != w.getWeight())
 			return *this;
 
-		total += w.getTotal();
+		_total += w.getTotal();
 
 		for (auto& t : w.getVal())
-			tVec.push_back(t);
+			_tVec.push_back(t);
 
 		return *this;
 	}
@@ -88,9 +99,9 @@ namespace hTool
 	template <typename T>
 	std::ostream& operator<<(std::ostream& os, const hRWeight<T>& w)
 	{
-		os << "[" << w.weight << "]";
+		os << "[" << w._weight << "]";
 		bool first = true;
-		for (auto& t : w.tVec)
+		for (auto& t : w._tVec)
 		{
 			if (first) first = false;
 			else os << " ";
@@ -100,73 +111,49 @@ namespace hTool
 	}
 
 	template<typename T>
-	bool hRWeightMap<T>::getRandVal(T* pT, size_t& idx, const size_t& randWeight)
+	bool hRWeightMap<T>::getRandVal(std::vector<T>& buf, size_t num)
 	{
-		if (!pT || randWeight >= total)
+		if (!total || !num)
 			return false;
 
-		size_t tmpWeight = 0;
-		for (typename std::map<size_t, hRWeight<T>>::iterator itWeight = weights.begin();
-			itWeight != weights.end();
-			itWeight->second.empty() ? itWeight = weights.erase(itWeight) : ++itWeight)
+		for (size_t n = 0 ; n < num; ++n)
 		{
-			hRWeight<T>& weight = itWeight->second;
+			if (weights.empty())
+				break;
 
-			if (randWeight >= tmpWeight + weight.getTotal())
+			size_t tmpWeight = 0;
+			size_t randWeight = 0;
+			RANDOM(RandomType::UniformInt, &randWeight, 1, 1, total);
+			for (typename std::map<size_t, hRWeight<T>>::iterator itWeight = weights.begin(); 
+				itWeight != weights.end();)
 			{
-				tmpWeight += weight.getTotal();
-				continue;
-			}
+				hRWeight<T>& weight = itWeight->second;
+				if (randWeight >= tmpWeight + weight.getTotal())
+				{
+					tmpWeight += weight.getTotal();
+					++itWeight;
+					continue;
+				}
 
-			bool ret = weight.getRandVal(pT, idx, randWeight - tmpWeight);
-			if (ret)
-			{
+				bool ret = weight.getRandVal(buf, randWeight - tmpWeight);
+				if (!ret)
+				{
+					++itWeight;
+					continue;
+				}
+
 				total -= weight.getWeight();
 				if (weight.empty())
-					weights.erase(itWeight);
+					itWeight = weights.erase(itWeight);
+				break;
 			}
-
-			return ret;
 		}
 
-		return false;
-	}
-
-	template<typename T>
-	bool hRWeightMap<T>::getRandVal(std::vector<T>& buf, const size_t& randWeight)
-	{
-		if (randWeight >= total)
-			return false;
-
-		size_t tmpWeight = 0;
-		for (typename std::map<size_t, hRWeight<T>>::iterator itWeight = weights.begin();
-			itWeight != weights.end();
-			itWeight->second.empty() ? itWeight = weights.erase(itWeight) : ++itWeight)
-		{
-			hRWeight<T>& weight = itWeight->second;
-
-			if (randWeight >= tmpWeight + weight.getTotal())
-			{
-				tmpWeight += weight.getTotal();
-				continue;
-			}
-
-			bool ret = weight.getRandVal(buf, randWeight - tmpWeight);
-			if (ret)
-			{
-				total -= weight.getWeight();
-				if (weight.empty())
-					weights.erase(itWeight);
-			}
-
-			return ret;
-		}
-
-		return false;
+		return true;
 	}
 
 	template <typename T>
-	void hRWeightMap<T>::pushBack(const size_t weight, const T& t)
+	void hRWeightMap<T>::pushBack(size_t weight, const T& t)
 	{
 		auto it = weights.find(weight);
 		if (it != weights.end())

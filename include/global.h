@@ -1,3 +1,7 @@
+//#define  _D_RWLOCK
+//#define _D_AUTOPTR
+//#define _D_AUTOPTR_DETAIL
+
 #include <iostream>
 #include <iomanip>
 #include <string>
@@ -8,6 +12,8 @@
 #include <array>
 #include <set>
 #include <map>
+#include <bitset>
+
 #include <initializer_list>
 #include <utility>
 
