@@ -9,6 +9,33 @@ struct Logger
 		std::ostream& os, const T& t, const char* tName,
 		uint8_t n = 0, char c = '\t') { return os << tName << ":" << t; }
 };
+
+template <typename T1, typename T2>
+struct Logger<std::map<T1, T2>>
+{
+	static std::ostream& debug(
+		std::ostream& os, const std::map<T1, T2>& t, const char* tName,
+		uint8_t n = 0, char c = '\t') 
+	{
+		os << std::string(n++, c) << "[" << tName << "]" <<
+			" size:" << t.size();
+		if (t.empty())
+			return os << " NULL";
+				
+		size_t num = 0;
+		std::ostringstream osKey;
+		for (auto& item : t)
+		{
+				os << std::endl;
+				osKey.str("");
+				Logger<T1>::debug(osKey, item.first, std::to_string(num++).c_str());
+				Logger<T2>::debug(os, item.second, osKey.str().c_str(), n, c);
+		}
+
+		return os;
+	}
+};
+
 #define Debug(os, va) \
 	Logger<decltype(va)>::debug(os, va, TO_STRING(va))
 
@@ -114,29 +141,6 @@ struct Logger
 	const KTy& index() const { return data.KVa; }\
 	END_CFGSTRUCT2(COMB(className, Item), KVa, ##__VA_ARGS__)\
 	typedef std::map<KTy, COMB(className, Item)> className;\
-	template <>\
-	struct Logger<className>\
-	{\
-		static std::ostream& debug(\
-			std::ostream& os, const className& rhs, const char* tName,\
-			uint8_t n = 0, char c = '\t')\
-		{\
-			os << std::string(n++, c) << "[" << tName << "]" <<\
-				" size:" << rhs.size(); \
-			if (!rhs.empty())\
-				os << std::endl; \
-			size_t num = 0; \
-			for (auto& item : rhs) \
-			{\
-				std::ostringstream osKey;\
-				Logger<KTy>::debug(\
-					osKey, item.first, std::to_string(num++).c_str());\
-				Logger<decltype(item.second)>::debug(\
-					os, item.second, osKey.str().c_str(), n, c) << std::endl; \
-			}\
-			return os;\
-		}\
-	};\
 	template <>\
 	struct YAML::convert<className>\
 	{\
