@@ -29,9 +29,24 @@ namespace hTool
 		T* operator->();
 		const T* operator->() const;
 		T& operator*();
+		const T& operator*() const;
 	private:
 		void copy(const hAutoPtr& ap);
 		void move(hAutoPtr&& ap);
 		void destory();
+	};
+
+	template <typename T>
+	struct Logger<hAutoPtr<T>>
+	{
+		static std::ostream& debug(
+			std::ostream& os, const hAutoPtr<T>& p, const char* tName,
+			uint8_t n = 0, char c = '\t')
+		{
+			if (!p)
+				return os << std::string(n++, c) << "[" << tName << "] NULL";
+
+			return Logger<T>::debug(os, *p, tName, n, c);
+		}
 	};
 }

@@ -176,6 +176,18 @@ namespace hTool
 	}
 
 	template<typename T>
+	const T& hAutoPtr<T>::operator*() const
+	{
+#ifdef _D_AUTOPTR_DETAIL
+		std::cout << "hAutoPtr<T>::operator*() const" << std::endl;
+#endif
+		if (!pT)
+			abort();
+
+		return *pT;
+	}
+
+	template<typename T>
 	void hAutoPtr<T>::copy(const hAutoPtr& ap)
 	{
 #ifdef _D_AUTOPTR_DETAIL

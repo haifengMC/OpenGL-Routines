@@ -1,44 +1,6 @@
 #pragma once
 #include "vmacro.h"
 #include "hYaml/hYamlEx.h"
-
-template <typename T>
-struct Logger
-{
-	static std::ostream& debug(
-		std::ostream& os, const T& t, const char* tName,
-		uint8_t n = 0, char c = '\t') { return os << tName << ":" << t; }
-};
-
-template <typename T1, typename T2>
-struct Logger<std::map<T1, T2>>
-{
-	static std::ostream& debug(
-		std::ostream& os, const std::map<T1, T2>& t, const char* tName,
-		uint8_t n = 0, char c = '\t') 
-	{
-		os << std::string(n++, c) << "[" << tName << "]" <<
-			" size:" << t.size();
-		if (t.empty())
-			return os << " NULL";
-				
-		size_t num = 0;
-		std::ostringstream osKey;
-		for (auto& item : t)
-		{
-				os << std::endl;
-				osKey.str("");
-				Logger<T1>::debug(osKey, item.first, std::to_string(num++).c_str());
-				Logger<T2>::debug(os, item.second, osKey.str().c_str(), n, c);
-		}
-
-		return os;
-	}
-};
-
-#define Debug(os, va) \
-	Logger<decltype(va)>::debug(os, va, TO_STRING(va))
-
 #define CFGENUM_DECODE_F(n, em, nm) case nm::em: rhs = nm::em; break
 #define CFGENUM_OS_F(n, em, nm) case nm::em: return TO_STRING(em)
 
@@ -76,7 +38,7 @@ struct Logger<std::map<T1, T2>>
 		}\
 	};\
 	template <>\
-	struct Logger<enumName>\
+	struct hTool::Logger<enumName>\
 	{\
 		static std::ostream& debug(\
 			std::ostream& os, const enumName& rhs, const char* tName,\
@@ -85,10 +47,8 @@ struct Logger<std::map<T1, T2>>
 
 //struct
 //–Î≥ı ºªØ
-#define CFGSTRUCT_DEBUG_F(l, va) os<<" ";Logger<decltype(rhs.data.va)>::debug(os,rhs.data.va,TO_STRING(va),n,c)
 #define CFGSTRUCT_F(n, va) node[TO_STRING(va)] & rhs.data.va
 #define CFGDATA_F(n, va) node[TO_STRING(va)] & data.va
-#define CFGDATA_DEBUG_F(l, va) os<<std::endl;Logger<decltype(rhs.data.va)>::debug(os,rhs.data.va,TO_STRING(va),n,c)
 
 #define BEG_CFGSTRUCT(className) \
 	struct className { struct _Data
@@ -98,18 +58,7 @@ struct Logger<std::map<T1, T2>>
 
 #define END_CFGSTRUCT1() data;
 #define END_CFGSTRUCT2(className, ...) };\
-	template <>\
-	struct Logger<className>\
-	{\
-		static std::ostream& debug(\
-			std::ostream& os, const className& rhs, const char* tName,\
-			uint8_t n = 0, char c = '\t')\
-		{\
-			os << std::string(n++, c) << "[" << tName << "]"; \
-			REPEAT_SEP(CFGSTRUCT_DEBUG_F, SEM_M, ##__VA_ARGS__); \
-			return os;\
-		}\
-	};\
+	DefLog_CFG(className, ##__VA_ARGS__);\
 	template <>\
 	struct YAML::convert<className>\
 	{\
@@ -191,18 +140,7 @@ struct Logger<std::map<T1, T2>>
 		setMarks(node);\
 		return fileName << node;\
 	}};\
-	template <>\
-	struct Logger<className>\
-	{\
-		static std::ostream& debug(\
-		std::ostream& os, const className& rhs, const char* tName,\
-		uint8_t n = 0, char c = '\t')\
-		{\
-			os << std::string(n++, c) << "[" << tName << "]"; \
-			REPEAT_SEP(CFGDATA_DEBUG_F, SEM_M, ##__VA_ARGS__); \
-			return os;\
-		}\
-	};
+	DefLog_CFG(className, ##__VA_ARGS__);
 
 struct CfgData
 {
