@@ -44,7 +44,7 @@ namespace hTool
 			uint8_t n = 0, char c = '\t')
 		{
 			if (!p)
-				return os << std::string(n++, c) << "[" << tName << "] NULL";
+				return os << "[" << tName << "] NULL";
 
 			return Logger<T>::debug(os, *p, tName, n, c);
 		}

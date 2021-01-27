@@ -58,7 +58,7 @@
 
 #define END_CFGSTRUCT1() data;
 #define END_CFGSTRUCT2(className, ...) };\
-	DefLog_CFG(className, ##__VA_ARGS__);\
+	DefLog_Cfg(className, ##__VA_ARGS__);\
 	template <>\
 	struct YAML::convert<className>\
 	{\
@@ -140,7 +140,7 @@
 		setMarks(node);\
 		return fileName << node;\
 	}};\
-	DefLog_CFG(className, ##__VA_ARGS__);
+	DefLog_Cfg(className, ##__VA_ARGS__);
 
 struct CfgData
 {
