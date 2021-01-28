@@ -73,10 +73,10 @@ namespace hTool
 	public:
 		hRandom();
 
-		template <typename T>
-		size_t operator()(RandomType type, T* buf, size_t n, double min, double max);
-		template <typename T, size_t N>
-		size_t operator()(RandomType type, T (&buf)[N], double min, double max);
+		template <typename T1, typename T2, typename T3>
+		size_t operator()(RandomType type, T1* buf, size_t n, T2 min, T3 max);
+		template <typename T1, size_t N, typename T2, typename T3>
+		size_t operator()(RandomType type, T1 (&buf)[N], T2 min, T3 max);
 		template <typename T>
 		size_t operator()(RandomType type, T* buf, size_t bufN, hRWeightMap<T>& weightM);
 		template <typename T, size_t N>

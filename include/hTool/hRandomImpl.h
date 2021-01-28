@@ -197,33 +197,33 @@ namespace hTool
 		return os << "}";
 	}
 
-	template <typename T>
-	size_t hRandom::operator()(RandomType type, T* buf, size_t n, double min, double max)
+	template <typename T1, typename T2, typename T3>
+	size_t hRandom::operator()(RandomType type, T1* buf, size_t n, T2 min, T3 max)
 	{
 		switch (type)
 		{
 		case RandomType::UniformReal:
 			{
-				typename std::uniform_real<>::param_type param(min, max);
+				typename std::uniform_real<>::param_type param((double)min, (double)max);
 				uniformReal.param(param);
 				for (size_t i = 0; i < n; ++i)
-					buf[i] = uniformReal(gen);
+					buf[i] = (T1)uniformReal(gen);
 			}
 			break;
 		case RandomType::UniformInt:
 			{
-				typename std::uniform_int<>::param_type param(min, max);
+				typename std::uniform_int<>::param_type param((int)min, (int)max);
 				uniformInt.param(param);
 				for (size_t i = 0; i < n; ++i)
-					buf[i] = uniformInt(gen);
+					buf[i] = (T1)uniformInt(gen);
 			}
 			break;
 		case RandomType::Normal:
 		{
-			typename std::normal_distribution<>::param_type param(min, max);
+			typename std::normal_distribution<>::param_type param((double)min, (double)max);
 			normal.param(param);
 			for (size_t i = 0; i < n; ++i)
-				buf[i] = normal(gen);
+				buf[i] = (T1)normal(gen);
 		}
 		break;
 		default:
@@ -233,8 +233,8 @@ namespace hTool
 		return n;
 	}
 
-	template <typename T, size_t N>
-	size_t hRandom::operator()(RandomType type, T(&buf)[N], double min, double max)
+	template <typename T1, size_t N, typename T2, typename T3>
+	size_t hRandom::operator()(RandomType type, T1(&buf)[N], T2 min, T3 max)
 	{
 		return this->operator()(type, buf, N, min, max);
 	}
