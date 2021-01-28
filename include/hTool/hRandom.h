@@ -15,7 +15,7 @@ namespace hTool
 	template <typename T>
 	class hRWeight
 	{
-
+		DefLog_Init();
 		size_t _weight = 0;
 		std::vector<T> _tVec;
 
@@ -45,10 +45,11 @@ namespace hTool
 	template <typename T>
 	class hRWeightMap
 	{
-		size_t total = 0;
-		std::map<size_t, hRWeight<T>> weights;
+		DefLog_Init();
+		size_t _total = 0;
+		std::map<size_t, hRWeight<T>> _weights;
 	public:
-		size_t getTotal() const { return total; }
+		size_t getTotal() const { return _total; }
 		bool getRandVal(std::vector<T>& buf, size_t num);
 
 		hRWeightMap() {}
@@ -86,3 +87,5 @@ namespace hTool
 	};
 #define RANDOM hTool::hRandom::getMe()
 }
+DefLog_Template(typename T, hTool::hRWeight<T>, _weight, _total, _tVec);
+DefLog_Template(typename T, hTool::hRWeightMap<T>, _total, _weights);

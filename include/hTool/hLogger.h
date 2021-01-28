@@ -17,6 +17,13 @@ namespace hTool
 	};
 
 	template <typename T>
+	struct Logger<std::vector<T>>
+	{
+		static std::ostream& debug(std::ostream& os, const std::vector<T>& t,
+			const char* tName, uint8_t n = 0, char c = '\t');
+	};
+
+	template <typename T>
 	struct Logger<std::list<T>>
 	{
 		static std::ostream& debug(std::ostream& os, const std::list<T>& t,
@@ -48,10 +55,11 @@ namespace hTool
 #define DefLog_F(l, va) os<<" ";hTool::Logger<decltype(rhs.va)>::debug(os,rhs.va,TO_STRING(va),n,c)
 #define DefLog_Cfg_F(l, va) os<<" ";hTool::Logger<decltype(rhs.data.va)>::debug(os,rhs.data.va,TO_STRING(va),n,c)
 
-#define DefLog(className, ...) _DefLog(DefLog_F,className,##__VA_ARGS__)
-#define DefLog_Cfg(className, ...) _DefLog(DefLog_Cfg_F,className,##__VA_ARGS__)
-#define _DefLog(f,className, ...) \
-	template <>\
+#define DefLog(className, ...) _DefLog(DefLog_F,,className,##__VA_ARGS__)
+#define DefLog_Template(typeName, className, ...) _DefLog(DefLog_F,typeName,className,##__VA_ARGS__)
+#define DefLog_Cfg(className, ...) _DefLog(DefLog_Cfg_F,,className,##__VA_ARGS__)
+#define _DefLog(f,typeName,className, ...) \
+	template <typeName>\
 		struct hTool::Logger<className>\
 	{\
 		static std::ostream& debug(\

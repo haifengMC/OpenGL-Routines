@@ -113,19 +113,19 @@ namespace hTool
 	template<typename T>
 	bool hRWeightMap<T>::getRandVal(std::vector<T>& buf, size_t num)
 	{
-		if (!total || !num)
+		if (!_total || !num)
 			return false;
 
 		for (size_t n = 0 ; n < num; ++n)
 		{
-			if (weights.empty())
+			if (_weights.empty())
 				break;
 
 			size_t tmpWeight = 0;
 			size_t randWeight = 0;
-			RANDOM(RandomType::UniformInt, &randWeight, 1, 1, total);
-			for (typename std::map<size_t, hRWeight<T>>::iterator itWeight = weights.begin(); 
-				itWeight != weights.end();)
+			RANDOM(RandomType::UniformInt, &randWeight, 1, 1, _total);
+			for (typename std::map<size_t, hRWeight<T>>::iterator itWeight = _weights.begin(); 
+				itWeight != _weights.end();)
 			{
 				hRWeight<T>& weight = itWeight->second;
 				if (randWeight >= tmpWeight + weight.getTotal())
@@ -142,9 +142,9 @@ namespace hTool
 					continue;
 				}
 
-				total -= weight.getWeight();
+				_total -= weight.getWeight();
 				if (weight.empty())
-					itWeight = weights.erase(itWeight);
+					itWeight = _weights.erase(itWeight);
 				break;
 			}
 		}
@@ -155,18 +155,18 @@ namespace hTool
 	template <typename T>
 	void hRWeightMap<T>::pushBack(size_t weight, const T& t)
 	{
-		auto it = weights.find(weight);
-		if (it != weights.end())
+		auto it = _weights.find(weight);
+		if (it != _weights.end())
 			it->second.pushBack(weight, t);
 		else
-			weights[weight].pushBack(weight, t);
+			_weights[weight].pushBack(weight, t);
 	}
 
 	template <typename T>
 	hRWeightMap<T>& hRWeightMap<T>::operator=(std::initializer_list<hRWeight<T>> il)
 	{
-		total = 0;
-		weights.clear();
+		_total = 0;
+		_weights.clear();
 
 		return *this += il;
 	}
@@ -176,25 +176,11 @@ namespace hTool
 	{
 		for (auto& w : il)
 		{
-			weights[w.getWeight()] += w;
-			total += w.getTotal();
+			_weights[w.getWeight()] += w;
+			_total += w.getTotal();
 		}
 
 		return *this;
-	}
-
-	template <typename T>
-	std::ostream& operator<<(std::ostream& os, const hRWeightMap<T>& w)
-	{
-		os << "{";
-		bool first = true;
-		for (auto& t : w.weights)
-		{
-			if (first) first = false;
-			else os << ", ";
-			os << t.second;
-		}
-		return os << "}";
 	}
 
 	template <typename T1, typename T2, typename T3>

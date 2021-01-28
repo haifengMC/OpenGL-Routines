@@ -28,8 +28,28 @@ namespace hTool
 		{
 			osKey.str("");
 			Logger<T1>::debug(osKey, item.first, std::to_string(num++).c_str());
-			Logger<T2>::debug(os, item.second, osKey.str().c_str(), n, c);
+			Logger<T2>::debug(os, item.second, osKey.str().c_str(), n, c) << " ";
 		}
+
+		return os;
+	}
+
+	template <typename T>
+	std::ostream& Logger<std::vector<T>>::debug(
+		std::ostream& os, const std::vector<T>& t, const char* tName, uint8_t n, char c)
+	{
+		if (t.empty())
+			return os << "[" << tName << "] size:" << t.size() << " NULL";
+
+		if (n)
+			os << std::endl;
+
+		os << std::string(n++, c) << "[" << tName << "]" <<
+			" size:" << t.size() << " ";
+
+		size_t num = 0;
+		for (auto& item : t)
+			Logger<T>::debug(os, item, std::to_string(num++).c_str(), n, c) << " ";
 
 		return os;
 	}
@@ -49,7 +69,9 @@ namespace hTool
 
 		size_t num = 0;
 		for (auto& item : t)
-			Logger<T>::debug(os, item, std::to_string(num++).c_str(), n, c);
+			Logger<T>::debug(os, item, std::to_string(num++).c_str(), n, c) << " ";
+
+		return os;
 	}
 
 	template <typename T>
@@ -57,8 +79,12 @@ namespace hTool
 		std::ostream& os, const std::_List_iterator<std::_List_val<std::_List_simple_types<T>>>& t,
 		const char* tName, uint8_t n, char c)
 	{
-		if (!t._Ptr)
+		const auto _Mycont = static_cast<const std::_List_val<std::_List_simple_types<T>>*>(t._Getcont());
+		if (!t._Ptr || !_Mycont)
 			return os << tName << ":NULL";
+
+		if (t._Ptr == _Mycont->_Myhead)
+			return os << tName << ":END";
 
 		return Logger<T>::debug(os, *t, tName, n, c);
 	}
