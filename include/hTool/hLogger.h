@@ -46,21 +46,22 @@ namespace hTool
 	};
 
 #define Debug(os, va) \
-	hTool::Logger<decltype(va)>::debug(os, va, TO_STRING(va))
+	hTool::Logger<std::remove_cv<std::remove_reference<decltype(va)>::type>::type>::debug(os, va, TO_STRING(va))
 
 #define DefLog_Init() \
 		template <typename T>\
 		friend struct hTool::Logger
 
-#define DefLog_F(l, va) os<<" ";hTool::Logger<decltype(rhs.va)>::debug(os,rhs.va,TO_STRING(va),n,c)
-#define DefLog_Cfg_F(l, va) os<<" ";hTool::Logger<decltype(rhs.data.va)>::debug(os,rhs.data.va,TO_STRING(va),n,c)
+#define DefLog_F(l, va) os<<" ";hTool::Logger<std::remove_cv<std::remove_reference<decltype(rhs.va)>::type>::type>::debug(os,rhs.va,TO_STRING(va),n,c)
+#define DefLog_Cfg_F(l, va) os<<" ";hTool::Logger<std::remove_cv<std::remove_reference<decltype(rhs.data.va)>::type>::type>::debug(os,rhs.data.va,TO_STRING(va),n,c)
 
-#define DefLog(className, ...) _DefLog(DefLog_F,,className,##__VA_ARGS__)
-#define DefLog_Template(typeName, className, ...) _DefLog(DefLog_F,typeName,className,##__VA_ARGS__)
-#define DefLog_Cfg(className, ...) _DefLog(DefLog_Cfg_F,,className,##__VA_ARGS__)
-#define _DefLog(f,typeName,className, ...) \
-	template <typeName>\
-		struct hTool::Logger<className>\
+#define DefLog(className, ...)\
+	template <> _DefLog(DefLog_F,className,##__VA_ARGS__)
+#define DefLog_Template(className, ...) _DefLog(DefLog_F,className,##__VA_ARGS__)
+#define DefLog_Cfg(className, ...) \
+	template <> _DefLog(DefLog_Cfg_F,className,##__VA_ARGS__)
+#define _DefLog(f,className, ...) \
+	struct hTool::Logger<className>\
 	{\
 		static std::ostream& debug(\
 			std::ostream& os, const className& rhs, const char* tName, \

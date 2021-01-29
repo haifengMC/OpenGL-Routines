@@ -24,6 +24,7 @@
 #include <chrono>
 #include <functional>
 
+#include <stdarg.h>
 #include <stdio.h>
 #include <stdlib.h>     /* srand, rand */
 #include <time.h>       /* time */

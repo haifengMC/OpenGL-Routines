@@ -9,6 +9,7 @@ namespace hTool
 	template<typename Key, typename Val>
 	class hUniqueMapVal
 	{
+		DefLog_Init();
 		template<typename _Key, typename _Val>
 		friend class hUniqueIdGen;
 	public:
@@ -39,6 +40,7 @@ namespace hTool
 	template<typename Key, typename Val>
 	class hUniqueIdGen
 	{
+		DefLog_Init();
 		template<typename _Key, typename _Val>
 		friend class hUniqueMapVal;
 		template<typename _Key, typename _Val>
@@ -82,3 +84,9 @@ namespace hTool
 		void refreshCurNum();
 	};
 }
+#define Types_Key_Val Key, Val
+template<typename Key, typename Val>
+DefLog_Template(hTool::hUniqueMapVal<Types_Key_Val>, idRef, valPtr);
+template<typename Key, typename Val>
+DefLog_Template(hTool::hUniqueIdGen<Types_Key_Val>, minN, maxN, curN, genRange);
+#undef Types_Key_Val

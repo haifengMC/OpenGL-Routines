@@ -1,5 +1,22 @@
 #pragma once
+#include "hConfig.h"
 #include "hSingleton.h"
+
+BEG_ENUM(TestAttrType)
+{
+	Reverse,	//反序
+	Tail,		//尾部开始
+	Max
+}
+END_ENUM(TestAttrType, Max, Reverse)
+
+BEG_ENUM(TestAttrTypeBit)
+{
+	Reverse =	0x00000001,	//反序
+	Tail =		0x00000002,	//尾部开始
+	Max
+}
+END_ENUM(TestAttrTypeBit, Max, Reverse)
 
 #define TEST_INIT()\
 	struct testBase \
@@ -9,22 +26,51 @@
 	};\
 	class testNode : public Singleton<testNode>\
 	{\
+		DefLog_Init();\
+		size_t _showNum = 0;\
+		std::bitset<TestAttrType::Max> _attr; \
 	public:\
-		std::vector<testBase*> tests;\
+		std::vector<testBase*> tests; \
+		void setAttr(const std::bitset<TestAttrType::Max>& attr) { _attr = attr; }\
+		void addAttr(TestAttrType id, ...)\
+		{\
+			va_list pArgs = NULL; \
+			va_start(pArgs, id); \
+			switch (id)\
+			{\
+				case TestAttrType::Tail:\
+					_showNum = va_arg(pArgs, size_t); \
+					_attr[TestAttrType::Tail] = true;\
+					break;\
+				default:\
+					break;\
+			}\
+			va_end(pArgs); \
+		}\
 		void addTest(testBase* pTest) { tests.push_back(pTest); }\
 		void run()\
 		{\
-			for (testBase* pTest : tests)\
+			initTest();\
+			size_t totalNum = tests.size();\
+			size_t begNum = \
+				!_showNum || _showNum >= totalNum ? \
+				0 : totalNum - _showNum;\
+			for (size_t i = begNum; i < totalNum; ++i)\
 			{\
-				pTest->test_title();\
-				auto start = std::chrono::high_resolution_clock::now();\
-				pTest->test_func();\
-				auto elapsed = std::chrono::duration_cast<std::chrono::microseconds>(std::chrono::high_resolution_clock::now() - start).count();\
+				testBase* pTest = tests[i];\
+				pTest->test_title(); \
+				auto start = std::chrono::high_resolution_clock::now(); \
+				pTest->test_func(); \
+				auto elapsed = std::chrono::duration_cast<std::chrono::microseconds>(std::chrono::high_resolution_clock::now() - start).count(); \
 				std::cout << "<-- " << elapsed << " usec -->" << std::endl; \
 			}\
 		}\
+	private:\
+		void initTest();\
 	};\
-	void testFunc() { testNode::getMe().run(); }
+	DefLog(testNode, _showNum, _attr);\
+	void testFunc() { testNode::getMe().run(); }\
+	void testNode::initTest()
 
 #define TEST(testName)\
 	struct testName: public Singleton<testName>, public testBase\

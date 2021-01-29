@@ -87,5 +87,7 @@ namespace hTool
 	};
 #define RANDOM hTool::hRandom::getMe()
 }
-DefLog_Template(typename T, hTool::hRWeight<T>, _weight, _total, _tVec);
-DefLog_Template(typename T, hTool::hRWeightMap<T>, _total, _weights);
+template<typename T>
+DefLog_Template(hTool::hRWeight<T>, _weight, _total, _tVec);
+template<typename T>
+DefLog_Template(hTool::hRWeightMap<T>, _total, _weights);
