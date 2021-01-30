@@ -88,5 +88,5 @@ namespace hTool
 template<typename Key, typename Val>
 DefLog_Template(hTool::hUniqueMapVal<Types_Key_Val>, idRef, valPtr);
 template<typename Key, typename Val>
-DefLog_Template(hTool::hUniqueIdGen<Types_Key_Val>, minN, maxN, curN, genRange);
+DefLog_Template(hTool::hUniqueIdGen<Types_Key_Val>, minN, maxN, curN, genRange, keySet, mapRef, backIt);
 #undef Types_Key_Val

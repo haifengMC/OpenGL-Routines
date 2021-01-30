@@ -151,9 +151,9 @@ namespace hTool
 	}
 
 	#define HandleInsert \
-		if (v.error)\
+		if (v.isErr())\
 			return std::make_pair(mapRef.end(), false);\
-		if (!v.init)\
+		if (!v.isInit())\
 			v.refreshMe(v, mapRef.end(), mapRef);\
 		else if (v.selfIt != mapRef.end())\
 			return std::make_pair(v.selfIt, false);\
@@ -228,10 +228,10 @@ namespace hTool
 		if (mapRef.size() + minN >= curN)
 			return;//ΩÙ√‹≈≈¡–
 
-		unsigned int idx = 0;
-		unsigned int rangeGenCnt = genRange - keySet.size();
-		unsigned int canGenCnt = curN - minN - mapRef.size();
-		unsigned int genCnt = rangeGenCnt < canGenCnt ? rangeGenCnt : canGenCnt;
+		Key idx = 0;
+		Key rangeGenCnt = genRange - keySet.size();
+		Key canGenCnt = curN - minN - mapRef.size();
+		Key genCnt = rangeGenCnt < canGenCnt ? rangeGenCnt : canGenCnt;
 		Key tmpKey = minN;
 		for (const auto& p : mapRef)
 		{
