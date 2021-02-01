@@ -9,10 +9,32 @@ namespace hTool
 			const char* tName, uint8_t n = 0, char c = '\t');
 	};
 
+	template <typename T, size_t N>
+	struct Logger<T[N]>
+	{
+		static std::ostream& debug(std::ostream& os, const T(&t)[N],
+			const char* tName, uint8_t n = 0, char c = '\t');
+	};
+
+	template <typename T>
+	struct Logger<std::set<T>>
+	{
+		static std::ostream& debug(std::ostream& os, const std::set<T>& t,
+			const char* tName, uint8_t n = 0, char c = '\t');
+	};
+
 	template <typename T1, typename T2>
 	struct Logger<std::map<T1, T2>>
 	{
 		static std::ostream& debug(std::ostream& os, const std::map<T1, T2>& t,
+			const char* tName, uint8_t n = 0, char c = '\t');
+	};
+
+	template <typename T1, typename T2>
+	struct Logger<std::_Tree_iterator<std::_Tree_val<std::_Tree_simple_types<std::pair<T1, T2>>>>>
+	{
+		static std::ostream& debug(std::ostream& os,
+			const std::_Tree_iterator<std::_Tree_val<std::_Tree_simple_types<std::pair<T1, T2>>>>& t,
 			const char* tName, uint8_t n = 0, char c = '\t');
 	};
 
@@ -64,8 +86,7 @@ namespace hTool
 	struct hTool::Logger<className>\
 	{\
 		static std::ostream& debug(\
-			std::ostream& os, const className& rhs, const char* tName, \
-			uint8_t n = 0, char c = '\t')\
+			std::ostream& os, const className& rhs, const char* tName, uint8_t n = 0, char c = '\t')\
 		{\
 			if (n) os << std::endl; \
 				os << std::string(n++, c) << "[" << tName << "]"; \
