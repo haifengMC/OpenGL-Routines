@@ -1,6 +1,7 @@
 #pragma once
 
 #include "hSingleton.h"
+#include "hLogger.h"
 
 namespace hTool
 {
