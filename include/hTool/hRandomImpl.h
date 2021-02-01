@@ -160,8 +160,6 @@ namespace hTool
 			it->second.pushBack(weight, t);
 		else
 			_weights[weight].pushBack(weight, t);
-
-		_total += weight;
 	}
 
 	template <typename T>
