@@ -149,6 +149,22 @@
     <ClCompile Include="hOutPutHelper.cpp" />
     <ClCompile Include="hRandom.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\include\hTool.h" />
+    <ClInclude Include="..\include\hTool\hAutoPtr.h" />
+    <ClInclude Include="..\include\hTool\hAutoPtrImpl.h" />
+    <ClInclude Include="..\include\hTool\hCommon.h" />
+    <ClInclude Include="..\include\hTool\hCommonImpl.h" />
+    <ClInclude Include="..\include\hTool\hDynamic.h" />
+    <ClInclude Include="..\include\hTool\hLogger.h" />
+    <ClInclude Include="..\include\hTool\hLoggerImpl.h" />
+    <ClInclude Include="..\include\hTool\hOutPutHelper.h" />
+    <ClInclude Include="..\include\hTool\hOutPutHelperImpl.h" />
+    <ClInclude Include="..\include\hTool\hRandom.h" />
+    <ClInclude Include="..\include\hTool\hRandomImpl.h" />
+    <ClInclude Include="..\include\hTool\hUniqueIdGen.h" />
+    <ClInclude Include="..\include\hTool\hUniqueIdGenImpl.h" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
