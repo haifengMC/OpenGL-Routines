@@ -242,10 +242,6 @@ namespace hTool
 #ifdef _D_AUTOPTR_DETAIL
 		std::cout << "hAutoPtr<T>::destory()" << std::endl;
 #endif
-		hAutoPtrObj<T>* pPtrObj = dynamic_cast<hAutoPtrObj<T>*>(pT);
-		if (pPtrObj)
-			pPtrObj->destoryPtr();
-
 		if (num && *num)
 		{
 			--* num;

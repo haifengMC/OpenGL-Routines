@@ -54,11 +54,4 @@ namespace hTool
 			return Logger<T>::debug(os, *p, tName, n, c);
 		}
 	};
-
-	//智能指针对象
-	template <typename T>
-	struct hAutoPtrObj
-	{
-		virtual void destoryPtr() = 0;
-	};
 }
