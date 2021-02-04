@@ -5,7 +5,7 @@ namespace hTool
 	template <typename T>
 	std::map<T*, size_t*> hAutoPtr<T>::pTMap;
 
-	template<typename T>
+	template <typename T>
 	hAutoPtr<T>::hAutoPtr() 
 	{
 #if(defined _D_AUTOPTR | defined _D_AUTOPTR_DETAIL)
@@ -13,7 +13,7 @@ namespace hTool
 #endif
 	}
 
-	template<typename T>
+	template <typename T>
 	hAutoPtr<T>::hAutoPtr(T* t) 
 	{
 #if(defined _D_AUTOPTR | defined _D_AUTOPTR_DETAIL)
@@ -22,8 +22,8 @@ namespace hTool
 		bind(t); 
 	}
 
-	template<typename T>
-	template< typename... Args>
+	template <typename T>
+	template < typename... Args>
 	hAutoPtr<T>::hAutoPtr(Args... args)
 	{
 #if(defined _D_AUTOPTR | defined _D_AUTOPTR_DETAIL)
@@ -32,7 +32,7 @@ namespace hTool
 		emplace(args ...);
 	}
 
-	template<typename T>
+	template <typename T>
 	hAutoPtr<T>::hAutoPtr(const hAutoPtr& ap) 
 	{
 #if(defined _D_AUTOPTR | defined _D_AUTOPTR_DETAIL)
@@ -41,7 +41,7 @@ namespace hTool
 		copy(ap); 
 	}
 
-	template<typename T>
+	template <typename T>
 	hAutoPtr<T>::hAutoPtr(hAutoPtr&& ap) 
 	{
 #if(defined _D_AUTOPTR | defined _D_AUTOPTR_DETAIL)
@@ -50,7 +50,7 @@ namespace hTool
 		move(std::move(ap)); 
 	}
 
-	template<typename T>
+	template <typename T>
 	hAutoPtr<T>::~hAutoPtr()
 	{
 #if(defined _D_AUTOPTR | defined _D_AUTOPTR_DETAIL)
@@ -59,7 +59,7 @@ namespace hTool
 		destory();
 	}
 
-	template<typename T>
+	template <typename T>
 	hAutoPtr<T>& hAutoPtr<T>::operator=(const hAutoPtr& ap)
 	{
 #if(defined _D_AUTOPTR | defined _D_AUTOPTR_DETAIL)
@@ -73,7 +73,7 @@ namespace hTool
 		return *this;
 	}
 
-	template<typename T>
+	template <typename T>
 	hAutoPtr<T>& hAutoPtr<T>::operator=(hAutoPtr&& ap)
 	{
 #if(defined _D_AUTOPTR | defined _D_AUTOPTR_DETAIL)
@@ -86,7 +86,7 @@ namespace hTool
 		return *this;
 	}
 
-	template<typename T>
+	template <typename T>
 	void hAutoPtr<T>::bind(T* pT)
 	{
 #ifdef _D_AUTOPTR_DETAIL
@@ -116,8 +116,8 @@ namespace hTool
 		}
 	}
 
-	template<typename T>
-	template<typename... Args>
+	template <typename T>
+	template <typename... Args>
 	void hAutoPtr<T>::emplace(Args... args)
 	{
 #ifdef _D_AUTOPTR_DETAIL
@@ -130,7 +130,18 @@ namespace hTool
 		pTMap.insert(std::make_pair(pT, num));
 	}
 
-	template<typename T>
+	template <typename T>
+	template <typename U>
+	U* hAutoPtr<T>::dynamic()
+	{
+#ifdef _D_AUTOPTR_DETAIL
+		std::cout << "hAutoPtr<T>::dynamic()" << std::endl;
+#endif
+
+		return dynamic_cast<U*>(pT);
+	}
+
+	template <typename T>
 	hAutoPtr<T>::operator bool() const
 	{
 #ifdef _D_AUTOPTR_DETAIL
@@ -188,6 +199,21 @@ namespace hTool
 	}
 
 	template<typename T>
+	void hAutoPtr<T>::debug(std::ostream& os)
+	{
+		os << typeid(T).name() << "\n";
+		os << "pT:" << pT << ",num:" << (num ? *num : 0) << "\n";
+		hAutoPtr<T>::debugMap(os);
+	}
+
+	template<typename T>
+	void hAutoPtr<T>::debugMap(std::ostream& os)
+	{
+		for (auto& pr : pTMap)
+			os << "[" << pr.first << "]" << *pr.second << "\n";
+	}
+
+	template<typename T>
 	void hAutoPtr<T>::copy(const hAutoPtr& ap)
 	{
 #ifdef _D_AUTOPTR_DETAIL
@@ -216,6 +242,10 @@ namespace hTool
 #ifdef _D_AUTOPTR_DETAIL
 		std::cout << "hAutoPtr<T>::destory()" << std::endl;
 #endif
+		hAutoPtrObj<T>* pPtrObj = dynamic_cast<hAutoPtrObj<T>*>(pT);
+		if (pPtrObj)
+			pPtrObj->destoryPtr();
+
 		if (num && *num)
 		{
 			--* num;

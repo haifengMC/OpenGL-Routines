@@ -3,6 +3,8 @@
 //通用工具
 #include "hTool/hCommon.h"
 #include "hTool/hCommonImpl.h"
+//动态转换
+#include "hTool/hDynamic.h"
 //日志
 #include "hTool/hLogger.h"
 #include "hTool/hLoggerImpl.h"

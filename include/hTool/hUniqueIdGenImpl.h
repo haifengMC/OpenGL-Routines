@@ -10,7 +10,10 @@ namespace hTool
 	}
 
 	template<typename Key, typename Val>
-	void hUniqueMapVal<Key, Val>::refreshMe(Key k, typename std::map<Key, Val>::iterator it, std::map<Key, Val>& m) const
+	void hUniqueMapVal<Key, Val>::refreshMe(
+		Key k,
+		typename std::map<Key, hTool::hAutoPtr<Val>>::iterator it,
+		std::map<Key, hTool::hAutoPtr<Val>>& m) const
 	{
 		if (!init)
 			init = true;
@@ -18,54 +21,42 @@ namespace hTool
 		if (idRef != k)
 			idRef = k;
 
-		selfIt = it;
+		_selfIt = it;
 		if (it == m.end())
 			return;
 
-		if (it->second.idRef != k)
-			it->second.idRef = k;
+		if (it->second->idRef != k)
+			it->second->idRef = k;
 
-		it->second.selfIt = it;
+		it->second->_selfIt = it;
 	}
 
 	template<typename Key, typename Val>
-	std::ostream& operator<<(std::ostream& os, const hUniqueIdGen<Key, Val>& gen)
+	hUniqueIdGen<Key, Val>::hUniqueIdGen(size_t range)
 	{
-		Container c(os);
-		os << "min=" << gen.minN << ", max=" << gen.maxN << ", cur=" << gen.curN << ", set=";
-		c(gen.keySet) << ", map=";
-		c(gen.mapRef);
-		return os;
+		_genRange = range;
+
+		_minN = 0;
+		_maxN = (Key)-1;
+		_curN = _minN;
 	}
 
 	template<typename Key, typename Val>
-	hUniqueIdGen<Key, Val>::hUniqueIdGen(std::map<Key, Val>& m,
-		size_t range) : mapRef(m)
+	hUniqueIdGen<Key, Val>::hUniqueIdGen(size_t range, Key min, Key max)
 	{
-		genRange = range;
+		_genRange = range;
 
-		minN = 0;
-		maxN = (Key)-1;
-		curN = minN;
-	}
-
-	template<typename Key, typename Val>
-	hUniqueIdGen<Key, Val>::hUniqueIdGen(std::map<Key, Val>& m,
-		size_t range, Key min, Key max) : mapRef(m)
-	{
-		genRange = range;
-
-		minN = min < max ? min : max;
-		maxN = min < max ? max : min;
-		curN = minN;
+		_minN = std::min(min, max);
+		_maxN = std::max(min, max);
+		_curN = _minN;
 	}
 	
 	template<typename Key, typename Val>
 	void hUniqueIdGen<Key, Val>::reset()
 	{
-		keySet.clear();
-		mapRef.clear();
-		curN = minN;
+		_keySet.clear();
+		_mapData.clear();
+		_curN = _minN;
 	}
 
 	template<typename Key, typename Val>
@@ -74,19 +65,18 @@ namespace hTool
 		if (min == max)
 			return false;
 
-		minN = min < max ? min : max;
-		maxN = min < max ? max : min;
+		_minN = min < max ? min : max;
+		_maxN = min < max ? max : min;
 
-		while (keySet.begin() != keySet.end() && *keySet.begin() < minN)
-			keySet.erase(keySet.begin());
-		while (keySet.rbegin() != keySet.rend() && *keySet.rbegin() >= maxN)
-			keySet.erase(*keySet.rbegin());
+		while (_keySet.begin() != _keySet.end() && *_keySet.begin() < _minN)
+			_keySet.erase(_keySet.begin());
+		while (_keySet.rbegin() != _keySet.rend() && *_keySet.rbegin() >= _maxN)
+			_keySet.erase(*_keySet.rbegin());
 
-		backIt = mapRef.end();
-		while (mapRef.begin() != mapRef.end() && mapRef.begin()->first < minN)
-			mapRef.erase(mapRef.begin());
-		while (mapRef.rbegin() != mapRef.rend() && mapRef.rbegin()->first >= maxN)
-			mapRef.erase(mapRef.rbegin()->first);
+		while (_mapData.begin() != _mapData.end() && _mapData.begin()->first < _minN)
+			_mapData.erase(_mapData.begin());
+		while (_mapData.rbegin() != _mapData.rend() && _mapData.rbegin()->first >= _maxN)
+			_mapData.erase(_mapData.rbegin()->first);
 
 		refreshCurNum();
 
@@ -96,7 +86,7 @@ namespace hTool
 	template<typename Key, typename Val>
 	bool hUniqueIdGen<Key, Val>::invaild(Key k)
 	{
-		return k < minN || k >= maxN;
+		return k < _minN || k >= _maxN;
 	}
 	
 	template<typename Key, typename Val>
@@ -105,30 +95,30 @@ namespace hTool
 		if (invaild(k))
 			return false;
 
-		return mapRef.find(k) != mapRef.end();
+		return _mapData.find(k) != _mapData.end();
 	}
 
 	template<typename Key, typename Val>
 	Key hUniqueIdGen<Key, Val>::getKey()
 	{
-		auto it = keySet.begin();
-		if (it != keySet.end())
+		auto it = _keySet.begin();
+		if (it != _keySet.end())
 		{
 			auto keyTmp = *it;
-			keySet.erase(it);
+			_keySet.erase(it);
 			return keyTmp;
 		}
 
-		if (curN < maxN)
-			return curN++;
+		if (_curN < _maxN)
+			return _curN++;
 
-		if (minN + mapRef.size() < maxN)
+		if (_minN + _mapData.size() < _maxN)
 		{
 			genCheck();
 			return getKey();
 		}
 
-		return maxN;
+		return _maxN;
 	}
 
 	template<typename Key, typename Val>
@@ -137,103 +127,98 @@ namespace hTool
 		if (invaild(k))
 			return false;
 
-		auto it = mapRef.find(k);
-		if (it == mapRef.end())
+		auto it = _mapData.find(k);
+		if (it == _mapData.end())
 			return false;
 
-		if (it == backIt)
-			backIt = mapRef.end();
+		if (_keySet.size() < 3 * _genRange)
+			_keySet.insert(k);
 
-		if (keySet.size() < 3 * genRange)
-			keySet.insert(k);
-
-		return mapRef.erase(k);
+		return _mapData.erase(k);
 	}
 
-	#define HandleInsert \
-		if (v.isErr())\
-			return std::make_pair(mapRef.end(), false);\
-		if (!v.isInit())\
-			v.refreshMe(v, mapRef.end(), mapRef);\
-		else if (v.selfIt != mapRef.end())\
-			return std::make_pair(v.selfIt, false);\
-		if (!invaild(v))\
-		{\
-			keySet.erase(v);\
-			auto ret = mapRef.insert(std::make_pair(v.getIndex(), std::move(v)));\
-			if (ret.second)\
-			{\
-				backIt = ret.first;\
-				v.refreshMe(v, ret.first, mapRef);\
-				refreshCurNum();\
-			}\
-			return ret;\
-		}\
-		Key keyTmp = getKey();\
-		if (invaild(keyTmp))\
-			return std::make_pair(mapRef.end(), false);\
-		auto ret = mapRef.insert(std::make_pair(keyTmp, std::move(v)));\
-		if (ret.second)\
-		{\
-			backIt = ret.first;\
-			v.refreshMe(keyTmp, ret.first, mapRef);\
-		}\
-		return ret;
-
 	template<typename Key, typename Val>
-	std::pair<typename std::map<Key, Val>::iterator, bool>
-		hUniqueIdGen<Key, Val>::insert(Val&& v) { HandleInsert; }
-	template<typename Key, typename Val>
-	std::pair<typename std::map<Key, Val>::iterator, bool>
-		hUniqueIdGen<Key, Val>::insert(Val& v) { HandleInsert; }
-	template<typename Key, typename Val>
-	std::pair<typename std::map<Key, Val>::iterator, bool>
-		hUniqueIdGen<Key, Val>::insert(const Val& v) { HandleInsert; }
-
-#undef HandleInsert
-
-	template<typename Key, typename Val>
-	bool hUniqueIdGen<Key, Val>::erase(const Val& v)
+	auto hUniqueIdGen<Key, Val>::insert(hTool::hAutoPtr<Val> pV) ->
+		std::pair<typename MapData::iterator, bool>
 	{
-		if (v.error)
+		if (!pV || pV->isErr())
+			return std::make_pair(_mapData.end(), false);
+		if (!pV->isInit())
+			pV->refreshMe(pV->getIndex(), _mapData.end(), _mapData);
+		else if (pV->_selfIt != _mapData.end())
+			return std::make_pair(pV->_selfIt, false);
+
+		if (!invaild(pV->getIndex()))
+		{
+			_keySet.erase(pV->getIndex());
+			auto ret = _mapData.insert(std::make_pair(pV->getIndex(), pV));
+			if (ret.second)
+			{
+				pV->refreshMe(pV->getIndex(), ret.first, _mapData);
+				refreshCurNum();
+			}
+			return ret;
+		}
+
+		Key keyTmp = getKey();
+		if (invaild(keyTmp))
+			return std::make_pair(_mapData.end(), false);
+		auto ret = _mapData.insert(std::make_pair(keyTmp, pV));
+		if (ret.second)
+			pV->refreshMe(keyTmp, ret.first, _mapData);
+			
+		return ret;
+	}
+
+	template<typename Key, typename Val>
+	bool hUniqueIdGen<Key, Val>::erase(hTool::hAutoPtr<Val> pV)
+	{
+		if (!pV || pV->isErr())
 			return false;
 
-		if (!v.init)
-			return putKey(v.idRef);
+		if (!pV->isInit())
+			return putKey(pV->getIndex());
 
-		if (v.selfIt == mapRef.end())
+		if (pV->_selfIt == _mapData.end())
 			return false;
 
-		if (v.selfIt == backIt)
-			backIt = mapRef.end();
+		if (_keySet.size() < 3 * _genRange)
+			_keySet.insert(pV->getIndex());
 
-		if (keySet.size() < 3 * genRange)
-			keySet.insert(v.idRef);
-
-		mapRef.erase(v.selfIt);
-		v.selfIt = mapRef.end();
+		_mapData.erase(pV->_selfIt);
+		pV->_selfIt = _mapData.end();
 
 		return true;
 	}
 
 	template<typename Key, typename Val>
+	hTool::hAutoPtr<Val> hUniqueIdGen<Key, Val>::get(Key k)
+	{
+		auto it = _mapData.find(k);
+		if (it == _mapData.end())
+			return hTool::hAutoPtr<Val>();
+
+		return it->second;
+	}
+
+	template<typename Key, typename Val>
 	void hUniqueIdGen<Key, Val>::genCheck()
 	{
-		if (keySet.size() >= genRange)
+		if (_keySet.size() >= _genRange)
 			return;//…˙≥… ˝◊„πª
 
-		if (mapRef.empty())
+		if (_mapData.empty())
 			return;//»›∆˜Œ™ø’
 
-		if (mapRef.size() + minN >= curN)
+		if (_mapData.size() + _minN >= _curN)
 			return;//ΩÙ√‹≈≈¡–
 
 		Key idx = 0;
-		Key rangeGenCnt = genRange - keySet.size();
-		Key canGenCnt = curN - minN - mapRef.size();
-		Key genCnt = rangeGenCnt < canGenCnt ? rangeGenCnt : canGenCnt;
-		Key tmpKey = minN;
-		for (const auto& p : mapRef)
+		Key rangeGenCnt = _genRange - _keySet.size();
+		Key canGenCnt = _curN - _minN - _mapData.size();
+		Key genCnt = std::min(rangeGenCnt, canGenCnt);
+		Key tmpKey = _minN;
+		for (const auto& p : _mapData)
 		{
 			if (idx >= genCnt)
 				break;
@@ -249,10 +234,10 @@ namespace hTool
 
 			for (Key i = tmpKey; i < p.first; ++i)
 			{
-				if (keySet.find(i) != keySet.end())
+				if (_keySet.find(i) != _keySet.end())
 					continue;
 
-				keySet.insert(i);
+				_keySet.insert(i);
 				if (++idx > genCnt)
 					break;
 			}
@@ -262,14 +247,7 @@ namespace hTool
 	}
 
 	template<typename Key, typename Val>
-	hUniqueIdGen<Key, Val>& hUniqueIdGen<Key, Val>::operator<<(Val&& v)
-	{
-		insert(std::move(v));
-		return *this;
-	}
-
-	template<typename Key, typename Val>
-	hUniqueIdGen<Key, Val>& hUniqueIdGen<Key, Val>::operator<<(const Val& v)
+	hUniqueIdGen<Key, Val>& hUniqueIdGen<Key, Val>::operator<<(hTool::hAutoPtr<Val> v)
 	{
 		insert(v);
 		return *this;
@@ -278,24 +256,24 @@ namespace hTool
 	template<typename Key, typename Val>
 	void hUniqueIdGen<Key, Val>::refreshCurNum()
 	{
-		auto it = mapRef.rbegin();
-		if (it == mapRef.rend())
+		auto it = _mapData.rbegin();
+		if (it == _mapData.rend())
 		{
-			curN = minN;
+			_curN = _minN;
 			return;
 		}
 
-		if (curN < it->first && keySet.size() < 3 * genRange)
+		if (_curN < it->first && _keySet.size() < 3 * _genRange)
 		{
-			Key canInsertCnt = it->first - curN;
-			Key rangeInserCnt = 3 * genRange - keySet.size();
-			Key insertCnt = canInsertCnt < rangeInserCnt ? canInsertCnt : rangeInserCnt;
+			Key canInsertCnt = it->first - _curN;
+			Key rangeInserCnt = 3 * _genRange - _keySet.size();
+			Key insertCnt = std::min(canInsertCnt, rangeInserCnt);
 
 			for (Key n = 0; n < insertCnt; ++n)
-				keySet.insert(curN + n);
+				_keySet.insert(_curN + n);
 		}
 
-		curN = it->first + 1;
+		_curN = it->first + 1;
 	}
 
 }

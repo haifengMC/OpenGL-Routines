@@ -28,12 +28,15 @@ namespace hTool
 
 		Key& idRef;
 		Val* valPtr;
-		mutable typename std::map<Key, Val>::iterator selfIt;//指向自己的迭代器
+		mutable typename std::map<Key, hTool::hAutoPtr<Val>>::iterator _selfIt;//指向自己的迭代器
 	private:
 		mutable bool init = false;
 		bool error = false;
 
-		void refreshMe(Key k, typename std::map<Key, Val>::iterator selfIt, std::map<Key, Val>& m) const;
+		void refreshMe(
+			Key k, 
+			typename std::map<Key, hTool::hAutoPtr<Val>>::iterator it,
+			std::map<Key, hTool::hAutoPtr<Val>>& m) const;
 	};
 
 	//唯一id生成器
@@ -43,43 +46,34 @@ namespace hTool
 		DefLog_Init();
 		template<typename _Key, typename _Val>
 		friend class hUniqueMapVal;
-		template<typename _Key, typename _Val>
-		friend std::ostream& operator<<(std::ostream& os, const hUniqueIdGen<_Key, _Val>&);
+		typedef std::map<Key, hTool::hAutoPtr<Val>> MapData;
 
-		std::set<Key> keySet;
-		std::map<Key, Val>& mapRef;
-		Key minN, maxN, curN;
-		size_t genRange = 10;//生成id个数的范围基数
-		//指向最后一个插入的元素，未插入或已删除则指向end
-		typename std::map<Key, Val>::iterator backIt = mapRef.end();
+		std::set<Key> _keySet;
+		std::map<Key, hTool::hAutoPtr<Val>> _mapData;
+		Key _minN, _maxN, _curN;
+		size_t _genRange = 10;//生成id个数的范围基数
 		
 	public:
-		hUniqueIdGen(std::map<Key, Val>& m, size_t range);
-		hUniqueIdGen(std::map<Key, Val>& m, size_t range, Key min, Key max);
+		hUniqueIdGen(size_t range);
+		hUniqueIdGen(size_t range, Key min, Key max);
 		
 		void reset();
-		typename std::map<Key, Val>::iterator& back() { return backIt; }
 		bool resize(Key min, Key max);
 		bool invaild(Key k);
-		const Key& getInvaild() const { return maxN; }
+		const Key& getInvaild() const { return _maxN; }
 		
 		bool checkKey(Key k);
 		Key getKey();
 		bool putKey(Key k);
 
-		std::pair<typename std::map<Key, Val>::iterator, bool> 
-			insert(Val&& v);
-		std::pair<typename std::map<Key, Val>::iterator, bool> 
-			insert(Val& v);
-		std::pair<typename std::map<Key, Val>::iterator, bool>
-			insert(const Val& v);
-
-		bool erase(const Val& v);
+		auto insert(hTool::hAutoPtr<Val> v) ->
+			std::pair<typename MapData::iterator, bool>;
+		bool erase(hTool::hAutoPtr<Val> pV);
+		hTool::hAutoPtr<Val> get(Key k);
 
 		void genCheck();
 		
-		hUniqueIdGen& operator<<(Val&& v);
-		hUniqueIdGen& operator<<(const Val& v);
+		hUniqueIdGen& operator<<(hTool::hAutoPtr<Val> pV);
 	private:
 		void refreshCurNum();
 	};
@@ -88,5 +82,5 @@ namespace hTool
 template<typename Key, typename Val>
 DefLog_Template(hTool::hUniqueMapVal<Types_Key_Val>, idRef, valPtr);
 template<typename Key, typename Val>
-DefLog_Template(hTool::hUniqueIdGen<Types_Key_Val>, minN, maxN, curN, genRange, keySet, mapRef, backIt);
+DefLog_Template(hTool::hUniqueIdGen<Types_Key_Val>, _minN, _maxN, _curN, _genRange, _keySet, _mapData);
 #undef Types_Key_Val

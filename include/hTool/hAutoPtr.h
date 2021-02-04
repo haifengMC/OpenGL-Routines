@@ -12,7 +12,7 @@ namespace hTool
 	public:
 		hAutoPtr();
 		hAutoPtr(T* t);
-		template< typename... Args>
+		template <typename... Args>
 		hAutoPtr(Args... args);
 		hAutoPtr(const hAutoPtr& ap);
 		hAutoPtr(hAutoPtr&& ap);
@@ -22,14 +22,19 @@ namespace hTool
 		hAutoPtr& operator=(hAutoPtr&& ap);
 
 		void bind(T* pT);
-		template< typename... Args>
+		template <typename... Args>
 		void emplace(Args... args);
+		template <typename U>
+		U* dynamic();
 
 		operator bool() const;
 		T* operator->();
 		const T* operator->() const;
 		T& operator*();
 		const T& operator*() const;
+
+		void debug(std::ostream& os);
+		static void debugMap(std::ostream& os);
 	private:
 		void copy(const hAutoPtr& ap);
 		void move(hAutoPtr&& ap);
@@ -48,5 +53,12 @@ namespace hTool
 
 			return Logger<T>::debug(os, *p, tName, n, c);
 		}
+	};
+
+	//智能指针对象
+	template <typename T>
+	struct hAutoPtrObj
+	{
+		virtual void destoryPtr() = 0;
 	};
 }
