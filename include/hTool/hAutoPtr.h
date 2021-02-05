@@ -2,6 +2,24 @@
 
 namespace hTool
 {
+	template <typename T>
+	class hAutoPtr;
+	template <typename T>
+	class hWeakPtr
+	{
+		T** _pPT = NULL;
+	public:
+		hWeakPtr(T** pPT = NULL) { _pPT = pPT; }
+
+		operator bool() const;
+		T* operator->();
+		const T* operator->() const;
+		T& operator*();
+		const T& operator*() const;
+		bool operator==(const void* pT) const;
+		bool operator!=(const void* pT) const { return !operator==(pT); }
+	};
+
 	struct hAutoPtrBase
 	{
 		virtual void* getRaw() = 0;
@@ -30,13 +48,13 @@ namespace hTool
 		hAutoPtr& operator=(hAutoPtr&& ap);
 		void* getRaw() { return _pPT && *_pPT ? *_pPT : NULL; }
 		void addNum() { if (_num)++* _num; }
-		void destory(bool desPtr = false);
+		void destory(bool desPtr);
 
 		void bind(T* pT);
 		template <typename... Args>
 		void emplace(Args... args);
-		template <typename U>
-		U* dynamic();
+		template <typename U = T>
+		hWeakPtr<U> dynamic();
 
 		operator bool() const;
 		T* operator->();
@@ -69,7 +87,13 @@ namespace hTool
 
 	struct hAutoPtrObj
 	{
-		virtual void fillCopyList(std::list<hAutoPtrBase*>&) = 0;
+		virtual void fillAddList(std::list<hAutoPtrBase*>&) = 0;
+		virtual void fillDecList(std::list<hAutoPtrBase*>&) = 0;
 		virtual void destoryPtr(const void* pT) = 0;
+	};
+
+	struct hAutoPtrRecycle
+	{
+
 	};
 }

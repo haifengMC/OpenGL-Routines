@@ -3,6 +3,79 @@
 namespace hTool
 {
 	template <typename T>
+	hWeakPtr<T>::operator bool() const
+	{
+#ifdef _D_AUTOPTR_DETAIL
+		std::cout << "hAutoPtr<T>::operator bool()" << std::endl;
+#endif
+
+		return _pPT && *_pPT;
+	}
+
+	template<typename T>
+	T* hWeakPtr<T>::operator->()
+	{
+#ifdef _D_AUTOPTR_DETAIL
+		std::cout << "hAutoPtr<T>::operator->()" << std::endl;
+#endif
+		if (!_pPT || !*_pPT)
+			throw std::runtime_error("¿ÕÖ¸Õë");
+
+		return *_pPT;
+	}
+
+	template<typename T>
+	const T* hWeakPtr<T>::operator->() const
+	{
+#ifdef _D_AUTOPTR_DETAIL
+		std::cout << "hAutoPtr<T>::operator->() const" << std::endl;
+#endif
+		if (!_pPT || !*_pPT)
+			throw std::runtime_error("¿ÕÖ¸Õë");
+
+		return *_pPT;
+	}
+
+	template<typename T>
+	T& hWeakPtr<T>::operator*()
+	{
+#ifdef _D_AUTOPTR_DETAIL
+		std::cout << "hAutoPtr<T>::operator*()" << std::endl;
+#endif
+		if (!_pPT || !*_pPT)
+			throw std::runtime_error("¿ÕÖ¸Õë");
+
+		return **_pPT;
+	}
+
+	template<typename T>
+	const T& hWeakPtr<T>::operator*() const
+	{
+#ifdef _D_AUTOPTR_DETAIL
+		std::cout << "hAutoPtr<T>::operator*() const" << std::endl;
+#endif
+		if (!_pPT || !*_pPT)
+			throw std::runtime_error("¿ÕÖ¸Õë");
+
+		return **_pPT;
+	}
+
+	template<typename T>
+	bool hWeakPtr<T>::operator==(const void* pT) const
+	{
+#ifdef _D_AUTOPTR_DETAIL
+		std::cout << "hAutoPtr<T>::operator==(const void*) const" << std::endl;
+#endif
+		if (!_pPT || !*_pPT)
+		{
+			if (pT) return false;
+			else return true;
+		}
+
+		return *_pPT == pT;
+	}
+
+	template <typename T>
 	std::map<T*, size_t*> hAutoPtr<T>::_pTMap;
 
 	template <typename T>
@@ -94,12 +167,22 @@ namespace hTool
 #endif
 		if (_isDestory) return;
 
-		if (_pPT && *_pPT && desPtr)
+		std::list<hAutoPtrBase*> decList;
+		do
 		{
+			if (!_pPT || !*_pPT || !desPtr)
+				break;
+
 			hAutoPtrObj* pObj = hDynamicCast<hAutoPtrObj*>(*_pPT);
-			if (pObj)
-				pObj->destoryPtr(*_pPT);
-		}
+			if (!pObj)
+				break;
+
+			pObj->fillDecList(decList);
+		} while (0);
+
+		for (auto ptr : decList)
+			ptr->destory(false);
+
 
 		if (_num && *_num)
 		{
@@ -109,17 +192,24 @@ namespace hTool
 
 		_isDestory = true;
 
-		if (_pPT)
+		do
 		{
-			if (*_pPT)
-			{
-				_pTMap.erase(*_pPT);
-				delete* _pPT;
-				*_pPT = NULL;
-			}
-			delete _pPT;
-			_pPT = NULL;
-		}
+			if (!_pPT)
+				break;
+
+			T** pPT = NULL;
+			std::swap(_pPT, pPT);
+
+			if (!*pPT)
+				break;
+
+			T* pT = NULL;
+			std::swap(pT, *pPT);
+
+			_pTMap.erase(pT);
+			delete pT;
+
+		} while (0);
 
 		if (_num)
 		{
@@ -183,13 +273,16 @@ namespace hTool
 
 	template <typename T>
 	template <typename U>
-	U* hAutoPtr<T>::dynamic()
+	hWeakPtr<U> hAutoPtr<T>::dynamic()
 	{
 #ifdef _D_AUTOPTR_DETAIL
 		std::cout << "hAutoPtr<T>::dynamic()" << std::endl;
 #endif
+		U* pU = dynamic_cast<U*>(*_pPT);
+		if (pU)
+			return hWeakPtr<U>((U**)_pPT);
 
-		return dynamic_cast<U*>(*_pPT);
+		return hWeakPtr<U>();
 	}
 
 	template <typename T>
@@ -291,7 +384,7 @@ namespace hTool
 		_isDestory = ap._isDestory;
 		addNum();
 
-		std::list<hAutoPtrBase*> ptrList;
+		std::list<hAutoPtrBase*> addList;
 		do 
 		{
 			if (!_pPT || !*_pPT || !cpPtr)
@@ -301,12 +394,10 @@ namespace hTool
 			if (!pObj)
 				break;
 
-			pObj->fillCopyList(ptrList);
+			pObj->fillAddList(addList);
 		} while (0);
-		if (ptrList.empty())
-			return;
 
-		for (auto ptr : ptrList)
+		for (auto ptr : addList)
 			ptr->addNum();
 	}
 
