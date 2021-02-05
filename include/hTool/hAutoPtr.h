@@ -3,8 +3,6 @@
 namespace hTool
 {
 	template <typename T>
-	class hAutoPtr;
-	template <typename T>
 	class hWeakPtr
 	{
 		T** _pPT = NULL;
@@ -20,21 +18,12 @@ namespace hTool
 		bool operator!=(const void* pT) const { return !operator==(pT); }
 	};
 
-	struct hAutoPtrBase
-	{
-		virtual void* getRaw() = 0;
-		virtual void addNum() = 0;
-		virtual void destory(bool desPtr) = 0;
-	};
-
 	template <typename T>
-	class hAutoPtr : public hAutoPtrBase
+	class hAutoPtr
 	{
 		static std::map<T*, size_t*> _pTMap;
 		T** _pPT = NULL;
 		size_t* _num = NULL;//
-
-		bool _isDestory = true;
 	public:
 		hAutoPtr();
 		hAutoPtr(T* t);
@@ -46,9 +35,6 @@ namespace hTool
 
 		hAutoPtr& operator=(const hAutoPtr& ap);
 		hAutoPtr& operator=(hAutoPtr&& ap);
-		void* getRaw() { return _pPT && *_pPT ? *_pPT : NULL; }
-		void addNum() { if (_num)++* _num; }
-		void destory(bool desPtr);
 
 		void bind(T* pT);
 		template <typename... Args>
@@ -67,8 +53,9 @@ namespace hTool
 		void debug(std::ostream& os);
 		static void debugMap(std::ostream& os);
 	private:
-		void copy(const hAutoPtr& ap, bool cpPtr = true);
+		void copy(const hAutoPtr& ap);
 		void move(hAutoPtr&& ap);
+		void destory();
 	};
 
 	template <typename T>
@@ -83,17 +70,5 @@ namespace hTool
 
 			return Logger<T>::debug(os, *p, tName, n, c);
 		}
-	};
-
-	struct hAutoPtrObj
-	{
-		virtual void fillAddList(std::list<hAutoPtrBase*>&) = 0;
-		virtual void fillDecList(std::list<hAutoPtrBase*>&) = 0;
-		virtual void destoryPtr(const void* pT) = 0;
-	};
-
-	struct hAutoPtrRecycle
-	{
-
 	};
 }
