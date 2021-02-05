@@ -3,7 +3,7 @@
 namespace hTool
 {
 	template <typename T>
-	std::map<T*, size_t*> hAutoPtr<T>::pTMap;
+	std::map<T*, size_t*> hAutoPtr<T>::_pTMap;
 
 	template <typename T>
 	hAutoPtr<T>::hAutoPtr() 
@@ -56,7 +56,7 @@ namespace hTool
 #if(defined _D_AUTOPTR | defined _D_AUTOPTR_DETAIL)
 		std::cout << "hAutoPtr<T>::~hAutoPtr()" << std::endl;
 #endif
-		destory();
+		destory(true);
 	}
 
 	template <typename T>
@@ -65,9 +65,9 @@ namespace hTool
 #if(defined _D_AUTOPTR | defined _D_AUTOPTR_DETAIL)
 		std::cout << "hAutoPtr<T>::operator=(const hAutoPtr& ap)" << std::endl;
 #endif
-		if (pT == ap.pT)
+		if (_pPT == ap._pPT)
 			return *this;
-		destory();
+		destory(true);
 		copy(ap);
 
 		return *this;
@@ -79,11 +79,53 @@ namespace hTool
 #if(defined _D_AUTOPTR | defined _D_AUTOPTR_DETAIL)
 		std::cout << "hAutoPtr<T>::operator=(hAutoPtr&& ap)" << std::endl;
 #endif
-		if (!pT)
-			destory();
+		if (_pPT && *_pPT)
+			destory(true);
 		move(std::move(ap));
 
 		return *this;
+	}
+
+	template<typename T>
+	void hAutoPtr<T>::destory(bool desPtr)
+	{
+#ifdef _D_AUTOPTR_DETAIL
+		std::cout << "hAutoPtr<T>::destory(bool desPtr)" << std::endl;
+#endif
+		if (_isDestory) return;
+
+		if (_pPT && *_pPT && desPtr)
+		{
+			hAutoPtrObj* pObj = hDynamicCast<hAutoPtrObj*>(*_pPT);
+			if (pObj)
+				pObj->destoryPtr(*_pPT);
+		}
+
+		if (_num && *_num)
+		{
+			--* _num;
+			return;
+		}
+
+		_isDestory = true;
+
+		if (_pPT)
+		{
+			if (*_pPT)
+			{
+				_pTMap.erase(*_pPT);
+				delete* _pPT;
+				*_pPT = NULL;
+			}
+			delete _pPT;
+			_pPT = NULL;
+		}
+
+		if (_num)
+		{
+			delete _num;
+			_num = NULL;
+		}
 	}
 
 	template <typename T>
@@ -95,24 +137,30 @@ namespace hTool
 		if (!pT)
 			return;
 
-		if (pT == this->pT)
+		_isDestory = false;
+
+		if (!_pPT)
+			_pPT = new T * (NULL);
+		
+		if (pT == *_pPT)
 			return;
 
-		destory();
+		if (_pPT && *_pPT)
+			destory(true);
 
-		this->pT = pT;
+		*_pPT = pT;
 
-		auto it = pTMap.find(pT);
-		if (it == pTMap.end())
+		auto it = _pTMap.find(pT);
+		if (it == _pTMap.end())
 		{
-			num = new size_t(0);
-			pTMap.insert(std::make_pair(pT, num));
+			_num = new size_t(0);
+			_pTMap.insert(std::make_pair(pT, _num));
 
 		}
 		else
 		{
-			num = it->second;
-			++* num;
+			_num = it->second;
+			addNum();
 		}
 	}
 
@@ -123,11 +171,14 @@ namespace hTool
 #ifdef _D_AUTOPTR_DETAIL
 		std::cout << "hAutoPtr<T>::emplace(Args... args)" << std::endl;
 #endif
-		destory();
+		destory(true);
 
-		num = new size_t(0);
-		pT = new T(args...);
-		pTMap.insert(std::make_pair(pT, num));
+		_isDestory = false;
+
+		_num = new size_t(0);
+		_pPT = new T * (NULL);
+		*_pPT = new T(args...);
+		_pTMap.insert(std::make_pair(*_pPT, _num));
 	}
 
 	template <typename T>
@@ -138,7 +189,7 @@ namespace hTool
 		std::cout << "hAutoPtr<T>::dynamic()" << std::endl;
 #endif
 
-		return dynamic_cast<U*>(pT);
+		return dynamic_cast<U*>(*_pPT);
 	}
 
 	template <typename T>
@@ -147,7 +198,8 @@ namespace hTool
 #ifdef _D_AUTOPTR_DETAIL
 		std::cout << "hAutoPtr<T>::operator bool()" << std::endl;
 #endif
-		return pT;
+		
+		return _pPT && *_pPT;
 	}
 
 	template<typename T>
@@ -156,10 +208,10 @@ namespace hTool
 #ifdef _D_AUTOPTR_DETAIL
 		std::cout << "hAutoPtr<T>::operator->()" << std::endl;
 #endif
-		if (!pT)
+		if (!_pPT || !*_pPT)
 			throw std::runtime_error("¿ÕÖ¸Õë");
 
-		return pT;
+		return *_pPT;
 	}
 
 	template<typename T>
@@ -168,10 +220,10 @@ namespace hTool
 #ifdef _D_AUTOPTR_DETAIL
 		std::cout << "hAutoPtr<T>::operator->() const" << std::endl;
 #endif
-		if (!pT)
-			abort();
+		if (!_pPT || !*_pPT)
+			throw std::runtime_error("¿ÕÖ¸Õë");
 
-		return pT;
+		return *_pPT;
 	}
 
 	template<typename T>
@@ -180,10 +232,10 @@ namespace hTool
 #ifdef _D_AUTOPTR_DETAIL
 		std::cout << "hAutoPtr<T>::operator*()" << std::endl;
 #endif
-		if (!pT)
-			abort();
+		if (!_pPT || !*_pPT)
+			throw std::runtime_error("¿ÕÖ¸Õë");
 
-		return *pT;
+		return **_pPT;
 	}
 
 	template<typename T>
@@ -192,36 +244,70 @@ namespace hTool
 #ifdef _D_AUTOPTR_DETAIL
 		std::cout << "hAutoPtr<T>::operator*() const" << std::endl;
 #endif
-		if (!pT)
-			abort();
+		if (!_pPT || !*_pPT)
+			throw std::runtime_error("¿ÕÖ¸Õë");
 
-		return *pT;
+		return **_pPT;
+	}
+
+	template<typename T>
+	bool hAutoPtr<T>::operator==(const void* pT) const
+	{
+#ifdef _D_AUTOPTR_DETAIL
+		std::cout << "hAutoPtr<T>::operator==(const void*) const" << std::endl;
+#endif
+		if (!_pPT || !*_pPT)
+		{
+			if (pT) return false;
+			else return true;
+		}
+
+		return *_pPT == pT;
 	}
 
 	template<typename T>
 	void hAutoPtr<T>::debug(std::ostream& os)
 	{
 		os << typeid(T).name() << "\n";
-		os << "pT:" << pT << ",num:" << (num ? *num : 0) << "\n";
+		os << "pT:" << (_pPT && *_pPT ? *_pPT : "NULL") << ",num:" << (_num ? *_num : 0) << "\n";
 		hAutoPtr<T>::debugMap(os);
 	}
 
 	template<typename T>
 	void hAutoPtr<T>::debugMap(std::ostream& os)
 	{
-		for (auto& pr : pTMap)
+		for (auto& pr : _pTMap)
 			os << "[" << pr.first << "]" << *pr.second << "\n";
 	}
 
 	template<typename T>
-	void hAutoPtr<T>::copy(const hAutoPtr& ap)
+	void hAutoPtr<T>::copy(const hAutoPtr& ap, bool cpPtr)
 	{
 #ifdef _D_AUTOPTR_DETAIL
 		std::cout << "hAutoPtr<T>::copy(const hAutoPtr& ap)" << std::endl;
 #endif
-		pT = ap.pT;
-		num = ap.num;
-		++* num;
+		_pPT = ap._pPT;
+		_num = ap._num;
+		_isDestory = ap._isDestory;
+		addNum();
+
+		std::list<hAutoPtrBase*> ptrList;
+		do 
+		{
+			if (!_pPT || !*_pPT || !cpPtr)
+				break;
+
+			hAutoPtrObj* pObj = hDynamicCast<hAutoPtrObj*>(*_pPT);
+			if (!pObj)
+				break;
+
+			pObj->fillCopyList(ptrList);
+		} while (0);
+		if (ptrList.empty())
+			return;
+
+		for (auto ptr : ptrList)
+			ptr->addNum();
 	}
 
 	template<typename T>
@@ -230,35 +316,11 @@ namespace hTool
 #ifdef _D_AUTOPTR_DETAIL
 		std::cout << "hAutoPtr<T>::move(hAutoPtr&& ap)" << std::endl;
 #endif
-		pT = ap.pT;
-		num = ap.num;
-		ap.pT = NULL;
-		ap.num = NULL;
-	}
-
-	template<typename T>
-	void hAutoPtr<T>::destory()
-	{
-#ifdef _D_AUTOPTR_DETAIL
-		std::cout << "hAutoPtr<T>::destory()" << std::endl;
-#endif
-		if (num && *num)
-		{
-			--* num;
-			return;
-		}
-
-		if (pT)
-		{
-			delete pT;
-			pTMap.erase(pT);
-			pT = NULL;
-		}
-
-		if (num)
-		{
-			delete num;
-			num = NULL;
-		}
+		_pPT = ap._pPT;
+		_num = ap._num;
+		_isDestory = ap._isDestory;
+		ap._pPT = NULL;
+		ap._num = NULL;
+		ap._isDestory = true;
 	}
 }
