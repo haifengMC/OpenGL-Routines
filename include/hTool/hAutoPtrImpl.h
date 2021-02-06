@@ -178,6 +178,9 @@ namespace hTool
 			destory();
 
 		*_pPT = pT;
+		hAutoPtrObj<T>* pObj = hDynamicCast<hAutoPtrObj<T>*>(*_pPT);
+		if (pObj)
+			pObj->thisPtr = dynamic();
 
 		auto it = _pTMap.find(pT);
 		if (it == _pTMap.end())
@@ -205,6 +208,10 @@ namespace hTool
 		_num = new size_t(0);
 		_pPT = new T * (NULL);
 		*_pPT = new T(args...);
+		hAutoPtrObj<T>* pObj = hDynamicCast<hAutoPtrObj<T>*>(*_pPT);
+		if (pObj)
+			pObj->thisPtr = dynamic();
+
 		_pTMap.insert(std::make_pair(*_pPT, _num));
 	}
 
@@ -215,7 +222,10 @@ namespace hTool
 #ifdef _D_AUTOPTR_DETAIL
 		std::cout << "hAutoPtr<T>::dynamic()" << std::endl;
 #endif
-		U* pU = dynamic_cast<U*>(*_pPT);
+		if (!_pPT)
+			return hWeakPtr<U>();
+
+		U* pU = hDynamicCast<U*>(*_pPT);
 		if (pU)
 			return hWeakPtr<U>((U**)_pPT);
 
@@ -228,12 +238,12 @@ namespace hTool
 #ifdef _D_AUTOPTR_DETAIL
 		std::cout << "hAutoPtr<T>::operator bool()" << std::endl;
 #endif
-		
+
 		return _pPT && *_pPT;
 	}
 
 	template<typename T>
-	T* hAutoPtr<T>::operator->() 
+	T* hAutoPtr<T>::operator->()
 	{
 #ifdef _D_AUTOPTR_DETAIL
 		std::cout << "hAutoPtr<T>::operator->()" << std::endl;
@@ -245,7 +255,7 @@ namespace hTool
 	}
 
 	template<typename T>
-	const T* hAutoPtr<T>::operator->() const 
+	const T* hAutoPtr<T>::operator->() const
 	{
 #ifdef _D_AUTOPTR_DETAIL
 		std::cout << "hAutoPtr<T>::operator->() const" << std::endl;
@@ -257,7 +267,7 @@ namespace hTool
 	}
 
 	template<typename T>
-	T& hAutoPtr<T>::operator*() 
+	T& hAutoPtr<T>::operator*()
 	{
 #ifdef _D_AUTOPTR_DETAIL
 		std::cout << "hAutoPtr<T>::operator*()" << std::endl;
@@ -306,6 +316,7 @@ namespace hTool
 	template<typename T>
 	void hAutoPtr<T>::debugMap(std::ostream& os)
 	{
+		os << typeid(T).name() << "\n";
 		for (auto& pr : _pTMap)
 			os << "[" << pr.first << "]" << *pr.second << "\n";
 	}
@@ -319,6 +330,13 @@ namespace hTool
 		_pPT = ap._pPT;
 		_num = ap._num;
 		if (_num)++* _num;
+
+		if (!_pPT || !*_pPT)
+			return;
+
+		hAutoPtrObj<T>* pObj = hDynamicCast<hAutoPtrObj<T>*>(*_pPT);
+		if (pObj)
+			pObj->thisPtr = dynamic();
 	}
 
 	template<typename T>
@@ -331,6 +349,13 @@ namespace hTool
 		_num = ap._num;
 		ap._pPT = NULL;
 		ap._num = NULL;
+
+		if (!_pPT || !*_pPT)
+			return;
+
+		hAutoPtrObj<T>* pObj = hDynamicCast<hAutoPtrObj<T>*>(*_pPT);
+		if (pObj)
+			pObj->thisPtr = dynamic();
 	}
 
 	template<typename T>

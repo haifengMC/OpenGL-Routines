@@ -5,10 +5,10 @@ namespace hTool
 	namespace hDynamicDetail
 	{
 		template <typename T, typename U>
-		T _hDynamicCast(decltype(dynamic_cast<T>(
-			static_cast<U>(NULL))) u)
+		T _hDynamicCast(decltype(dynamic_cast<U>(
+			static_cast<T>(NULL))) u)
 		{
-			return dynamic_cast<T>((U)u);
+			return dynamic_cast<T>(u);
 		}
 
 		template <typename T, typename U>

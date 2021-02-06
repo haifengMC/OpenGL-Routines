@@ -18,7 +18,7 @@ protected:
 	static T* pInst;
 public:
 	Singleton() {}
-	~Singleton() { delMe(); }
+	~Singleton() {}
 
 	static T* instance()
 	{
