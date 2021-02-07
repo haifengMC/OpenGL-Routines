@@ -95,6 +95,6 @@ namespace hTool
 	protected:
 		hWeakPtr<T>& getThis() { return thisPtr; };
 	public:
-		~hAutoPtrObj() {}
+		virtual ~hAutoPtrObj() {}
 	};
 }

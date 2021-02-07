@@ -4,25 +4,31 @@ namespace hTool
 {
 	namespace hDynamicDetail
 	{
-		template <typename T, typename U>
-		void _hDynamicCast(T& t,
-			decltype(dynamic_cast<const volatile void*>(static_cast<U>(NULL))) u)
+		template <typename T, bool TBool, typename U, bool UBool>
+		struct _hDynamicCast
 		{
-			t = dynamic_cast<T>((U)u);
-		}
+			static T dynamic(U u)
+			{
+				static_assert((std::is_pointer<T>::value && std::is_pointer<U>::value),
+					"Be not pointer");
+
+				return NULL;
+			}
+		};
 
 		template <typename T, typename U>
-		void _hDynamicCast(...) {}
+		struct _hDynamicCast<T, true, U, true>
+		{
+			static T dynamic(U u) { return dynamic_cast<T>((U)u); }
+		};
 	}
 
 	template <typename T, typename U>
 	T hDynamicCast(U u)
 	{
-		static_assert((std::is_pointer<T>::value && std::is_pointer<U>::value),
-			"Be not pointer");
-
-		T t = NULL;
-		hDynamicDetail::_hDynamicCast<T, U>(t, u);
-		return t;
+		return hDynamicDetail::_hDynamicCast<
+			T, std::is_polymorphic<std::remove_pointer<std::remove_reference<T>::type>::type>::value,
+			U, std::is_polymorphic<std::remove_pointer<std::remove_reference<U>::type>::type>::value>::
+			dynamic(u);
 	}
 }
