@@ -46,8 +46,8 @@ namespace hTool
 	{
 		_genRange = range;
 
-		_minN = std::min(min, max);
-		_maxN = std::max(min, max);
+		_minN = min < max ? min : max;
+		_maxN = min < max ? max : min;
 		_curN = _minN;
 	}
 	
@@ -216,7 +216,7 @@ namespace hTool
 		Key idx = 0;
 		Key rangeGenCnt = _genRange - _keySet.size();
 		Key canGenCnt = _curN - _minN - _mapData.size();
-		Key genCnt = std::min(rangeGenCnt, canGenCnt);
+		Key genCnt = rangeGenCnt < canGenCnt ? rangeGenCnt : canGenCnt;
 		Key tmpKey = _minN;
 		for (const auto& p : _mapData)
 		{
@@ -267,7 +267,7 @@ namespace hTool
 		{
 			Key canInsertCnt = it->first - _curN;
 			Key rangeInserCnt = 3 * _genRange - _keySet.size();
-			Key insertCnt = std::min(canInsertCnt, rangeInserCnt);
+			Key insertCnt = canInsertCnt < rangeInserCnt ? canInsertCnt : rangeInserCnt;
 
 			for (Key n = 0; n < insertCnt; ++n)
 				_keySet.insert(_curN + n);

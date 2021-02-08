@@ -16,6 +16,7 @@
 
 #include <initializer_list>
 #include <utility>
+#include <algorithm>
 
 #include <random>
 
