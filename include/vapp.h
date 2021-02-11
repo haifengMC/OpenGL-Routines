@@ -68,6 +68,23 @@ public:
 	virtual void OnDrop(int num, const char** file) { /* NOTHING */ }//拖进文件回调
 };
 
+struct VermilionApplicationAdaptor
+{
+    virtual ~VermilionApplicationAdaptor() {}
+    virtual void Initialize(const char* title = 0) {}
+    virtual void Display(bool auto_redraw = true) {}
+	virtual void Finalize(void) {}
+    virtual void Resize(int width, int height) {}
+
+	virtual void OnKey(int key, int scancode, int action, int mods) { /* NOTHING */ }//键盘回调
+	virtual void OnMouse(int button, int action, int mods) { /* NOTHING */ }//鼠标点击回调
+	virtual void OnCursor(double x, double y) { /* NOTHING */ }//光标位置回调
+	virtual void OnCursorNorm(float x, float y) { /* NOTHING */ }//光标归一化位置回调
+	virtual void OnScroll(double x, double y) { /* NOTHING */ }//滚动回调
+	virtual void OnChar(unsigned int codepoint) { /* NOTHING */ }
+	virtual void OnDrop(int num, const char** file) { /* NOTHING */ }//拖进文件回调
+};
+
 #define BEGIN_APP_DECLARATION(appclass)                     \
 class appclass : public VermilionApplication                \
 {                                                           \
@@ -76,10 +93,38 @@ public:                                                     \
     static VermilionApplication * Create(void)              \
     {                                                       \
         return (s_app = new appclass);                      \
-    }
+    }                                                       \
+    struct _Adaptor : public VermilionApplicationAdaptor
 
 #define END_APP_DECLARATION()                               \
-};
+    _adapt;                                                 \
+    void Initialize(const char* title = 0)                  \
+    {                                                       \
+        base::Initialize(title);                            \
+        _adapt.Initialize(title);                           \
+    }                                                       \
+    void Display(bool auto_redraw = true)                   \
+    {                                                       \
+		_adapt.Display(auto_redraw);                        \
+		base::Display(auto_redraw);                         \
+    }                                                       \
+    void Finalize(void) { _adapt.Finalize(); }              \
+    void Resize(int width, int height)                      \
+    {                                                       \
+		base::Resize(width, height);                        \
+		_adapt.Resize(width, height);                       \
+    }                                                       \
+    void OnKey(int key, int scancode, int action, int mods) { _adapt.OnKey(key, scancode, action, mods); }\
+    void OnMouse(int button, int action, int mods) { _adapt.OnMouse(button, action, mods); }\
+    void OnCursor(double x, double y) { _adapt.OnCursor(x, y); }\
+    void OnCursorNorm(float x, float y) { _adapt.OnCursorNorm(x, y); }\
+    void OnScroll(double x, double y) { _adapt.OnScroll(x, y); }\
+    void OnChar(unsigned int codepoint) { _adapt.OnChar(codepoint); }\
+    void OnDrop(int num, const char** file) { _adapt.OnDrop(num, file); }\
+}
+
+#define APP_FUNCTION(appclass, appfunc)                     \
+appclass::_Adaptor::appfunc
 
 #ifdef _DEBUG
 //*
