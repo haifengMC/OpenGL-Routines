@@ -168,19 +168,17 @@ namespace hTool
 		if (!pT)
 			return;
 
+		if (_pPT && *_pPT)
+			destory();
+
 		if (!_pPT)
 			_pPT = new T * (NULL);
 		
 		if (pT == *_pPT)
 			return;
 
-		if (_pPT && *_pPT)
-			destory();
-
 		*_pPT = pT;
-		hAutoPtrObj* pObj = hDynamicCast<hAutoPtrObj*>(*_pPT);
-		if (pObj)
-			pObj->thisPtr.emplace(dynamic());
+		doPtrObj();
 
 		auto it = _pTMap.find(pT);
 		if (it == _pTMap.end())
@@ -208,9 +206,7 @@ namespace hTool
 		_num = new size_t(0);
 		_pPT = new T * (NULL);
 		*_pPT = new T(args...);
-		hAutoPtrObj* pObj = hDynamicCast<hAutoPtrObj*>(*_pPT);
-		if (pObj)
-			pObj->thisPtr.emplace(dynamic());
+		doPtrObj();
 
 		_pTMap.insert(std::make_pair(*_pPT, _num));
 	}
@@ -333,10 +329,7 @@ namespace hTool
 
 		if (!_pPT || !*_pPT)
 			return;
-
-		hAutoPtrObj* pObj = hDynamicCast<hAutoPtrObj*>(*_pPT);
-		if (pObj)
-			pObj->thisPtr.emplace(dynamic());
+		doPtrObj();
 	}
 
 	template<typename T>
@@ -353,9 +346,7 @@ namespace hTool
 		if (!_pPT || !*_pPT)
 			return;
 
-		hAutoPtrObj* pObj = hDynamicCast<hAutoPtrObj*>(*_pPT);
-		if (pObj)
-			pObj->thisPtr.emplace(dynamic());
+		doPtrObj();
 	}
 
 	template<typename T>
@@ -394,5 +385,18 @@ namespace hTool
 			delete _num;
 			_num = NULL;
 		}
+	}
+
+	template<typename T>
+	void hAutoPtr<T>::doPtrObj()
+	{
+#ifdef _D_AUTOPTR_DETAIL
+		std::cout << "hAutoPtr<T>::doPtrObj(T* pT)" << std::endl;
+#endif
+		hAutoPtrObj* pObj = hDynamicCast<hAutoPtrObj*>(*_pPT);
+		if (!pObj)
+			return;
+			
+		pObj->thisPtr.bind(new hWeakPtr<T>(_pPT));
 	}
 }

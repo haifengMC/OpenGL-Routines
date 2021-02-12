@@ -72,6 +72,8 @@ namespace hTool
 		void copy(const hAutoPtr& ap);
 		void move(hAutoPtr&& ap);
 		void destory();
+
+		void doPtrObj();
 	};
 
 	template <typename T>
@@ -90,7 +92,8 @@ namespace hTool
 
 	class hAutoPtrObj
 	{
-		//friend class hAutoPtr<T>;
+		template <typename T>
+		friend class hAutoPtr;
 		hAutoPtr<hWeakPtrBase> thisPtr;
 	protected:
 		template <typename T>
