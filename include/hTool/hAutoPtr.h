@@ -2,8 +2,9 @@
 
 namespace hTool
 {
+	struct hWeakPtrBase { virtual ~hWeakPtrBase() {} };
 	template <typename T>
-	class hWeakPtr
+	class hWeakPtr : public hWeakPtrBase
 	{
 		DefLog_Init();
 		T** _pPT = NULL;
@@ -87,13 +88,13 @@ namespace hTool
 		}
 	};
 
-	template <typename T>
 	class hAutoPtrObj
 	{
-		friend class hAutoPtr<T>;
-		hWeakPtr<T> thisPtr;
+		//friend class hAutoPtr<T>;
+		hAutoPtr<hWeakPtrBase> thisPtr;
 	protected:
-		hWeakPtr<T>& getThis() { return thisPtr; };
+		template <typename T>
+		hWeakPtr<hWeakPtr<T>> getThis() { return thisPtr.dynamic<hWeakPtr<T>>(); };
 	public:
 		virtual ~hAutoPtrObj() {}
 	};
