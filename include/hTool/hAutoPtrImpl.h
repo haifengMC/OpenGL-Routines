@@ -399,4 +399,14 @@ namespace hTool
 			
 		pObj->thisPtr.bind(new hWeakPtr<T>(_pPT));
 	}
+
+	template <typename T>
+	hWeakPtr<T> hAutoPtrObj::getThis()
+	{
+		auto ptr = thisPtr.dynamic<hWeakPtr<T>>();
+		if (!ptr)
+			return hWeakPtr<T>();
+
+		return *ptr;
+	}
 }

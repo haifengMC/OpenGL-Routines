@@ -97,7 +97,7 @@ namespace hTool
 		hAutoPtr<hWeakPtrBase> thisPtr;
 	protected:
 		template <typename T>
-		hWeakPtr<hWeakPtr<T>> getThis() { return thisPtr.dynamic<hWeakPtr<T>>(); };
+		hWeakPtr<T> getThis();
 	public:
 		virtual ~hAutoPtrObj() {}
 	};
