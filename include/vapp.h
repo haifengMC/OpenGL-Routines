@@ -59,6 +59,13 @@ public:
         glfwGetWindowSize(m_pWindow, width, height);
     }
 
+    hSize getWindowSize()
+	{
+        int width = 0, height = 0;
+		glfwGetWindowSize(m_pWindow, &width, &height);
+        return hSize(width, height);
+	}
+
     virtual void OnKey(int key, int scancode, int action, int mods) { /* NOTHING */ }//键盘回调
 	virtual void OnMouse(int button, int action, int mods) { /* NOTHING */ }//鼠标点击回调
 	virtual void OnCursor(double x, double y) { /* NOTHING */ }//光标位置回调
@@ -68,52 +75,45 @@ public:
 	virtual void OnDrop(int num, const char** file) { /* NOTHING */ }//拖进文件回调
 };
 
-#define BEGIN_APP_DECLARATION(appclass)                     \
-class appclass : public VermilionApplication                \
-{                                                           \
-public:                                                     \
-    typedef class VermilionApplication base;                \
-    static VermilionApplication * Create(void)              \
-    {                                                       \
-        return (s_app = new appclass);                      \
-    }                                                       \
-    struct _Adaptor : public hObject,                       \
-        public hTool::hAutoPtrObj<_Adaptor>
+struct VermilionUiAdaptor : hObject
+{
+    virtual ~VermilionUiAdaptor() {}
+    virtual void loadUi() {}
+    virtual void unloadUi() {}
+};
 
-#define END_APP_DECLARATION()                               \
-    ;                                                       \
-    hTool::hAutoPtr<_Adaptor> _adapt;                       \
-    void Initialize(const char* title = 0)                  \
-    {                                                       \
-        _adapt.bind(new _Adaptor());                        \
-        base::Initialize(title);                            \
-        _adapt->Initialize(title);                          \
-    }                                                       \
-    void Display(bool auto_redraw = true)                   \
-    {                                                       \
-		_adapt->Display(auto_redraw);                       \
-		base::Display(auto_redraw);                         \
-    }                                                       \
-    void Finalize(void)                                     \
-    {                                                       \
-        _adapt->Finalize();                                 \
-    }                                                       \
-    void Resize(int width, int height)                      \
-    {                                                       \
-		base::Resize(width, height);                        \
-		_adapt->Resize(width, height);                      \
-    }                                                       \
-    void OnKey(int key, int scancode, int action, int mods) { _adapt->OnKey(key, scancode, action, mods); }\
-    void OnMouse(int button, int action, int mods) { _adapt->OnMouse(button, action, mods); }\
-    void OnCursor(double x, double y) { _adapt->OnCursor(x, y); }\
-    void OnCursorNorm(float x, float y) { _adapt->OnCursorNorm(x, y); }\
-    void OnScroll(double x, double y) { _adapt->OnScroll(x, y); }\
-    void OnChar(unsigned int codepoint) { _adapt->OnChar(codepoint); }\
-    void OnDrop(int num, const char** file) { _adapt->OnDrop(num, file); }\
-}
+struct VermilionAppAdaptor
+{
+	virtual ~VermilionAppAdaptor() {}
+	virtual void initialize(GLuint uiBufSize) {}
+	virtual void display(bool auto_redraw = true) {}
+	virtual void finalize(void) {}
+	virtual void resize(int width, int height) {}
+
+	virtual void onKey(int key, int scancode, int action, int mods) { /* NOTHING */ }//键盘回调
+	virtual void onMouse(int button, int action, int mods) { /* NOTHING */ }//鼠标点击回调
+	virtual void onCursor(double x, double y) { /* NOTHING */ }//光标位置回调
+	virtual void onCursorNorm(float x, float y) { /* NOTHING */ }//光标归一化位置回调
+	virtual void onScroll(double x, double y) { /* NOTHING */ }//滚动回调
+	virtual void onChar(unsigned int codepoint) { /* NOTHING */ }
+	virtual void onDrop(int num, const char** file) { /* NOTHING */ }//拖进文件回调
+};
+
+#define BEGIN_UI_DECLARATION(appclass)                      \
+struct appclass##Ui : public VermilionUiAdaptor
+
+#define END_UI_DECLARATION()
+
+#define UI_FUNCTION(appclass, appfunc)                     \
+appclass##Ui::appfunc
+
+#define BEGIN_APP_DECLARATION(appclass)                      \
+struct appclass##App : public VermilionAppAdaptor
+
+#define END_APP_DECLARATION()
 
 #define APP_FUNCTION(appclass, appfunc)                     \
-appclass::_Adaptor::appfunc
+appclass##App::appfunc
 
 #ifdef _DEBUG
 //*
@@ -156,8 +156,62 @@ void APIENTRY VermilionApplication::DebugOutputCallback(GLenum source,         \
 #define MAIN_DECL int main(int argc, char ** argv)
 #endif
 
+#define DECLARATION_APP(appclass)                          \
+class appclass : public VermilionApplication                \
+{                                                           \
+    hTool::hAutoPtr<COMB(appclass,Ui)> _ui;                 \
+	hTool::hAutoPtr<COMB(appclass,App)> _app;               \
+public:                                                     \
+	typedef class VermilionApplication base;                \
+	static GLuint vaUi, vbUi, veUi;                        \
+	static VermilionApplication* Create()                   \
+	{                                                       \
+		return s_app = new appclass;                        \
+	}                                                       \
+	void Initialize(const char* title = 0)                 \
+	{                                                       \
+		_ui.bind(new COMB(appclass,Ui));                    \
+		_app.bind(new COMB(appclass,App));                  \
+		base::Initialize(title);                           \
+		_ui->loadUi();                                      \
+		_app->initialize(_ui->getBufSize(),_ui->getEleBufSize());\
+        GLuint bOffset = 0;                                 \
+        GLuint eOffset = 0;                                 \
+		_ui->initialize(getWindowSize(), vbUi, bOffset, veUi, eOffset);\
+	}                                                       \
+	void Display(bool auto_redraw = true)                   \
+	{                                                       \
+	    glClear(GL_COLOR_BUFFER_BIT);                       \
+        glBindVertexArray(vaUi);                            \
+		_app->display(auto_redraw);                         \
+		_ui->display();                                     \
+		base::Display(auto_redraw);                         \
+	}                                                       \
+	void Finalize(void)                                     \
+	{                                                       \
+		_app->finalize();                                   \
+		_ui->unloadUi();                                    \
+		_ui->hObject::finalize();                           \
+		_app.destory();                                     \
+		_ui.destory();                                      \
+	}                                                       \
+	void Resize(int width, int height)                      \
+	{                                                       \
+		base::Resize(width, height);                        \
+		_app->resize(width, height);                        \
+	}                                                       \
+	void OnKey(int key, int scancode, int action, int mods) { _app->onKey(key, scancode, action, mods); }\
+	void OnMouse(int button, int action, int mods) { _app->onMouse(button, action, mods); }\
+	void OnCursor(double x, double y) { _app->onCursor(x, y); }\
+	void OnCursorNorm(float x, float y) { _app->onCursorNorm(x, y); }\
+	void OnScroll(double x, double y) { _app->onScroll(x, y); }\
+	void OnChar(unsigned int codepoint) { _app->onChar(codepoint); }\
+	void OnDrop(int num, const char** file) { _app->onDrop(num, file); }\
+};
+
 #define DEFINE_APP(appclass,title)                          \
 VermilionApplication * VermilionApplication::s_app;         \
+GLuint appclass::vaUi = 0, appclass::vbUi = 0, appclass::veUi = 0;\
                                                             \
 void VermilionApplication::MainLoop(void)                   \
 {                                                           \
@@ -175,7 +229,6 @@ MAIN_DECL                                                   \
     app->Initialize(title);                                 \
     app->MainLoop();                                        \
     app->Finalize();                                        \
-                                                            \
     return 0;                                               \
 }                                                           \
                                                             \

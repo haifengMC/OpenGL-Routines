@@ -10,6 +10,8 @@ namespace hTool
 		T** _pPT = NULL;
 	public:
 		hWeakPtr(T** pPT = NULL) { _pPT = pPT; }
+		template <typename U>
+		hWeakPtr<U> dynamic();
 
 		operator bool() const;
 		T* operator->();
@@ -48,6 +50,7 @@ namespace hTool
 		hAutoPtr(const hAutoPtr& ap);
 		hAutoPtr(hAutoPtr&& ap);
 		~hAutoPtr();
+		void destory();
 
 		hAutoPtr& operator=(const hAutoPtr& ap);
 		hAutoPtr& operator=(hAutoPtr&& ap);
@@ -71,7 +74,6 @@ namespace hTool
 	private:
 		void copy(const hAutoPtr& ap);
 		void move(hAutoPtr&& ap);
-		void destory();
 
 		void doPtrObj();
 	};
