@@ -224,6 +224,17 @@ namespace hThread
 			return nodeIt;
 	}
 
+	bool Task::checkAttr(TaskAttrType attr)
+	{
+		if (!_attrb)
+			return false;
+
+		if (TaskAttrType::Max <= attr)
+			return false;
+
+		return _attrb->_attr[attr];
+	}
+
 	bool Task::setStat(TaskStatType state)
 	{
 		if (TaskStatType::Max <= state)
@@ -262,6 +273,18 @@ namespace hThread
 			newList->splice(newList->end(), *oldList, it);
 		_state->_stateTy = state;
 
+		return true;
+	}
+
+	bool Task::resetStatData()
+	{
+		if (!check())
+		{
+			checkErrOut();
+			return false;
+		}
+
+		_state->resetData();
 		return true;
 	}
 	
@@ -375,11 +398,64 @@ namespace hThread
 			_attrb->_attr[TaskAttrType::Loop])
 			_state->_curNodeIt = _attrb->_nodeList.begin();
 
-		ThrdMemWorkListIt nextIt = ++memIt;
+		//任务已全部分配完成
+		//if (TaskStatType::Finish == _state->_stateTy)
+		//	return;
+
+		ThrdMemWorkListIt nextIt = std::next(memIt);
 		if (nextIt == thrdList.end())
 			nextIt = thrdList.begin();
 
-		(*nextIt)->notify();
+		if (nextIt != memIt && nextIt != thrdList.end())
+			(*nextIt)->notify();
+	}
+
+	void Task::freeThrdMem(ThrdMemWorkListIt memIt)
+	{
+		if (!check())
+		{
+			checkErrOut();
+			return;
+		}
+
+		ThrdMemWorkList& thrdList = _state->_thrds;
+		if (!memIt._Ptr || memIt == thrdList.end())
+		{
+			COUT_LK(_thisId << "任务释放空线程...");
+			return;
+		}
+
+		thrdList.erase(memIt);
+		if (thrdList.empty())
+		{
+			//节点还未运行完毕时任务异常
+			if (_state->_curNodeIt != _attrb->_nodeList.end() ||
+				_state->_nodeIt != _attrb->_nodeList.end())
+			{
+				updateStat(TaskStatType::Error);
+				return;
+			}
+			//设置分离的任务完成时稍后等待删除
+			if (checkAttr(TaskAttrType::Detach))
+			{
+				updateStat(TaskStatType::Detach);
+				return;
+			}
+			//设置重复的任务完成时放回等待重复执行
+			if (checkAttr(TaskAttrType::Repeat))
+			{
+				updateStat(TaskStatType::Wait);
+				resetStatData();
+				if (!canRepeat())
+					return;
+				
+				_state->_pMgr->_weights.pushBack(getWeight(), getId());
+				sThrdPool.notifyMgrThrd();
+				return;
+			}
+			
+			updateStat(TaskStatType::Finish);
+		}
 	}
 
 	size_t Task::calcNeedThrdNum(size_t curThrd)

@@ -148,8 +148,11 @@
     <ClCompile Include="hTaskNode.cpp" />
     <ClCompile Include="hThread.cpp" />
     <ClCompile Include="hThreadMem.cpp" />
+    <ClCompile Include="hThreadMemMgr.cpp" />
+    <ClCompile Include="hThreadMemWork.cpp" />
     <ClCompile Include="hThreadPool.cpp" />
     <ClCompile Include="hThreadPoolMgr.cpp" />
+    <ClCompile Include="hUpdateTask.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\include\hThread.h" />
@@ -159,11 +162,15 @@
     <ClInclude Include="..\include\hThread\hTaskMgr.h" />
     <ClInclude Include="..\include\hThread\hTaskMgrImpl.h" />
     <ClInclude Include="..\include\hThread\hTaskNode.h" />
+    <ClInclude Include="..\include\hThread\hThread.h" />
     <ClInclude Include="..\include\hThread\hThreadCfg.h" />
     <ClInclude Include="..\include\hThread\hThreadMem.h" />
+    <ClInclude Include="..\include\hThread\hThreadMemMgr.h" />
+    <ClInclude Include="..\include\hThread\hThreadMemWork.h" />
     <ClInclude Include="..\include\hThread\hThreadPool.h" />
     <ClInclude Include="..\include\hThread\hThreadPoolImpl.h" />
     <ClInclude Include="..\include\hThread\hThreadPoolMgr.h" />
+    <ClInclude Include="..\include\hThread\hUpdateTask.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

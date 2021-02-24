@@ -3,7 +3,7 @@
 #define	_PUTOUT_D
 
 #include "hTool.h"
-#include "hThread/hThreadCfg.h"
+#include "hThreadCfg.h"
 
 namespace hThread 
 {
@@ -52,16 +52,19 @@ namespace hThread
 	PThread::debugMap(cout);\
 	PThrdMem::debugMap(cout);
 
-#include "hThread/hTaskNode.h"
-#include "hThread/hTask.h"
-#include "hThread/hUpdateTask.h"
-#include "hThread/hTaskMgr.h"
-#include "hThread/hRWLock.h"
-#include "hThread/hThreadMem.h"
-#include "hThread/hThreadMemWork.h"
-#include "hThread/hThreadMemMgr.h"
-#include "hThread/hThreadPool.h"
 
-#include "hThread/hTaskImpl.h"
-#include "hThread/hTaskMgrImpl.h"
-#include "hThread/hThreadPoolImpl.h"
+#include "hTaskNode.h"
+#include "hTask.h"
+#include "hUpdateTask.h"
+#include "hTaskMgr.h"
+#include "hRWLock.h"
+#include "hThreadMem.h"
+#include "hThreadMemWork.h"
+#include "hThreadMemMgr.h"
+#include "hThreadPool.h"
+
+#include "hTaskImpl.h"
+#include "hTaskMgrImpl.h"
+#include "hThreadPoolImpl.h"
+
+

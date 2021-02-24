@@ -58,6 +58,8 @@ namespace hThread
 			_nodeIt;//指向最后载入线程的节点
 		std::mutex rwLock;//自锁，暂时用互斥锁代替
 
+		//重置状态数据
+		void resetData() { _curNodeIt = _nodeIt = NodeListIt(); }
 		~TaskStat() {}//需要实现析构
 	};
 
@@ -69,6 +71,8 @@ namespace hThread
 		PTaskAttr _attrb;
 		PTaskStat _state;
 	public:
+		virtual bool canRepeat() { return false; }
+
 		Task(size_t weight, size_t thrdExpect, uint16_t attr = 0);
 		Task(PTaskAttr attr);
 		Task(Task&& t);
@@ -81,6 +85,7 @@ namespace hThread
 		PTaskStat getStat() { return _state; }
 		NodeListIt getNextNode();
 
+		bool checkAttr(TaskAttrType attr);
 		/*
 		设置属性
 		*/
@@ -94,25 +99,31 @@ namespace hThread
 		*/
 		bool setStat(TaskStatType state);
 		bool updateStat(TaskStatType state);
+		bool resetStatData();
 		//添加线程到任务,还未启用
 		bool addThrdMem(PWThrdMemWork pMem);
 		//线程请求运行任务节点
 		bool runTaskNode(NodeListIt nodeIt);
 		//完成当前节点，通知下一个线程
 		void finishCurNode(ThrdMemWorkListIt memIt);
+		//任务节点分配完成释放线程
+		void freeThrdMem(ThrdMemWorkListIt memIt);
 		//根据当前线程数curThrd和期望线程数_thrdExpect确定最终需要的线程数
 		size_t calcNeedThrdNum(size_t curThrd);
+		//更新任务数据
+		template <typename ... Args >
+		void updateTaskData(size_t opt, Args ... args);
 
 		template<typename T>
 		void readLk(T func);
 		template<typename T>
 		void writeLk(T func);
-	private:
+	protected:
 		bool check() const;//一般性检测
 		void checkErrOut() const;
 	};
 
 }
 DefLog(hThread::TaskAttr, _weight, _thrdExpect, _incId, _attr, _nodeData, _nodeList);
-DefLog(hThread::TaskStat, _stateTy, _stateIt, _pMgr, _nodeIt);
+DefLog(hThread::TaskStat, _stateTy, _stateIt, _pMgr, _thrds, _curNodeIt, _nodeIt);
 DefLog(hThread::Task, _thisId, _attrb, _state);

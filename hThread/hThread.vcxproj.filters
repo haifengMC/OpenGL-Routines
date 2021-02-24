@@ -39,6 +39,15 @@
     <ClCompile Include="hThreadPoolMgr.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="hThreadMemMgr.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="hThreadMemWork.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="hUpdateTask.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\include\hThread\hRWLock.h">
@@ -75,6 +84,18 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="..\include\hThread.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\hThread\hThread.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\hThread\hThreadMemMgr.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\hThread\hThreadMemWork.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\hThread\hUpdateTask.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
