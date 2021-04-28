@@ -142,35 +142,41 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="..\include\hThread.h" />
+    <ClInclude Include="..\include\hThread\hDataBase.h" />
+    <ClInclude Include="..\include\hThread\hDataBaseImpl.h" />
+    <ClInclude Include="..\include\hThread\hMem.h" />
+    <ClInclude Include="..\include\hThread\hMgrMem.h" />
+    <ClInclude Include="..\include\hThread\hNode.h" />
+    <ClInclude Include="..\include\hThread\hPool.h" />
+    <ClInclude Include="..\include\hThread\hPoolImpl.h" />
+    <ClInclude Include="..\include\hThread\hPoolMgr.h" />
+    <ClInclude Include="..\include\hThread\hRWLock.h" />
+    <ClInclude Include="..\include\hThread\hTaskBase.h" />
+    <ClInclude Include="..\include\hThread\hTaskBaseImpl.h" />
+    <ClInclude Include="..\include\hThread\hTaskData.h" />
+    <ClInclude Include="..\include\hThread\hTaskDataImpl.h" />
+    <ClInclude Include="..\include\hThread\hTaskMgrBase.h" />
+    <ClInclude Include="..\include\hThread\hTaskMgrBaseImpl.h" />
+    <ClInclude Include="..\include\hThread\hTaskMgrData.h" />
+    <ClInclude Include="..\include\hThread\hThreadCfg.h" />
+    <ClInclude Include="..\include\hThread\hUpdateTask.h" />
+    <ClInclude Include="..\include\hThread\hWorkMem.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="hMem.cpp" />
+    <ClCompile Include="hMgrMem.cpp" />
+    <ClCompile Include="hNode.cpp" />
     <ClCompile Include="hRWLock.cpp" />
-    <ClCompile Include="hTask.cpp" />
-    <ClCompile Include="hTaskMgr.cpp" />
-    <ClCompile Include="hTaskNode.cpp" />
+    <ClCompile Include="hTaskBase.cpp" />
+    <ClCompile Include="hTaskData.cpp" />
+    <ClCompile Include="hTaskMgrBase.cpp" />
+    <ClCompile Include="hTaskMgrData.cpp" />
     <ClCompile Include="hThread.cpp" />
-    <ClCompile Include="hThreadMem.cpp" />
-    <ClCompile Include="hThreadMemMgr.cpp" />
-    <ClCompile Include="hThreadMemWork.cpp" />
     <ClCompile Include="hThreadPool.cpp" />
     <ClCompile Include="hThreadPoolMgr.cpp" />
     <ClCompile Include="hUpdateTask.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="..\include\hThread.h" />
-    <ClInclude Include="..\include\hThread\hRWLock.h" />
-    <ClInclude Include="..\include\hThread\hTask.h" />
-    <ClInclude Include="..\include\hThread\hTaskImpl.h" />
-    <ClInclude Include="..\include\hThread\hTaskMgr.h" />
-    <ClInclude Include="..\include\hThread\hTaskMgrImpl.h" />
-    <ClInclude Include="..\include\hThread\hTaskNode.h" />
-    <ClInclude Include="..\include\hThread\hThread.h" />
-    <ClInclude Include="..\include\hThread\hThreadCfg.h" />
-    <ClInclude Include="..\include\hThread\hThreadMem.h" />
-    <ClInclude Include="..\include\hThread\hThreadMemMgr.h" />
-    <ClInclude Include="..\include\hThread\hThreadMemWork.h" />
-    <ClInclude Include="..\include\hThread\hThreadPool.h" />
-    <ClInclude Include="..\include\hThread\hThreadPoolImpl.h" />
-    <ClInclude Include="..\include\hThread\hThreadPoolMgr.h" />
-    <ClInclude Include="..\include\hThread\hUpdateTask.h" />
+    <ClCompile Include="hWorkMem.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

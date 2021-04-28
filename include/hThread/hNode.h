@@ -3,38 +3,38 @@
 
 namespace hThread
 {
-	struct NodeData
+	struct hUserData : public hDataBase
 	{
 		DefLog_Init();
 	protected:
-		typedef NodeData Base;
+		typedef hUserData Base;
 	public:
 		size_t _id = 0;
 		bool _needDel = false;
 		uint64_t _totalElapsed = 0;
 		std::map<size_t, uint64_t> _elapsedRecord;//id-time
 
-		NodeData() {}
-		NodeData(const size_t& id) : _id(id) {}
-		virtual ~NodeData() {}
+		hUserData() {}
+		hUserData(const size_t& id) : _id(id) {}
+		virtual ~hUserData() {}
 
 		//更新数据，上写锁
-		virtual void update(size_t opt, ...) {}
+		virtual void update(size_t opt, void* data, size_t len) {}
 
 		operator bool() { return _needDel; }
 	};
 
-	class TaskNode
+	class hNode
 	{
 		DefLog_Init();
 	protected:
 		size_t _id = 0;
-		PNodeData _data;
-		typedef TaskNode Base;
+		PhUserDt _data;
+		typedef hNode Base;
 	public:
-		virtual ~TaskNode() {}
+		virtual ~hNode() {}
 
-		void init(size_t id, PNodeData _data);
+		void init(size_t id, PhUserDt data);
 
 		const size_t& getId() const { return _id; }
 
@@ -42,9 +42,15 @@ namespace hThread
 		virtual bool preProc() { return true; }//预处理，上读锁，检测节点数据，设置下个节点数据
 		virtual bool onProc() { return true; }//处理函数，上写锁
 		virtual bool finalProc() { return true; }//
-		
+
+		bool handle_initProc();
+		bool handle_preProc();
+		bool handle_waitProc(PWhTask pTsk, hNodeListIt nodeIt);
+		bool handle_onProc();
+		hNodeListIt handle_succProc(PWhTask pTsk, hWorkMemListIt memIt);
+		bool handle_failProc();
 	};
 
 }
-DefLog(hThread::NodeData, _id, _needDel, _totalElapsed, _elapsedRecord);
-DefLog(hThread::TaskNode, _id);
+DefLog(hThread::hUserData, _id, _needDel, _totalElapsed, _elapsedRecord);
+DefLog(hThread::hNode, _id);

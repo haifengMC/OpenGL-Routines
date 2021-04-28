@@ -15,22 +15,93 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\include\hThread\hDataBase.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\hThread\hDataBaseImpl.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\hThread\hMem.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\hThread\hMgrMem.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\hThread\hNode.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\hThread\hPool.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\hThread\hPoolImpl.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\hThread\hPoolMgr.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\hThread\hRWLock.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\hThread\hTaskBase.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\hThread\hTaskBaseImpl.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\hThread\hTaskData.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\hThread\hTaskDataImpl.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\hThread\hTaskMgrBase.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\hThread\hTaskMgrBaseImpl.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\hThread\hTaskMgrData.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\hThread\hThreadCfg.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\hThread\hUpdateTask.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\hThread\hWorkMem.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\hThread.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="hMem.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="hMgrMem.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="hNode.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
     <ClCompile Include="hRWLock.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="hTask.cpp">
+    <ClCompile Include="hTaskBase.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="hTaskMgr.cpp">
+    <ClCompile Include="hTaskData.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="hTaskNode.cpp">
+    <ClCompile Include="hTaskMgrBase.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="hTaskMgrData.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="hThread.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="hThreadMem.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="hThreadPool.cpp">
@@ -39,64 +110,11 @@
     <ClCompile Include="hThreadPoolMgr.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="hThreadMemMgr.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="hThreadMemWork.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
     <ClCompile Include="hUpdateTask.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="..\include\hThread\hRWLock.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="..\include\hThread\hTask.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="..\include\hThread\hTaskImpl.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="..\include\hThread\hTaskMgr.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="..\include\hThread\hTaskMgrImpl.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="..\include\hThread\hTaskNode.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="..\include\hThread\hThreadCfg.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="..\include\hThread\hThreadMem.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="..\include\hThread\hThreadPool.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="..\include\hThread\hThreadPoolImpl.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="..\include\hThread\hThreadPoolMgr.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="..\include\hThread.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="..\include\hThread\hThread.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="..\include\hThread\hThreadMemMgr.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="..\include\hThread\hThreadMemWork.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="..\include\hThread\hUpdateTask.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
+    <ClCompile Include="hWorkMem.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

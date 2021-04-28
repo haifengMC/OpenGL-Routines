@@ -1,6 +1,6 @@
 #include "global.h"
 #include "hThread.h"
-#include "hThread/hThreadPoolMgr.h"
+#include "hThread/hPoolMgr.h"
 
 namespace hThread
 {
