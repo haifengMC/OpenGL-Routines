@@ -1,6 +1,6 @@
 #pragma once
 
-#define	_PUTOUT_D
+//#define	_PUTOUT_D
 
 #include "hTool.h"
 #include "hThread/hThreadCfg.h"
