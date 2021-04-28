@@ -21,6 +21,24 @@ namespace hTool
 	}
 
 	template <typename T>
+	template <typename U>
+	hWeakPtr<const U> hWeakPtr<T>::dynamic() const
+	{
+#ifdef _D_AUTOPTR_DETAIL
+		std::cout << "hWeakPtr<const T>::dynamic() const" << std::endl;
+#endif
+
+		if (!_pPT)
+			return hWeakPtr<const U>();
+
+		const U* pU = hDynamicCast<const U*>(*_pPT);
+		if (pU)
+			return hWeakPtr<const U>((const U**)_pPT);
+
+		return hWeakPtr<const U>();
+	}
+
+	template <typename T>
 	hWeakPtr<T>::operator bool() const
 	{
 #ifdef _D_AUTOPTR_DETAIL
@@ -282,6 +300,23 @@ namespace hTool
 			return hWeakPtr<U>((U**)_pPT);
 
 		return hWeakPtr<U>();
+	}
+
+	template <typename T>
+	template <typename U>
+	hWeakPtr<const U> hAutoPtr<T>::dynamic() const
+	{
+#ifdef _D_AUTOPTR_DETAIL
+		std::cout << "hAutoPtr<const T>::dynamic() const" << std::endl;
+#endif
+		if (!_pPT)
+			return hWeakPtr<const U>();
+
+		const U* pU = hDynamicCast<const U*>(*_pPT);
+		if (pU)
+			return hWeakPtr<const U>((const U**)_pPT);
+
+		return hWeakPtr<const U>();
 	}
 
 	template <typename T>

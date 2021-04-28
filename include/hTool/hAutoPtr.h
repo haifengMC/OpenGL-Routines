@@ -12,6 +12,8 @@ namespace hTool
 		hWeakPtr(T** pPT = NULL) { _pPT = pPT; }
 		template <typename U>
 		hWeakPtr<U> dynamic();
+		template <typename U>
+		hWeakPtr<const U> dynamic() const;
 
 		operator bool() const;
 		T* operator->();
@@ -60,6 +62,8 @@ namespace hTool
 		void emplace(Args... args);
 		template <typename U = T>
 		hWeakPtr<U> dynamic();
+		template <typename U = T>
+		hWeakPtr<const U> dynamic() const;
 
 		operator bool() const;
 		T* operator->();
