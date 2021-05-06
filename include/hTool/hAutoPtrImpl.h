@@ -329,6 +329,17 @@ namespace hTool
 		return _pPT && *_pPT;
 	}
 
+	template <typename T>
+	template <typename U>
+	hAutoPtr<T>::operator hWeakPtr<U>()
+	{
+#ifdef _D_AUTOPTR_DETAIL
+		std::cout << "hAutoPtr<T>::operator hWeakPtr<U>()" << std::endl;
+#endif
+
+		return dynamic<U>();
+	}
+
 	template<typename T>
 	T* hAutoPtr<T>::operator->()
 	{

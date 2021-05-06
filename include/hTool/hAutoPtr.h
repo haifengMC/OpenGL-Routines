@@ -66,6 +66,8 @@ namespace hTool
 		hWeakPtr<const U> dynamic() const;
 
 		operator bool() const;
+		template <typename U>
+		operator hWeakPtr<U>();
 		T* operator->();
 		const T* operator->() const;
 		T& operator*();
