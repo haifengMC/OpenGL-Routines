@@ -3,6 +3,19 @@
 namespace hTool
 {
 	template <typename T>
+	hWeakPtr<T>::hWeakPtr(T* t)
+	{
+#ifdef _D_AUTOPTR_DETAIL
+		std::cout << "hWeakPtr<T>::hWeakPtr(T* t)" << std::endl;
+#endif
+		hAutoPtr<T> pT(t);
+		if (!pT.getNum())
+			return;
+
+		*this = pT.dynamic();
+	}
+
+	template <typename T>
 	template <typename U>
 	hWeakPtr<U> hWeakPtr<T>::dynamic()
 	{
@@ -318,6 +331,20 @@ namespace hTool
 
 		return hWeakPtr<const U>();
 	}
+
+	template <typename T>
+	size_t hAutoPtr<T>::getNum() const
+	{
+#ifdef _D_AUTOPTR_DETAIL
+		std::cout << "hAutoPtr<const T>::getNum() const" << std::endl;
+#endif
+
+		if (!_num)
+			return 0;
+
+		return *_num;
+	}
+
 
 	template <typename T>
 	hAutoPtr<T>::operator bool() const

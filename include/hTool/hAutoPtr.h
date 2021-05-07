@@ -10,6 +10,7 @@ namespace hTool
 		T** _pPT = NULL;
 	public:
 		hWeakPtr(T** pPT = NULL) { _pPT = pPT; }
+		hWeakPtr(T* t);
 		template <typename U>
 		hWeakPtr<U> dynamic();
 		template <typename U>
@@ -64,6 +65,8 @@ namespace hTool
 		hWeakPtr<U> dynamic();
 		template <typename U = T>
 		hWeakPtr<const U> dynamic() const;
+
+		size_t getNum() const;
 
 		operator bool() const;
 		template <typename U>
