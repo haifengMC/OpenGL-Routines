@@ -2,18 +2,25 @@
 
 namespace hTool
 {
+#if 0
 	template <typename T>
-	hWeakPtr<T>::hWeakPtr(T* t)
+	template <typename U>
+	hWeakPtr<T>::hWeakPtr(U* u)
 	{
 #ifdef _D_AUTOPTR_DETAIL
-		std::cout << "hWeakPtr<T>::hWeakPtr(T* t)" << std::endl;
+		std::cout << "hWeakPtr<T>::hWeakPtr(U* u)" << std::endl;
 #endif
-		hAutoPtr<T> pT(t);
-		if (!pT.getNum())
+		hAutoPtr<U> pU(u);
+		if (!pU.getNum())
 			return;
 
-		*this = pT.dynamic();
+		T* pT = hDynamicCast<T*>(u);
+		if (!pT)
+			return;
+
+		*this = pU.dynamic<T>();
 	}
+#endif
 
 	template <typename T>
 	template <typename U>
