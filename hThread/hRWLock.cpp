@@ -1,5 +1,5 @@
 #include "global.h"
-#include "hRWLock.h"
+#include "hThread/hRWLock.h"
 
 namespace hThread
 {
